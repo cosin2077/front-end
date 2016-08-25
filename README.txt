@@ -1,4 +1,4 @@
-Welcome to the downloads for pywin32.
+Welcome to the downloads for pywin32
     
 To download pywin32, please select the "View All Downloads" button, then 
 select the installer executable for your system.  Note that there is one
