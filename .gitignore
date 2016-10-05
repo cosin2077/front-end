@@ -1,2 +1,3 @@
 #web storm directory
-.idea
+*.idea
+*.mp3
