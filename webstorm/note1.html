@@ -11,6 +11,9 @@
             margin:0px;
             color: white;
         }
+        h2{
+            color:red;
+        }
         p{
             font-size: 14px;
             color: white;
@@ -123,17 +126,16 @@
     visibility:visible/hidden//显示：可见/不可见<br/>
     cursor:pointer/wait//光标显示<br/>
     list-style-type:none;//列表无样式<br/>
+    <h2>overflow:hidden;//清除浮动，隐藏溢出，当不设定外边div宽高时被里边撑开，设定外边div高度时，隐藏溢出</h2><br/>
+    <div style="width:300px;height: 150px;background:#ccc;overflow:hidden;">
+        <div style="width:100px;height:200px;float:left;background:Green;"></div>
+        <div style="width:100px;height:100px;float:right;background:Red;"></div>
+    </div><br/>
     完整导航栏的制作<br/>
     ul{<br/>
     list-style-type:none;//列表无前面的图标<br/>
     margin:0px;//外边距为0<br/>
     padding:0px;//内边距为0<br/>
-    overflow:hidden;//清除浮动，隐藏溢出，当不设定外边div宽高时被里边撑开，设定外边div高度时，隐藏溢出<br/>
-    <div style="width:300px;height: 150px;background:#ccc;overflow:hidden;">
-        <div style="width:100px;height:200px;float:left;background:Green;"></div>
-        <div style="width:100px;height:100px;float:right;background:Red;"></div>
-    </div><br/>
-    <br/><br/>
     <bold>li</bold>{<br/>
     float:left;<br/>
     }<br/>
@@ -147,6 +149,7 @@
     text-transform:uppercase;<br/>
     a:hover,a:active{<br/>
     background:#cc0000;}<br/>
+
 
 
 
