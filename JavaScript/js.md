@@ -1,6 +1,4 @@
-###Full stock delveloper
-***
-
+##Full stock delveloper  
 ECMAScript 是一种语言标准，JavaScript是对ECMAScript标准的一种实现  
 语句以`;`结束，语句块用`{…}`，`{…}`语句块一般具有缩进，通常是4个空格。  
 `//`行注释  
@@ -94,7 +92,63 @@ aoparr===arr//
 	bio.name//'conan'  
 	delete bio.age//删除属性  
 	bio.age//undefined  
-查看bio是否具有某项属性  
+查看bio是否具有某项属性，但有可能是bio继承得到的属性  
 	'age' in bio;//true  
 	'sex' in bio;//false   
-
+	'toString' in bio;//true
+`hasOwnProperty()`判断一个属性是否是自身拥有的，而不是继承的  
+	bio.hasOwnProperty('age');//true  
+	bio.hasOwnProperty('sex');//false   
+	bio.hasOwnProperty('toString');//false
+####条件判断
+javascript把`null`，`undefined`，`0`，`NaN`，`''`视为`false`,其他一概为`true`  
+####循环
+`for`循环
+	var x = 1;
+	var i;
+	for(;i<i+1;i++)
+	{
+	x=x*1;
+	}
+i的阶乘  
+`for`循环遍历数组  
+	for(i=0;i<arr.length;i++)
+	{x=arr[i];
+	}  
+`for...in`循环，把一个对象(数组)的所有属性遍历  
+	arr=[1,3,5,7,9]
+	for (y in a){
+	alert(y);//0,1,2,3,4
+	alert(arr[y]);//1,3,5,7,9
+	}  
+***
+####`map`和`set`
+`map`是一组键值对的结构，具有很快的查找速度  
+	var m = new Map()//定义空map
+	m.set('name','conan');//设定name属性为conan
+	m.has('age');//false
+	m.get('name')//conan
+	m.delete('sex');//删除sex属性  
+`set`  
+`set`和`map`类似，也是一组key的 集合，但不储存 value  
+####literable
+`for...of`循环，统一了set，map，和array  
+  
+  
+####函数
+函数内部的语句在执行时，一旦遇见`return`，函数执行完毕，并返回结果，如果没有`return`语句，函数执行完毕后也会返回结果，只是结果为`undefined`。  
+	function abs(x){
+	if(x>0){
+	return x;}
+	else{
+	return -x;}
+	}
+	等价于
+	var abs=function(x){
+	if(x>0){
+	return x;}
+	else{
+	return -x;}
+	};  
+ `arguments`关键字，指向当前函数调用者传入的所有参数  
+  
