@@ -201,3 +201,16 @@ sort()方法会对当前Array进行修改，它返回的结果仍是当前的Arr
 #####闭包
 在这个例子中，我们在函数lazy_sum中又定义了函数sum，并且，内部函数sum可以引用外部函数lazy_sum的参数和局部变量，当lazy_sum返回函数sum时，相关参数和变量都保存在返回的函数中，这种称为“闭包（Closure）”的程序结构拥有极大的威力。  
 *换句话说，闭包就是携带状态的函数，并且它的状态可以完全对外隐藏起来。*
+####标准对象
+在JavaScript世界中，一切都是对象，我们用`typeof`操作符获取对象的类型，它总是返回一个字符串：
+	typeof 123;//'number'
+	typeof NaN;//'number'
+	typeof 'str';//'string'
+	typeof true;//'boolean'
+	typeof undefined;//'undefined'
+	typeof Math.abs;//'function'
+	typeof null;//'object'
+	typeof [];//'object'
+	typeof {};//'object'
+对于typeof来说，null，array，{}的类型都是object
+#####包装对象
