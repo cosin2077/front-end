@@ -230,3 +230,16 @@ sort()方法会对当前Array进行修改，它返回的结果仍是当前的Arr
 123..toString();//'123'
 (123).toString();//'123'  
 ####Date
+获取当前时间  
+var now=new Date();
+now;//Thu Oct 13 2016 18:19:56 GMT+0800(CST)
+now.getFullYear();//获取年份
+now.getMonth();//获取月份从0开始
+now.getDate();//获取一个月中的号数
+now.getDay();//获取一周周几
+now.getHours();//获取小时
+now.getMinutes();//获取分钟
+now.getSeconds();//获取秒数
+now.getMilliseconds();//获取毫秒
+now.getTime();获取距1970年1月1日12:00的毫秒数
+####RegExp
