@@ -214,3 +214,19 @@ sort()方法会对当前Array进行修改，它返回的结果仍是当前的Arr
 	typeof {};//'object'
 对于typeof来说，null，array，{}的类型都是object
 #####包装对象
+使用包装对象之后（用new），它们的类型将变为object！
+`Number()``Boolean()``String()`将把任何类型的数据转换为  
+`number`，`boolean`，`string`类型  
+1. 不要使用 new Number(),new Boolean(),new String()创建包装对象；
+2. 用parseInt()或parseFloat()来转换任意类型到number；
+3. 用String()来转换任意类型到string，或者直接调用某个对象的toString()方法；
+4. 通常不必把任意类型转换为boolean再判断，因为可以直接写if(myVar){...}；
+5. typeof操作符可以判断出number，boolean，string，function和undefined；
+6. 判断Array要使用Array.isArray(arr)；
+7. 判断null使用myVar === null；
+8. 判断某个全局变量时候存在用typeof window.myVar === 'undefined'；
+9. 判断函数内部某个变量是否存在用typeof myVar === 'undefined'
+10. number对象调用toString()方法时候，多加一个点或加括号  
+123..toString();//'123'
+(123).toString();//'123'  
+####Date
