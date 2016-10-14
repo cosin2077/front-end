@@ -203,62 +203,97 @@ sort()方法会对当前Array进行修改，它返回的结果仍是当前的Arr
 *换句话说，闭包就是携带状态的函数，并且它的状态可以完全对外隐藏起来。*
 ####标准对象
 在JavaScript世界中，一切都是对象，我们用`typeof`操作符获取对象的类型，它总是返回一个字符串：
-	typeof 123;//'number'
-	typeof NaN;//'number'
-	typeof 'str';//'string'
-	typeof true;//'boolean'
-	typeof undefined;//'undefined'
-	typeof Math.abs;//'function'
-	typeof null;//'object'
-	typeof [];//'object'
-	typeof {};//'object'
+	typeof 123;//'number'  
+	typeof NaN;//'number'  
+	typeof 'str';//'string'  
+	typeof true;//'boolean'  
+	typeof undefined;//'undefined'  
+	typeof Math.abs;//'function'  
+	typeof null;//'object'  
+	typeof [];//'object'  
+	typeof {};//'object'  
 对于typeof来说，null，array，{}的类型都是object
 #####包装对象
 使用包装对象之后（用new），它们的类型将变为object！
-`Number()``Boolean()``String()`将把任何类型的数据转换为  
-`number`，`boolean`，`string`类型  
-1. 不要使用 new Number(),new Boolean(),new String()创建包装对象；
-2. 用parseInt()或parseFloat()来转换任意类型到number；
-3. 用String()来转换任意类型到string，或者直接调用某个对象的toString()方法；
-4. 通常不必把任意类型转换为boolean再判断，因为可以直接写if(myVar){...}；
-5. typeof操作符可以判断出number，boolean，string，function和undefined；
-6. 判断Array要使用Array.isArray(arr)；
-7. 判断null使用myVar === null；
-8. 判断某个全局变量时候存在用typeof window.myVar === 'undefined'；
-9. 判断函数内部某个变量是否存在用typeof myVar === 'undefined'
-10. number对象调用toString()方法时候，多加一个点或加括号  
-123..toString();//'123'
-(123).toString();//'123'  
+	`Number()``Boolean()``String()`将把任何类型的数据转换为  
+	`number`，`boolean`，`string`类型  
+	1. 不要使用 new Number(),new Boolean(),new String()创建包装对象；  
+	2. 用parseInt()或parseFloat()来转换任意类型到number；  
+	3. 用String()来转换任意类型到string，或者直接调用某个对象的toString()方法；   
+	4. 通常不必把任意类型转换为boolean再判断，因为可以直接写if(myVar){...}；  
+	5. typeof操作符可以判断出number，boolean，string，function和undefined；  
+	6. 判断Array要使用Array.isArray(arr)；  
+	7. 判断null使用myVar === null；  
+	8. 判断某个全局变量时候存在用typeof window.myVar === 'undefined'；  
+	9. 判断函数内部某个变量是否存在用typeof myVar === 'undefined'  
+	10. number对象调用toString()方法时候，多加一个点或加括号    
+	123..toString();//'123'  
+	(123).toString();//'123'    
 ####Date
 获取当前时间  
-var now=new Date();
-now;//Thu Oct 13 2016 18:19:56 GMT+0800(CST)
-now.getFullYear();//获取年份
-now.getMonth();//获取月份从0开始
-now.getDate();//获取一个月中的号数
-now.getDay();//获取一周周几
-now.getHours();//获取小时
-now.getMinutes();//获取分钟
-now.getSeconds();//获取秒数
-now.getMilliseconds();//获取毫秒
-now.getTime();获取距1970年1月1日12:00的毫秒数
+	var now=new Date();  
+	now;//Thu Oct 13 2016 18:19:56 GMT+0800(CST)  
+	now.getFullYear();//获取年份  
+	now.getMonth();//获取月份从0开始  
+	now.getDate();//获取一个月中的号数  
+	now.getDay();//获取一周周几  
+	now.getHours();//获取小时  
+	now.getMinutes();//获取分钟  
+	now.getSeconds();//获取秒数  
+	now.getMilliseconds();//获取毫秒  
+	now.getTime();获取距1970年1月1日12:00的毫秒数  
 ####RegExp
-`\d`匹配任何一个数字  
-`\w`匹配任何一个字母或数字   
-`.`匹配任意字符   
-`*`表示任意个字符，包括0个   
-`+`表示包含一个或一个以上的字符  
-`?`表示0个或1个字符  
-`{n}`包含n个字符  
-`{n,m}`包含n个到m个字符  
-`\s`空格  
-`[0-9a-zA-Z\_]`匹配一个数字，字母或下划线  
-`[a-zA-Z\_\$][0-9a-zA-Z\_\$]`匹配由字母下划线，$开头，后接任意一个由数字，字母或下划线，$组成的字符串，也就是JavaScript允许的变量名；  
-`a|b`可以匹配a或b    
-`^`表示行的开头  
-`$`表示行的结尾  
+	`\d`匹配任何一个数字  
+	`\w`匹配任何一个字母或数字   
+	`.`匹配任意字符   
+	`*`表示任意个字符，包括0个   
+	`+`表示包含一个或一个以上的字符  
+	`?`表示0个或1个字符  
+	`{n}`包含n个字符  
+	`{n,m}`包含n个到m个字符  
+	`\s`空格  
+	`[0-9a-zA-Z\_]`匹配一个数字，字母或下划线  
+	`[a-zA-Z\_\$][0-9a-zA-Z\_\$]`匹配由字母下划线，$开头，后接任意一个由数字，字母或下划线，$组成的字符串，也就是JavaScript允许的变量名；  
+	`a|b`可以匹配a或b    
+	`^`表示行的开头  
+	`$`表示行的结尾  
 #####正则表达式
-var reg1=/ABC\-001/;
-VAR reg2=new RegExp('ABC\\-001');
-两种方式等价  
-test()方法用于检测给定的字符串是否符合条件，符合条件为true  
+	var reg1=/ABC\-001/;  
+	var reg2=new RegExp('ABC\\-001');  
+	两种方式等价  
+	test()方法用于检测给定的字符串是否符合条件，符合条件为true  
+#####切分字符串可以用正则表达式  
+	'a,b c   d'.split(/[\,\s]+/);//['a','b','c','d']  
+#####分组
+提取子串的强大功能  
+`()`表示要提取的分组  
+	var reg=/^(\d{3})-(\d{3,8})$/;
+	reg.exec('012-54125');//['012-54125','012','54125']  
+exec()方法匹配成功后返回一个子串，匹配失败后返回null  
+贪婪匹配后边加?变为非贪婪模式  
+全局搜索  
+	var reg=/test/g;//全局搜索  
+	var reg=/test/i;//忽略大小写  
+	var reg=/test/m;//多行匹配    
+	验证email的正则表达式  
+	var re = /^[0-9a-zA-Z][0-9a-zA-Z\_\.]*\@[0-9a-zA-Z]*\.(com|org)$/;  
+####JSON
+在JSON中，一共就只有这么几种数据类型  
+	1. number  
+	2. boolean  
+	3. string  
+	4. null  
+	5. array  
+	6. object  
+以及以上的任意组合  
+JSON规定字符集必须是UTF-8，JSON规定， 字符串必须用`""`，object的键值也必须用`""`。  
+#####序列化  
+将对象变为JSON  
+JSON.stringify(*string*);//将string字符串变为JSON格式  
+#####反序列化
+将JSON变为字符串  
+JSON.parse()可以将JSON变为对象
+***
+##*A Fault Confessed Is Half Redressed*##
+***
+####面向对象的编程  
