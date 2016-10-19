@@ -305,4 +305,42 @@ JavaScript每个创建的对象都会设置一个原型，指向它的原型对�
 当我们`obj.xxx`访问一个对象的属性的时候，JavaScript引擎首先会在当前对象上查找该属性，如果没找到，就在其原型对象上找，如果还没找到，就一直上溯到`Object.prototype`队形，最后还没找到则返回`undefined`  
 用于创建对象的构造函数一定得加new 并且函数的首字母要大写！  
 #####原型继承  
-
+-----占位
+#####class继承
+-----占位
+####浏览器
+#####浏览器对象
+1. `window`对象  
+具有`innerWidth`，`innerHeight`属性。表示浏览器窗口的内部宽度和高度。  
+`outerWidth`，`innerHeight`属性，获取浏览器窗口 的整个宽高  
+2. `navigator`对象  
+表示浏览器的信息		
+	navigator.appName：浏览器名称；  
+	navigato.appVersion：浏览器版本；  
+	navigator.language：浏览器设置的语言；  
+	navigator.platform：操作系统类型；  
+	navigator.userAgent：浏览器设定的`User-Agent`字符串。  
+3. `screen`表示屏幕的信息  
+screen.width:屏幕宽度  
+screen.height:屏幕高度  
+screen.colorDepth:颜色位数   
+4. `location`  
+表示当前页面的url信息  
+location.href ：获取完整的URL  
+location.protocal：获取协议名如 “http”  
+location.host：获取域名如 “conanskyforce.tk”  
+location.port：获取端口如 “8080”  
+location.pathname：获取路径名称如 “/path/index.html”  
+location.search：
+location.hash：获取哈希值  
+location.reload()重新加载当前页面  
+location.assign("http://conanskyforce.tk")重新加载哪个页面  
+5. `document`对象表示当前页面
+document.title是从<title>xxx</title>中读取的，但是可以动态改变  
+document.title="别走啊亲！"  
+6. `cookie`  
+document.cookie 页面缓存
+7. `history`历史记录  
+history.back();后退
+history.forward();前进  
+#####DOM操作
