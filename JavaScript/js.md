@@ -344,3 +344,10 @@ document.cookie 页面缓存
 history.back();后退
 history.forward();前进  
 #####DOM操作
+document.getElementById("id");根据id选择元素返回的是一个元素  
+document.getElementsByClassName("class");根据class选择元素，返回的是一个数组		  
+document.getElementsByTagName("tag");根据标签选择元素，返回的是一个数组  
+拿到节点之后，我们可以对他进行更新  
+innerHTML可以修改整个元素  
+innerText，获取，设置元素的文本，不返回隐藏元素  
+innerContent，获取，设置元素的文本，返回隐藏的元素  
