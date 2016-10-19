@@ -351,3 +351,52 @@ document.getElementsByTagName("tag");根据标签选择元素，返回的是一�
 innerHTML可以修改整个元素  
 innerText，获取，设置元素的文本，不返回隐藏元素  
 innerContent，获取，设置元素的文本，返回隐藏的元素  
+getElementsByClassName("id").style.color="#fff";设置style中颜色属性font-size变为fontSize(驼峰命名法)  
+#####插入DOM
+appendChild();插入元素到最后
+var mye=document.createElement("p");//创建新元素  
+mye.id="xml";//创建id
+mye.innerText="hello ,xml";//创建文本内容
+document.getElementById("list").appendChild(mye);//将新创建的mye插入到选定的list元素中。  
+例子：   
+创建一个style元素，动态的插入到head中
+	var sty=document.creatElement("style");  
+	sty.setAttribute  
+	sty.innerHTML="p{color:red}";  
+	document.getElementByTagName("head")[0].appendChild(sty);
+插入到指定位置之前  
+parentElement.insertBefore(newElement,referenceElement)
+####操作表单  
++ 文本框<input type="text">
++ 口令框<input type="password">
++ 单选框<input type="radio">
++ 复选框<input type="checkbox">
++ 下拉框<select><option>选项一<option>选项二<option>选项三</option>  
++ 隐藏文本<input type="hidden">
++ 日期框<input type="data"value="2016-10-19">
++ 颜色框<input type="color" value="#ff0000">
+#####操作文件
+####AJAX
+首先创建XMLHttprequest对象，之后设置`onreadystatechange`的回调函数，在回调函数中，我们只需通过`readyState===4`来判断请求是否完成，如果已完成，再根据`status===200`判断是否是一个成功的响应。  
+`XMLHttprequest`对象的`open()`方法有3个参数，第一个是制定`GET`还是`POST`,第二个是参数指定`URL`,地址,第三个是是否使用异步，默认是`true`，所以不用写。   
+最后`send()`方法才真正发送请求
+***
+####jQuery   Write Less,Do More
+
+引入jQuery文件  
+&lt;script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js
+"&gt;  &lt;/script&gt;//引入百度cdn资源库  
+解除$对jQuery的占用  
+    $;
+    jQuery.noConflict();
+    $;
+    jQuery;
+组合选择器  
+$("p.red,#demo,input[name="name"]");  
+选择<p class="red">,id为demo,input属性 name="name"的几个元素  
+过滤器  
+$("ul li:first-child")选出ul li下的第一个子元素
+$("ul li:last-child")选出ul li下的最后一个子元素
+$("ul li:nth-child(n)")选出ul li下的第n子元素
+
+
