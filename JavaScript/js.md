@@ -398,5 +398,30 @@ $("p.red,#demo,input[name="name"]");
 $("ul li:first-child")选出ul li下的第一个子元素
 $("ul li:last-child")选出ul li下的最后一个子元素
 $("ul li:nth-child(n)")选出ul li下的第n子元素
-
-
+####事件
+`on`方法来绑定一个事件，需要传入事件名称和对应的处理函数。  
+直接调用click()方法。  
+jQuery能够绑定的事件  
+>#####鼠标事件
+click：鼠标单击时触发  
+dbclick：鼠标双击时触发  
+mouseenter：鼠标进入时触发
+mouseleave：鼠标离开时触发  
+mousemove：鼠标在DOM内部移动时触发  
+hover：鼠标进入和退出时触发两个函数，相当于mouseenter和mouseleave  
+>#####键盘事件
+keydown：当键盘按下时触发  
+keyup：键盘松开触发  
+keypress：按一次键后触发  
+>#####其他事件
+focus：当DOM获得焦点时
+blur：当DOM失去焦点时
+change：当input，select，或textarea的内容改变时触发  
+submit：但form键提交时触发  
+ready：但页面被载入并且DOM树完成初始化后触发  
+初始化简化：$(function(){
+//init.....
+});  
+取消绑定事件：off("click",function)//不能接触匿名函数事件  
+off("click")一次性移除所有click事件  
+off()一次性移除已绑定的所有事件  
