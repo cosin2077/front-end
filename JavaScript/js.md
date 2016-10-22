@@ -433,18 +433,35 @@ off()一次性移除已绑定的所有事件
 >如果直接用join()  
 arr2=["h","e","l","l","o"];  
 var final=arr2.join();  
-return final;//"h,e,l,l,o"
+return final;//"h,e,l,l,o"  
 >2.  
 > 用join("")
 arr2=["h","e","l","l","o"];  
 var final=arr2.join("");  
-return final;//"hello"  
+return final;//"hello"   
+3.  
 >用join("\*")其中星号可以用其他代替  
 arr2=["h","e","l","l","o"];  
 var final=arr2.join("\*");  
 return final;//"h\*e\*l\*l\*o"(markdown转义)
-
-
+>#####字符串转换为数组  
+`String.split()`方法  
+同样比较几种情况下的结果  
+1.  
+直接用split()方法 
+var mystring="hello";  
+var myarr=mystring.split();  
+return myarr;//["hello"]  
+2.  
+用split("")试试  
+var mystring="hello";  
+var myarr=mystring.split("");  
+return myarr;//["h","e","l","l","o"]  
+3. 
+用split("\*")试试 
+var mystring="hello";    
+var myarr=mystring.split("\*");//表示在每个\*处进行分割，但是没找到*所以默认什么的都没有，返回了split()的情况。   
+return myarr;//["hello"] 
 
 
 
