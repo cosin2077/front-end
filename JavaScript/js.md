@@ -425,9 +425,24 @@ ready：但页面被载入并且DOM树完成初始化后触发
 取消绑定事件：off("click",function)//不能接触匿名函数事件  
 off("click")一次性移除所有click事件  
 off()一次性移除已绑定的所有事件  
-
-
-
+####字符串和数组之间的转换
+>#####数组转换为字符串
+>`Array.join()`方法，  
+>我们来比较一下几种情况的结果，  
+>1.   
+>如果直接用join()  
+arr2=["h","e","l","l","o"];  
+var final=arr2.join();  
+return final;//"h,e,l,l,o"
+>2.  
+> 用join("")
+arr2=["h","e","l","l","o"];  
+var final=arr2.join("");  
+return final;//"hello"  
+>用join("\*")其中星号可以用其他代替  
+arr2=["h","e","l","l","o"];  
+var final=arr2.join("\*");  
+return final;//"h\*e\*l\*l\*o"(markdown转义)
 
 
 
