@@ -504,6 +504,9 @@ var fs = require('fs');
 `reyto`模块  
 #####web开发  
 ######koa学习
-
+######Babel
+Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript代码转换成低版本的JavaScript代码，并且保持逻辑不变。  
+编写start.js让Babel自动转码
+####mysql
 
 
