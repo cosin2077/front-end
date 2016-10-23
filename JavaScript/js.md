@@ -462,8 +462,46 @@ return myarr;//["h","e","l","l","o"]
 var mystring="hello";    
 var myarr=mystring.split("\*");//表示在每个\*处进行分割，但是没找到*所以默认什么的都没有，返回了split()的情况。   
 return myarr;//["hello"] 
+####Node.js
+#####模块
+######`fs`模块  
+异步读取文件  
+	var fs = require('fs');
+	
+	fs.readFile('sample.txt', 'utf-8', function (err, data) {
+	    if (err) {
+	        console.log(err);
+	    } else {
+	        console.log(data);
+	    }
+	});
+stat 获取文件大小，创建时间等信息  
+var fs = require('fs');
 
-
+	fs.stat('sample.txt', function (err, stat) {
+	    if (err) {
+	        console.log(err);
+	    } else {
+	        // 是否是文件:
+	        console.log('isFile: ' + stat.isFile());
+	        // 是否是目录:
+	        console.log('isDirectory: ' + stat.isDirectory());
+	        if (stat.isFile()) {
+	            // 文件大小:
+	            console.log('size: ' + stat.size);
+	            // 创建时间, Date对象:
+	            console.log('birth time: ' + stat.birthtime);
+	            // 修改时间, Date对象:
+	            console.log('modified time: ' + stat.mtime);
+	        }
+	    }
+	});
+`stream`模块  
+在Node.js中，流也是一个对象，我们只需要相应流的事件就可以了，data事件表示流的数据已经可以读取了，end时间表示这个流已经到末尾了，没有数据可以读取了，error事件表示出错了。  
+`http`模块  
+`request`模块封装了HTTP的请求  
+`response`模块封装了HTTP的响应  
+`reyto`模块  
 
 
 
