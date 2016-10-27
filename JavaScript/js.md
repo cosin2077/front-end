@@ -19,12 +19,13 @@ null表示一个“空”值，undefined表示未定义。
 数组用[]表示，元素之间用，分隔  
 6. 对象  
 一组键-值对组成的无序集合  
-`	var person = {
-		name:"conan",
-		age:25,
-		weight:"66kg",
-		height:177
-	};`  
+
+		var person = {
+			name:"conan",
+			age:25,
+			weight:"66kg",
+			height:177
+		}; 
 7. 变量  
 变量由大小写英文、$，_开头包含英文大小写、数字、_、$.不仅可以是数字，还可以是各种数据类型。JavaScript为动态语言(变量类型可以改变)
 8. strict 模式
@@ -37,6 +38,7 @@ null表示一个“空”值，undefined表示未定义。
 `\n` 换行  
 `\s` 空格  
 `+`可以直接连接字符串  
+
     var s="hello world!"  
     s.length;//13  
     s[0];//h  
@@ -87,16 +89,19 @@ aoparr===arr//
 访问属性，通过`.`操作符完成但要求属性名是一个有效的变量名，如果属性包含特殊字符，则需要用`''`括起来  
 另一种访问方式`['属性名']`来访问属性  
 访问不存在的属性，返回undefined  
+
 	JavaScript为动态语言，你可以自由的给一个对象添加啊或删除属性  
 	bio.name='conan';//增加属性  
 	bio.name//'conan'  
 	delete bio.age//删除属性  
 	bio.age//undefined  
 查看bio是否具有某项属性，但有可能是bio继承得到的属性  
+
 	'age' in bio;//true  
 	'sex' in bio;//false   
 	'toString' in bio;//true
 `hasOwnProperty()`判断一个属性是否是自身拥有的，而不是继承的  
+
 	bio.hasOwnProperty('age');//true  
 	bio.hasOwnProperty('sex');//false   
 	bio.hasOwnProperty('toString');//false
@@ -104,6 +109,7 @@ aoparr===arr//
 javascript把`null`，`undefined`，`0`，`NaN`，`''`视为`false`,其他一概为`true`  
 ####循环
 `for`循环
+
 	var x = 1;
 	var i;
 	for(;i<i+1;i++)
@@ -116,6 +122,7 @@ i的阶乘
 	{x=arr[i];
 	}  
 `for...in`循环，把一个对象(数组)的所有属性遍历  
+
 	arr=[1,3,5,7,9]
 	for (y in a){
 	alert(y);//0,1,2,3,4
@@ -124,6 +131,7 @@ i的阶乘
 ***
 ####`map`和`set`
 `map`是一组键值对的结构，具有很快的查找速度  
+
 	var m = new Map()//定义空map
 	m.set('name','conan');//设定name属性为conan
 	m.has('age');//false
@@ -137,6 +145,7 @@ i的阶乘
   
 ####函数
 函数内部的语句在执行时，一旦遇见`return`，函数执行完毕，并返回结果，如果没有`return`语句，函数执行完毕后也会返回结果，只是结果为`undefined`。  
+
 	function abs(x){
 	if(x>0){
 	return x;}
@@ -167,42 +176,48 @@ const 来申明常量，常量用大写表示如：
 ####高阶函数
 接收另一个函数作用参数的函数，称为高阶函数  
 map/reduce  
+
 	arr.map(pow)，传入的参数为函数对象本身  
 	arr.map(String)将arr数组的所有数字转为字符串  
 	arr.reduce(function(x,y){return x+y;});对数组进行求和  
 	arr.reduce(function(x,y){return x*y;});对数组进行求积  
 filter  
 在一个Array中，删掉偶数，只保留奇数，可以这么写：
+
 	var arr = [1, 2, 4, 5, 6, 9, 10, 15];
 	var r = arr.filter(function (x) {
 	    return x % 2 !== 0;
 	});
 	r; // [1, 5, 9, 15]  
 把一个Array中的空字符串删掉，可以这么写：  
-	var arr = ['A', '', 'B', null, undefined, 'C', '  '];
-	var r = arr.filter(function (s) {
-	    return s && s.trim(); // 注意：IE9以下的版本没有trim()方法
-	});
-	r; // ['A', 'B', 'C']
+	
+		var arr = ['A', '', 'B', null, undefined, 'C', '  '];
+		var r = arr.filter(function (s) {
+		    return s && s.trim(); // 注意：IE9以下的版本没有trim()方法
+		});
+		r; // ['A', 'B', 'C']
 sort  
-	var arr = ['Google', 'apple', 'Microsoft'];
-	arr.sort(function (s1, s2) {
-	    x1 = s1.toUpperCase();
-	    x2 = s2.toUpperCase();
-	    if (x1 < x2) {
-	        return -1;
-	    }
-	    if (x1 > x2) {
-	        return 1;
-	    }
-	    return 0;
-	}); // ['apple', 'Google', 'Microsoft']  
+
+		var arr = ['Google', 'apple', 'Microsoft'];
+		arr.sort(function (s1, s2) {
+		    x1 = s1.toUpperCase();
+		    x2 = s2.toUpperCase();
+		    if (x1 < x2) {
+		        return -1;
+		    }
+		    if (x1 > x2) {
+		        return 1;
+		    }
+		    return 0;
+		}); // ['apple', 'Google', 'Microsoft']  
+
 sort()方法会对当前Array进行修改，它返回的结果仍是当前的Array  
 #####闭包
 在这个例子中，我们在函数lazy_sum中又定义了函数sum，并且，内部函数sum可以引用外部函数lazy_sum的参数和局部变量，当lazy_sum返回函数sum时，相关参数和变量都保存在返回的函数中，这种称为“闭包（Closure）”的程序结构拥有极大的威力。  
 *换句话说，闭包就是携带状态的函数，并且它的状态可以完全对外隐藏起来。*
 ####标准对象
 在JavaScript世界中，一切都是对象，我们用`typeof`操作符获取对象的类型，它总是返回一个字符串：
+
 	typeof 123;//'number'  
 	typeof NaN;//'number'  
 	typeof 'str';//'string'  
@@ -231,6 +246,7 @@ sort()方法会对当前Array进行修改，它返回的结果仍是当前的Arr
 	(123).toString();//'123'    
 ####Date
 获取当前时间  
+
 	var now=new Date();  
 	now;//Thu Oct 13 2016 18:19:56 GMT+0800(CST)  
 	now.getFullYear();//获取年份  
@@ -267,11 +283,13 @@ sort()方法会对当前Array进行修改，它返回的结果仍是当前的Arr
 #####分组
 提取子串的强大功能  
 `()`表示要提取的分组  
-	var reg=/^(\d{3})-(\d{3,8})$/;
-	reg.exec('012-54125');//['012-54125','012','54125']  
+
+		var reg=/^(\d{3})-(\d{3,8})$/;
+		reg.exec('012-54125');//['012-54125','012','54125']  
 exec()方法匹配成功后返回一个子串，匹配失败后返回null  
 贪婪匹配后边加?变为非贪婪模式  
 全局搜索  
+
 	var reg=/test/g;//全局搜索  
 	var reg=/test/i;//忽略大小写  
 	var reg=/test/m;//多行匹配    
@@ -314,35 +332,42 @@ JavaScript每个创建的对象都会设置一个原型，指向它的原型对�
 具有`innerWidth`，`innerHeight`属性。表示浏览器窗口的内部宽度和高度。  
 `outerWidth`，`innerHeight`属性，获取浏览器窗口 的整个宽高  
 2. `navigator`对象  
-表示浏览器的信息		
-	navigator.appName：浏览器名称；  
-	navigato.appVersion：浏览器版本；  
-	navigator.language：浏览器设置的语言；  
-	navigator.platform：操作系统类型；  
-	navigator.userAgent：浏览器设定的`User-Agent`字符串。  
+表示浏览器的信息  
+
+		navigator.appName：浏览器名称；  
+		navigato.appVersion：浏览器版本；  
+		navigator.language：浏览器设置的语言；  
+		navigator.platform：操作系统类型；  
+		navigator.userAgent：浏览器设定的`User-Agent`字符串。  
 3. `screen`表示屏幕的信息  
-screen.width:屏幕宽度  
-screen.height:屏幕高度  
-screen.colorDepth:颜色位数   
+
+		screen.width:屏幕宽度  
+		screen.height:屏幕高度  
+		screen.colorDepth:颜色位数   
 4. `location`  
 表示当前页面的url信息  
-location.href ：获取完整的URL  
-location.protocal：获取协议名如 “http”  
-location.host：获取域名如 “conanskyforce.tk”  
-location.port：获取端口如 “8080”  
-location.pathname：获取路径名称如 “/path/index.html”  
-location.search：
-location.hash：获取哈希值  
-location.reload()重新加载当前页面  
-location.assign("http://conanskyforce.tk")重新加载哪个页面  
+
+		location.href ：获取完整的URL  
+		location.protocal：获取协议名如 “http”  
+		location.host：获取域名如 “conanskyforce.tk”  
+		location.port：获取端口如 “8080”  
+		location.pathname：获取路径名称如 “/path/index.html”  
+		location.search：
+		location.hash：获取哈希值  
+		location.reload()重新加载当前页面  
+		location.assign("http://conanskyforce.tk")重新加载哪个页面  
+
 5. `document`对象表示当前页面
-document.title是从<title>xxx</title>中读取的，但是可以动态改变  
-document.title="别走啊亲！"  
+
+		document.title是从<title>xxx</title>中读取的，但是可以动态改变  
+		document.title="别走啊亲！"  
 6. `cookie`  
-document.cookie 页面缓存
-7. `history`历史记录  
-history.back();后退
-history.forward();前进  
+
+		document.cookie 页面缓存
+7. `history`历史记录
+  
+		history.back();后退
+		history.forward();前进  
 #####DOM操作
 document.getElementById("id");根据id选择元素返回的是一个元素  
 document.getElementsByClassName("class");根据class选择元素，返回的是一个数组		  
@@ -360,6 +385,7 @@ mye.innerText="hello ,xml";//创建文本内容
 document.getElementById("list").appendChild(mye);//将新创建的mye插入到选定的list元素中。  
 例子：   
 创建一个style元素，动态的插入到head中
+
 	var sty=document.creatElement("style");  
 	sty.setAttribute  
 	sty.innerHTML="p{color:red}";  
@@ -387,6 +413,7 @@ parentElement.insertBefore(newElement,referenceElement)
 &lt;script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js
 "&gt;  &lt;/script&gt;//引入百度cdn资源库  
 解除$对jQuery的占用  
+
     $;
     jQuery.noConflict();
     $;
@@ -507,6 +534,18 @@ var fs = require('fs');
 ######Babel
 Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript代码转换成低版本的JavaScript代码，并且保持逻辑不变。  
 编写start.js让Babel自动转码
-####mysql
-
-
+####原型和构造函数  
+组合使用构造函数和原型模式  
+  
+	function Person(name,age,job){
+		this.name = name;
+		this.age = age;
+		this.job = job;
+		this.friends = ["conan","kevin","stephen","steve"];
+	}
+	Person.prototype = {
+		constructor : Person,
+		sayName : function(){
+			alert(this.name);
+	}
+	}
