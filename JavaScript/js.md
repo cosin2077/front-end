@@ -574,3 +574,20 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	}
 	titleCase("I'm a little tea pot");
 ***
+####超级笨的方法写完这个程序，简直看不下去！！ 目的求出每个数组中最大值，然后串成一个数组，思路有，但是写起来就不是那么回事了啊：
+	function largestOfFour(arr) {
+	  var arr0=[];
+	  for(var i=0;i<arr.length;i++){
+	    for(var j=0;j<arr[i].length;j++){
+	      max=(arr[i][0]>arr[i][1]?arr[i][0]:arr[i][1]);
+	      max2=(arr[i][0]>arr[i][2]?arr[i][0]:arr[i][2]);
+	      max3=arr[i][0]>arr[i][3]?arr[i][0]:arr[i][3];
+	      bmax=max>max2?max:max2;
+	      bbmax=bmax>max3?bmax:max3;
+	    }
+	    arr0.push(bbmax);
+	  }
+	  // You can do this!
+	  return arr0;
+	}
+	largestOfFour([[4, 9, 1, 3], [13, 35, 18, 26], [32, 35, 97, 39], [1000000, 1001, 857, 1]]);
