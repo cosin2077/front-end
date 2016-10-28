@@ -622,3 +622,28 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	}
 	
 	repeat("abcdew", 3);
+***
+####真是挡不住，又来一题目表示str中num位数，其余位数用...表示
+	function truncate(str, num) {
+	  // Clear out that junk in your trunk
+	  var arr1=str.split("");
+	  if(num<3){
+	    arr2=arr1.slice(0,num);
+	   arr3=arr2.join("");
+	  return arr3+"...";
+	  }
+	  else if(arr1.length>num)
+	 { arr2=arr1.slice(0,num-3);
+	   arr3=arr2.join("");
+	  return arr3+"...";}
+	  else if(arr1.length==num){
+	    return str;
+	  }
+	  else{
+	   arr2=arr1.slice(0,num);
+	   arr3=arr2.join("");
+	  return str;
+	  }
+	}
+	
+	truncate("Absolutely Longer", 2);
