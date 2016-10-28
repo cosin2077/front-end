@@ -549,3 +549,28 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 			alert(this.name);
 	}
 	}
+
+***
+####我勒个去，终于又完成一项卡了很久的题目，将写入的字符串每个单词词首大写。  
+####代码如下
+
+	function titleCase(str) {
+	  var arr1=str.toLowerCase().split(" ");
+	  var arr0=[];
+	  for(var i=0;i<arr1.length;i++){
+	    arr2=arr1[i].split("");//arr2=["p","o","t"]
+	    arr3=arr2[0].toUpperCase();//arr3=["P"]
+	    arr2.splice(0,1,arr3);//["P","o","t"]
+	    arr4=arr2.join("");//["Pot"]
+	    arr0.push(arr4);
+	 }
+	  arrx=arr0.join(" ");
+	// arr2=arr1.pop();
+	//  arr3=arr2.slice(0,1);
+	//  arr4=arr1.toUpperCase();
+	//  arrx=arr1[2].slice(0,1).toUpperCase();
+	//  arr2=arr1[2].split("").slice(0,1,arrx);
+	  return arrx;
+	}
+	titleCase("I'm a little tea pot");
+***
