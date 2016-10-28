@@ -591,3 +591,21 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	  return arr0;
 	}
 	largestOfFour([[4, 9, 1, 3], [13, 35, 18, 26], [32, 35, 97, 39], [1000000, 1001, 857, 1]]);
+***
+####又完成了一项！，如果str是以target结尾的就返回true,如果不是则返回false  
+	
+	function confirmEnding(str, target) {
+	  // "Never give up and good luck will find you."
+	  // -- Falcor
+	  var arr=target.split("");
+	  var arr1=str.split("");
+	var th=str.substring(arr1.length-arr.length,arr1.length);
+	  
+	    if(th==target) 
+	  return true;
+	  else
+	    return false;
+	}
+	
+	confirmEnding("Walking on water and developing software from a specification are easy if both are frozen", "specification");
+***
