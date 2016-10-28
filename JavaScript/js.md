@@ -647,3 +647,21 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	}
 	
 	truncate("Absolutely Longer", 2);
+***
+####这到底是怎么回事，怎么今晚解体这么快？将数组arr分解成每size个一组
+	function chunk(arr, size) {
+	  // Break it up.
+	  var arr0=[];
+	  var j=0;
+	  var y=size;
+	  quyu=arr.length/size;
+	  for(var i=0;i<quyu;i++){
+	    arr0.push(arr.slice(j,y));
+	    j+=size;
+	    y+=size;
+	  }
+	    
+	  return arr0;
+	}
+	
+	chunk([0, 1, 2, 3, 4, 5], 2);
