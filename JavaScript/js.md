@@ -609,3 +609,16 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	
 	confirmEnding("Walking on water and developing software from a specification are easy if both are frozen", "specification");
 ***
+####简直势不可挡 又战胜一关！重复字符串str，num次！
+	function repeat(str, num) {
+	  // repeat after me
+	  var arr0=[];
+	  var arr1=str.split(" ");
+	  for(var i=0;i<num;i++){
+	    arr0.push(str);
+	  }
+	  
+	  return arr0.join("");
+	}
+	
+	repeat("abcdew", 3);
