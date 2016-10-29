@@ -726,3 +726,17 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	  return arr.filter(destory);
 	}
 	destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+***
+####where do i belong将num插入到数组，然后再将数组排序，找出num在新数组中的index
+	function where(arr, num) {
+	  // Find my place in this sorted array.
+	  arr.push(num);
+	  arr.sort(stob);
+	  function stob(fir,sec){
+	    return fir-sec;
+	  }
+	  return arr.indexOf(num);
+	}
+	where([40, 60], 50);
+***
+####
