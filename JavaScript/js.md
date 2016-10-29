@@ -673,3 +673,21 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	}
 	slasher([1, 2, 3], 2);
 ***
+####如果数组第一个字符串元素包含了第二个字符串所有字符，函数应该返回true
+	function mutation(arr) {
+	  var arr1=arr[0].toLowerCase().split("");
+	  var arr2=arr[1].toLowerCase().split("");
+	  var count=0;
+	  for(var i=0;i<arr2.length;i++){
+	    for(var j=0;j<arr1.length;j++){
+	      if(arr2[i]==arr1[j]){
+	        count++;
+	      }
+	    }
+	  }
+	  if (count>=arr2.length)
+	  return true;
+	  else
+	    return false;
+	}
+	mutation(["hello", "Hello"]);
