@@ -691,3 +691,25 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	    return false;
 	}
 	mutation(["hello", "Hello"]);
+***
+####删除数组中所有假值！
+	function bouncer(arr) {
+	  // Don't show a false ID to this bouncer.
+	/*  for(var i=0;i<arr.length;i++){
+	    if(Boolean(arr[i])===false){
+	      arr.filter(i,1);
+	    }
+	  }
+	  
+	  */
+	  function istrue(ele){
+	//    for(var i=0;i<arr.length;i++){
+	//      if(Boolean(ele)===true);
+	//    return true;
+	 //   }
+	  return  Boolean(ele)!==false;
+	  }
+	  return arr.filter(istrue);
+	}
+	bouncer([7, "ate", "", false, 9]);
+***
