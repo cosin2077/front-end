@@ -713,3 +713,16 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	}
 	bouncer([7, "ate", "", false, 9]);
 ***
+####seek and destory！，第一个参数是待摧毁的数组，其余是待摧毁的值  
+	function destroyer(arr) {
+	  // Remove all the values
+	  var a=arguments[0];
+	  var b=arguments[1];
+	  var c=arguments[2];
+	  var d=arguments[3];
+	  function destory(ele){
+	     return ele!==b&&ele!==c&&ele!==d;
+	  }
+	  return arr.filter(destory);
+	}
+	destroyer([1, 2, 3, 1, 2, 3], 2, 3);
