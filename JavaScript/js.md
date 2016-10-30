@@ -739,4 +739,33 @@ Babel是一个JavaScript编写的转码器，可以将更高版本的JavaScript�
 	}
 	where([40, 60], 50);
 ***
-####
+####最后一个问题，已经解决了，不过。凯撒密码caesars cipher
+	function rot13(str) { // LBH QVQ VG!
+	  var arr1=str.split(" ");//["SERR","PBQR","PNZC"]
+	  var arr0=[];
+	  var arr00=[];
+	  var strf="";
+	  for (var i=0;i<arr1.length;i++){//3
+	    for(var j=0;j<arr1[i].split("").length;j++){//4
+	          var num1=arr1[i].charCodeAt(j);
+	          if (num1>77&&num1<91){
+	                count=num1+13-26;}
+	          else if(num1>64&&num1<=77){
+	                count=num1+13;}
+	      else{
+	        count=num1;
+	      }
+	          str1=String.fromCharCode(count);
+	          strf+=str1;  
+	       }
+	        strf+=" ";
+	  }
+	  arr0.push(strf);
+	//  arrf=arr0.join(" ");
+	  arr00=arr0.join(" ").split("");
+	  arr00.pop();
+	  arr00.join("");
+	  return "\""+arr00.join("")+"\"";
+	}
+	// Change the inputs below to test
+	rot13("SERR YBIR?");
