@@ -1,0 +1,92 @@
+/*在此创建CSS样式*/
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+    width:1000px;
+    min-height:500px;
+    margin:auto;
+    /*border:solid 1px red;*/
+}
+footer{
+    background-color:grey;
+    width:1000px;
+    height:30px;
+}
+li{
+    list-style-type:none;
+    float:left;
+    width:100px;
+    text-align:center;
+
+}
+nav img{
+    float:left;
+}
+nav a{
+    line-height:70px;
+    color:black;
+    text-decoration:none;
+    padding:1px;
+    margin:0;
+    font-size:18px;
+}
+li:hover{
+    background:red;
+}
+.pic{
+    width:1000px;
+    min-height:300px;
+    /*border:solid 1px yellow;*/
+    clear:both;
+    margin-top:73px;
+
+}
+.rolltitle{
+    height:35px;
+    line-height:35px;
+    width:120px;
+    display:block;
+    float:left;
+    background-color:red;
+    text-align:center;
+}
+.rollnews{
+    height:35px;
+    line-height:35px;
+    width:860px;
+    display:block;
+    float:left;
+    background-color:grey;
+    padding-left:20px;
+}
+.show{
+    clear:both;
+    border:solid white;
+    position:relative;
+    overflow:hidden;
+}
+.show1,.show2,.show3{
+    float:left;
+    width:331px;
+    text-align:center;
+}
+.show p{
+    border:solid grey 1px;
+}
+
+footer{
+    text-align:center;
+    height:30px;
+    line-height:30px;
+    clear:both;
+}
+.center1,.center2,.center3{
+    width:331px;
+    height:130px;
+    border:solid gray 1px;
+    float:left;
+    margin-bottom:10px;
+    margin-top:10px;
+}
