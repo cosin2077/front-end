@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>浏览器对象</title>  
+  <meta http-equiv="Content-Type" content="text/html; charset=gkb"/>   
+ </head>
+ <body onload="cd()">
+  <!--先编写好网页布局-->
+  <h2>操作成功</h2>
+  <span id="sec">5</span><span>秒后回到主页</span><a href="window.history.back()">返回</a>
+  <script type="text/javascript">  
+   //获取显示秒数的元素，通过定时器来更改秒数。
+   function cd(){
+   var sec=document.getElementById("sec");
+   var tim=5;
+   setInterval(function countdown(){tim--;
+   sec.innerHTML=tim;if(tim==0){
+       window.open("http://www.baidu.com/","_self")
+   }},1000);
+   //通过window的location和history对象来控制网页的跳转。
+   }
+ </script> 
+ <!--<button onclick="cd()">点击我</button>-->
+</body>
+</html>
