@@ -1,8 +1,6 @@
 window.onload=function() {
-    var quotecnt = document.getElementsByClassName("quote")[0];
-    var clickbtn = document.getElementsByClassName("button1")[0];
-//  var eve1=addEventListener("click",change,false);
-    var obj = {
+var quotecnt = document.getElementsByClassName("quote")[0];
+var obj = {
         1: "Your intellect may be confused, but your emotions will never lie to you.",
         2: "When we are no longer able to change a situation – we are challenged to change ourselves.",
         3: "One of the most beautiful qualities of true friendship is to understand and to be understood.",
@@ -24,15 +22,9 @@ window.onload=function() {
         19: "Nothing is impossible, the word itself says ‘I’m possible!",
         20: "Life isn’t about finding yourself. Life is about creating yourself."
     };
-
-// clickbtn.onclick=change();
-
-        clickbtn.addEventListener("click", change(), false);
-        function  change() {
-            var num = Math.floor(Math.random() * 20) + 1;
-            quotecnt.innerHTML = obj[num];
-        }
-    }
-/**
- * Created by conan on 2016/11/18 0018.
- */
+function  change() {
+    var num = Math.floor(Math.random() * 20) + 1;
+    quotecnt.innerHTML = obj[num];}
+var el = document.getElementsByClassName("button1")[0];
+el.addEventListener("click", change(), false);
+}
