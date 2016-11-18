@@ -1,0 +1,44 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+.container{
+    width:800px;
+    height:600px;
+    margin:20px auto;
+    background-color:lightgrey;
+    text-align:center;
+    position:relative;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:15px 15px 25px ;
+}
+.quote{
+    background-color:lightblue;
+    width:600px;
+    height:400Px;
+    margin:auto;
+    margin-top:20px;
+    position:relative;
+    border:solid 2px red;
+    padding:25px;
+    line-height:50px;
+    font-size:2.5em;
+    border-radius:15px;
+
+}
+.button1{
+    margin-top:50px;
+    float:right;
+    margin-right:100px;
+    width:230px;
+    height:50px;
+    font-size:1.2em;
+    font-family:impact;
+    border-radius:15px;
+    transition:1s;
+}
+/* .button:hover{
+  transform:rotate(360deg);
+
+} */
