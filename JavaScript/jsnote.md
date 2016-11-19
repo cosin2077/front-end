@@ -188,14 +188,33 @@ toString()方法返回函数的源码。
 	1. <div id="div1" onclick="func()"\></div\>
 	2. document.getElementById("div").onclick=func()
 	3. document.getElementById("div").addEventListener("click",func(),false)
-	
-	
-		
-	
-	
-	
-	
-	
+	事件发生后，浏览器会生成一个对象，所有的时间都是这个对象飞的实例，或者说，继承了Event.prototype对象。
+    浮动
+	screenX:鼠标相对于屏幕左上角
+	screenY
+	(滚动条时候有差别，	)
+	clientX：鼠标相对于浏览器(滚到最上方才是起点)
+	clientY
+######IE事件
+attachEvent("onclick",func())
+detachEvent("onclick",func())
+######事件属性
+target属性  
+event.target //返回最初时间触发的节点
+myevent.addEventListener("click",function(e){
+e.preventDefault()//阻止默认行为
+},false)
+myevent.addEventListener("click",function(e){
+e.stopPropagation()//阻止冒泡事件
+},false)
+******
+#close all the counters
+	for(var i=0;i<99999;i++){clearInterval(i);}
+	undefined	
+******
+#####JSON
+JSON.stringify(json)//将JSON对象转换为字符串
+JSON.parse(string)//将字符串转换为JSON对象
 	
 	
 	
