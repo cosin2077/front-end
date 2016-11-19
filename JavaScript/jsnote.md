@@ -171,9 +171,26 @@ toString()方法返回函数的源码。
 	3. removeChild()移除子节点
 	4. replaceChild(new,old)替换子节点 
 #####document对象  
-
+	方法:
+	document.open()
+	document.write()
+	document.close()
+	document.getElementById()
+	document.getElementsByClassName()
+	document.getElementsByName()
+	document.getElementsByTagName()
+	createElement()	
+#####event监听函数  
+	1. HTML点击事件
+	2. DOM 0级事件
+	3. DOm 2级事件
+	例子:
+	1. <div id="div1" onclick="func()"\></div\>
+	2. document.getElementById("div").onclick=func()
+	3. document.getElementById("div").addEventListener("click",func(),false)
 	
 	
+		
 	
 	
 	
