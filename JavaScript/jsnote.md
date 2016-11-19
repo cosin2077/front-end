@@ -61,6 +61,78 @@ JavaScript数据类型：
 	可以
 	通过+""(空字符串)，使得变量结果为字符串  
 	通过-0，使得结果为数字  
+#####JavaScript对象
+如果读取了一个不存在的键，会返回undefined，而不是报错  
+点操作符和方括号不仅可以用来获取，还可以用来赋值  
+查看一个对象的所有属性可以使用Object.keys(obj)  
+delete删除某个属性，再读取就返回undefined，如果删除不存在属性，返回true  
+for…in 循环遍历对象所有属性  
+with 操作多个属性  
+#####JavaScript函数  
+	函数申明3中方法  	
+	1. function myfunc(){//function 命令
+	//函数内容
+	}
+	2. var myfunc=function(){//函数表达式
+	 //函数内容
+	 }
+	3. var myfunc=new Function()//Function 构造函数
+	//函数内容
+函数的几个属性  
+name属性，紧跟在function关键字后边的那个函数名  
+length属性，表示预期传入参数的个数，形参  
+toString()方法返回函数的源码。
+#####JavaScript数组  
+	Array对象是内置对象，也是构造函数  
+	Array.isArray(arr)//判断一个数组是否为数组  
+	Array实例的方法  
+	1. valueOf()返回数组本身
+	arr.valueOf()
+	2. toString()返回数组字符串形式
+	arr.toString()
+	3. push()末尾添加元素,返回的是添加后的数组的长度
+	arr.push("tail")
+	4. pop()末尾删除元素
+	arr.pop()
+	5. concat()合并数组
+	arr.concat(['tail'])
+	6. reverse()颠倒顺序
+	arr.reverse()
+	7. slice()切片，包含1不包含2
+	arr.slice(1,2)
+	8. splice()删增，从位置1开始，删除两个，增加三个
+	arr.splice(1,2,"plus1","plus2","plus3")
+	9. map()映射
+	10. reduce()递归
+#####JavaScrip字符串对象  
+1. length属性， 返回字符串的长度
+str.length
+2. charAt()返回字符串给定位置的字符，从0开始编号 
+str.charAt("f") 
+3. concat()方法 
+str.contcat("fast")
+4. substring()，字符串的slice
+str.substring(1,5)
+5. substr()，第一个参数是开始位置，第二个参数是字符串长度
+str.substr(1,4)
+6. slice()，类似substring，不过第一个参数大时候，不会自动调换参数  
+str.slice(4,1)//""
+7. indexOf()，字符串在另一个字符串中的位置  
+str.indexOf("o");
+8. lastIndexOf(),从后开始匹配,返回的也是正数的位置
+str.lastIndexOf("o")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
