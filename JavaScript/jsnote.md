@@ -37,4 +37,30 @@ _this is italic_
 ![alt this a pic](http://conanskyforce.tk/wp-content/uploads/2016/08/05-730x340.jpg)
 ***
 ####finished my markdown then let's begin javascript!
+****
+####SXT JavaScript tutorial  
+JavaScript数据类型：
+1. 字符串(string)
+2. 数字(number)
+3. 布尔(Boolean)
+4. 数组(Array)
+5. 对象(Object)
+6. 空(null)
+7. 未定义(undefined)
+8. 可以通过赋值为null清空变量
+
+字符串与数字相加，会首先转换为字符串
+字符串与数字相减，会首先转换为数字！
+
+	example:
+	var var1="a"+12;
+	var1//"a12"
+	var var2="12"-4;
+	var2//8
+	所以对于一个变量
+	可以
+	通过+""(空字符串)，使得变量结果为字符串  
+	通过-0，使得结果为数字  
+
+
 
