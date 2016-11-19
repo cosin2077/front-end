@@ -105,34 +105,80 @@ toString()方法返回函数的源码。
 	9. map()映射
 	10. reduce()递归
 #####JavaScrip字符串对象  
-1. length属性， 返回字符串的长度
-str.length
-2. charAt()返回字符串给定位置的字符，从0开始编号 
-str.charAt("f") 
-3. concat()方法 
-str.contcat("fast")
-4. substring()，字符串的slice
-str.substring(1,5)
-5. substr()，第一个参数是开始位置，第二个参数是字符串长度
-str.substr(1,4)
-6. slice()，类似substring，不过第一个参数大时候，不会自动调换参数  
-str.slice(4,1)//""
-7. indexOf()，字符串在另一个字符串中的位置  
-str.indexOf("o");
-8. lastIndexOf(),从后开始匹配,返回的也是正数的位置
-str.lastIndexOf("o")
+	1. length属性， 返回字符串的长度
+	str.length
+	2. charAt()返回字符串给定位置的字符，从0开始编号 
+	str.charAt("f") 
+	3. concat()方法 
+	str.contcat("fast")
+	4. substring()，字符串的slice
+	str.substring(1,5)
+	5. substr()，第一个参数是开始位置，第二个参数是字符串长度
+	str.substr(1,4)
+	6. slice()，类似substring，不过第一个参数大时候，不会自动调换参数  
+	str.slice(4,1)//""
+	7. indexOf()，字符串在另一个字符串中的位置  
+	str.indexOf("o");
+	8. lastIndexOf(),从后开始匹配,返回的也是正数的位置
+	str.lastIndexOf("o")
+	9. trim(),取出字符串两端的空格
+	10. toLowerCase()，将字符串转换为小写
+	11. toUpperCase()，将字符串转换为大写
+#####Date对象属性及方法
 
+	var date=new Date()
+	date.getDay()
+	date.getFullYear()
+	date.getMonth()
+	date.getDate()
+	date.getMinutes()
+	date.getHours()
+	date.getSeconds()
+	date.getMiliSeconds()
+#####Math对象的属性和方法
+	Math对象是内置对象，不是构造函数，不能生成实例。
+	Math.PI
+	Math.E
+	Math.round()
+	Math.abs()
+	Math.max()
+	Math.floor()向下取整
+	Math.ceil()向上取整
+	Math.pow()
+	Math.sqrt()平方根
+	Math.log()
+	Math.random()
+	Math.sin()
+#####DOM节点  
+	nodeName返回节点的名称  
+	nodeType返回节点的常数  
+	元素节点------1  
+	属性节点------2  
+	文本节点------3
+	document-----9
+    文档碎片------11
+######node属性  
+	childNodes()返回一个子节点的集合  
+	previousSibiling()向前兄弟节点  
+	nextSibiling()向后兄弟节点
+	firstNode()第一个子节点  
+	lastChild()最后一个子节点
+	以上都包裹Text节点和Comment节点(空格，文本，评论)
+######node方法
+	1. appendChild()接受一个节点作为参数，插入当前节点  
+	basic.appendChild(new)
+	2. hasChildNodes()是否具有某个子节点
+	3. removeChild()移除子节点
+	4. replaceChild(new,old)替换子节点 
+#####document对象  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
