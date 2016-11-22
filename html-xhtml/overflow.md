@@ -16,3 +16,4 @@
 	st=document.body.scrollTop||document.documentElement.scrollTop
 	滚动条会占用高度和宽度
 	text-overflow:ellipsis;overflow:hidden;文字溢出省略  
+#####锚点定位于overflow选项卡  
