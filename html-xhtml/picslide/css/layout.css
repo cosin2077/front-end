@@ -1,0 +1,26 @@
+*{
+margin:0px;
+padding:0px;}
+.slide1{
+    width:350px;
+    margin: 10px;
+    height: 450px;
+    background-color: lightblue;
+    overflow:scroll;
+}
+img{
+    width:350px;
+    height:450px;
+}
+ul{
+    overflow: hidden;
+}
+li{
+    margin: 2px;
+    list-style-type: none;
+    display:block ;
+    float:left;
+}
+p{
+    display:inline ;
+}
