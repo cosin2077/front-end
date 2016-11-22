@@ -40,10 +40,18 @@
     };
     function  change() {
         var num = Math.floor(Math.random() * 20) + 1;
-        quotecnt.innerHTML = "<div>"+obj[num]+"</div>";
+        quotecnt.innerHTML = obj[num];
+        data=quotecnt.innerHTML;
+        flag=true;
+        if(flag){
+        localStorage.setItem("1",data);flag=false;
+    }else{
+        localStorage.setItem("2",data);flag=true;
     }
-    var el = document.getElementsByClassName("button1")[0];
-    el.addEventListener("click", change(), false);
+    }
+    
+    // var el = document.getElementsByClassName("button1")[0];
+    // el.addEventListener("click", change(), false);
 
 
 </script>
