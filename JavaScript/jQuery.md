@@ -54,6 +54,11 @@ $(":reset")选取重置按钮
 $(":button")选取按钮  
 $(":file")选取上传域     
 $(":hidden")选取所有不可见元素    
+**应用jQuery改写实例**  
+$("#div").click(function(){
+//do something here
+})
+$("#div tbody tr:even").css("backgroundColor","#888")  
 
 
 
