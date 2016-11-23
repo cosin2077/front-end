@@ -47,11 +47,17 @@
     <div>点击</div>
 </form>
 <script>
-        $("#form1 input:enabled").val("这里变化了!");
-        $("#form1 input:disabled").val("这里也变化了!");
-        $("input:checked").length;
-        $("select:selected").text();
-        $("div:last").html($("select:selected").html());
+    $("div:last").click(
+            function() {
+                $("#form1 input:enabled").val("这里变化了!");
+                $("#form1 input:disabled").val("这里也变化了!");
+                $("input:checked").length;
+                $("select:selected").text();
+            //  $("input[type=checkbox]").checked="checked";
+                $("div:last").html($("select:selected").html());
+            }
+    )
+
 </script>
 
 
