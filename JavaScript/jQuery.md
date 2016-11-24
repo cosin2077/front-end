@@ -191,7 +191,12 @@ jQuery中用的是$(document).read()方法
 		})
 	})
 判断是否怎么样，用is()方法来完成  
-
+**阻止冒泡与默认事件**
+event.stopPropagation();阻止冒泡  
+event.preventDefault();阻止默认行为  
+return false 为两者综合  
+**事件对象的属性**  
+event.type//事件类型  
 
 
 
