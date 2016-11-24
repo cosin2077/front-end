@@ -9,9 +9,9 @@
 </head>
 <body>
 <form id="form1" action="#">
-	可用元素:<input name="add" value="可用文本框"><br/>
+	可用元素/用户名:<input name="add" value="可用文本框"><br/>
 	不可用元素:<input name="email" disabled="disabled" value="不可用文本"/><br/>
-	可用元素:<input name="che" value="可用文本框"/><br/>
+	可用元素/邮箱地址:<input name="che" value="可用文本框"/><br/>
     bukeyongyuansu<input name="name" disabled="disabled" value="不可用文本框"/><br/>
     <br/>
     多选框:<br/>
@@ -56,12 +56,37 @@
         $("#form1 input[name=add]").focus(function () {
             $(this).val("");
         }).blur(function(){
-            if($(this).val()=="hk"){
-                console.log("pass!");
-            }else{
-                console.log("failed!");
+            $("#form1").find(".span").remove();
+            if(this.value==""||this.value.length<6){
+                var errormsg="请输入至少6位";
+                $("#form1 input[name=add]").after('<span class="span">'+errormsg+'</span>');
             }
-        })
+            else{
+                var okmsg="输入正确";
+                $("#form1 input[name=add]").after('<span class="span">'+okmsg+'</span>');
+            }
+        }).keyup(function () {
+            $(this).triggerHandler("blur");
+        }).focus(function () {
+            $(this).triggerHandler("blur");
+        });
+        $("#form1 input[name=che]").focus(function () {
+            $(this).val("");
+        }).blur(function(){
+            $("#form1").find(".span").remove();
+            if(this.value==""||this.value.length<6){
+                var errormsg="请输入正确的email地址";
+                $("#form1 input[name=che]").after('<span class="span">'+errormsg+'</span>');
+            }
+            else{
+                var okmsg="输入正确";
+                $("#form1 input[name=che]").after('<span class="span">'+okmsg+'</span>');
+            }
+        }).keyup(function () {
+            $(this).triggerHandler("blur");
+        }).focus(function () {
+            $(this).triggerHandler("blur");
+        });
         $("div:contains('点击')").click(
                 function() {
                     $("#form1 input:enabled").val("这里变化了!");

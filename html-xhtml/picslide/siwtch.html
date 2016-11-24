@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Siwtch</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        ul{
+            border: solid 1px red;
+
+        }
+        li{
+            list-style-type: none;
+            margin-left:50px;
+            margin-top:20px;
+            float: left;
+            border:solid 1px red;
+            background-color: #7f7f7f;
+        }
+        .selected{
+            background-color: #99CCFF;
+        }
+        .tab_manu{
+        }
+        .tab_box{
+            clear:both;
+            border:solid 1px red;
+            width:200px;
+            height:100px;
+            margin-left:50px;
+            overflow: hidden;
+        }
+        .tab_box>div{
+            border:solid 1px bisque;
+            width:200px;
+            height:100px;
+        }
+    </style>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div class="tab">
+    <div class="tab_manu">
+        <ul>
+            <li class="selected">事实</li>
+            <li>体育</li>
+            <li>娱乐</li>
+        </ul>
+    </div>
+    <div class="tab_box">
+        <div>事实</div>
+        <div class="hide">体育</div>
+        <div class="hide">娱乐</div>
+    </div>
+</div>
+<script>
+    var $div_li=$("div.tab_manu ul li");
+    $div_li.click(function () {
+        $(this).addClass("selected").siblings().removeClass("selected");
+        var index=$div_li.index(this);
+        $("div.tab_box>div").eq(index).show().siblings().hide();
+    })
+
+
+
+</script>
+</body>
+</html>
