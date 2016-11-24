@@ -44,19 +44,52 @@
         <option>广州</option>
         <option>湖北</option>
     </select>
-    <div>点击</div>
+    <div>点击</div><hr/>
+    <div class="btn">全选</div>
+    <hr/>
+    <div class="btn2">全不选</div>
+    <hr/>
+    <div class="btn3">反选</div>
 </form>
 <script>
-    $("div:last").click(
-            function() {
-                $("#form1 input:enabled").val("这里变化了!");
-                $("#form1 input:disabled").val("这里也变化了!");
-                $("input:checked").length;
-                $("select:selected").text();
-            //  $("input[type=checkbox]").checked="checked";
-                $("div:last").html($("select:selected").html());
+    $(function () {
+        $("#form1 input[name=add]").focus(function () {
+            $(this).val("");
+        }).blur(function(){
+            if($(this).val()=="hk"){
+                console.log("pass!");
+            }else{
+                console.log("failed!");
             }
-    )
+        })
+        $("div:contains('点击')").click(
+                function() {
+                    $("#form1 input:enabled").val("这里变化了!");
+                    $("#form1 input:disabled").val("这里也变化了!");
+                    $("input:checked").length;
+                    $("select:selected").text();
+                    //  $("input[type=checkbox]").checked="checked";
+                    $("div:last").html($("select:selected").html());
+                }
+        );
+        $("div.btn").click(
+                function () {
+                    $("#form1 input").attr("checked",true);
+                }
+        );
+        $("div.btn2").click(
+                function () {
+                    $("#form1 input").attr("checked",false);
+                }
+        );
+        $("div.btn3").click(
+                function () {
+                    $("[type=checkbox]:checkbox").each(function () {
+                        $(this).attr("checked", !$(this).attr("checked"));
+                    });
+                })
+    })
+
 
 </script>
 

@@ -233,8 +233,14 @@ toggle(speed,callback)
 slideToggle(speed,callback)  
 fadeTo(speed,callback)  
 ###jQuery对表单表格的操作  
-
-
+$(function(){
+	$(":input").focus(fcuntion(){
+	$(this).addClass("focus");}).blur(function(){
+	$(this).removeClass("focus");
+});
+});
+当文本获得焦点时候，会有focus类的效果，当文本失去焦点时候，会失去效果  
+**复选框应用**
 
 
 
