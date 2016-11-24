@@ -197,12 +197,42 @@ event.preventDefault();阻止默认行为
 return false 为两者综合  
 **事件对象的属性**  
 event.type//事件类型  
+event.stopPropagation();阻止冒泡
+event.preventDefault();阻止默认事件
+event.target//事件目标
+event.pageX()与event.pageY()方法  
+获取光标相对于页面的x与y坐标  
+event.which();//点击了那个键
+**移除事件**  
+$("ping").unbind("click",myfunc)//删除绑定函数myfunc
+$("ping").unbind("click")//删除点击事件  
+$("ping").unbind()//解除绑定所有事件 
+**模拟操作**
+$("P").trigger("click");//模拟点击  
+$("P").click();//简写  
+$("P").trigger("Myfunc")//Myfunc为自定义的函数  
+###jQuery中的动画  
+**1.show()和hide()方法**隐藏显示
+$("P").hide(1000)  //1000毫秒  
+等价于  
+$("P").css("display","none")  
+**2.fadeIn()和fadeOut()方法**淡入淡出
+$("P").toggle(func1.func2);//切换func1和func2  
+**3.slideUp()和slideDown()方法**上拉下拉  
+**4.自定义动画方法animate()**
 
+	animate(params,speed,callback);  
+	$("P").animate({"color":"red","width":"400px","height":"300px"},2000,alert("finish"));  
+**停止动画**  
 
-
-
-
-
+	if(!$(element).is(":animated")){
+	//判断元素是否处于动画状态  
+	}
+**其他动画方法**  
+toggle(speed,callback)  
+slideToggle(speed,callback)  
+fadeTo(speed,callback)  
+###jQuery对表单表格的操作  
 
 
 
