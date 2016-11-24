@@ -2,8 +2,9 @@
 <head>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="css/layout.css">
-	<script src="js/slide.js"></script>
-	<title>Pics Slide</title>
+	<!--<script src="js/slide.js"></script>-->
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <title>Pics Slide</title>
 </head>
 <body>
 	<div class="slide1">
@@ -25,6 +26,30 @@
         </li>
 	</ul>
 	</div>
-	
+	<script>
+        $(function () {
+            var x=10;
+            var y=20;
+            $("li").mouseover(function (e) {
+                this.Mytitle = this.title;
+                this.title = "";
+                var imgTitle = this.Title?"<br/>"+this.Title:"";
+                var tool="<div id='tool'><img src='"+"img/2.jpg"+"' alt='产品预览图'/></div>";
+                $("li").append(tool);
+                $("#tool").css({
+                    "top":e.pageY+y+"px";
+                    "left":e.pageX+x+"px";
+                }).show("fast");
+            }).mouseout(function () {
+                this.title = this.myTitle;
+                $("tool").remove();
+            }).mousemove(function (e) {
+                $("tool").css({
+                    "top":(e.pageY+y)+"px";
+                    "left":(e.pageX+x)+"px";
+                });
+            });
+        })
+    </script>
 </body>
 </html>

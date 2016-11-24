@@ -59,6 +59,138 @@ $("#div").click(function(){
 //do something here
 })
 $("#div tbody tr:even").css("backgroundColor","#888")  
+##jQuery的DOM操作  
+DOM一般分为三类，DOM Core，HTML-DOM,CSS-DOM
+1.DOM Core   
+var tag=document.getElementsByTagName("tag");获取对象  
+tag.getAttribute("src");获取元素的src属性  
+2.HTML-DOM  
+element.src;获取某元素的src属性  
+3.CSS-DOM  
+element.style.color="red";
+###jQUery中
+1.查找元素节点
+$(".div>ul>li:nth-child(2n+1)").text();获取或设置元素文本节点    
+2.查找属性节点  
+$("div>img").attr("src");获取div子元素img中的src  
+或者可以用$("div>img")[i].src转换成DOM对象来获取src  
+####创建节点  
+var myli=$("<li little="do you know">你好</li>");
+$("ul").append(myli);
+$("p").append("<b>Hello</b>");   
+$("<b>Hello</b>").appendTo("p");   
+$("p").prepend("<b>Hello</b>");  
+$("<b>Hello</b>").prependTo("p");   
+$("p").after("<b>Hello</b>");   
+$("<b>Hello</b>").insertAfer("p");  
+$("p").before("<b>Hello</b>"); 
+$("<b>Hello</b>").insertBefore("p");
+####删除节点
+$("ul li:eq(1)").remove();删除第二个<li>节点   
+$("*").empty();清楚节点  
+####复制节点  
+$("ul li").click(function(){
+	$(this).clone(true).appendTo("ul");})  
+$("P").replaceWith("<strong>你瞅啥</strong>");  
+$("<strong>你瞅啥</strong>").replaceAll("p");  
+####包裹节点  
+$("*").wrap("<b></b>");每个元素单独包裹  
+$("*").wrapAll("<b></b>");一起包裹  
+$("*").wrapInner("<b></b>");内层包裹  
+###属性操作  
+attr()获取或设置属性，removeAttr()删除属性  
+$("*").attr({"title":"www.xxx.com","hidden":"hidden"})设置多个  
+$("*").attr("title","block")设置单个  
+$("*").attr("title")获取  
+$("P").removeAttr("name")删除属性  
+###样式操作  
+$("*").attr("class","abc");改变单个class  
+$("*").addClass("abcd");追加样式  
+####移除样式  
+$("*").removeClass("abcd sd")移除abcd,sd类  
+$("*").removeClass()删除所有class  
+####切换样式  
+$("p").toggleClass("another");
+####判断是否含有某个样式  
+$("p").hasClass("abca");判断是否含有样式abcd  
+等价于$("P").is("abcd");  
+###获取，设置html，文本和值   
+$("p").html()获取  
+$("p").html(<b\>你知不知道真相</b\>)设置  
+$("P").text()获取文本  
+$("p").text("Hello")设置文本    
+$("#address").focus(function(){
+var text_value=$(this).val();//获取地址文本框的值  
+if(text_value=="请输入邮箱地址"){
+	$(this).val("");
+}
+});
+$("#address").blur(function(){
+	var txt_value = $(this).val();
+	if(txt_value==""){
+	$(this).val("请输入邮箱地址");
+}
+})
+获得焦点时候，没有placeholder，失去焦点时，有placeholder  
+####遍历节点  
+**1.childern()方法**
+获取匹配元素的子元素集合，仅子元素，而不包含后代元素  
+**2.next()方法**    
+匹配后边紧邻的同辈元素  
+**3.prev()方法**  
+匹配前边紧邻同辈元素  
+**4.sibilings()方法**  
+匹配前后所有同辈元素  
+**5.closest()**  
+匹配最近元素  
+####CSS-DOM操作  
+$("p").css("color");获取
+$("p").css("color","red");设置单个
+$("p").css({"color":"red","fontSize":"14px");设置多个  
+$("p").css("opacity","0.4");设置透明度  
+**1.offset()方法**  获取元素在当前视窗相对便宜，返回top和left  
+var ofs=$("p").offset();获取offset
+ofs.left;获取左偏移  
+ofs.top; 获取右偏移
+**2.position()方法**获取相对最近一个position为relative或absolute的父节点的相对偏移  
+var posit=$("p").position();获取position
+posit.left;获取左偏移  
+posit.top; 获取右偏移 
+**3.scrollTop()和scrollLeft()**获取滚动条距顶端，距左侧的距离  
+var $p=$("p");
+$p.scrollTop();滚动条距离顶端距离
+$p.scrollLeft();滚动条距离右端距离，设定参数则为设置滚动距离     
+***
+##jQuery中的事件和动画  
+**1.加载DOM**  
+JavaScript中用的是window.onload()方法   
+jQuery中用的是$(document).read()方法   
+
+	$(document).ready(function(){
+	//do something here  
+	})
+	$().ready(function(){
+	//do something here  
+	})
+	$(function(){//最简单的做法
+	//do something here  
+	})  
+	
+	$(window).load(function(){  
+	//do something here  
+	})  
+	等价于window.onload()=function(){  
+	// 编写代码   
+	}  
+**事件绑定bind()**  
+
+	$(function(){
+		$("div p li").bind("click",function(){
+		$(this).next("li").show();
+	
+		})
+	})
+判断是否怎么样，用is()方法来完成  
 
 
 
@@ -72,4 +204,18 @@ $("#div tbody tr:even").css("backgroundColor","#888")
 
 
 
-      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
