@@ -125,4 +125,18 @@ css
 			color: blue;
 			text-decoration: underline;
 		}
+其中&表示这个元素或这个元素的伪类，没有则表示后代元素，下面例子  
+less:
 
+	#header {
+				&.fl{
+					float: left;
+				}
+				.mln {
+					margin-left: 0;
+				}
+			}
+css:
+
+	#header.fl{float: left;}
+	#header .mln {margin-left: 0;}//注意空格
