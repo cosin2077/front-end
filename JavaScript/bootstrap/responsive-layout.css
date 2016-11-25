@@ -1,0 +1,16 @@
+/*大屏幕*/
+@media(min-width:1200px){
+
+}
+/*平板到常规屏幕*/
+@media (min-width:768px) and (max-width:979px) {
+
+}
+/*手机横屏到平板竖屏*/
+@media (max-width:767px) {
+
+}
+/*手机屏幕及更小屏幕*/
+@media (max-width:480px) {
+
+}
