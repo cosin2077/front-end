@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="imooc.css" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+	
+	<h3>获取css属性</h3>
+    <div class="first">获取颜色</div>
+    <p></p>
+    <div class="second">获取文字尺寸</div>
+    <p></p>
+    <div class="third">获取宽高尺寸</div>
+	<p></p>
+
+	<script type="text/javascript">
+		//background-color:blue; => rgb(0, 0, 255)
+		//颜色都会转化成统一的rgb标示
+		$('p:eq(0)').text( $('.first').css("background-color") ) 
+		
+    </script>
+
+	<script type="text/javascript">
+		//字体大小都会转化成统px大小 em=>px
+		$('p:eq(1)').text( $('.first').css("font-size") )
+    </script>
+
+	<script type="text/javascript">
+		//获取尺寸，传入CSS属性组成的一个数组
+		//{width: "60px", height: "60px"}	
+		var value = $('.first').css(['width','height']);
+		//因为获取的是一个对象，取到对应的值
+		$('p:eq(2)').text( 'widht:' + value.width +  ' height:' +value.height )
+    </script>
+
+	</br></br></br>
+	<h3>设置css属性</h3>
+	<div class="fourth">设置颜色设置文字尺寸</div>
+    <div class="fifth">设置颜色设置文字尺寸</div>
+    <div class="sixth">通过回调设置新的值</div>
+    <div class="seventh">同时设置多少个样式</div>
+
+	<script type="text/javascript">
+		//多种写法设置颜色
+		$('.fourth').css("background-color",'red');
+		$('.fifth').css('backgroundColor','yellow');
+    </script>
+
+	<script type="text/javascript">
+		//多种写法设置字体大小
+		$('.fourth').css('font-size','18px'); 
+		$('.fifth').css('fontSize',"1.3em");
+    </script>
+
+
+	<script type="text/javascript">
+		//获取到指定元素的宽度，在回调返回宽度值
+		//通过处理这个value，重新设置新的宽度
+		$('.sixth').css('width',function(index,value){
+            value=value.split('');
+            // 
+            value1=value[0]+value[1]-0;
+            value1=value1+50;
+            px=value[2]+''+value[3];
+            final=value1+px;
+            return final;
+            });
+    </script>
+ 
+	<script type="text/javascript">
+		//合并设置,通过对象传设置多个样式
+		$('.seventh').css({
+    	 'font-size':'15px',
+         "background-color":"#faa",
+         "border":"2px solid"
+		})
+    </script>
+
+
+</body>
+
+</html>
