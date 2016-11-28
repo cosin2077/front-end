@@ -54,16 +54,56 @@ this 当前迭代元素
 })//jQuery的for循环
 
 ###jQuery事件篇
+mousemove事件中
+.mousemove(function(e){
+e.pageX//相对于页面的x距离
+e.pageY//相对于页面的y距离
+})
 
+mouseenter()//避免了mouseover的冒泡问题
+mouseleave()//避免了mouseout的冒泡问题
 
+focusin()//聚焦
+focusout()//失去焦点
+！相比于
+focus()//冒泡不会捕获
+blur()//冒泡不会捕获
 
+change()的时候
+change(function(e){
+e.target.value;//输入框的值
+})
 
+select()//被选中的时候执行
 
+on()//绑定事件  
+on("click dbclick mouseenter keyup",function(e){
+e.target//当前触发事件的元素
+e.type//事件类型
+e.pageX//相对于页面x坐标
+e.pageY//相对于页面y坐标
+e.preventDefault()//阻止默认事件
+e.stopPropagation()//阻止冒泡
+e.which//鼠标点击的是哪个按键
 
+})
 
+off()//卸载事件
+off("mousedown")//卸载mousedown事件
+off()//下载所有事件
 
+.animate({
+//执行动画
+})
 
+.stop()//停止第一个动画
+.stop(true)//停止全部
+.stop(true,true)//停止全部并跳至最后一画
 
+$.inArray(5,[1,2,3,4,5,6,7]) //返回对应的索引：4
+$.inArray()//元素是否在数组中
+
+$.trim($("p").val())//取出两端的空白字符
 
 
 
