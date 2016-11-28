@@ -43,7 +43,21 @@ a.wrapInner(b)//b在a内
 a.next()//a的下一个
 a.prev()//a的上一个
 
-a.siblings()//a的所有同辈元素
+a.siblings()//a的所有同辈元素，不包括自身
+
+a.add("p")//同时选择a和p！
+
+each(function(index,element){
+index 索引
+element 对应节点
+this 当前迭代元素
+})//jQuery的for循环
+
+###jQuery事件篇
+
+
+
+
 
 
 
