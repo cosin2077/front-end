@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+    #marquee {
+        position: relative;
+        height: 300px;
+        width: 200px;
+        overflow: hidden;
+        border: 10px solid #369;
+        padding:0;
+        margin:0;
+    }
+    #marquee img {
+        display: block;
+    }
+    #marquee dd {
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+</head>
+<body>
+	
+<dl id="marquee">
+    <dt>
+        <img src="http://images.cnblogs.com/cnblogs_com/rubylouvre/199042/o_s017.jpg" alt="无缝滚动" />
+        <img src="http://images.cnblogs.com/cnblogs_com/rubylouvre/199042/o_s018.jpg" alt="无缝滚动" />
+        <img src="http://images.cnblogs.com/cnblogs_com/rubylouvre/199042/o_s019.jpg" alt="无缝滚动" />
+        <img src="http://images.cnblogs.com/cnblogs_com/rubylouvre/199042/o_s020.jpg" alt="无缝滚动" />
+        <img src="http://images.cnblogs.com/cnblogs_com/rubylouvre/199042/o_s021.jpg" alt="无缝滚动" />
+        <img src="http://images.cnblogs.com/cnblogs_com/rubylouvre/199042/o_s022.jpg" alt="无缝滚动" />
+        <img src="http://images.cnblogs.com/cnblogs_com/rubylouvre/199042/o_s023.jpg" alt="无缝滚动" />
+    </dt>
+     <dd>
+    </dd> 
+</dl>
+<script type="text/javascript">
+    var Marquee = function (id) {
+        var container = document.getElementById(id),
+  original = container.getElementsByTagName("dt")[0],
+  clone = container.getElementsByTagName("dd")[0],
+  speed = arguments[1] || 10;
+        clone.innerHTML = original.innerHTML;
+
+        alert(container.scrollTop);
+        var rolling = function () {
+            if (container.scrollTop == clone.offsetTop) { 
+
+                container.scrollTop = 0;
+            } else {
+                container.scrollTop++;
+            }
+        }
+        var timer = setInterval(rolling, speed)
+        container.onmouseover = function () { clearInterval(timer) }
+        container.onmouseout = function () { timer = setInterval(rolling, speed) }
+    }
+    window.onload = function () {
+        Marquee("marquee");
+    }
+</script>
+</body>
+</html>
