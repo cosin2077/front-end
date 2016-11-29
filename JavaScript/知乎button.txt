@@ -1,0 +1,23 @@
+
+深入浅出统计学
+深入浅出SQL
+R语言实战
+数据挖掘导论
+利用python进行数据分析
+实用数据分析
+
+
+
+
+
+
+知乎button
+加载更多: .zg-btn-white .zu-button-more
+$("a:contains('更多')").trigger('click')
+$("a:contains('更多')").click(alert("Hello"))
+$("a:contains('更多')").on("click",alert("Hello"))
+显示全部: .toggle-expand
+$(".toggle-expand").trigger('click')
+
+收起: .item-collapse
+$(".item-collapse").trigger('click')
