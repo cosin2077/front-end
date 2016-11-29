@@ -9,7 +9,7 @@ document.body==window.document.boy
 window.location和document.location
 window.location===document.location
 
-
+**********
 window宽高
 window.innerWidth(视窗内宽度，不包括侧边滚动条)
 window.innerHeight(视窗内高度，不包括浏览器的菜单栏，地址栏等)
@@ -31,17 +31,62 @@ var h=document.documentElement.clientHeight||document.body.clientHeight；
 
 screen都兼容
 
+**********
+document宽高
+1.与client相关宽高
+2.与offset相关宽高
+3.与scroll相关宽高
 
+1.client相关
+document.body.clientWidth//元素可视部分宽度padding+content，有滚动条则减去滚动条宽高
+document.body.clientHeight//元素可视部分高度padding+content，有滚动条则减去滚动条宽高
+①无padding
+clientWidth=style.width
+②有padding无滚动
+clientWidth=style.width+style.padding*2
+③有padding有滚动
+clientWidth=style.width+style.padding*2-滚动轴宽度(17px？)
 
+document.body.clientLeft//读取元素border宽度
+document.body.clientTop//读取元素border高度
 
+2.offset相关(偏移)
 
+document.body.offsetWidth//元素可视部分宽度border+padding+content
+document.body.offsetHeight//元素可视部分高度border+padding+content
+document.body.offsetLeft//没有定位offsetParent为body，有定位为定位元素offsetParent的margin-left+border-left+padding-left
+document.body.offsetTop//没有定位offsetParent为body，有定位为定位元素offsetParent的margin-top+border-top+padding-top.
 
+3.scroll相关
 
+document.body.scrollWidth//
+document.body.scrollHeight//
+①无滚动轴时：
+scrolWidth==clientWidth=style.width+style.padding*2
+②有滚动轴时：
+scrollWidth==实际内容的宽度+padding*2
+scrollHeight==实际内容的高度+padding*2
 
+document.body.scrollLeft//滚动偏移左距离
+document.body.scrollTop//滚动偏移上距离
 
+document和document.documentElement(父)document.body(子)
 
+document相关宽高兼容性问题
 
+*****
+Event对象中五种坐标
+1.clientX和clientY//相对于浏览器(可视区左上角0,0)的坐标
+2.screenX和screenY//相对于设备屏幕左上角(0,0)的坐标
+3.offsetX和offsetY//相对于时间源左上角(0,0)的坐标
+4.pageX和pageY//相对于整个网页左上角(0,0)的坐标(针对滚动，包括滚动长度)
+5.X和Y//相对于用CSS动态定位的最内层包容元素，google中与clientX相等，ie中不设置position，业余clintXY相等
 
+1.
+2.
+3.
+4.
+5.
 
 
 
