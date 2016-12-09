@@ -63,8 +63,30 @@ k.mkdir dir2 //创建dir2文件夹
 file filename
 9.cat 查看
 9.less分页查看,PgUp,PgDown翻页
-
-
+###Linux用户群组
+1.安全性模型由user,Group构成,每个文件都有owner,group,others对应的读写执行权限
+2.每个用户都有唯一的User ID,储存在/etc/passwd中,储存用户名和home目录等信息,/etc/shadow.
+3.每个User都有一个home目录
+4.root用户拥有至高无上的权限
+5.每个用户都属于一个Group,拥有唯一的标识符gid
+6.group信息储存于/etc/group中,每个user之三存在于与自己同名的group中，user也可以加入其它的group中
+7.同一个group中成员可以共享其它成员的文件
+8.read,write,execute,-,权限
+9.d[目录](r[read]w[write]x[execute])(r[read]--)(r[read]--)//owner--rwx,group--r--,others--r--
+10.chmod[-R] 777/744/754 file //修改文件权限 -R表示递归，子文件，文件夹同时修改权限
+11.useradd username//添加用户
+12.usermod username//看产用户的一些信息
+13.userdel -r username//删除用户(及家目录)
+14.passwd//修改密码
+15.root模式下 sudo passwd username//强行设置简单密码
+16.用户信息的检查
+17.finger -s username
+18.id whoami who&w(w) users groups
+19.groupadd group//简历用户组
+20.groupmod group//修改用户组
+21.groupdel group//删除用户组
+22.默认权限的控制,内核级别,文件默认权限是666,目录默认级别是777,通过umask来组织一些儿权限从而产生最终 的权限,非管理员的umask为0002,管理员的权限为0022
+###vi编辑器
 
 
 
