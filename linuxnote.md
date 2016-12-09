@@ -86,6 +86,41 @@ file filename
 20.groupmod group//修改用户组
 21.groupdel group//删除用户组
 22.默认权限的控制,内核级别,文件默认权限是666,目录默认级别是777,通过umask来组织一些儿权限从而产生最终 的权限,非管理员的umask为0002,管理员的权限为0022
+
+//conan 2010,sky 2010
+####解压操作
+1.gzip
+gzip -c list//将list内容输出到屏幕上
+gzip -d list.gz//解压缩list.gz
+gzip -t list.gz//检查文件是否损坏
+gzip -v list//现实和源文件相比的压缩比
+gzip -c list>list.gz//不删除源文件的情况下压缩list
+2.bzip2
+bzip2
+bzip2 -c list//将list内容输出到屏幕上
+bzip2 -d list.bz2//解压缩list.bz2
+bzip2 -k list//保留源文件<===>bzip2 -c list>list.bz2
+
+####打包操作
+1.tar 文件打包
+-c 建立打包
+-t 查看打包的文件都有哪些文件名
+-v 打包解包过程可视化
+-f 紧跟文件名
+-j bzip2方式打包解包
+-z gzip方式打包解包
+tar -cf 123.tar 123//将123目录打包成123.tar,f后边紧跟参数名
+tar -cvf 13.tar 123//显示处理文件
+tar -xvf 123.tar -c botof//将123.tar解压至botof
+tar -jcvf 123.tar.bz2 123//可视化压缩文件123为123.tar.bz2
+tar -jxvf 123.tar.bz2 -c 143//bzip2解压123.tar.bz2至143文件夹
+
+
+
+
+
+
+
 ###vi编辑器
 
 
