@@ -32,6 +32,40 @@ c.加密且压缩
 5)./etc,系统的配置文件
 6)./tmp,临时文件
 7)./boot,系统内核和开机必要文件
+8)./dev,系统所有的设备文件
+9)./usr,unix system resource,保存程序的相关文件
+10)./lost+found,不正常关机丢失文件
+11)./var,/srv
+12)./proc
+13)./lib,/usr/lib,/usr/locat/lib
+7.文件操作
+1).ls操作
+a.ls
+b.ls /
+c.ls -a 
+d.ls -l
+e.ls -ld
+f.ls -h
+g.ll
+2).文件和目录
+a.cd pwd
+b.cd..,cd ~,cd -
+c.cp file destination
+d.cp file1 file2 destination//将file1,file2,复制到destination
+e.mv file dir//将file移动到dir
+f.mv file1 file2//将file1,改名为file2
+g.rm file/dir //删除文件/目录
+h.rm -r file/dir //递归删除
+i.rm -rf file/dir //递归，强制删除
+j.touch abx.123//简历abx.123文件
+k.mkdir dir2 //创建dir2文件夹
+8.确定文件的格式
+file filename
+9.cat 查看
+9.less分页查看,PgUp,PgDown翻页
+
+
+
 
 
 
