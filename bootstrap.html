@@ -22,6 +22,7 @@
 		  border:1px dashed #fff;
 		  color: #fff;
 		}
+		
 	</style>
 </head>
 <body>
@@ -340,23 +341,188 @@
 		<div class="progress-bar progress-bar-danger" style="width:80%"></div>
 	</div>	
 	<div class="progress">
-		<div class="progress-bar progress-bar-success progress-bar-striped active" style="width:20%"></div>
-		<div class="progress-bar progress-bar-info active" style="width:20%"></div>
-		<div class="progress-bar progress-bar-danger progress-bar-striped active" style="width:20%"></div>
-		<div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:20%"></div>
+		<div class="progress-bar progress-bar-success progress-bar-striped active" style="width:15%">115%</div>
+		<div class="progress-bar progress-bar-info active" style="width:20%">20%</div>
+		<div class="progress-bar progress-bar-danger progress-bar-striped active" style="width:25%">25%</div>
+		<div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:30%">30%</div>
 	</div>
+	媒体对象的嵌套
+	<div class="media">
+	<a class="pull-left" href="#"><img class="media-object" src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0" alt="">
+	</a>
+	<div class="media-body">
+		<h4 class="media-headding">我是cssky</h4>
+		<div>我是新手柯凯，多多指教</div>
+		<div class="media">
+			<a class="pull-left" href=""><img class="media-object" src="http://a.disquscdn.com/uploads/users/3740/2069/avatar92.jpg?1406972031" alt="">
+			</a>
+			<div class="main-body">
+			<h4 class="media-headding">我是评论区中的二级标题</h4>
+			<div>评论区中的内容就是我啦!</div>
+			</div>
+		</div>
+		<div class="media">
+			<a class="pull-left" href=""><img class="media-object" src="http://a.disquscdn.com/uploads/users/3740/2069/avatar92.jpg?1406972031" alt="">
+			</a>
+			<div class="main-body">
+			<h4 class="media-headding">我是评论区中的二级标题</h4>
+			<div>评论区中的内容就是我啦!</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<ul class="media-list">
+		<li class="media">
+			<a class="pull-left" href="#">
+				<img class="media-object" src="http://a.disquscdn.com/uploads/users/3740/2069/avatar92.jpg?1406972031" alt="">
+			</a>
+			<div class="media-body">
+				<h4 class="media-headding">小标题</h4>
+				<div>内容</div>
+			</div>
+		</li>
+		<li class="media"><a class="pull-left" href="#">
+				<img class="media-object" src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0" alt="">
+			</a>
+			<div class="media-body">
+				<h4 class="media-headding">小标题</h4>
+				<div>内容</div>
+			</div></li>
+		<li class="media"><a class="pull-left" href="#">
+				<img class="media-object" src="http://tp4.sinaimg.cn/1167075935/50/22838101204/1" alt="">
+			</a>
+			<div class="media-body">
+				<h4 class="media-headding">小标题</h4>
+				<div>内容</div>
+			</div></li>
+	</ul>
+	<ul class="list-group">
+		<li class="list-group-item">我是列表中的内容<span class="badge">12</span></li>
+		<li class="list-group-item">我是列表中的内容<span class="badge">14</span></li>
+		<li class="list-group-item"><a href="#">我是列表中的内容</a><span class="badge">42</span></li>
+		<li class="list-group-item">我是列表中的内容<span class="badge">152</span></li>
+		<li class="list-group-item"><a href="#">我是列表中的内容</a><span class="badge">72</span></li>
+	</ul>
+	<div class="list-group">
+		<a class="list-group-item list-group-item-info">我是列表中的内容<span class="badge">12</span></a>
+		<a class="list-group-item list-group-item-danger">我是列表中的内容<span class="badge">14</span></a>
+		<a class="list-group-item list-group-item-warning">我是列表中的内容<span class="badge">42</span></a>
+		<a class="list-group-item list-group-item-success">我是列表中的内容<span class="badge">152</span></a>
+		<a class="list-group-item list-group-item-active">我是列表中的内容<span class="badge">72</span></a>
+	</div>
+	<div class="list-group">
+		<a href="##" class="list-group-item disabled">
+			<h4 class="list-group-item-headding">Canvas绘图详解<span class="badge">12</span></h4>
+			<p class="list-group-item-text">本课程为Canvas系列课程第二课。通过对《绚丽的倒计时效果的学习》，在大家对Canvas绘图有一定了解的基础上......</p>
+		</a>
+		<a href="##" class="list-group-item list-group-item-info">
+			<h4 class="list-group-item-headding">玩转Bootstrap<span class="badge">30</span></h4>
+			<p class="list-group-item-text">Bootstrap框架是一个非常受欢迎的前端开发框架，他能让后端程序员和不懂设计的前端人员制作出优美的Web页面或Web应用程序。</p>
+		</a>
+		<a href="##" class="list-group-item active">
+			<h4 class="list-group-item-headding">基于Bootstrap的网页开发<span class="badge">5</span></h4>
+			<p class="list-group-item-text">Bootstrap是用于前端开发的工具包，提供了优雅的HTML和CSS规范，并基于jQuery开发了丰富的Web组件。课程介绍了Bootstrap框架的基本知识，并基于Bootstrap框架...</p>
+		</a>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">我是面板的头</div>
+		<div class="panel-body">我就是一个基础面板</div>
+		<div class="panel-footer">我是面板的脚</div>
+	</div>
+	<div class="row">
+	<div class="panel panel-default col-lg-2 col-sm-6 col-md-4">
+		<div class="panel-heading">我是页眉</div>
+		<div class="panel-body">详细讲解了选择器、边框、背景、文本、颜色、盒模型、伸缩布局盒模型、多列布局、渐变、过渡、动画、媒体、响应Web设计、Web字体等主题下涵盖的所有CSS3新特性</div>
+		<div class="panel-footer">我是页脚</div>
+	</div>
+	<div class="panel panel-primary col-lg-2 col-sm-6 col-md-4">
+		<div class="panel-heading">我是页眉</div>
+		<div class="panel-body">详细讲解了选择器、边框、背景、文本、颜色、盒模型、伸缩布局盒模型、多列布局、渐变、过渡、动画、媒体、响应Web设计、Web字体等主题下涵盖的所有CSS3新特性</div>
+		<div class="panel-footer">我是页脚</div>
+	</div>
+	<div class="panel panel-info col-lg-2 col-sm-6 col-md-4">
+		<div class="panel-heading">我是页眉</div>
+		<div class="panel-body">详细讲解了选择器、边框、背景、文本、颜色、盒模型、伸缩布局盒模型、多列布局、渐变、过渡、动画、媒体、响应Web设计、Web字体等主题下涵盖的所有CSS3新特性</div>
+		<div class="panel-footer">我是页脚</div>
+	</div>
+	<div class="panel panel-danger col-lg-2 col-sm-6 col-md-4">
+		<div class="panel-heading">我是页眉</div>
+		<div class="panel-body">详细讲解了选择器、边框、背景、文本、颜色、盒模型、伸缩布局盒模型、多列布局、渐变、过渡、动画、媒体、响应Web设计、Web字体等主题下涵盖的所有CSS3新特性</div>
+		<div class="panel-footer">我是页脚</div>
+	</div>
+	<div class="panel panel-warning col-lg-2 col-sm-6 col-md-4">
+		<div class="panel-heading">我是页眉</div>
+		<div class="panel-body">详细讲解了选择器、边框、背景、文本、颜色、盒模型、伸缩布局盒模型、多列布局、渐变、过渡、动画、媒体、响应Web设计、Web字体等主题下涵盖的所有CSS3新特性
+		<ul class="list-group">
+			<li class="list-group-item">列表1</li>
+			<li class="list-group-item">列表2</li>
+			<li class="list-group-item">列表3</li>
+		</ul></div>
+		<div class="panel-footer">我是页脚</div>
+	</div>
+	<div class="panel panel-success col-lg-2 col-sm-6 col-md-4">
+		<div class="panel-heading">我是页眉</div>
+		<div class="panel-body">详细讲解了选择器、边框、背景、文本、颜色、盒模型、伸缩布局盒模型、多列布局、渐变、过渡、动画、媒体、响应Web设计、Web字体等主题下涵盖的所有CSS3新特性</div>
+		<ul class="list-group">
+			<li class="list-group-item">列表1</li>
+			<li class="list-group-item">列表2</li>
+			<li class="list-group-item">列表3</li>
+		</ul>
+		<div class="panel-footer">我是页脚</div>
+	</div>
+	</div>
+	************************************************************************
+	<!--
+	<button class="btn btn-primary" type="button">点击我</button>
+	<div class="modal fade" id="mymodal">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	        	<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">模态弹出窗标题</h4>
+				</div>
+				<div class="modal-body">
+					<p>模态弹出窗主体内容</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary">保存</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-transition.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-modal.js"></script>
+	<script>
+	  $(function(){
+	    $(".btn").click(function(){
+	      $("#mymodal").modal("toggle");
+	    });
+	  });
+	</script>		
+************************************************************************
+<h2>Bootstrap中的JavaScript插件!</h2>
+<p>1.Modals弹出框</p>
+<button class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">大的模态弹窗</button>
 
-
-
-
-
-
-
-
-
-
-
-
+<div data-keyboard="true" data-backdrop="static" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mylgmodal" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="=close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">模拟弹出窗口标题</h4>
+			</div>
+			<div class="modal-body">
+				<p>模拟弹出窗口主体内容</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>	
+				<button type="button" class="btn btn-primary">保存</button>			
+			</div> 
+		</div>
+	</div>
+</div>
 
 
 
