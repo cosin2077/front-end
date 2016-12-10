@@ -12,6 +12,17 @@
     <![endif]-->
 
 	<title>Document</title>
+	<style>
+		.rowinrow [class *= col-]{
+		  background-color: #eee;
+		  border: 1px solid #ccc;
+		}
+		.rowinrow [class *= col-] [class *= col-] {
+		  background-color: #f36;
+		  border:1px dashed #fff;
+		  color: #fff;
+		}
+	</style>
 </head>
 <body>
 	<h2>我是h2标题<small>我是小标题</small></h2>
@@ -90,8 +101,8 @@
 	<button class="btn btn-warning">我是按钮</button>
 	<button class="btn btn-danger">我是按钮</button>
 	<button class="btn btn-inverse">我是按钮</button>
-	<button class="btn btn-sm">我是按钮</button>
-	<button class="btn btn-lg">我是按钮</button>
+	<button class="btn btn-sm btn-default">我是按钮</button>
+	<button class="btn btn-lg btn-block">我是按钮</button>
 	<div class="container">
 	<div class="col-sm-6">
 		<div class="form-group has-warning has-feedback">
@@ -110,15 +121,102 @@
 		</div>
 	</div>
 	</div>
+	<span class="glyphicon glyphicon-search"></span>
+	<span class="glyphicon glyphicon-asterisk"></span>
+	<span class="glyphicon glyphicon-plus"></span>
+	<span class="glyphicon glyphicon-cloud"></span>
+    <span class="glyphicon glyphicon-heart"></span>
 
-
-
-
-
-
-
-
-
+	<div class="container">
+	  <div class="row">
+	    <div class="col-md-4">.col-md-4</div>
+	    <div class="col-md-8">.col-md-8</div>
+	  </div>
+	  <div class="row">
+	    <div class="col-md-4">.col-md-4</div>
+	    <div class="col-md-4">.col-md-4</div>
+	    <div class="col-md-4">.col-md-4</div>
+	  </div>
+	  <div class="row">
+	    <div class="col-md-3">.col-md-3</div>
+	    <div class="col-md-6">.col-md-6</div>
+	    <div class="col-md-3">.col-md-3</div>
+	  </div>
+	</div>
+	<div class="container">
+	  <div class="row">
+	    <div class="col-xs-4">.col-md-4</div>
+	    <div class="col-xs-8">.col-md-8</div>
+	  </div>
+	  <div class="row">
+	    <div class="col-xs-4">.col-md-4</div>
+	    <div class="col-xs-4">.col-md-4</div>
+	    <div class="col-xs-4">.col-md-4</div>
+	  </div>
+	  <div class="row">
+	    <div class="col-xs-3">.col-md-3</div>
+	    <div class="col-xs-6">.col-md-6</div>
+	    <div class="col-xs-3">.col-md-3</div>
+	    <div class="btn btn-primary col-xs-2 col-xs-offset-2">按钮1</div>
+	    <div class="btn btn-primary col-xs-2 col-xs-offset-4">按钮2</div>
+	  </div>
+	</div>
+	<hr/>
+	<div class="container rowinrow">
+	    <div class="row">
+	    	<div class="col-md-8">8列
+	       		<div class="row">
+		    		<div class="col-md-8">8列
+		    		</div>
+		    		<div class="col-md-4">4列
+		    		</div>    
+		    	</div>
+		    </div>
+		    <div class="col-md-4">4列
+		        <div class="row">
+				    <div class="col-md-9">9列
+				    </div>
+				    <div class="col-md-3">3列
+				    </div>    
+			    </div>
+		    </div>    
+	    </div>
+	</div>
+	<div class="dropdown pull-right">
+	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+	    下拉菜单
+	    <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+	    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+	    <li role="presentation" class="divider"></li>
+	    <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+	  </ul>
+	</div> 
+	<div class="btn-group">
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-zoom-out"></span></button>
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-download"></span></button>
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-upload"></span></button>     
+  	</div>
+	<div class="btn-toolbar">
+		<div class="btn-group">
+			<button><span class="glyphicon glyphicon-align-left"></span></button>
+		</div>
+		<div class="btn-group">
+			<button><span class="glyphicon glyphicon-align-center"></span></button>
+		</div>
+		<div class="btn-group">
+			<button><span class="glyphicon glyphicon-align-right"></span></button>
+		</div>
+		<div class="btn-group">
+			<button><span class="glyphicon glyphicon-align-justify"></span></button>
+		</div>
+	</div>
+	
 
 
 
