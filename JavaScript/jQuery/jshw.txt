@@ -82,12 +82,21 @@ Event对象中五种坐标
 4.pageX和pageY//相对于整个网页左上角(0,0)的坐标(针对滚动，包括滚动长度)
 5.X和Y//相对于用CSS动态定位的最内层包容元素，google中与clientX相等，ie中不设置position，业余clintXY相等
 
-1.
-2.
-3.
-4.
-5.
+****
+##滚动到底部！
+for(var i=0;i<1000;i++){document.body.scrollTop=document.body.scrollTop+200;}//谷歌浏览器.
 
+
+滚动到顶部
+scrollTop=0
+scrollHeight
+clientHeight
+
+滚动到底部
+scrollTop+clientHeight>=scrollHeight
+
+滚动轴宽度
+offsetWidth-clientWidth
 
 
 
