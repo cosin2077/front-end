@@ -1,0 +1,77 @@
+net start mysql57//启动mysql57服务
+net stop mysql57//停止mysql57服务
+my.ini 在programData文件夹server 中
+
+mysql登录参数
+mysql -u root -p
+-D 打开指定数据库
+-h 服务器名称
+-p 密码
+-P 端口号
+-u 用户名
+-v 输出版本信息
+mysql退出:
+quit
+exit
+\q
+mysql提示符定义
+mysql -u root -p prompt \h
+mysql>prompt 自定义
+\D 完整日期
+\d 当前数据库
+\h 服务器名称
+\u 当前用户
+
+MySQL操作
+关键字，函数名大写，
+数据库名称，表名称，字段名称全部小写
+SQL语句必须分号结束
+select version();当前mysql版本
+select now();当前mysql时间
+select user();当前登录到mysql的用户
+创建数据库：
+CREATE { DATABASE | SCHEMA } [ IF NOT EXISTS] db_name 
+[DEFAULT] CHARACTER SET [=] charset_name
+CREATE DATABASE t1;//创建t1数据库
+CREATE DATABASE IF NOT EXISTS t1;//不会报错，只会警告
+CREATE DATABASE IF NOT EXISTS t2 CHARACTER SET =gbk;//创建t2数据库，编码为gbk
+SHOW {DATABASE|}//
+SHOW CREATE DATABASE t2;//utf-8,查看t2创建时候的编码
+SHOW CREATE DATABASE t1;//gbk
+修改数据库：
+ALTER {DATABASE|SCHEMA} [db_name] [DEFAULT] CHARACTER SET [=]
+charset_name
+ALTER DATABASE t2 CHARACTER SET = UTF8
+删除数据库：
+DROP {DATABASE|SCHEMA} [IF EXISTS] db_name;
+DROP DATABASE t1;//删除t1数据库
+SHOW WARNINGS://现实错误
+
+数据类型：
+1. tinyint
+2. smallint
+3. mediumint
+4. int
+8. bigint
+
+USE conan;//选择conan数据库
+database修改名称的时候得先导出再修改
+
+CREATE TABLE table_name(
+	id init(3),
+	name varchar(8),
+	password varchar(20));
+//创建一条表
+SHOW TABLES;//显示表
+修改表的名字
+alter table table_name rename to table_name2;
+或者：
+rename table table_name to table_name2
+alter table table_name2 add email varchar(255) not null;//追加一天信息上去
+alter table table_name2 change id newdid int(3);
+alter table table_name2 drop email;//删除字段
+drop table table_name2;//删除表
+
+
+
+
