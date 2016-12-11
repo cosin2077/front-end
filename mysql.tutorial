@@ -46,31 +46,59 @@ ALTER DATABASE t2 CHARACTER SET = UTF8
 DROP {DATABASE|SCHEMA} [IF EXISTS] db_name;
 DROP DATABASE t1;//删除t1数据库
 SHOW WARNINGS://现实错误
-
-数据类型：
+************
+1.数据类型：
 整数型：
-1. tinyint
-2. smallint
-3. mediumint
-4. int
-8. bigint
+1 tinyint
+2 smallint
+3 mediumint
+4 int
+8 bigint
 浮点数：
 1.float(m,d)//m数字总位数，d为小数点后边的位数
 2.double(m,d)//
 
+2.日期和时间
+1 YEAR 
+3 TIME 
+3 DATA 
+8 DATATIME 
+4 TIMESTAMP 
+
+3.字符型
+CHAR(M)
+varchar(m)
+tinttext
+tinttext
+longtext
+enum()
+set()
+***********************
 USE conan;//选择conan数据库
+SELECT DATABASE;//现实当前使用的数据库
 database修改名称的时候得先导出再修改
 
 CREATE TABLE table_name(
-	id init(3),
+	id init(3) NOT NULL,//不谢默认允许可以为NULL
 	name varchar(8),
 	password varchar(20));
-//创建一条表
+//创建一条表，一共有3列，列名称，列列类型
+
+CREATE TABLE tb1(
+	username varchar(20),
+	age TINYINT UNSIGNED,//UNSIGNED表示没有负数
+	salary FLOAT(8,2) UNSIGNED
+	);
+
+
 SHOW TABLES;//显示表
+SHOW COLUMNS FROM tb1;//看tb1有哪些列
+SELECT * FROM tb1;//看添加的数据
 修改表的名字
 alter table table_name rename to table_name2;
 或者：
 rename table table_name to table_name2
+
 alter table table_name2 add email varchar(255) not null;//追加一天信息上去
 alter table table_name2 change id newdid int(3);
 alter table table_name2 drop email;//删除字段
@@ -79,6 +107,98 @@ drop table table_name2;//删除表
 show tables from somedatabase//显示某个数据库中的表
 
 describe table_name2;//显示表结构
+SHOW COLUMNS FROM table_name2;//现实table_name2表中的列
+
+#INSERT
+向表中写入记录
+INSERT [INTO] table_name [(col_name,...)] VALUES(val,...)
+
+INSERT table_name2 VALUES('jhon',25,5413.12);//不指定列则都得赋值
+INSERT table_name2(username,salary) VALUES("kyte",2354.2);//指定列可以依次赋值
+
+SELECT expr,... FROM table_name
+SELECT * from tb1;//
+
+AUTO_INCREMENT
+自助编号，且必须与主键组合使用，默认为1，每次增量为1
+
+MYSQL主键约束 PRIMARY KEY
+
+CREATE TABLE tb2(
+	id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,//自助编号，且必须与主键组合使用
+	username varchar(25) NOT NULL 
+	);
+
+UNIQUE KEY//唯一约束
+CREATE TABLE tb3(
+	id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(25) NOT NULL UNIQUE KEY,
+	age TINYINT 
+	);
+
+CREATE TABLE tb4(
+	id SAMLLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(20) NOT NULL UNIQUE KEY,
+	AGE ENUM('1','2''3') DEFAULT '3'//不写，默认就是3
+	);
+约束：
+NOT NULL//非空约束
+PRIMARY KEY//主键语速
+UNIQUE KEY//唯一语速
+DEFAULT//默认约束
+FOREIGN KEY//外键约束
+
+MYsql数据表默认存储引擎
+default-storage-engine=INNODB
+
+有外键的表，为子表，子表所参照的表为父表
+引擎为INNODB
+相同数字类型，字符可以位数不同
+删除约束：
+ALTER TABLE tb1 DROP PRIMARY KEY//删除主键约束
+ALTER TABLE tb1 DROP INDEX username//删除唯一约束
+ALTER TABLE tb1 DROP FOREIGN KEY users_ibfk_2;
+修改数据表：
+
+alter table tb1 modify id SAMLLINT UNSIGNED not null first;
+ALTER TABLE tb1 CHANGE ID NEWID SMALLINT UNSIGNED NOT NULL first;
+
+记录的增删改查：
+插入：
+INSERT table_name[()] VALUES(.,.,...)
+
+CREATE TABLE userinfo(
+	id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	username VARCHAR(20) NOT NULL,
+	password VARCHAR(32) NOT NULL,
+	age TINYINT UNSIGNED NOT NULL DEFAULT 10,
+	sex BOOLEAN
+		);
+INSERT userinfo VALUES(NULL,"CONAN",'201010',25,1);
+INSERT userinfo VALUES(DEFAULT,"STEVE","123456",32,1);
+INSERT userinfo VALUES(NULL,"bill",'111111',29,1);
+INSERT userinfo(username,password,age) VALUES('Kate','222222','29') 
+ALTER TABLE userinfo change age age TINYINT UNSIGNED DEFAULT 10;
+INSERT userinfo(username,password) VALUES('stewart','333333');
+INSERT userinfo VALUES(NULL,'hathway',md5('444444'),DEFAULT,NULL),(NULL,'rose','29',DEFAULT,NULL);
+INSERT userinfo SET username="lightwins",password="555555";
+
+更改字段值：
+UPDATE userinfo  SET age=age-5;
+UPDATE userinfo SET age=age+id,sex = 0;
+UPDATE userinfo SET age=age-100 WHERE id%2=0;
+删除记录：
+DELETE FROM userinfo WHERE id=9;
+
+SELECT查找操作：查询表达式
+SELECT id,username from userinfo;
+SELECT id as uid,username as uname from userinfo;//uid,uname为别名
+
+
+
+
+
+
 
 
 
