@@ -1,3 +1,5 @@
+#Structure Query Language
+
 net start mysql57//启动mysql57服务
 net stop mysql57//停止mysql57服务
 my.ini 在programData文件夹server 中
@@ -193,6 +195,148 @@ DELETE FROM userinfo WHERE id=9;
 SELECT查找操作：查询表达式
 SELECT id,username from userinfo;
 SELECT id as uid,username as uname from userinfo;//uid,uname为别名
+
+WHERE 表达式
+对记录进行过滤，如果没有指定WHERE 子句，则显示所有记录。
+在WHERE表达式中，可以使用MySQL支持的函数或运算符。
+
+GROUP BY：对结果分组
+
+[GROUP BY{col_name|position} [ASC|DESC],...]
+SELECT AGE,SEX FROM userinfo GROUP BY AGE;
+SELECT AGE,SEX FROM userinfo GROUP BY HAVING AGE>10;
+SELECT * FROM userinfo ORDER BY AGE;
+SELECT * FROM userinfo ORDER BY AGE DESC;
+SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC;
+SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC LIMIT 2,2;
+SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC LIMIT 5;
+
+CREATE TABLE userinfoc(
+    id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(20)
+    );
+INSERT userinfoc(username) SELECT username from userinfo WHERE SEX=0;
+
+SET NAMES gbk;设置GBK编码
+子查询
+子查询必须嵌套在圆括号之类
+
+SELECT AVG(goods_price) FROM tbd_goods;//选取结果做平均
+SELECT ROUND(AVG(goods_price),2) FROM tbd_goods;//取舍平均值，保留2位小数
+SELECT good_id,goods_name,goods_price FROM tbd_goods WHERE goods_price>=(SELECT ROUND(AVG(goods_price),2) FROM tbd_goods);
+SELECT goods_price FROM tbd_goods WHERE goods_cate="超极本";
+SELECT good_id,goods_price,goods_name FROM tbd_goods WHERE goods_price> ANY (SELECT goods_price FROM tbd_goods WHERE goods_cate="超极本";)//返回结果不唯一时，加ANY,SOME 或ALL
+=ANY ==>IN 
+!=ALL ==>NOT IN
+EXISTS 存在返回true 不存在返回false
+多表更新
+UPDATE tbd_goods INNER JOIN tbd_goods_cates ON goods_cate=cate_name
+SET goods_cate = cate_id;
+一步到位，多表更新
+CREATE SELECT//创建表，并插入查询的数据
+CREATE TABLE IF NOT EXISTS tbd_goods_brands(
+	brand_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	brand_name VARCHAR(40) NOT NULL)
+	SELECT brand_name FROM tbd_goods GROUP BY goods_name;
+
+UPDATE tbd_goods AS g INNER JOIN tbd_goods_brands AS b ON g.brand_name=b.brand_name
+SET g.brand_name=b.brand_id;
+
+##链接
+INNER JOIN----JOIN ----CROSS JOIN
+ON----设定链接调节
+WHERE ----进行结果过滤
+内链接，仅显示符合链接条件的记录
+OUTER JOIN
+LEFT JOIN//左链接
+RIGHT JOIN//右链接
+多表连接：
+SELECT good_id,goods_name,cate_name,brand_name,goods_price FROM tbd_goods AS g
+INNER JOIN tbd_goods_cates AS c ON g.cate_id=c.cate_id
+INNER JOIN tbd_goods_brands AS b ON g.brand_id = b.brand_id\G
+
+多表删除：
+DELETE t1 FROM tbd_goods AS t1 LEFT JOIN (SELECT goods_name,good_id FROM
+	tbd_goods GROUP BY goods_name HAVING COUNT(goods_name)>=2) AS t2 ON t1.goods_name =t2.goods_name WHERE 
+	t1.good_id>t2.good_id;
+
+字符函数
+SELECT CONCAT(username,'-',password) AS full FROM userinfo;
+SELECT CONCAT_WS('-','CONAN','SKY');//CONAN-SKY
+SELECT FORMAT(15412.651,2)//数字格式化，保留2位
+SELECT LOWER()//转换成小写
+SELECT UPPER()//转换成大写
+SELECT LEFT('CONAN',3);//CO
+SELECT RIGHT('CONANSKYFORCE',3);//RCE
+SELECT LENGTH()//取长度
+SELECT LTRIM()//删除左边空格
+SELECT RTRIM()//删除右边空格
+SELECT TRIM()//删除两边空格
+SELECT TRIM(LEADING 'A' FROM 'AAAFDVSFAAA')//FDVSFAAA
+SELECT TRIM(TRAILING 'A' FROM 'AAAFDVSFFAAA')//AAAFDVSFF
+SELECT TRIM('A' FROM 'AAAFDVSFFAAA')//FDVSFF
+SELECT SUBSTRING('conans','1','3')//con
+SELECT [NOT]LIKE//
+SELECT REPALCE('XXADSDFXXAFA','XX','')//ADSDFAFA
+%---任意个字符
+_---任意一个字符
+数值运算符函数
+SELECT CEIL()//向上取整
+SELECT DIV//整数除法
+SELECT FLOOR()//向下取整
+SELECT MOD//取余
+SELECT POWER()//幂运算
+SELECT ROUND()//四舍五入
+TRUNCAT TRUNCATE(1312.65,0)//数字截取1312
+比较运算符函数
+[NOT] BETWEEN AND
+[NOT] IN()
+SELECT 12 IN(12,11,0,51)//是
+IS [NOT] NULL
+SELECT 0 is NULL//0
+日期和时间函数
+NOW()//现在的日期时间
+CURDATE()//现在日期
+CURTIME()//现在时间
+DATA_ADD()//设置
+DATEDIFF()//比较时间
+DATA_FORMAT()//转换日期格式
+信息函数
+SELECT CONNECTION_ID()//链接ID
+SELECT DATABASE()//当前数据库
+SELECT LAST_INSERT_ID()//最后插入信息
+SELECT USER()//当前用户
+SELECT VERSION()//版本信息
+聚合函数
+SELECT AVG()//平均值
+SELECT COUNT()//计数
+SELECT MAX()//最大值
+SELECT MIN()//最小是
+SELECT SUM()//求和
+加密函数
+SELECT MD5()//信息摘要算法
+SELECT PASSWORD()//密码算法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
