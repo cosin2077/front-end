@@ -48,11 +48,15 @@ DROP DATABASE t1;//删除t1数据库
 SHOW WARNINGS://现实错误
 
 数据类型：
+整数型：
 1. tinyint
 2. smallint
 3. mediumint
 4. int
 8. bigint
+浮点数：
+1.float(m,d)//m数字总位数，d为小数点后边的位数
+2.double(m,d)//
 
 USE conan;//选择conan数据库
 database修改名称的时候得先导出再修改
@@ -71,6 +75,11 @@ alter table table_name2 add email varchar(255) not null;//追加一天信息上�
 alter table table_name2 change id newdid int(3);
 alter table table_name2 drop email;//删除字段
 drop table table_name2;//删除表
+
+show tables from somedatabase//显示某个数据库中的表
+
+describe table_name2;//显示表结构
+
 
 
 
