@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Modal</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+</div>
+<button class="btn btn-primary" data-toggle="modal" data-target=".modal-mark" type="button">通过data-target触发</button>
+<a href="#trigger" type="button" class="btn btn-default" data-toggle="modal">通过a连接触发</a>
+<button class="jquery btn btn-info" >jquery触发器</button>
+<div id="trigger" data-keyboard="true" class=" fade modal modal-mark" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+			<button class="close" data-dismiss="modal"><span>&times;</span></button>
+				<h4>我是模态标题</h4>
+			</div>
+			<div class="modal-body">
+				<p>我是模态弹出窗口里边的内容</p>
+			</div>
+			<div class="modal-footer">
+				<div data-dismiss="modal" class="btn btn-default">关闭</div>
+				<div class="btn btn-primary">保存</div>
+			</div>
+		</div>
+	</div>
+</div>	
+
+
+
+
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+<script>
+$(function(){
+	$('.jquery').click(function(){
+		$('#trigger').modal();
+	});
+})
+</script>
+</body>
+</html>
