@@ -1,0 +1,91 @@
+create table mistar_bak(
+id int(10) primary key auto_increment,
+passwd int(10),
+pid varchar(150),
+foreign key(pid) references mistar(url));
+
+create table test(
+id int(10) primary key auto_increment,
+name varchar(10)
+);
+alter table test change name name varchar(10) unique key;
+insert test values(null,'cad');
+insert test values(null,'sad');
+insert test values(null,'cad');
+show columns from test;
+select * from test;
+
+create table testfor(
+id int(10) primary key auto_increment,
+n varchar(10),
+foreign key (n) references test(name)
+);
+
+create table test1(
+id int(10) primary key auto_increment,
+name varchar(10) unique key//唯一性
+);
+
+insert test1 values(null,'cad');
+insert test1 values(null,'sad');
+insert test1 values(null,'cad');//不行！！
+
+
+数据库(DATABASES)
+SHOW DATABASES//显示所有数据库
+DROP DATABASE mydb//删除数据库
+USE mydb2//使用数据库
+CREATE DATABASE mydb3//创建mydb3数据库
+
+表(TABLES)
+SHOW TABLES [FROM someddb]//显示所有表[从某数据库]
+DROP TABLE mytable//删除mytable表
+ALTER TABLE mytable [ADD|CHANGE|RENAME TO|DROP] //[添加|改变|重命名|删除]字段
+DESCRIBE mytable//显示mytable结构
+
+表中数据
+SHOW COLUMNS FROM mytable//显示mytable的列
+SELECT * FROM mytable//显示mytable中的数据
+INSERT mytable VALUES(x,x,x,..)//插入数据
+
+五种约束
+PRIMARY KEY
+UNIQUE KEY
+NOT NULL
+DEFAULT 
+FOREIGN KEY
+
+
+
+
+
+
+
+
+()
+()
+()
+()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
