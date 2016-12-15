@@ -226,7 +226,7 @@ SELECT * FROM userinfo ORDER BY AGE DESC;
 SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC;
 SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC LIMIT 2,2;
 SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC LIMIT 5;
-
+INSERT mytable(id,name) select * from users where id<100;
 CREATE TABLE userinfoc(
     id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(20)
@@ -275,6 +275,9 @@ INNER JOIN tbd_goods_brands AS b ON g.brand_id = b.brand_id\G
 DELETE t1 FROM tbd_goods AS t1 LEFT JOIN (SELECT goods_name,good_id FROM
 	tbd_goods GROUP BY goods_name HAVING COUNT(goods_name)>=2) AS t2 ON t1.goods_name =t2.goods_name WHERE 
 	t1.good_id>t2.good_id;
+查询表达式
+SELECT education as edu,location as loc from users;
+
 
 字符函数
 SELECT CONCAT(username,'-',password) AS full FROM userinfo;
@@ -340,7 +343,7 @@ SELECT f1();
 导出数据库mysqldump -u root -p 要导出的数据库>output.sql
 导入数据库切换到数据库目录下 source output.sql
 
-
+P44/92
 
 
 
