@@ -175,7 +175,7 @@ ALTER TABLE tb1 ALTER [SET DEFAULT xxx|DROP DEFAULT]//添加删除默认约束
 删除约束：
 ALTER TABLE tb1 DROP PRIMARY KEY//删除主键约束
 ALTER TABLE tb1 DROP INDEX username//删除唯一约束
-ALTER TABLE tb1 DROP FOREIGN KEY users_ibfk_2;
+ALTER TABLE tb1 DROP FOREIGN KEY users_ibfk_2(CONSTRAINT 'users_ibfk_2');//通过SHOW CREATE TABLE tb1;查看
 修改数据表：
 
 alter table tb1 modify id SAMLLINT UNSIGNED not null first;
