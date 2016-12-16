@@ -8,6 +8,8 @@ create table test(
 id int(10) primary key auto_increment,
 name varchar(10)
 );
+alter table test add (age int unsigned not null unique key,sex tinyint);
+
 alter table test change name name varchar(10) unique key;
 insert test values(null,'cad');
 insert test values(null,'sad');
@@ -38,6 +40,7 @@ USE mydb2//使用数据库
 CREATE DATABASE mydb3//创建mydb3数据库
 
 表(TABLES)
+CREATE TABLE mytable;//创建mytable表
 SHOW TABLES [FROM someddb]//显示所有表[从某数据库]
 DROP TABLE mytable//删除mytable表
 ALTER TABLE mytable [ADD|CHANGE|RENAME TO|DROP] //[添加|改变|重命名|删除]字段
@@ -57,21 +60,31 @@ FOREIGN KEY
 
 
 
+select count(name) from users where location="北京" and sex='2';
+select count(name) from users where location="上海" and sex='2';
+select count(name) from users where location="成都" and sex='2';
+select count(name) from users where location="杭州" and sex='2';
+select name from users where location="大连" and sex='2';
+select name,signature,description,education from users where location="大连" and sex='2';
+select count(*) from users where education="北京大学";
+select count(*) from users where education="清华大学";
+CREATE TABLE shanghaigirl(
+id int(10) unsigned primary key auto_increment,
+name varchar(20)
+);
+CREATE TABLE chengdugirl(
+id int(10) unsigned primary key auto_increment,
+name varchar(20)
+);
+CREATE TABLE allgirl(
+id int(10) unsigned primary key auto_increment,
+name varchar(20)
+);
+insert chengdugirl(name) select name from users where sex="2";
 
+insert chengdugirl(name) select name from users where sex="2" and location="成都";
 
-
-
-
-()
-()
-()
-()
-
-
-
-
-
-
+insert shanghaigirl(name) select name from users where sex="2" and location="上海";
 
 
 
