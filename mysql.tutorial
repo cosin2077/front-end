@@ -246,8 +246,7 @@ SELECT good_id,goods_price,goods_name FROM tbd_goods WHERE goods_price> ANY (SEL
 !=ALL ==>NOT IN
 EXISTS 存在返回true 不存在返回false
 多表更新
-UPDATE tbd_goods INNER JOIN tbd_goods_cates ON goods_cate=cate_name
-SET goods_cate = cate_id;
+UPDATE tbd_goods INNER JOIN tbd_goods_cates ON goods_cate=cate_name SET goods_cate = cate_id;
 一步到位，多表更新
 CREATE SELECT//创建表，并插入查询的数据
 CREATE TABLE IF NOT EXISTS tbd_goods_brands(
@@ -255,10 +254,16 @@ CREATE TABLE IF NOT EXISTS tbd_goods_brands(
 	brand_name VARCHAR(40) NOT NULL)
 	SELECT brand_name FROM tbd_goods GROUP BY goods_name;
 
+CREATE TABLE joinuup(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    location varchar(20),
+    name varchar(40))
+    select location,name from users group by location having count(location)>10;
+
 UPDATE tbd_goods AS g INNER JOIN tbd_goods_brands AS b ON g.brand_name=b.brand_name
 SET g.brand_name=b.brand_id;
 
-##链接
+##连接
 INNER JOIN----JOIN ----CROSS JOIN
 ON----设定链接调节
 WHERE ----进行结果过滤
@@ -270,6 +275,25 @@ RIGHT JOIN//右链接
 SELECT good_id,goods_name,cate_name,brand_name,goods_price FROM tbd_goods AS g
 INNER JOIN tbd_goods_cates AS c ON g.cate_id=c.cate_id
 INNER JOIN tbd_goods_brands AS b ON g.brand_id = b.brand_id\G
+
+无线分类数据表设计：
+CREATE TABLE table_infinity(
+id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(20) NOT NULL,
+parent_id SMALLINT UNSIGNED NOT NULL DEFAULT 0
+);
+INSERT table_infinity(name,parent_id) VALUES('1电器',DEFAULT);
+INSERT table_infinity(name,parent_id) VALUES('2电器',DEFAULT);
+INSERT table_infinity(name,parent_id) VALUES('1中电器',1);
+INSERT table_infinity(name,parent_id) VALUES('2中电器',1);
+INSERT table_infinity(name,parent_id) VALUES('1小电器',2);
+INSERT table_infinity(name,parent_id) VALUES('2小电器',3);
+INSERT table_infinity(name,parent_id) VALUES('1小小电器',3);
+INSERT table_infinity(name,parent_id) VALUES('2小小电器',4);
+INSERT table_infinity(name,parent_id) VALUES('电吹风',4);
+INSERT table_infinity(name,parent_id) VALUES('电风扇',5);
+自身连接：
+SELECT s.id,s.name,p.name FROM table_infinity AS s LEFT JOIN table_infinity AS p ON s.parent_id=p.parent_id;
 
 多表删除：
 DELETE t1 FROM tbd_goods AS t1 LEFT JOIN (SELECT goods_name,good_id FROM
@@ -344,8 +368,27 @@ SELECT f1();
 导入数据库切换到数据库目录下 source output.sql
 
 P44/92
+mysql储存过程
 
+DELIMITAR //修改定界符
+CREATE PROCEDURE mypro(IN p_id int,out usersname varchar(20))
+begin
+delete from users where id=p_id;
+select name from users where sex="2" into username;
+END
+//
+DELIMITER;
 
+call mypro(22,@name);
+select @name;
+
+MySQL支持的存储引擎
+
+MyISAM
+InnoDB
+Memory
+CSV
+Archive
 
 
 
