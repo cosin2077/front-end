@@ -95,6 +95,7 @@ gzip -d list.gz//解压缩list.gz
 gzip -t list.gz//检查文件是否损坏
 gzip -v list//现实和源文件相比的压缩比
 gzip -c list>list.gz//不删除源文件的情况下压缩list
+gzip -r dir/压缩dir文件夹下每一个文件,搞笑了啊...
 2.bzip2
 bzip2
 bzip2 -c list//将list内容输出到屏幕上
