@@ -30,14 +30,24 @@ PHP数据类型
 空NULL
 
 var_dump()//返回变量的数据类型和值
+memory_get_usage()//获取当前PHP消耗的内存
+echo true//输出1
+echo false//输出0
+双引号里的变量会被当变量，单引号里边的变量会被当字符串!
+$string = <<<GOD
+长
+字
+符串
+GOD;
+变量没有值,被赋值为NULL,被unset(),都会被认为是NULL
 
 class申明类对象
 
 PHP常量
-define()函数设置常量
+define()函数设置常量//提高可维护性,一个入口,避免重复定义
 define('conan','welcome my friends');
 define('conan','welcome my friends',true);//大小写不敏感
-
+defined("PI")//判断常量PI有没有被定义,被定义了返回true,没被定义返回false.
 PHP并置运算符 .(javascript中的+python中的,)
 .把两个字符串连接在一起
 $txt1="hello ";
@@ -83,6 +93,9 @@ $conan['job']='web';
 
 foreach($conan as $x=>$y){
 	echo "key=".$x.",value=".$y."<br/>";
+}
+foreach($array as value){
+	echo
 }
 sort()//升序排列
 rsort()//降序排列
