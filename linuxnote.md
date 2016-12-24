@@ -89,6 +89,9 @@ file filename
 
 //conan 2010,sky 2010
 ####解压操作
+0.zip 
+zip dir/file//压缩文件或目录
+unzip dir/file//解压缩文件或目录
 1.gzip
 gzip -c list//将list内容输出到屏幕上
 gzip -d list.gz//解压缩list.gz
@@ -116,29 +119,58 @@ tar -xvf 123.tar -c botof//将123.tar解压至botof
 tar -jcvf 123.tar.bz2 123//可视化压缩文件123为123.tar.bz2
 tar -jxvf 123.tar.bz2 -c 143//bzip2解压123.tar.bz2至143文件夹
 
-
-
-
-
-
-
 ###vi编辑器
+esc退出编辑模式后
+:w//保存不退出
+:q//直接退出
+:e!//放弃修改
+:wq//保存并退出
+:q!//不保存强制退出
+:wq!//强制保存并退出
 
+cat /etc/inittab
+#修改系统默认运行级别
+id:3:initdefault
 
+runlevel
+查询系统运行级别
 
+shutdown -h now//关机
+shutdown -r now//重启
+reboot//重启
+init 6 //重启
+init 0//关机
 
+logout//退出登录
 
+挂载
+mount查看已经挂载好的设备
+/dev/mapper/vg_conan-lv_root on / type ext4 (rw)
+挂载点 on 挂载目录 类型 ext4 (读写)
+mount -a
+#依据配置文件/etc/fstab中的内容， 自动挂载
+挂载命令格式
+mount [-t 文件系统] [-o 特殊选项] 设备名 挂载点
 
+mkdir /mnt/cdrom
+#建立挂载点
+mount -t iso9600 /dev/sr0 /mnt/cdrom/
+#挂载光盘
+mount /dev/sr0 /mnt/cdrom/
+#卸载光盘
+unmount /dev/sr0|/mnt/cdrom/
 
+挂载U盘
+fdisk -l
+查看系统当中已经识别的硬盘
+挂载U盘设备名
+mount -t vfat /dev/sdb1 /mnt/usb/
+Linux默认不支持NTFS文件系统
+NTFS-3g 插件
 
-
-
-
-
-
-
-
-
+who/w/last/lastlog命令
+/var/log/wtmp
+/var/log/lastlog
 
 
 
