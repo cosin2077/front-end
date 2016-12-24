@@ -1,0 +1,15 @@
+string.replace(/\d/g,function(match,index,origin){
+return parseInt(match)+1;
+})
+
+
+'2sd3fa1ge4d5y'.replace(/\d/g,function(match,index,origin){
+return parseInt(match)+1;
+})
+//
+'3sd4fa1ge5d6y'
+
+'3sd4f3ag4e5d6y'.replace(/(\d)(\w)(\d)/g,function(match,group1,group2,group3,index,origin){
+return group1+group2
+})
+'3sd4fa1g4ed6y'
