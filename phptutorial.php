@@ -228,12 +228,29 @@ PHP发送邮件
 mail($to,$subject,$message,$from,$headers)
 
 PHP错误处理
+创建自定义错误处理器
+function myError($errno,$errstr){
+	echo "<b>Error:</b> [$errno]$errstr";
+	echo "脚本结束"；
+	die();
+}
+设置错误处理程序
+set_error_handler('myError');
+触发错误
+trigger_error('Error happened')
+通过E-Mail发送错误消息
+function myError($errno,$errstr){
+	echo "<b>Error:</b> [$errno]$errstr";
+	echo "已经通知网站管理员！";
+	error_log("<b>Error:</b> [$errno]$errstr",1,"conanskyforce@163.com","from:conans@163.com");
+}
+set_error_handler('myError',E_USER_WARNING);
+trigger_error('failed!',E_USER_WARNING);
 
-
-
-
-
-
+PHP JSON
+json_encode()//对变量进行JSON编码
+json_decode()//对JSON解码转成PHP
+json_last_error()//返回最后发生的错误
 
 
 
