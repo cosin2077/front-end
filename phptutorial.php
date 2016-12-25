@@ -88,7 +88,14 @@ $conan['age']='35';
 $conan['gender']='M';
 $conan['job']='web';
 哟嚯，键值对，有点像Object了呀
-
+echo仅能出书字符串
+print_r将一个变量信息输出
+索引数组和关联数组
+关联数组指的是键是字符串的数组
+$arr=array(
+"key1"=>"value1",
+"key2"=>"value2"
+)
 遍历关联数组
 
 foreach($conan as $x=>$y){
@@ -97,6 +104,25 @@ foreach($conan as $x=>$y){
 foreach($array as value){
 	echo
 }
+PHP可变函数
+通过变量的值来调用函数
+判断函数是否存在
+if(function_exists())
+class_exists()
+file_exists()
+属性申明关键字
+public//公有,默认,外部可以访问
+protected//受保护,继承后的对象可以访问
+private//私有,只有内部可以访问
+使用static修饰的方法,成为静态方法,静态方法不需要实例化对象,可以直接通过类名字直接调用,操作符为双冒号::
+function __construct(){
+	//构造函数,每次对象创建的时候调用
+	parent::__construct();//子类有构造函数的时候,要调用父类的构造函数要显式调用.
+}
+function __destruct(){
+	//析构函数,每次函数销毁实例的时候调用.
+}
+
 sort()//升序排列
 rsort()//降序排列
 asort()//根据数组的值升序排列
