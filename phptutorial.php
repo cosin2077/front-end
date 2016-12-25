@@ -122,6 +122,35 @@ function __construct(){
 function __destruct(){
 	//析构函数,每次函数销毁实例的时候调用.
 }
+静态属性的调用
+不允许 ->方法!
+只能用 类名::方法名(self::$speed,parent::$speed)
+如果构造函数定义成了私有方法,则不允许直接实例化对象了,这时候一般通过静态方法进行实例化.
+当调用不存在的属性时候，使用__call实现重载
+当调用不存在的静态方法的时候,使用__call Static实现重载
+trim()去除两端空格
+rtrim()去除右边空格
+ltrim()去除左边空格
+sprintf()//格式化字符串
+implode('',$str);//合并字符串
+explode('',$str);//分隔字符串
+addslashes($str);//输出经过转义后的字符串
+
+PHP图片添加水印技术!!!!!!我看到了好大一个机会!凑!!!!!!!!!!!!!
+
+$con=mysql_connect('localhost','root',"passwd");//连接mysql数据库
+mysql_select_db('hoteldb');//选择数据库
+
+mysql_close($con);//关闭数据库
+
+
+
+
+
+
+
+
+
 
 sort()//升序排列
 rsort()//降序排列
