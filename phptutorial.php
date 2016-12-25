@@ -140,9 +140,11 @@ PHP图片添加水印技术!!!!!!我看到了好大一个机会!凑!!!!!!!!!!!!!
 
 $con=mysql_connect('localhost','root',"passwd");//连接mysql数据库
 mysql_select_db('hoteldb');//选择数据库
-
+$sql ="insert into test(url) values("www.conans.top")";
+mysql_query($sql);//插入sql语句
+echo mysql_error();//显示mysql错误
 mysql_close($con);//关闭数据库
-
+mysql_query("set names 'utf8'");//设定字符集
 
 
 
