@@ -322,6 +322,33 @@ json_encode()//对变量进行JSON编码
 json_decode()//对JSON解码转成PHP
 json_last_error()//返回最后发生的错误
 
+MVC构架
+MVC
+|
+|--libs
+|  |
+|  |--Controller
+|  |     |--testController.class.php
+|  |--Model
+|  |	 |--testModel.class.php
+|  |--ORG
+|  |
+|  |---View
+|        |--testView.class.php
+| 
+|--config.php
+|
+|--index.php
+
+
+
+
+
+
+
+
+
+
 
 
 
