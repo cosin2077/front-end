@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Profolio</title>
+	<meta name="可能＋ 可能加 conans.top" content="可能加,conan的随笔" />
+	<style>
+		*{
+			margin: 0px;
+			padding:0px;
+		}
+		.container{
+			width: 800px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.container:before{
+			content: "";
+			display: block;
+			width: 200px;
+			margin: 0 auto;
+			height: 100px;
+			/*background-color: steelblue;*/
+		}
+		/*audio{*/
+		/*	display: block;
+			width: auto;
+			height: auto;
+			margin: 0 auto;
+		}*/
+		video{
+			width: 80%;
+			height: auto;
+		}
+		.media{
+			width: 400px;
+			height: 300px;
+			border: solid 1px steelblue;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="media">
+		<audio src="s1.mp3" controls="controls">audio</audio>
+		<video src=".../电影/MEYD-014-MP4/my.mp4" controls="controls">buzhichi</video>
+		
+		<audio src="../CloudMusic/墨明棋妙 - 二十二桥枫别雨.mp3" controls="controls">audio</audio>
+	</div>
+	
+	<p>
+	this is my <mark>testing</mark>
+	<time>2015-<b>12</b>-9</time>
+	<ruby>汉子</ruby>
+	<datalist>
+		<input type="text" value="1"/>输入1
+		<input type="text" value="2"/>输入2
+		<input type="text" value="3"/>输入3
+		<input type="text" value="4"/>输入4
+	</datalist>
+	</p>
+	<input type="email" required="required">
+	<input type="url" autofocus="autofocus">
+	<input type="number" step="2">
+	<input type="range" autofocus="autofocus">
+	<input type="data" autofocus="autofocus">
+	<input type="datatime">
+	<input type="week" autofocus="autofocus">
+</div>
+<script>
+window.onload=function(){
+	v=document.getElementsByTagName('video')[0];
+	p=document.getElementsByTagName('p')[0];
+	v.onclick=function(e){
+		e.stopPropagation();
+		if(v.paused){
+			v.play();
+			p.hidden="hidden";
+		}
+		else{
+			p.hidden="";
+			v.pause();
+		}
+	}
+	b=document.getElementsByTagName('b')[0]
+	b.onclick=function(e){
+		v.hidden="hidden";
+		e.stopPropagation();
+	}
+	p.onclick=function(e){
+		v.hidden="";
+		e.stopPropagation();
+	}
+}
+</script>
+</body>
+</html>
