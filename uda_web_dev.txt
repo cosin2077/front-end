@@ -1,0 +1,34 @@
+http://www.conans.top/abc/logo.png?p=1#dasd
+发送的GET请求是
+
+GET /abc/logo.png?p=1 HTTP/1.1
+host:www.conans.top//一台服务器可能对应很多网站
+User-Agent:可以是任何字
+i-made-this://可以自己造头部
+
+HTTP Response
+
+HTTP/1.1 200 OK
+Date Tue mar 2012 04:33:33 GMT
+Server:Apache/2.2.3
+Content-Type:text/html
+Content-Length:1579
+
+
+<form action="http://www.google.com/search">
+<input name="q">
+<input type="submit">
+</form>
+
+只有函数语句中的花括号才能创建作用域lexical scope(词法作用域)
+
+内联元素想要居中对齐有hack方法哟
+position:absolute;
+left:50%;
+margin-left:-自身宽度的一般(注意是自身宽度一半的负值哦)
+
+
+
+
+
+
