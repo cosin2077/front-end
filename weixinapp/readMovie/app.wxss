@@ -1,0 +1,7 @@
+text{
+    font-family: Microsoft Yahei;
+    font-size:24rpx;
+}
+/*page{
+    background-color: #b3d4db;
+}*/
