@@ -41,5 +41,9 @@ ReactDOM.render(
 JSX expression,
 where to render)
 
+class是JavaScript的关键字,JSX中用className来代替class,语法糖被渲染之后className变为class
+
+JSX中自闭合标签要有结束标签
+
 
 
