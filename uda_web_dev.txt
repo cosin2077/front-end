@@ -45,5 +45,27 @@ classÊÇJavaScriptµÄ¹Ø¼ü×Ö,JSXÖĞÓÃclassNameÀ´´úÌæclass,Óï·¨ÌÇ±»äÖÈ¾Ö®ºóclassName±
 
 JSXÖĞ×Ô±ÕºÏ±êÇ©ÒªÓĞ½áÊø±êÇ©
 
+JSX±êÇ©Ö®¼ä²»¾ßÓĞJavaScript±í´ïÊ½ĞÔÖÊ,µ«ÊÇ¼ÓÁË»¨À¨ºÅÖ®ºó¾ÍÓĞ±í´ïÊ½ĞÔÖÊÁË
+
+JSXÖĞÊÂ¼ş¼àÌıÍÕ·åĞ´·¨Ğ¡Ğ´on¿ªÍ·
+
+JSXÖĞ¼ä,²»ÔÊĞíÓĞifÓï¾ä,µ«ÊÇÓï¾ä¿ÉÒÔ°üº¬JSXÅ¶
+
+JSXÖĞ¿ÉÒÔÓÃÈıÔª²Ù×÷·û
+
+{myvar$$<li>sadsda</li>},Óë²Ù×÷·û,»¨À¨ºÅÄÚ,ÒªÃ´ÏÔÊ¾<li>ÄÚÈİ,ÒªÃ´²»ÏÖÊµ
+
+var React = require('react');
+var ReactDOM = require('react-dom')
+React.createClass();//´´½¨React×é¼ş
+
+×é¼şÃû³ÆÊ××ÖÄ¸´óĞ´+ÍÕ·åĞ´·¨Å¶
+
+µ±Ç°×é¼şÊä³ö±äÁ¿
+//greetings.js
+module.exports = Greeting;
+require('./greeting.js')//ÒıÈë·½·¨ºÍnodejsÒ»ÑùÅ¶
+
+±»ÒıÓÃjsÉêÃ÷ÁËmodule.exports = func//Ö»Êä³ö±»ÒıÓÃjsÎÄ¼şµÄfunc·½·¨
 
 
