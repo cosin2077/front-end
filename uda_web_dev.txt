@@ -1,10 +1,10 @@
-http://www.conans.top/abc/logo.png?p=1#dasd
-·¢ËÍµÄGETÇëÇóÊÇ
+ï»¿http://www.conans.top/abc/logo.png?p=1#dasd
+å‘é€çš„GETè¯·æ±‚æ˜¯
 
 GET /abc/logo.png?p=1 HTTP/1.1
-host:www.conans.top//Ò»Ì¨·şÎñÆ÷¿ÉÄÜ¶ÔÓ¦ºÜ¶àÍøÕ¾
-User-Agent:¿ÉÒÔÊÇÈÎºÎ×Ö
-i-made-this://¿ÉÒÔ×Ô¼ºÔìÍ·²¿
+host:www.conans.top//ä¸€å°æœåŠ¡å™¨å¯èƒ½å¯¹åº”å¾ˆå¤šç½‘ç«™
+User-Agent:å¯ä»¥æ˜¯ä»»ä½•å­—
+i-made-this://å¯ä»¥è‡ªå·±é€ å¤´éƒ¨
 
 HTTP Response
 
@@ -20,52 +20,264 @@ Content-Length:1579
 <input type="submit">
 </form>
 
-Ö»ÓĞº¯ÊıÓï¾äÖĞµÄ»¨À¨ºÅ²ÅÄÜ´´½¨×÷ÓÃÓòlexical scope(´Ê·¨×÷ÓÃÓò)
+åªæœ‰å‡½æ•°è¯­å¥ä¸­çš„èŠ±æ‹¬å·æ‰èƒ½åˆ›å»ºä½œç”¨åŸŸlexical scope(è¯æ³•ä½œç”¨åŸŸ)
 
-ÄÚÁªÔªËØÏëÒª¾ÓÖĞ¶ÔÆëÓĞhack·½·¨Ó´
+å†…è”å…ƒç´ æƒ³è¦å±…ä¸­å¯¹é½æœ‰hackæ–¹æ³•å“Ÿ
 position:absolute;
 left:50%;
-margin-left:-×ÔÉí¿í¶ÈµÄÒ»°ã(×¢ÒâÊÇ×ÔÉí¿í¶ÈÒ»°ëµÄ¸ºÖµÅ¶)
+margin-left:-è‡ªèº«å®½åº¦çš„ä¸€èˆ¬(æ³¨æ„æ˜¯è‡ªèº«å®½åº¦ä¸€åŠçš„è´Ÿå€¼å“¦)
 
-ÎÒµÄÌì°¡,½ñÌìÔÚÕÒ³ÌĞòµÄbug¹ı³ÌÖĞ,·¢ÏÖÒ»¸ö±äÁ¿ÉêÃ÷ÍüÁËÓÃvar,½á¹ûÀÏÊÇÌáÊ¾±äÁ¿Î´¶¨Òå,º¦ÎÒÕÒÁË40·ÖÖÓµÄbug,¸Ä×Å¸ÄÄÇµÄ,¼òÖ±½ÌÑµ!!!!!!!!!!!!
+æˆ‘çš„å¤©å•Š,ä»Šå¤©åœ¨æ‰¾ç¨‹åºçš„bugè¿‡ç¨‹ä¸­,å‘ç°ä¸€ä¸ªå˜é‡ç”³æ˜å¿˜äº†ç”¨var,ç»“æœè€æ˜¯æç¤ºå˜é‡æœªå®šä¹‰,å®³æˆ‘æ‰¾äº†40åˆ†é’Ÿçš„bug,æ”¹ç€æ”¹é‚£çš„,ç®€ç›´æ•™è®­!!!!!!!!!!!!
 
 
-ÃæÏò¶ÔÏóµÄJavaScript±à³Ì
-thisÖ¸Ïòµ÷ÓÃ¸Ãº¯ÊıµÄ¶ÔÏó
-Èç¹ûµ÷ÓÃÕâ¸öº¯ÊıµÄÊ±ºòÃ»ÓĞÖ¸Ã÷¶ÔÏó,ÔòÄ¬ÈÏthis°ó¶¨ÔÚÈ«¾Ö¶ÔÏóÉÏ
-fn.call(obj,v1,v2)//objÎªÒª°ó¶¨µÄ¶ÔÏó,Ä¿µÄ¾ÍÊÇÊ¹µÃ¼´Ê¹Ã»ÓĞ°ó¶¨obj¶ÔÏóµÄº¯ÊıµÄthisÖ¸´úobj.
-.callÖØĞ´·½·¨,Ö¸ÏòÖÆ¶¨µÄ¶ÔÏó.
-»Øµ÷º¯ÊıµÄ²ÎÊı¿ØÖÆÎÊÌâ
-JSXÓï·¨ÌÇ×î¿ªÊ¼µÄ±êÇ©Óë×îºóµÄ±êÇ©Ó¦¸ÃÍ¬Ò»¸ö±êÇ©,×îÍâ²ãÒªÓĞÒ»¸ö´ó°ü.
+é¢å‘å¯¹è±¡çš„JavaScriptç¼–ç¨‹
+thisæŒ‡å‘è°ƒç”¨è¯¥å‡½æ•°çš„å¯¹è±¡
+å¦‚æœè°ƒç”¨è¿™ä¸ªå‡½æ•°çš„æ—¶å€™æ²¡æœ‰æŒ‡æ˜å¯¹è±¡,åˆ™é»˜è®¤thisç»‘å®šåœ¨å…¨å±€å¯¹è±¡ä¸Š
+fn.call(obj,v1,v2)//objä¸ºè¦ç»‘å®šçš„å¯¹è±¡,ç›®çš„å°±æ˜¯ä½¿å¾—å³ä½¿æ²¡æœ‰ç»‘å®šobjå¯¹è±¡çš„å‡½æ•°çš„thisæŒ‡ä»£obj.
+.callé‡å†™æ–¹æ³•,æŒ‡å‘åˆ¶å®šçš„å¯¹è±¡.
+å›è°ƒå‡½æ•°çš„å‚æ•°æ§åˆ¶é—®é¢˜
+JSXè¯­æ³•ç³–æœ€å¼€å§‹çš„æ ‡ç­¾ä¸æœ€åçš„æ ‡ç­¾åº”è¯¥åŒä¸€ä¸ªæ ‡ç­¾,æœ€å¤–å±‚è¦æœ‰ä¸€ä¸ªå¤§åŒ….
 ReactDOM.render(
 JSX expression,
 where to render)
 
-classÊÇJavaScriptµÄ¹Ø¼ü×Ö,JSXÖĞÓÃclassNameÀ´´úÌæclass,Óï·¨ÌÇ±»äÖÈ¾Ö®ºóclassName±äÎªclass
+classæ˜¯JavaScriptçš„å…³é”®å­—,JSXä¸­ç”¨classNameæ¥ä»£æ›¿class,è¯­æ³•ç³–è¢«æ¸²æŸ“ä¹‹åclassNameå˜ä¸ºclass
 
-JSXÖĞ×Ô±ÕºÏ±êÇ©ÒªÓĞ½áÊø±êÇ©
+JSXä¸­è‡ªé—­åˆæ ‡ç­¾è¦æœ‰ç»“æŸæ ‡ç­¾
 
-JSX±êÇ©Ö®¼ä²»¾ßÓĞJavaScript±í´ïÊ½ĞÔÖÊ,µ«ÊÇ¼ÓÁË»¨À¨ºÅÖ®ºó¾ÍÓĞ±í´ïÊ½ĞÔÖÊÁË
+JSXæ ‡ç­¾ä¹‹é—´ä¸å…·æœ‰JavaScriptè¡¨è¾¾å¼æ€§è´¨,ä½†æ˜¯åŠ äº†èŠ±æ‹¬å·ä¹‹åå°±æœ‰è¡¨è¾¾å¼æ€§è´¨äº†
 
-JSXÖĞÊÂ¼ş¼àÌıÍÕ·åĞ´·¨Ğ¡Ğ´on¿ªÍ·
+JSXä¸­äº‹ä»¶ç›‘å¬é©¼å³°å†™æ³•å°å†™onå¼€å¤´
 
-JSXÖĞ¼ä,²»ÔÊĞíÓĞifÓï¾ä,µ«ÊÇÓï¾ä¿ÉÒÔ°üº¬JSXÅ¶
+JSXä¸­é—´,ä¸å…è®¸æœ‰ifè¯­å¥,ä½†æ˜¯è¯­å¥å¯ä»¥åŒ…å«JSXå“¦
 
-JSXÖĞ¿ÉÒÔÓÃÈıÔª²Ù×÷·û
+JSXä¸­å¯ä»¥ç”¨ä¸‰å…ƒæ“ä½œç¬¦
 
-{myvar$$<li>sadsda</li>},Óë²Ù×÷·û,»¨À¨ºÅÄÚ,ÒªÃ´ÏÔÊ¾<li>ÄÚÈİ,ÒªÃ´²»ÏÖÊµ
+{myvar$$<li>sadsda</li>},ä¸æ“ä½œç¬¦,èŠ±æ‹¬å·å†…,è¦ä¹ˆæ˜¾ç¤º<li>å†…å®¹,è¦ä¹ˆä¸ç°å®
 
 var React = require('react');
 var ReactDOM = require('react-dom')
-React.createClass();//´´½¨React×é¼ş
+React.createClass();//åˆ›å»ºReactç»„ä»¶
 
-×é¼şÃû³ÆÊ××ÖÄ¸´óĞ´+ÍÕ·åĞ´·¨Å¶
+ç»„ä»¶åç§°é¦–å­—æ¯å¤§å†™+é©¼å³°å†™æ³•å“¦
 
-µ±Ç°×é¼şÊä³ö±äÁ¿
+å½“å‰ç»„ä»¶è¾“å‡ºå˜é‡
 //greetings.js
 module.exports = Greeting;
-require('./greeting.js')//ÒıÈë·½·¨ºÍnodejsÒ»ÑùÅ¶
+require('./greeting.js')//å¼•å…¥æ–¹æ³•å’Œnodejsä¸€æ ·å“¦
 
-±»ÒıÓÃjsÉêÃ÷ÁËmodule.exports = func//Ö»Êä³ö±»ÒıÓÃjsÎÄ¼şµÄfunc·½·¨
+è¢«å¼•ç”¨jsç”³æ˜äº†module.exports = func//åªè¾“å‡ºè¢«å¼•ç”¨jsæ–‡ä»¶çš„funcæ–¹æ³•
+
+nodejsä¸­è¿›ç¨‹ç”±processè¡¨ç¤º
+
+fsæ¨¡å—æ˜¯nodejså†…ç½®æ–‡ä»¶è¯»å†™ç³»ç»Ÿ.
+åŒæ—¶æœ‰åŒæ­¥ä¸å¼‚æ­¥æ–¹æ³•.
+
+è¯»å–æ–‡ä»¶: 
+
+1.å¼‚æ­¥è¯»å–æ–‡ä»¶
+fs = require('fs'); fs.readFile('123.txt','utf-8',function(err,data){
+	if(err){         
+	//å¤„ç†é”™è¯¯     
+	}     
+	else{         
+	//å¤„ç†æ•°æ®     
+} })
+
+2.åŒæ­¥è¯»å–æ–‡ä»¶
+data=fs.readFileSync('123.txt','utf-8');
+ç›´æ¥è¿”å›çš„å°±æ˜¯è¯»å–åˆ°çš„æ•°æ®
+
+å½“è¯»å–äºŒè¿›åˆ¶æ–‡ä»¶æ—¶,ä¸ä¼ å…¥æ–‡ä»¶ç¼–ç ,å›è°ƒå‡½æ•°è¿”å›çš„å°†æ˜¯ä¸€ä¸ªBufferå¯¹è±¡,åœ¨nodejsä¸­Bufferå¯¹è±¡å°±æ˜¯ç±»æ•°ç»„.
+Bufferä¸stringå¯ä»¥äº’ç›¸è½¬æ¢
+
+data.toString('utf-8');
+
+new Buffer(string,'utf-8');
+
+å†™å…¥æ–‡ä»¶:
+1.å¼‚æ­¥å†™å…¥æ–‡ä»¶
+fs = require('fs');
+fs.writeFile('1234.txt',data,function(err){
+	if(err){
+	//å¤„ç†é”™è¯¯
+}else{
+	//å¤„ç†æˆåŠŸ
+}
+})
+ä¼ å…¥dataä¸ºå­—ç¬¦ä¸²,é»˜è®¤æŒ‰ç…§utf-8ç¼–ç å†™å…¥,å¦‚æœå‡ºè·¯å‚æ•°æ˜¯Buffer,åˆ™å†™å…¥çš„æ˜¯äºŒè¿›åˆ¶æ–‡ä»¶.
+2.åŒæ­¥å†™å…¥æ–‡ä»¶
+fs.writeFileSync('1235.txt',data)
+
+è·å–æ–‡ä»¶ä¿¡æ¯:
+fs.stat(),è¿”å›ä¸€ä¸ªstatå¯¹è±¡,å‘Šè¯‰æˆ‘ä»¬æ–‡ä»¶æˆ–ç›®å½•çš„è¯¦ç»†ä¿¡æ¯
+
+var fs = require('fs');
+
+fs.stat('123.txt',function(err,stat){
+	if(err){
+	//å¤„ç†é”™è¯¯
+}else{
+	stat.isFile();//æ˜¯å¦æ˜¯æ–‡ä»¶
+	stat.isDirectory();//æ˜¯å¦æ˜¯ç›®å½•
+	stat.birthtime();//åˆ›å»ºæ—¶é—´
+	stat.mtime();//ä¿®æ”¹æ—¶é—´
+}
+})
+2.åŒæ­¥æ–¹æ³•
+var stat = fs.stat('123.txt')
+stat.isFile();
+stat.isDirectory();
+...
+
+Stream,nodejsä¸­çš„æµ,ç”¨æ¥æè¿°æ•°æ®ä¸è¾“å‡ºçš„ä¸€ä¸ªå¯¹è±¡.
+dataäº‹ä»¶è¡¨ç¤ºæ•°æ®å¯ä»¥è¯»å–äº†,endäº‹ä»¶è¡¨ç¤ºæ•°æ®åˆ°æœ«å°¾äº†,erroräº‹ä»¶è¡¨ç¤ºå‡ºé”™äº†.
+ä»ä¸€ä¸ªæ–‡ä»¶æµè¯»å–æ–‡æœ¬å†…å®¹:
+var fs = require('fs');
+var rs = fs.createReadStream('666.txt','utf-8');
+rs.on('data',function(chunk){
+	console.log(chunk);
+});
+rs.on('end',function(){
+	console.log('End');
+});
+rs.on('error',function(err){
+	console.log('err: '+err);
+});
+æ•°æ®æµå†™å…¥æ–‡ä»¶
+var fs = require('fs');
+var wfs = fs.createWriteStream('ouput.txt','utf-8');
+wfs.write(string1);
+wfs.write(string2);
+wfs.end();
+ä¸è¦utf-8ä¹Ÿå¯ä»¥ç›´æ¥å†™å…¥Bufferæ•°æ®
+
+æ‰€æœ‰å¯ä»¥è¯»å–æ•°æ®çš„æµéƒ½ç»§æ‰¿è‡ªstream.Readable
+æ‰€æœ‰å¯ä»¥å†™å…¥çš„æµéƒ½ç»§æ‰¿è‡ªstream.Writable
+
+pipe,å°†è¯»å–æµä¸å†™å…¥æµä¸²è”èµ·æ¥
+
+var fs = require('fs');
+var rs = fs.createReadStream('../node.txt');
+var ws = fs.createWriteStream('123.txt');
+
+rs.pipe(ws)
+è¿™ç›¸å½“äºè¯»å–node.txtçš„æ–‡ä»¶,ç„¶åå†™å…¥åˆ°123.txtæ–‡ä»¶ä¸­
+
+HTTP
+// åˆ›å»ºhttp server ,å¹¶ä¼ å…¥å›è°ƒå‡½æ•°
+var http = require('http');
+var server = http.createServer(function(request,response){
+	// å›è°ƒå‡½æ•°æ¥å—requestå’Œresponseå¯¹è±¡
+	// è·å–httpè¯·æ±‚çš„methodå’Œurl
+	console.log(request.method+":"+request.url)
+	response.writeHead(200,{'Content-Type':'text/html'});
+	response.end('<h1>Hello conan</h1>')
+})
+server.listen(8080);
+console.log('server now is running at localhost:8080');
+
+æ–‡ä»¶æœåŠ¡å™¨:
+
+var url = require('url');
+
+url.parse();//å°†ä¸€ä¸ªurlè§£æä¸ºurlå¯¹è±¡
+å¤„ç†æœ¬åœ°æ–‡ä»¶ç›®å½•ç”¨node.jsçš„pathæ¨¡å—
+var path = require('path');
+var nowdir = path.resolve('.');//è§£æå½“å‰ç›®å½•
+
+å®ç°ä¸€ä¸ªæ–‡ä»¶æœåŠ¡å™¨
+'use strict';
+
+var fs = require('fs'),
+    url = require('url'),
+    path = require('path'),
+    http = require('http');
+var root = path.resolve(process.argv[2]||'.');
+console.log('Static root dir: '+root);
+var server = http.createServer(function(request,response){
+	var pathname = url.parse(request.url).pathname;
+	var filepath = path.join(root,pathname);
+	fs.stat(filepath,function(err,stats){
+		if(!err&&stats.isFile()){
+			console.log('200'+request.url);
+			response.writeHead(200);
+			fs.createReadStream(filepath).pipe(response);
+		}
+		else if(!err&&stats.isDirectory()){
+			var filepath1 =filepath+'\index.html';
+			fs.stat(filepath1,function(err,stats){
+				if(!err){
+					response.writeHead(200);
+					fs.createReadStream(filepath1).pipe(response);
+				}else{
+                    console.log('not index');
+                    var filepath2 = filepath+'\default.html';
+                    console.log(filepath2);
+					fs.stat(filepath2,function(err,stats){
+						if(!err){
+							response.writeHead(200);
+							fs.createReadStream(filepath2).pipe(response);
+						};
+					});
+				};
+			});
+		}else{
+			console.log('404'+request.url);
+			response.writeHead(400);
+			response.end('404 Not Found');
+		}
+	});
+});
+server.listen(8080);
+console.log('server now is running at http://127.0.0.1:8080');
+
+cryptoæ¨¡å—æä¾›é€šç”¨çš„åŠ å¯†å’Œå“ˆå¸Œç®—æ³•
+MD5
+MD5æ˜¯ä¸€ç§å¸¸ç”¨çš„å“ˆå¸Œç®—æ³•,ç”¨äºç»™ä»»æ„æ•°æ®ä¸€ä¸ªç­¾å,è¿™ä¸ªç­¾åä¸€èˆ¬ç”¨ä¸€ä¸ªåå…­è¿›åˆ¶å­—ç¬¦ä¸²è¡¨ç¤º
+
+const crypto = require('crypto');
+
+const hash = crypto.createHash('md5');
+
+hash.update('hello');
+console.log(hash.digest('hex'));
+update()æ–¹æ³•é»˜è®¤å­—ç¬¦ä¸²ç¼–ç ä¸ºutf-8
+
+Hmacç®—æ³•ä¹Ÿæ˜¯ä¸€ç§å“ˆå¸Œç®—æ³•,å®ƒè¿˜éœ€è¦ä¸€ä¸ªå¯†é’¥
+
+const crypto = require('crypto');
+
+const hmac = crypto.createHmac('sha256','s-key');
+
+hmac.update('hello');
+å¯†é’¥å‘ç”Ÿå˜åŒ–,è¾“å…¥æ•°æ®ä¹Ÿä¼šå¾—åˆ°ä¸åŒçš„ç­¾å
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
