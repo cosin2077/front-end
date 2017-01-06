@@ -68,6 +68,23 @@ require('./greeting.js')//引入方法和nodejs一样哦
 
 被引用js申明了module.exports = func//只输出被引用js文件的func方法
 
+内联样式的双花括号,第一层表示JSX语法,第二层表示这是一个JavaScript对象.
+
+React.js中样式属性用驼峰标记法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 nodejs中进程由process表示
 
 fs模块是nodejs内置文件读写系统.
@@ -253,26 +270,51 @@ const hmac = crypto.createHmac('sha256','s-key');
 hmac.update('hello');
 密钥发生变化,输入数据也会得到不同的签名
 
+npm ls -g --depth 0//查看一层全局安装模块
 
 
 
+*******
+浏览器计算的像素值(DIP--device independent pixels)与
+硬件像素(我们所说的1920*1080分辨率之流)计算值不同
+不是所谓的像素值
 
+视口(viewport)和分辨率的关系
+DPR(device pixels rate)硬件像素与视口像素(CSS像素)之比
 
+视口宽度等于硬件像素除以DPR
+1.设置meta标签
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+2.宽度用百分比
+img,embed,object,video{
+    max-width:100%;
+}
+3.按钮,或者其他要点击的地方,至少48px*48px的CSS像素,至少间隔40px像素以便按下
+button{
+    min-width:48px;
+    min-height:48px;
+}
+4.media query 
+media query 应用的三种方式:
+1).
+<link rel="stylesheet" media="screen and (min-width:500px)" href="css/over500.css" />
+2).
+@media screen and (min-width:500px) and (max-width:600px){
+    //CSS styles
+}
+3).//考虑性能因素,很少使用这种方法
+@import url('over400.css') only screen and (min-width:400px);
 
+要权衡的是1)与2)
+1)有很多小文件,http请求
+2)文件会大些
 
+display:flex
+flex-wrap:wrap
 
-
-
-
-
-
-
-
-
-
-
-
-
+每一行45~90个字符比较合理(English)
+网页中一般是65个
+字体最少16px，1.2em
 
 
 
