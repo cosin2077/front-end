@@ -183,21 +183,74 @@ col-sm-offset-2 向右偏移2列
 col-sm-pull-4 往左移动4列
 col-sm-push-8 往右移动8列
 
+列的嵌套
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"></div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"></div>
+			</div>
+		</div>
+	</div>
+</div>
 
+下拉菜单及导航
+使用下拉菜单得引用bootstrap.js文件
 
+<div class="dropdown">
+	<button class=" btn dropdown-toggle" data-toggle="dropdown">
+		<ul class="dropdown-menu">
+			<li><a href="#">dropdown-lists</a></li>
+			<li><a href="#">dropdown-lists</a></li>
+			<li><a href="#">dropdown-lists</a></li>
+			<li><a href="#">dropdown-lists</a></li>
+			<li><a href="#">dropdown-lists</a></li>	
+		</ul>
+	</button>
+</div>
 
+下拉菜单分割线
+<li class="divider"></li>
+下拉菜单标题
+<li class="dropdown-header"></li>
 
+下拉菜单对其方式
+ul设置pull right
 
+下拉菜单状态选项
+对li设置
+disabled
+active
 
+按钮组
+外层一个btn-group类
+<div class="btn-group">
+	<button class="btn"></button>
+	<button class="btn btn-default"></button>
+	<button class="btn btn-primary"></button>
+	<button class="btn btn-warning"></button>
+</div>
 
-
-
-
-
-
-
-
-
+按钮工具栏
+将btn-group放在更大的
+btn-toolbar中 让多个分组之间进行浮动,并且组与组之间保持5px外边距
+<div class="btn-toolbar">
+	<div class="btn-group">
+		<button class="btn"></button>
+		<button class="btn"></button>
+		<button class="btn"></button>
+		<button class="btn"></button>
+	</div>
+</div>
 
 
 
