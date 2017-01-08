@@ -252,24 +252,84 @@ btn-toolbar中 让多个分组之间进行浮动,并且组与组之间保持5px�
 	</div>
 </div>
 
+按钮组嵌套下拉菜单
+相当于btn-group中又嵌套了一层btn-group
 
+<div class="btn-group" >
+	<button class="btn btn-default">首页</button>
+	<button class="btn btn-default">产品</button>
+	<button class="btn btn-default">案例</button>
+	<div class="btn-group">
+		<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">关于<span class="caret"></span></button>
+		<ul class="dropdown-menu">
+			<li><a href="#">简介</a></li>
+			<li><a href="#">文化</a></li>
+			<li><a href="#">组织</a></li>
+			<li><a href="#">客服</a></li>
+		</ul>
+	</div>
+</div>
 
+按钮组垂直分组
+btn-group变为btn-group-vertical
 
+按钮等分
+btn-group-justified
+chrome上测试
+a按钮才可以这样呀
+button按钮不可以
 
+导航
+导航基础样式
+.nav
+.nav nav-tabs
+.nav nav-pills
 
+<ul class="nav nav-tabs">
+	<li><a href="">Home</a></li>
+	<li><a href="">HTML</a></li>
+	<li><a href="">CSS</a></li>
+	<li><a href="">JavaScript</a></li>
+</ul>
 
+li添加active类表示激活当前选项
+disabled类表示当前选项不可选
 
+导航纵向排列
+ul添加类nav-stacked
 
+自适应添加类
+nav-justified
 
+导航加下拉菜单
+li使用类dropdown
+li中嵌套另一个ul
 
+<ul class="nav nav-tabs">
+	<li><a href="#">Home</a></li>
+	<li><a href="#">HTML</a></li>
+	<li><a href="#">CSS</a></li>
+	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#">JavaScript系列<span class="caret"></span></a>
+	<ul class="dropdown-menu">
+		<li><a href="">javascript1</a></li>
+		<li><a href="">javascript2</a></li>
+		<li><a href="">javascript3</a></li>
+		<li><a href="">javascript4</a></li>
+	</ul>
+	</li>
+	<li><a href="#">final</a></li>
+</ul>
 
+面包屑导航
 
+<ol class="breadcrumb">
+	<li><a href="">首页</a></li>
+	<li><a href="">JavaScript系列</a></li>
+	<li class="active">JavaScript1</li>
+</ol>
 
-
-
-
-
-
+P6-1导航条基础
 
 
 
