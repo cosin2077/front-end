@@ -272,7 +272,24 @@ hmac.update('hello');
 
 npm ls -g --depth 0//查看一层全局安装模块
 
+闭包和时间监听程序
+arr=[1,2,3]
+for(var a=0;a<arr.length;a++){
+ a.addEventListener('click',function(){
+ alert(a)//这样每次alert的都是3
+})
+}
+换一种写法,闭包保存状态IIFE(immediately-invoked Function Expression)
+arr=[1,2,3]
+for(var a=0;a<arr.length;a++){
+ a.addEventListener('click',(function(acopy){
+ return function(){
+alert(a)//依次alert 1 2 3 
 
+}
+
+})(a))
+}
 
 *******
 浏览器计算的像素值(DIP--device independent pixels)与
