@@ -115,7 +115,34 @@ direction
 ltr
 rtl
 
+只有width和margin才能被设为属性auto，其余不能
 
+margin:0 auto;块级元素对齐
+text-align:center;对齐的是内联元素
+
+内边距，边框，内容宽高不能设置为负数,只有外边距能设置为负数
+
+块级元素垂直格式化,制定高度后,出现滚动条,设置overflow属性等
+
+display改变元素显示
+none
+inline inline元素左右内外边距能设置,上下内外边距不能设置
+block 
+inline-block 能设置宽高,同时保持内联元素在一行的特性
+
+块级元素
+行内替换元素
+行内块级元素
+才能设置宽高
+
+p221 run-in元素
+
+IE的盒子(width,height)包括内边距和边框
+
+关于
+background-image的种种
+background-position:center|top|top right;
+background-repeat:no-repeat|repeat-x|repeat-y;
 
 
 
