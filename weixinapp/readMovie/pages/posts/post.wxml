@@ -2,10 +2,11 @@
 <view>
     <!--轮播图-->
     <!--双括号解析真假值,注意-->
-    <swiper vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
-        <swiper-item><image src="/images/content/4.jpg" ></image></swiper-item>
-        <swiper-item><image src="/images/content/2.jpg"></image></swiper-item>
-        <swiper-item><image src="/images/content/3.jpg"></image></swiper-item>
+    <!--//冒泡捕捉-->
+    <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
+        <swiper-item><image data-postId="3" src="/images/content/4.jpg" ></image></swiper-item>
+        <swiper-item><image data-postId="2" src="/images/content/2.jpg"></image></swiper-item>
+        <swiper-item><image data-postId="1" src="/images/content/3.jpg"></image></swiper-item>
     </swiper>
     <!--轮播图结束-->
     <block wx:for="{{posts_key}}" wx:for-item="item">

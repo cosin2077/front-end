@@ -1,0 +1,18 @@
+<template name="postItem">
+    <view class="post-container">
+        <view class="post-author_data">
+        <!--wx:if="{{false}}",设置真假值-->
+            <image wx:if="{{img_condition}}" class="post-author" src="{{avatar}}"></image>
+            <text class="post-date">{{date}}</text>
+        </view>
+        <text class="post-title">{{title}}</text>
+            <image class="post-image" src="{{imgSrc}}"></image>
+            <text class="post-content">{{content}}</text>
+            <view class="post-like">
+                <image class="post-like-image" src="/images/avatar/2.jpg"></image>
+                <text class="post-like-font">{{collection}}</text>
+            <image class="post-like-image"  src="/images/avatar/3.jpg"></image>
+            <text class="post-like-font">{{reading}}</text>
+        </view>
+    </view>
+</template>
