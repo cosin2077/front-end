@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>
+     google.charts.load('upcoming', {'packages': ['geochart']});
+     google.charts.setOnLoadCallback(drawMarkersMap);
+
+      function drawMarkersMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['City',   'Population', 'Area'],
+        ['ShangHai',      22761477,    6285.31],
+        ['beijing',      22761477,    6285.31],
+        ['Chengdu',     11324110,    4181.76],
+        ['shenzheng',    11959574,     1717.27],
+        ['nanjin',     8907563,     3130.17],
+        ['gaungzhou',   15655875,     4158.9],
+        ['Genoa',     607906,     243.60],
+        ['Bologna',   380181,     140.7],
+        ['Florence',  371282,     102.41],
+        ['Fiumicino', 67370,      213.44],
+        ['Anzio',     52192,      43.43],
+        ['Ciampino',  38262,      11]
+      ]);
+
+      var options = {
+        region: 'CN',
+        displayMode: 'markers',
+        colorAxis: {colors: ['green', 'blue']}
+      };
+
+      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    };
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 400px; height: 260px;"></div>
+  </body>
+</html>
