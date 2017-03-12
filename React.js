@@ -55,6 +55,27 @@ this.props.prop-name
 this.props.children
 getDefaultProps设置默认props对象
 
+React能够通过两种方式进行信息的动态传递
+props和state
 
+getInitialState:function(){
+	return {obj:someprops}
+}
+this.setState({obj:anotherprops})
 
+生命周期
+
+挂载生命周期
+mounting lifecycle
+
+1.componentWillMount
+2.render
+3.componentDidMount
+一个组件挂载的时候，自动依次执行这三个过程
+
+挂载事件只有在组件第一次render的过程才会执行
+
+当你需要添加一些希望只在组件挂载开始执行的事件的时候，就可以好好利用这三个事件了
+
+componentDidMount适合处理render过程中接受的ajax,设置setTimeout,setinterval,以及与其他框架交互事件
 
