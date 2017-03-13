@@ -143,6 +143,8 @@ IE的盒子(width,height)包括内边距和边框
 background-image的种种
 background-position:center|top|top right;
 background-repeat:no-repeat|repeat-x|repeat-y;
+background-attachment:scroll|fixed|inherit
+
 
 
 
