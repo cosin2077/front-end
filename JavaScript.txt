@@ -134,11 +134,23 @@ ele.style.backgroundColor='grey';
 
 元素节点的style对象，有一个cssText属性，可以读写或删除整个样式。
 
+CSS模块的侦测(判断浏览器是否支持某个模块)
 
+判断某个style对象的某个属性是否为字符串，如果属性存在会返回一个字符串，即使属性没有设置也会返回空字符串，而没有这个属性的话，则会返回undefined
 
+style对象三个方法读写行内CSS规则
+setProperty
+getPropertyValue
+removeProperty
 
+最终样式
+window.getComputedStyle(ele)
+返回ele元素的最终样式
+window.getComputedStyle(test, ':before').color;//获取伪元素
 
+CSS伪元素
 
+StyleSheet对象代表网页一张样式表，包括link节点加载的和style节点内嵌的样式表
 
 
 
