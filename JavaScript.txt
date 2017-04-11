@@ -1,4 +1,4 @@
-JavaScript对象是由无序键值对组成的集合,
+﻿JavaScript对象是由无序键值对组成的集合,
 键——属性
 值——属性的值
 如果访问没有定义的属性,返回undefined
@@ -126,7 +126,13 @@ prop('checked');//true
 |->is(':checked');//true
 attr('checked');//checked
 
+JS与CSS的交互
+节点元素的getAttribute方法，setAttribute方法和removeAttribute方法，直接读取和删除网页元素的style属性。
 
+元素对应的DOM节点对象的style属性可以直接操作，用来读写行内CSS样式
+ele.style.backgroundColor='grey';
+
+元素节点的style对象，有一个cssText属性，可以读写或删除整个样式。
 
 
 
