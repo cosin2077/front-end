@@ -1,76 +1,83 @@
 ##将p中的属性复制到o中
-function extend(o,p){
-     for(prop in p){
-          o[prop]=p[prop];
-     }
-     return o;
-}
+
+	function extend(o,p){
+	     for(prop in p){
+	          o[prop]=p[prop];
+	     }
+	     return o;
+	}
 
 ##生成一个新对象，拥有两者的属性,将o的属性复制到空对象中，再将p的属性复制到空对象中
-function union(o,p){
-     return extend(extend({},o),p);
-}
+
+	function union(o,p){
+	     return extend(extend({},o),p);
+	}
 
 ##Object.keys()返回对象中只有可枚举属性组成的数组,原理类似于
-function keys(o){
-     if(o!=='object') throw TypeError();
-     var res = [];
-     for(var prop in o){
-          if(o.hasOwnProperty(prop)){
-               res.push(prop);
-          }
-     }
-     return res;
-}
+
+	function keys(o){
+	     if(o!=='object') throw TypeError();
+	     var res = [];
+	     for(var prop in o){
+	          if(o.hasOwnProperty(prop)){
+	               res.push(prop);
+	          }
+	     }
+	     return res;
+	}
 
 Object.getOwnPropertyNames(Object);//获取Object对象自由的所有属性名称
 ##生成一个对象继承属性自p
-function inherit(p){
-     if(p=='null') throw TypeError();
-     if(Object.create) return Object.create(p);
-     var t = typeof p;
-     if(t!=='object'&&t!=='function') throw TypeError();
-     function f() {};
-     f.prototype = p;
-     return new f();
-}
+
+	function inherit(p){
+	     if(p=='null') throw TypeError();
+	     if(Object.create) return Object.create(p);
+	     var t = typeof p;
+	     if(t!=='object'&&t!=='function') throw TypeError();
+	     function f() {};
+	     f.prototype = p;
+	     return new f();
+	}
 ##对象的存取器属性(getter 和setter)
-var o = {
-     a:"default value",
-     set loc_a(nval){
-          this.a = nval
-     },
-     get loc_a(){
-          return this.a;
-     }
-}
+
+	var o = {
+	     a:"default value",
+	     set loc_a(nval){
+	          this.a = nval
+	     },
+	     get loc_a(){
+	          return this.a;
+	     }
+	}
 //##2 ---------
-var o = {
-     _a:"default",
-     a:{
-          get:function(){
-              return  this._a;
-          },
-          set:function(nval){
-               return this._a = nval;
-          }
-     }
-}
+
+	var o = {
+	     _a:"default",
+	     a:{
+	          get:function(){
+	              return  this._a;
+	          },
+	          set:function(nval){
+	               return this._a = nval;
+	          }
+	     }
+	}
 //对比下普通对象的方法和存取器属性
-var o = {
-a:function(){
-     return Math.floor(Math.random()*9)+1;
-}
-}
-o.a(); //返回[1,10]之间的数
 
-var o1 = {
-     get a(){
-           return Math.floor(Math.random()*9)+1;
-
-     }
-}
-o1.a;// 返回[1,10]之间的数
+	var o = {
+	a:function(){
+	     return Math.floor(Math.random()*9)+1;
+	}
+	}
+	o.a(); //返回[1,10]之间的数
+	
+	var o1 = {
+	     get a(){
+	           return Math.floor(Math.random()*9)+1;
+	
+	     }
+	}
+	o1.a;// 返回[1,10]之间的数
 
 ##数据属性的四个特性
 值(value)
@@ -94,13 +101,14 @@ Object.getOwnPropertyDescriptor(obj,prop);//获取某个对象特定属性的属
 ##Object.defineProperty(obj,prop,properDescriptor)
 
 ##同时修改多个属性
-Object.defineProperties(obj,{
-     val1:{value:"xxx",writable:"xxx",enumerable:"xxx",configurable:"xxx"},
-     val2: {value:"xxx",writable:"xxx",enumerable:"xxx",configurable:"xxx"},
 
-     val3: {value:"xxx",writable:"xxx",enumerable:"xxx",configurable:"xxx"},
-
-})
+	Object.defineProperties(obj,{
+	     val1:{value:"xxx",writable:"xxx",enumerable:"xxx",configurable:"xxx"},
+	     val2: {value:"xxx",writable:"xxx",enumerable:"xxx",configurable:"xxx"},
+	
+	     val3: {value:"xxx",writable:"xxx",enumerable:"xxx",configurable:"xxx"},
+	
+	})
 
 ##扩展extend()方法
 
