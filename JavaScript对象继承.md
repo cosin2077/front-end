@@ -337,3 +337,4 @@ building.constructor === Build;//true
 
 重写原型的话，添加上constructor属性，这样继承的实例也会有constructor属性
 相比重写原型，最好好事扩展原型，即给Build.prototype添加属性
+
