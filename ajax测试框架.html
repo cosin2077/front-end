@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>API 测试</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+</script>
+	<style>
+		html,body{
+			margin:0;
+			padding: 0;
+			height: 100%;
+		}
+		#container{
+			margin:0 auto;
+			display: flex;
+			flex-direction: column;
+			width: 85%;
+			align-items: center;
+		}
+		input{
+			margin-top: 15px;
+			width: 70%;
+		}
+		textarea.result{
+			margin-top: 15px;
+			min-height: 120px;
+			width: 80%;
+			/*border-top: solid 1px grey;*/
+			border-left: solid 2px grey;
+			border-right: solid 2px grey;
+			/*border-bottom: solid 1px grey;*/
+		}
+		form{
+			text-align: center;
+		}
+		.content-wrap{
+			font-size: 1.0em;
+			width: 85%;
+			min-width: 280px ;
+			margin:2px auto;
+		}
+		.content-wrap img {
+			max-width:100%; 
+		}
+		.content-wrap blockquote{
+			margin-left: 20px;
+			border-left:solid 5px lightgrey;
+			padding-left: 8px;
+			color: grey;
+		}
+		#fres{
+			width: 100%;
+			overflow-wrap: break-word;
+		}
+		.heading{
+			color:grey;
+		}
+		meta{
+			color: lightgrey;
+			font-size: 0.8em;
+		}
+		a{
+			text-decoration:underline;
+			color: black;
+		}
+		a:hover{
+			text-decoration:underline;
+		}
+		.view-more{
+			color:#008bed;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<form action="" id="form">
+			<input required="true"  type="text" id="url" placeholder="Please input the api url" value="http://news-at.zhihu.com/api/4/news/9476137">
+			<input type="button" value="Send the url">
+			<input type="submit" value="Submit">
+		</form>
+		<textarea class="result"></textarea>
+		<div id="fres"></div>
+	</div>
+	<script>
+	$(function(){
+		var urlp = document.getElementById('url');
+		var form = document.getElementById('form');
+		var btn = document.querySelector('[type="button"]');
+		var res = document.getElementsByClassName('result')[0];
+		var fres = document.getElementById('fres');
+		var count = 0;
+		var res_json = null;
+		form.addEventListener('submit',function(e){
+			e.preventDefault();
+			url = urlp.value;
+			if(url==""){
+				alert("please input the api url");
+				return;
+			}
+			if(url=="1") url="https://api.github.com/";
+			try{
+				http("GET",url);}
+				catch(e){
+					console.log(e);
+				}
+			})
+		function http(method,url,data){
+			var xhr;
+			if(window.XMLHttpRequest){
+				xhr = new XMLHttpRequest();
+			}
+			else{
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4){
+					if(xhr.status==200){
+						// console.log(xhr);
+						res.innerText = xhr.responseText;
+						res_json = JSON.parse(xhr.responseText);
+						fres.innerHTML = res_json.body;
+						count=0;
+					}
+					else{
+						console.log(count);
+						if(count>=3) return;
+						else{
+							console.log("Using server php script delegation!");
+							data = url;
+							url = "http://whattheheck.top/fetch.php";
+							count++;
+							http('POST',url,data);
+						}
+					}
+				}
+			};
+			xhr.open(method,url,true);
+			xhr.send(data);
+		}
+	});
+	</script>
+</body>
+</html>
