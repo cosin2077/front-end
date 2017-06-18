@@ -5,7 +5,8 @@
 	<title>API 测试</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
-</script>
+	</script>
+	<link rel="stylesheet" href="..\prac\bower_components\bootstrap\dist\css\bootstrap.css">
 	<style>
 		html,body{
 			margin:0;
@@ -71,24 +72,30 @@
 		.view-more{
 			color:#008bed;
 		}
+		#fres{
+			min-height: 400px;
+			margin-top: 15px;
+			border-left:solid 2px whitesmoke;
+			border-right:solid 2px whitesmoke;
+		}
 	</style>
 </head>
 <body>
 	<div id="container">
 		<form action="" id="form">
-			<input required="true"  type="text" id="url" placeholder="Please input the api url" value="http://news-at.zhihu.com/api/4/news/9476137">
-			<input type="button" value="Send the url">
-			<input type="submit" value="Submit">
+			<input required="true"  type="text" id="url" placeholder="Please input the api url" value="1" data-zhihuapi="http://news-at.zhihu.com/api/4/news/latest">
+			<input class="btn btn-primary" type="button" value="Send the url">
+			<input class="btn btn-success" type="submit" value="Submit">
 		</form>
-		<textarea class="result"></textarea>
-		<div id="fres"></div>
+		<!-- <textarea class="result"></textarea> -->
+		<div id="fres" ></div>
 	</div>
 	<script>
 	$(function(){
 		var urlp = document.getElementById('url');
 		var form = document.getElementById('form');
 		var btn = document.querySelector('[type="button"]');
-		var res = document.getElementsByClassName('result')[0];
+		// var res = document.getElementsByClassName('result')[0];
 		var fres = document.getElementById('fres');
 		var count = 0;
 		var res_json = null;
@@ -118,9 +125,9 @@
 				if(xhr.readyState==4){
 					if(xhr.status==200){
 						// console.log(xhr);
-						res.innerText = xhr.responseText;
+						// res.innerHTML = "<pre>"+JSON.stringify(JSON.parse(xhr.responseText),null,2)+"</pre>";
 						res_json = JSON.parse(xhr.responseText);
-						fres.innerHTML = res_json.body;
+						fres.innerHTML = "<pre>"+JSON.stringify(JSON.parse(xhr.responseText),null,2)+"</pre>";
 						count=0;
 					}
 					else{
