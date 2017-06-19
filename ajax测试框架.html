@@ -22,7 +22,7 @@
 		}
 		input{
 			margin-top: 15px;
-			width: 70%;
+			width: 100%;
 		}
 		textarea.result{
 			margin-top: 15px;
@@ -83,12 +83,12 @@
 <body>
 	<div id="container">
 		<form action="" id="form">
-			<input required="true"  type="text" id="url" placeholder="Please input the api url" value="1" data-zhihuapi="http://news-at.zhihu.com/api/4/news/latest">
+			<input class="form-control" required="true"  type="text" id="url" placeholder="Please input the api url" value="1" data-zhihuapi="http://news-at.zhihu.com/api/4/news/latest">
 			<input class="btn btn-primary" type="button" value="Send the url">
 			<input class="btn btn-success" type="submit" value="Submit">
 		</form>
 		<!-- <textarea class="result"></textarea> -->
-		<div id="fres" ></div>
+		<pre id="fres" ></pre>
 	</div>
 	<script>
 	$(function(){
@@ -127,12 +127,15 @@
 						// console.log(xhr);
 						// res.innerHTML = "<pre>"+JSON.stringify(JSON.parse(xhr.responseText),null,2)+"</pre>";
 						res_json = JSON.parse(xhr.responseText);
-						fres.innerHTML = "<pre>"+JSON.stringify(JSON.parse(xhr.responseText),null,2)+"</pre>";
+						fres.innerText = JSON.stringify(JSON.parse(xhr.responseText),null,2);
 						count=0;
 					}
 					else{
 						console.log(count);
-						if(count>=3) return;
+						if(count>=3) {
+							console.log("tried more than 3 times,stop trying.");
+							return;
+						}
 						else{
 							console.log("Using server php script delegation!");
 							data = url;
