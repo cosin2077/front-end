@@ -1,10 +1,41 @@
-##神TM的再次复习bootstrap
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- 以IE最新版本来渲染,有chrome引擎就用chrome引擎 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+		<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<meta name="renderer" content="webkit"><!-- 国产浏览器默认高速模式 -->
+	</head>
+	<title>Document</title>
+	<style>
+		[class*='col']{
+			text-align: center;
+			background-color: lightgrey;
+			border:solid 2px steelblue;
+		}
+		[class*='empty']{
+			visibility: hidden;
+		}
+	</style>
+
+</head>
+<body>
+	##神TM的再次复习bootstrap
 head头部
 
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- 以IE最新版本来渲染,有chrome引擎就用chrome引擎 -->
-		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,3 +51,87 @@ html5文档类型
 	<html lang="zh-CN">
 		...
 	</html>
+
+跨浏览器表现一致性-> normalize.css  
+
+容器布局
+
+	.container
+	.container-fluid  占据视口100%宽度
+栅格布局
+	
+	<div class="clearfix visible-xs-block"></div>
+	分界点清除响应
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-xs-6">
+			1d大苏打撒旦 撒旦1d大苏打撒旦 撒旦
+			1d大苏打撒旦 撒旦1d大苏打撒旦 撒旦
+			1d大苏打撒旦 撒旦1d大苏打撒旦 撒旦
+			1d大苏打撒旦 撒旦1d大苏打撒旦 撒旦
+			1d大苏打撒旦 撒旦1d大苏打撒旦 撒旦
+			1d大苏打撒旦 撒旦1d大苏打撒旦 撒旦
+			1d大苏打撒旦 撒旦1d大苏打撒旦 撒旦
+			1d大苏打撒旦 撒旦1d大苏打撒旦 撒旦
+			</div>
+			<div class="col-sm-3 col-xs-6">2</div>
+			<div class="clearfix visible-xs-block"></div>
+			<div class="col-sm-3 col-xs-6">3</div>
+			<div class="col-sm-3 col-xs-6">4</div>
+		</div>
+	</div>
+
+	列偏移
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3 col-sm-offset-1">1</div>
+			<div class="col-sm-1 empty"></div>
+			<div class="col-sm-2 ">2</div>
+			<div class="col-sm-1 empty"></div>
+			<div class="col-sm-3 ">3</div>
+		</div>
+	</div>
+
+	列嵌套
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3 col-sm-offset-2">1
+			<div class="row">
+				<div class="col-sm-5 col-sm-offset-1">11</div>
+				<div class="col-sm-5">12</div>
+			</div>
+			</div>
+			<div class="col-sm-2 ">2</div>
+			<div class="col-sm-3 ">3</div>
+		</div>
+	</div>
+	列排序
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3 col-sm-push-3">1</div>
+			<div class="col-sm-3 col-sm-pull-3">2</div>
+		</div>
+	</div>
+	pull,push相对于offset来说,pull,push是绝对定位,而offset是相对定位元素之间会互相影响.
+
+	.small类标记副标题
+	全局的font-size为14px,line-height为1.428
+
+	<mark> 标记文本
+	<del> 删除文本
+	<s> 无用文本
+	<ins> 插入文本
+	<u> 下划线文本
+	<small> 85%父元素font-size
+	<strong> 着重
+	<em> 斜体
+
+	.text-left 文字左对齐
+	.text-center 文字中间对齐
+	.text-right 文字右对齐
+	.text-justify 分散对齐
+	
+
+</body>
+</html>
+
