@@ -140,7 +140,7 @@
 	.text-lowercase 小写
 	.text-uppercase 大写
 	.text-capitalize 首字母大写
-	<abbr> 缩略语
+	<abbr title=""></abbr> 缩略语
 		<abbr class="initialism"></abbr> 首字母缩略语
 		<address></address> 地址
 
@@ -277,6 +277,175 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
+	支持的各种表单控件
+	<form class="form-inline">
+	<div class="form-group">
+	<label for="">text</label>
+	<input type="text" class="form-control">
+	</div>
+	<div class="form-group">
+	<label for="">password</label>
+	<input type="password" class="form-control">
+		</div>
+	<div class="form-group">
+<label for="">month</label>
+	<input type="month" class="form-control">
+	</div>
+	<div class="form-group">
+<label for="">month</label>
+	<input type="month" class="form-control">
+	</div>
+	<div class="form-group">
+<label for="">number</label>
+	<input type="number" class="form-control">
+	</div>
+	<div class="form-group">
+<label for="">email</label>
+	<input type="email" class="form-control">
+	</div>
+	<div class="form-group">
+<label for="">email</label>
+	<input type="email" class="form-control">
+	</div>
+	<div class="form-group">
+<label for="">search</label>
+	<input type="search" class="form-control">
+	</div>
+	<div class="form-group">
+<label for="">tel</label>
+	<input type="tel" class="form-control">
+	</div>
+	<div class="form-group">
+<label for="">color</label>
+	<input type="color" class="form-control">	
+	</div>
+	</form>
+	文本域
+	<textarea class="form-control" name="" id=""  rows="3">
+		
+	</textarea>
+	禁用状态 
+	disabled属性
+	只读属性
+	readonly属性
+
+	帮助文本
+	<hr>
+	<label class="sr-only" for="inputHelpBlock">Input with help text</label>
+	<input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock">
+	<span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>	
+	表单校验状态
+	父元素上定义
+	.has-success .has-warning .has-error
+
+	<div class="form-group has-success has-feedback">
+  <label class="control-label" for="inputSuccess1">Input with success</label>
+  <input type="text" class="form-control " id="inputSuccess1" aria-describedby="helpBlock2">
+  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+  <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+</div>
+<div class="form-group has-warning has-feedback">
+  <label class="control-label" for="inputWarning1">Input with warning</label>
+  <input type="text" class="form-control " id="inputWarning1">
+  <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+</div>
+<div class="form-group has-error has-feedback">
+  <label class="control-label" for="inputError1">Input with error</label>
+  <input type="text" class="form-control " id="inputError1">
+  <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+</div>
+<div class="has-success">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="checkboxSuccess" value="option1">
+      Checkbox with success
+    </label>
+  </div>
+</div>
+<div class="has-warning">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="checkboxWarning" value="option1">
+      Checkbox with warning
+    </label>
+  </div>
+</div>
+<div class="has-error">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="checkboxError" value="option1">
+      Checkbox with error
+    </label>
+  </div>
+</div>
+按钮
+a button input 元素添加 .btn类即可
+<a href="" class="btn btn-default" role="button">button</a>
+<button class="btn btn-default">button</button>
+<input class="btn btn-default" value="button">
+跨浏览器的实现，最好用button
+预定义样式
+.btn-default
+.btn-primary
+.btn-success
+.btn-info
+.btn-warning
+.btn-danger
+.btn-link
+不同尺寸
+.btn-lg
+.btn-sm
+.bnt-xs
+变为块级元素,占据100%父元素宽度
+<button class="btn btn-primary text-center">button</button>
+<button class="btn btn-info btn-lg btn-block">button</button>
+.active 类添加激活样式
+disabled禁用属性
+图片
+.img-responsive 类让图片支持响应式布局
+其实就是设置
+max-width:100%;
+height:auto;
+display:block;
+要让图片居中设置
+.center-block 类
+
+.img-rounded 圆角
+.img-circle 圆形
+.img-thumbnail 缩略图式
+
+文本辅助
+.text-primary
+.text-success
+.text-info
+.text-warning
+.text-danger
+
+文本背景辅助
+.bg-primary
+.bg-success
+.bg-info
+.bg-warning
+.bg-danger
+<hr>
+关闭按钮
+<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+三角按钮
+<span class="caret"></span>
+直接浮动  
+.pull-left
+.pull-right
+内容快居中
+.center-block
+父元素添加
+.clearfix清除浮动
+
+显示和隐藏
+.show 显示
+.hidden 隐藏
+.invisible 隐藏,仍影响布局
+
+<h1 class="text-hide">Custom heading</h1>
 
 </body>
 </html>
