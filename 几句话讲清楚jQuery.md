@@ -13,7 +13,21 @@
 
 
 ##文档操作
-
+>addClass()添加类名
+>after()匹配元素之后添加
+>append()匹配每个元素结尾添加
+>attr()设置/返回属性和值
+>before()匹配的每个元素之前添加
+>clone()复制匹配元素副本
+>detach()移除匹配元素(内)
+>empty()清空匹配元素的子元素
+>hasClass()是否有指定的类
+>html()设置/返回元素HTML内容
+>remove()移除所有匹配元素
+>unwrap() 删除被选元素的父元素
+>wrap()小包裹，每个元素都包裹
+>wrapAll()大包裹,最外层包裹
+>wrapinner()小内包裹
 
 
 ##CSS操作  
