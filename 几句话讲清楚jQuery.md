@@ -1,6 +1,6 @@
 #几句话讲清楚jQuery 
 ***——<small>是不可能的</small>***  
-**——才怪**
+***——才怪***
 
 ##1.操作DOM
 
@@ -49,23 +49,23 @@ css({"backgroundColor":"steelblue","textShadow":"2px 2px 2px #ccc"});//设置bac
 >val()设置/返回value值
 >removeAttr()
 
-##jQuery遍历
->parent() 直接父元素
->parents() 所有父辈元素
->parentsUntil()直到...的父元素
->children()所有直接子元素
->find() 子辈元素里边找
->siblings() 所有同胞元素
->next() 下一个同胞元素
->prev()上一个同胞元素
->nextAll() 后边所有同胞元素
->prevAll() 前边所有同胞元素  
+##jQuery遍历  
+>parent() 直接父元素  
+>parents() 所有父辈元素  
+>parentsUntil()直到...的父元素  
+>children()所有直接子元素  
+>find() 子辈元素里边找  
+>siblings() 所有同胞元素  
+>next() 下一个同胞元素  
+>prev()上一个同胞元素   
+>nextAll() 后边所有同胞元素  
+>prevAll() 前边所有同胞元素    
 **过滤**  
->first() 第一个元素
->last() 最后一个元素
->eq() 索引从0开始的元素
->filter() 过滤含有选择器的元素
->not() 过滤不含有选择器的元素
+>first() 第一个元素  
+>last() 最后一个元素  
+>eq() 索引从0开始的元素  
+>filter() 过滤含有选择器的元素  
+>not() 过滤不含有选择器的元素  
 
 ##jQuery事件
 >$(document).ready(fucntion(){}) 文档就绪  
@@ -79,23 +79,23 @@ delegate(childrenSelector,event,data,function)
 live() 绑定事件    
 bind 相对于delegate和live不能绑定未来事件  
 >error() 触发或绑定元素的error事件
->event.pageX 相对于文档的位置
->....一系列的event事件属性
->keydown() keydown事件
->keypress() keypress事件
->keyup() keyup事件
->load() load事件
->mouseover()...鼠标的一系列事件
->one() 添加一次事件处理器
->ready() DOM解构,img加载ready时
->resize() 缩放
->scroll() 滚动事件
->select() select 事件
->submit() submit 事件
->toggle() 两个事件处理函数互相切换
->trigger() 触发制定事件,会冒泡,会发生默认行为
->triggerHandler() 第一个元素触发指定事件
-
+>event.pageX 相对于文档的位置  
+>....一系列的event事件属性  
+>keydown() keydown事件  
+>keypress() keypress事件  
+>keyup() keyup事件  
+>load() load事件  
+>mouseover()...鼠标的一系列事件  
+>one() 添加一次事件处理器  
+>ready() DOM解构,img加载ready时  
+>resize() 缩放   
+>scroll() 滚动事件  
+>select() select 事件  
+>submit() submit 事件  
+>toggle() 两个事件处理函数互相切换  
+>trigger() 触发制定事件,会冒泡,会发生默认行为  
+>triggerHandler() 第一个元素触发指定事件  
+ 
 ##Ajax
 
 >ajax() 异步执行ajax请求
