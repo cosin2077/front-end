@@ -24,6 +24,15 @@ css({"backgroundColor":"steelblue","textShadow":"2px 2px 2px #ccc"});//设置bac
 
 >height()设置/返回元素高度
 >offset()返回相对文档位置
->position()返回/设置相对于父元素的位置
->offset()返回/设置相对于文档元素的位置
->
+>position()返回相对于父元素的位置
+>offset()返回相对于文档元素的位置
+
+
+##属性操作
+>addClass()添加类名
+>removeClass()删除类名
+>toggleClass()添加/删除类名
+>attr()设置/返回属性和值
+>html()设置/返回HTML
+>val()设置/返回value值
+>removeAttr()
