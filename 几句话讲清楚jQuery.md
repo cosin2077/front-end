@@ -33,7 +33,6 @@ css("color","red");//设置元素color为red
 css("fontSize");//获取元素font-size    
 css({"backgroundColor":"steelblue","textShadow":"2px 2px 2px #ccc"});//设置background-color和text-shadow属性   
 >height()设置/返回元素高度  
->offset()返回相对文档位置  
 >position()返回相对于父元素的位置  
 >offset()返回相对于文档元素的位置  
 
@@ -45,7 +44,7 @@ css({"backgroundColor":"steelblue","textShadow":"2px 2px 2px #ccc"});//设置bac
 >attr()设置/返回属性和值  
 >html()设置/返回HTML  
 >val()设置/返回value值  
->removeAttr()
+>removeAttr() 删除属性
 
 ##jQuery遍历  
 >parent() 直接父元素  
