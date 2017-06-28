@@ -49,69 +49,69 @@ DROP DATABASE t1;//删除t1数据库
 SHOW WARNINGS://现实错误
 ************
 ##1.数据类型：
-整数型：
+**整数型**：  
 1 tinyint  
 2 smallint  
 3 mediumint  
 4 int  
 8 bigint  
-浮点数：  
+**浮点数：**  
 1.float(m,d)//m数字总位数，d为小数点后边的位数  
 2.double(m,d)//  
 
-2.日期和时间  
+**日期和时间**  
 1 YEAR   
 3 TIME   
 3 DATA   
 8 DATATIME   
 4 TIMESTAMP   
 
-3.字符型    
+**字符型**   
 CHAR(M)  
 varchar(m)  
 tinytext 2^8  
 text 2^16  
 mediumtext 2^24    
 longtext 2^32    
-enum()  
-set()  
+enum()  选一个  
+set()  枚举值  
 ***********************
-USE conan;//选择conan数据库
-SELECT DATABASE();//现实当前使用的数据库
-database修改名称的时候得先导出再修改
+USE conan;//选择conan数据库  
+SELECT DATABASE();//显示当前使用的数据库  
+database修改名称的时候得先导出再修改  
 
-CREATE TABLE table_name(
-	id inalt(3) NOT NULL,//不谢默认允许可以为NULL
-	name varchar(8),
-	password varchar(20));
-//创建一条表，一共有3列，列名称，列列类型
+	CREATE TABLE [IF NOT EXISTS] table_name(
+		id int(3) NOT NULL,//不写默认允许可以为NULL
+		name varchar(8),
+		password varchar(20));
+	//创建一条表，一共有3列，列名称，列列类型
+	
+	CREATE TABLE tb1(
+		username varchar(20),
+		age TINYINT UNSIGNED,//UNSIGNED表示没有负数
+		salary FLOAT(8,2) UNSIGNED
+		);
 
-CREATE TABLE tb1(
-	username varchar(20),
-	age TINYINT UNSIGNED,//UNSIGNED表示没有负数
-	salary FLOAT(8,2) UNSIGNED
-	);
 
+SHOW TABLES;//显示表   
+SHOW COLUMNS FROM tb1;//看tb1有哪些列  
+SELECT * FROM tb1;//看添加的数据  
+修改表的名字  
+alter table table_name rename to table_name2;  
+或者：  
+rename table table_name to table_name2  
 
-SHOW TABLES;//显示表
-SHOW COLUMNS FROM tb1;//看tb1有哪些列
-SELECT * FROM tb1;//看添加的数据
-修改表的名字
-alter table table_name rename to table_name2;
-或者：
-rename table table_name to table_name2
+alter table table_name2 add email varchar(255) not null;//追加一天信息上去  
+alter table table_name2 change id newdid int(3);  
+alter table table_name2 drop email;//删除字段  
+drop table table_name2;//删除表  
 
-alter table table_name2 add email varchar(255) not null;//追加一天信息上去
-alter table table_name2 change id newdid int(3);
-alter table table_name2 drop email;//删除字段
-drop table table_name2;//删除表
+show tables from somedatabase//显示某个数据库中的表  
+  
+describe table_name2;//显示表结构  
+SHOW COLUMNS FROM table_name2;//现实table_name2表中的列  
 
-show tables from somedatabase//显示某个数据库中的表
-
-describe table_name2;//显示表结构
-SHOW COLUMNS FROM table_name2;//现实table_name2表中的列
-
-#INSERT
+##INSERT
 向表中写入记录
 INSERT [INTO] table_name [(col_name,...)] VALUES(val,...)
 
