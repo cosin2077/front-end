@@ -1,11 +1,11 @@
 #Structure Query Language
 
-net start mysql57//启动mysql57服务  
-net stop mysql57//停止mysql57服务  
-my.ini 在programData文件夹server 中  
+	net start mysql57//启动mysql57服务  
+	net stop mysql57//停止mysql57服务  
+	my.ini 在programData文件夹server 中  
 
->mysql登录参数  
-mysql -u root -p  
+##mysql登录参数  
+>mysql -u root -p  
 -D 打开指定数据库  
 -h 服务器名称  
 -p 密码  
@@ -24,57 +24,57 @@ mysql>prompt 自定义
 \h 服务器名称  
 \u 当前用户  
 ***
->MySQL操作    
-关键字，函数名大写，  
+##MySQL操作    
+>关键字，函数名大写，  
 数据库名称，表名称，字段名称全部小写  
 SQL语句必须分号结束  
-select version();当前mysql版本
-select now();当前mysql时间
-select user();当前登录到mysql的用户
-创建数据库：
-CREATE { DATABASE | SCHEMA } [ IF NOT EXISTS] db_name 
-[DEFAULT] CHARACTER SET [=] charset_name
-CREATE DATABASE t1;//创建t1数据库
-CREATE DATABASE IF NOT EXISTS t1;//不会报错，只会警告
-CREATE DATABASE IF NOT EXISTS t2 CHARACTER SET =gbk;//创建t2数据库，编码为gbk
-SHOW {DATABASES|SCHEMAS}//
-SHOW CREATE DATABASE t2;//utf-8,查看t2创建时候的编码
-SHOW CREATE DATABASE t1;//gbk
-修改数据库：
-ALTER {DATABASE|SCHEMA} [db_name] [DEFAULT] CHARACTER SET [=]
-charset_name
+select version();当前mysql版本  
+select now();当前mysql时间   
+select user();当前登录到mysql的用户  
+创建数据库：  
+CREATE { DATABASE | SCHEMA } [ IF NOT EXISTS] db_name   
+[DEFAULT] CHARACTER SET [=] charset_name  
+CREATE DATABASE t1;//创建t1数据库  
+CREATE DATABASE IF NOT EXISTS t1;//不会报错，只会警告  
+CREATE DATABASE IF NOT EXISTS t2 CHARACTER SET =gbk;//创建t2数据库，编码为gbk  
+SHOW {DATABASES|SCHEMAS}//  
+SHOW CREATE DATABASE t2;//utf-8,查看t2创建时候的编码  
+SHOW CREATE DATABASE t1;//gbk  
+修改数据库：  
+ALTER {DATABASE|SCHEMA} [db_name] [DEFAULT] CHARACTER SET [=] charset_name  
 ALTER DATABASE t2 CHARACTER SET = UTF8
 删除数据库：
 DROP {DATABASE|SCHEMA} [IF EXISTS] db_name;
 DROP DATABASE t1;//删除t1数据库
 SHOW WARNINGS://现实错误
 ************
-1.数据类型：
+##1.数据类型：
 整数型：
-1 tinyint
-2 smallint
-3 mediumint
-4 int
-8 bigint
-浮点数：
-1.float(m,d)//m数字总位数，d为小数点后边的位数
-2.double(m,d)//
+1 tinyint  
+2 smallint  
+3 mediumint  
+4 int  
+8 bigint  
+浮点数：  
+1.float(m,d)//m数字总位数，d为小数点后边的位数  
+2.double(m,d)//  
 
-2.日期和时间
-1 YEAR 
-3 TIME 
-3 DATA 
-8 DATATIME 
-4 TIMESTAMP 
+2.日期和时间  
+1 YEAR   
+3 TIME   
+3 DATA   
+8 DATATIME   
+4 TIMESTAMP   
 
-3.字符型
-CHAR(M)
-varchar(m)
-tinttext
-tinttext
-longtext
-enum()
-set()
+3.字符型    
+CHAR(M)  
+varchar(m)  
+tinytext 2^8  
+text 2^16  
+mediumtext 2^24    
+longtext 2^32    
+enum()  
+set()  
 ***********************
 USE conan;//选择conan数据库
 SELECT DATABASE();//现实当前使用的数据库
