@@ -112,7 +112,7 @@ database修改名称的时候得先导出再修改
 	SHOW COLUMNS FROM table_name2;//现实table_name2表中的列  
 
 ##INSERT
-向表中写入记录
+**向表中写入记录**
 
 	INSERT [INTO] table_name [(col_name,...)] VALUES(val,...)
 	
@@ -122,17 +122,17 @@ database修改名称的时候得先导出再修改
 	SELECT expr,... FROM table_name
 	SELECT * from tb1;//
 
-AUTO_INCREMENT
+**AUTO_INCREMENT**  
 自助编号，且必须与主键组合使用，默认为1，每次增量为1
 
-MYSQL主键约束 PRIMARY KEY  
+**MYSQL主键约束 PRIMARY KEY**  
 
 	CREATE TABLE tb2(
 		id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,//自助编号，且必须与主键组合使用
 		username varchar(25) NOT NULL 
 		);
 
-UNIQUE KEY//唯一约束
+**UNIQUE KEY//唯一约束**
 
 	CREATE TABLE tb3(
 		id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -145,46 +145,51 @@ UNIQUE KEY//唯一约束
 		username VARCHAR(20) NOT NULL UNIQUE KEY,
 		AGE ENUM('1','2''3') DEFAULT '3'//不写，默认就是3
 		);
-约束：  
-NOT NULL//非空约束  
-PRIMARY KEY//主键语速    
-UNIQUE KEY//唯一语速   
-DEFAULT//默认约束  
-FOREIGN KEY//外键约束  
-  
-外键约束  
-FOREIGN KEY (id) REFERENCE mistar (url) ON DELETE CASCADE  
-ON SET NULL  
-ON RESTRICT  
-ON NO ACTION  
-DEFAULT NOT NULL只有列级约束  
-表级约束只能在列定义之后运行(PRIMARY KEY,UNIQUE KEY,FOREIGN KEY)  
+**约束：**  
 
-MYsql数据表默认存储引擎   
-default-storage-engine=INNODB  
+	NOT NULL//非空约束  
+	PRIMARY KEY//主键语速    
+	UNIQUE KEY//唯一语速   
+	DEFAULT//默认约束  
+	FOREIGN KEY//外键约束  
+  
+**外键约束**  
+
+	FOREIGN KEY (id) REFERENCE mistar (url) ON DELETE CASCADE  
+	ON SET NULL  
+	ON RESTRICT  
+	ON NO ACTION  
+	DEFAULT NOT NULL只有列级约束  
+	表级约束只能在列定义之后运行(PRIMARY KEY,UNIQUE KEY,FOREIGN KEY)  
+
+**MYsql数据表默认存储引擎**   
+
+	default-storage-engine=INNODB  
 
 有外键的表，为子表，子表所参照的表为父表  
 引擎为INNODB  
 相同数字类型，字符可以位数不同  
-添加约束：  
-ALTER TABLE tb1 ADD PPRIMARY KEY (id)//添加主键约束  
-ALTER TABLE tb1 ADD UNIQUE (name)//添加唯一约束  
-ALTER TABLE tb1 ADD FOREIGN KEY (pid) REFERENCES tb0(id)//当前表中的pid对应到tb0表中的id字段  
-ALTER TABLE tb1 ALTER [SET DEFAULT xxx|DROP DEFAULT]//添加删除默认约束  
+**添加约束：** 
 
-删除约束：   
-ALTER TABLE tb1 DROP PRIMARY KEY//删除主键约束  
-ALTER TABLE tb1 DROP INDEX username//删除唯一约束  
-ALTER TABLE tb1 DROP FOREIGN KEY users_ibfk_2(CONSTRAINT 'users_ibfk_2');//通过SHOW CREATE TABLE tb1;查看  
-修改数据表：  
+	ALTER TABLE tb1 ADD PPRIMARY KEY (id)//添加主键约束  
+	ALTER TABLE tb1 ADD UNIQUE (name)//添加唯一约束  
+	ALTER TABLE tb1 ADD FOREIGN KEY (pid) REFERENCES tb0(id)//当前表中的pid对应到tb0表中的id字段  
+	ALTER TABLE tb1 ALTER [SET DEFAULT xxx|DROP DEFAULT]//添加删除默认约束  
 
-alter table tb1 modify id SAMLLINT UNSIGNED not null first;  
-ALTER TABLE tb1 CHANGE ID NEWID SMALLINT UNSIGNED NOT NULL first;  
+**删除约束：**   
+
+	ALTER TABLE tb1 DROP PRIMARY KEY//删除主键约束  
+	ALTER TABLE tb1 DROP INDEX username//删除唯一约束  
+	ALTER TABLE tb1 DROP FOREIGN KEY users_ibfk_2(CONSTRAINT 'users_ibfk_2');//通过SHOW CREATE TABLE tb1;查看  
+**修改数据表：**  
+
+	alter table tb1 modify id SAMLLINT UNSIGNED not null first;  
+	ALTER TABLE tb1 CHANGE ID NEWID SMALLINT UNSIGNED NOT NULL first;  
 
 记录的增删改查：  
 插入：
-INSERT table_name[()] VALUES(.,.,...)  
-	
+
+	INSERT table_name[()] VALUES(.,.,...)  
 	CREATE TABLE userinfo(
 		id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 		username VARCHAR(20) NOT NULL,
@@ -201,22 +206,22 @@ INSERT table_name[()] VALUES(.,.,...)
 	INSERT userinfo VALUES(NULL,'hathway',md5('444444'),DEFAULT,NULL),(NULL,'rose','29',DEFAULT,NULL);
 	INSERT userinfo SET username="lightwins",password="555555";
 
-更改字段值：  
-UPDATE userinfo SET age=age-5;  
-UPDATE userinfo SET age=age+id,sex = 0;  
-UPDATE userinfo SET age=age-100 WHERE id%2=0;  
-删除记录：  
-DELETE FROM userinfo WHERE id=9;  
+**更改字段值：**  
+	UPDATE userinfo SET age=age-5;  
+	UPDATE userinfo SET age=age+id,sex = 0;  
+	UPDATE userinfo SET age=age-100 WHERE id%2=0;  
+**删除记录：**  
+	DELETE FROM userinfo WHERE id=9;  
 
-SELECT查找操作：查询表达式  
-SELECT id,username from userinfo;   
-SELECT id as uid,username as uname from userinfo;//uid,uname为别名  
+	SELECT查找操作：查询表达式  
+	SELECT id,username from userinfo;   
+	SELECT id as uid,username as uname from userinfo;//uid,uname为别名  
 
-WHERE 表达式  
+**WHERE 表达式**  
 对记录进行过滤，如果没有指定WHERE 子句，则显示所有记录。  
 在WHERE表达式中，可以使用MySQL支持的函数或运算符。  
 
-GROUP BY：对结果分组  
+	GROUP BY：对结果分组  
   
 	[GROUP BY{col_name|position} [ASC|DESC],...]  
 	SELECT AGE,SEX FROM userinfo GROUP BY AGE;  
@@ -233,8 +238,8 @@ GROUP BY：对结果分组
 	    );
 	INSERT userinfoc(username) SELECT username from userinfo WHERE SEX=0;
 
-SET NAMES gbk;设置GBK编码  
-子查询   
+	SET NAMES gbk;设置GBK编码  
+**子查询 **  
 子查询必须嵌套在圆括号之类  
   
 	SELECT AVG(goods_price) FROM tbd_goods;//选取结果做平均  
@@ -245,9 +250,10 @@ SET NAMES gbk;设置GBK编码
 	=ANY ==>IN 
 	!=ALL ==>NOT IN
 	EXISTS 存在返回true 不存在返回false
-多表更新
-UPDATE tbd_goods INNER JOIN tbd_goods_cates ON goods_cate=cate_name SET goods_cate = cate_id;
-一步到位，多表更新
+**多表更新**
+
+	UPDATE tbd_goods INNER JOIN tbd_goods_cates ON goods_cate=cate_name SET goods_cate = cate_id;
+	一步到位，多表更新
 
 	CREATE SELECT//创建表，并插入查询的数据
 	CREATE TABLE IF NOT EXISTS tbd_goods_brands(
@@ -264,132 +270,146 @@ UPDATE tbd_goods INNER JOIN tbd_goods_cates ON goods_cate=cate_name SET goods_ca
 	UPDATE tbd_goods AS g INNER JOIN tbd_goods_brands AS b ON g.brand_name=b.brand_name
 	SET g.brand_name=b.brand_id;
 
-##连接
-INNER JOIN----JOIN ----CROSS JOIN
-ON----设定链接调节
-WHERE ----进行结果过滤
-内链接，仅显示符合链接条件的记录
-OUTER JOIN
-LEFT JOIN//左链接
-RIGHT JOIN//右链接
-多表连接：
-SELECT good_id,goods_name,cate_name,brand_name,goods_price FROM tbd_goods AS g
-INNER JOIN tbd_goods_cates AS c ON g.cate_id=c.cate_id
-INNER JOIN tbd_goods_brands AS b ON g.brand_id = b.brand_id\G
+**连接**
 
-无线分类数据表设计：
-CREATE TABLE table_infinity(
-id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(20) NOT NULL,
-parent_id SMALLINT UNSIGNED NOT NULL DEFAULT 0
-);
-INSERT table_infinity(name,parent_id) VALUES('1电器',DEFAULT);
-INSERT table_infinity(name,parent_id) VALUES('2电器',DEFAULT);
-INSERT table_infinity(name,parent_id) VALUES('1中电器',1);
-INSERT table_infinity(name,parent_id) VALUES('2中电器',1);
-INSERT table_infinity(name,parent_id) VALUES('1小电器',2);
-INSERT table_infinity(name,parent_id) VALUES('2小电器',3);
-INSERT table_infinity(name,parent_id) VALUES('1小小电器',3);
-INSERT table_infinity(name,parent_id) VALUES('2小小电器',4);
-INSERT table_infinity(name,parent_id) VALUES('电吹风',4);
-INSERT table_infinity(name,parent_id) VALUES('电风扇',5);
-自身连接：
-SELECT s.id,s.name,p.name FROM table_infinity AS s LEFT JOIN table_infinity AS p ON s.parent_id=p.parent_id;
+	INNER JOIN----JOIN ----CROSS JOIN  
+	ON----设定链接调节  
+	WHERE ----进行结果过滤  
+	内链接，仅显示符合链接条件的记录  
+	OUTER JOIN  
+	LEFT JOIN//左链接  
+	RIGHT JOIN//右链接  
+**多表连接：** 
 
-多表删除：
-DELETE t1 FROM tbd_goods AS t1 LEFT JOIN (SELECT goods_name,good_id FROM
-	tbd_goods GROUP BY goods_name HAVING COUNT(goods_name)>=2) AS t2 ON t1.goods_name =t2.goods_name WHERE 
-	t1.good_id>t2.good_id;
-查询表达式
-SELECT education as edu,location as loc from users;
+	SELECT good_id,goods_name,cate_name,brand_name,goods_price FROM tbd_goods AS g  
+	INNER JOIN tbd_goods_cates AS c ON g.cate_id=c.cate_id  
+	INNER JOIN tbd_goods_brands AS b ON g.brand_id = b.brand_id\G  
+
+**无线分类数据表设计：  **
+
+	CREATE TABLE table_infinity(  
+	id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,  
+	name VARCHAR(20) NOT NULL,  
+	parent_id SMALLINT UNSIGNED NOT NULL DEFAULT 0  
+	);  
+	INSERT table_infinity(name,parent_id) VALUES('1电器',DEFAULT);
+	INSERT table_infinity(name,parent_id) VALUES('2电器',DEFAULT);
+	INSERT table_infinity(name,parent_id) VALUES('1中电器',1);
+	INSERT table_infinity(name,parent_id) VALUES('2中电器',1);
+	INSERT table_infinity(name,parent_id) VALUES('1小电器',2);
+	INSERT table_infinity(name,parent_id) VALUES('2小电器',3);
+	INSERT table_infinity(name,parent_id) VALUES('1小小电器',3);
+	INSERT table_infinity(name,parent_id) VALUES('2小小电器',4);
+	INSERT table_infinity(name,parent_id) VALUES('电吹风',4);
+	INSERT table_infinity(name,parent_id) VALUES('电风扇',5);
+**自身连接：**
+
+	SELECT s.id,s.name,p.name FROM table_infinity AS s LEFT JOIN table_infinity AS p ON s.parent_id=p.parent_id;
+
+**多表删除：**
+
+	DELETE t1 FROM tbd_goods AS t1 LEFT JOIN (SELECT goods_name,good_id FROM
+		tbd_goods GROUP BY goods_name HAVING COUNT(goods_name)>=2) AS t2 ON t1.goods_name =t2.goods_name WHERE 
+		t1.good_id>t2.good_id;
+**查询表达式**
+	
+	SELECT education as edu,location as loc from users;
 
 
-字符函数
-SELECT CONCAT(username,'-',password) AS full FROM userinfo;
-SELECT CONCAT_WS('-','CONAN','SKY');//CONAN-SKY
-SELECT FORMAT(15412.651,2)//数字格式化，保留2位
-SELECT LOWER()//转换成小写
-SELECT UPPER()//转换成大写
-SELECT LEFT('CONAN',3);//CO
-SELECT RIGHT('CONANSKYFORCE',3);//RCE
-SELECT LENGTH()//取长度
-SELECT LTRIM()//删除左边空格
-SELECT RTRIM()//删除右边空格
-SELECT TRIM()//删除两边空格
-SELECT TRIM(LEADING 'A' FROM 'AAAFDVSFAAA')//FDVSFAAA
-SELECT TRIM(TRAILING 'A' FROM 'AAAFDVSFFAAA')//AAAFDVSFF
-SELECT TRIM('A' FROM 'AAAFDVSFFAAA')//FDVSFF
-SELECT SUBSTRING('conans','1','3')//con
-SELECT [NOT]LIKE//
-SELECT REPALCE('XXADSDFXXAFA','XX','')//ADSDFAFA
-%---任意个字符
-_---任意一个字符
-数值运算符函数
-SELECT CEIL()//向上取整
-SELECT DIV//整数除法
-SELECT FLOOR()//向下取整
-SELECT MOD//取余
-SELECT POWER()//幂运算
-SELECT ROUND()//四舍五入
-TRUNCAT TRUNCATE(1312.65,0)//数字截取1312
-比较运算符函数
-[NOT] BETWEEN AND
-[NOT] IN()
-SELECT 12 IN(12,11,0,51)//是
-IS [NOT] NULL
-SELECT 0 is NULL//0
-日期和时间函数
-NOW()//现在的日期时间
-CURDATE()//现在日期
-CURTIME()//现在时间
-DATA_ADD()//设置
-DATEDIFF()//比较时间
-DATA_FORMAT()//转换日期格式
-信息函数
-SELECT CONNECTION_ID()//链接ID
-SELECT DATABASE()//当前数据库
-SELECT LAST_INSERT_ID()//最后插入信息
-SELECT USER()//当前用户
-SELECT VERSION()//版本信息
-聚合函数
-SELECT AVG()//平均值
-SELECT COUNT()//计数
-SELECT MAX()//最大值
-SELECT MIN()//最小是
-SELECT SUM()//求和
-加密函数
-SELECT MD5()//信息摘要算法
-SELECT PASSWORD()//密码算法
-自定义函数：
-CREATE FUNCTION f1() RETURNS VARCHAR(30)
-RETURN DATA_FORMAT(NOW(),'%Y年%m月%d日%H点：%i分：%s秒');
-SELECT f1();
+**字符函数**
+
+	SELECT CONCAT(username,'-',password) AS full FROM userinfo;
+	SELECT CONCAT_WS('-','CONAN','SKY');//CONAN-SKY
+	SELECT FORMAT(15412.651,2)//数字格式化，保留2位
+	SELECT LOWER()//转换成小写
+	SELECT UPPER()//转换成大写
+	SELECT LEFT('CONAN',3);//CO
+	SELECT RIGHT('CONANSKYFORCE',3);//RCE
+	SELECT LENGTH()//取长度
+	SELECT LTRIM()//删除左边空格
+	SELECT RTRIM()//删除右边空格
+	SELECT TRIM()//删除两边空格
+	SELECT TRIM(LEADING 'A' FROM 'AAAFDVSFAAA')//FDVSFAAA
+	SELECT TRIM(TRAILING 'A' FROM 'AAAFDVSFFAAA')//AAAFDVSFF
+	SELECT TRIM('A' FROM 'AAAFDVSFFAAA')//FDVSFF
+	SELECT SUBSTRING('conans','1','3')//con
+	SELECT [NOT]LIKE//
+	SELECT REPALCE('XXADSDFXXAFA','XX','')//ADSDFAFA
+	%---任意个字符
+	_---任意一个字符
+**数值运算符函数**
+
+	SELECT CEIL()//向上取整
+	SELECT DIV//整数除法
+	SELECT FLOOR()//向下取整
+	SELECT MOD//取余
+	SELECT POWER()//幂运算
+	SELECT ROUND()//四舍五入
+	TRUNCAT TRUNCATE(1312.65,0)//数字截取1312
+**比较运算符函数**
+
+	[NOT] BETWEEN AND
+	[NOT] IN()
+	SELECT 12 IN(12,11,0,51)//是
+	IS [NOT] NULL
+	SELECT 0 is NULL//0
+**日期和时间函数**
+
+	NOW()//现在的日期时间
+	CURDATE()//现在日期
+	CURTIME()//现在时间
+	DATA_ADD()//设置
+	DATEDIFF()//比较时间
+	DATA_FORMAT()//转换日期格式
+**信息函数**
+
+	SELECT CONNECTION_ID()//链接ID
+	SELECT DATABASE()//当前数据库
+	SELECT LAST_INSERT_ID()//最后插入信息
+	SELECT USER()//当前用户
+	SELECT VERSION()//版本信息
+**聚合函数**
+
+	SELECT AVG()//平均值
+	SELECT COUNT()//计数
+	SELECT MAX()//最大值
+	SELECT MIN()//最小是
+	SELECT SUM()//求和
+**加密函数**
+
+	SELECT MD5()//信息摘要算法
+	SELECT PASSWORD()//密码算法
+**自定义函数：**
+
+	CREATE FUNCTION f1() RETURNS VARCHAR(30)
+	RETURN DATA_FORMAT(NOW(),'%Y年%m月%d日%H点：%i分：%s秒');
+	SELECT f1();
 
 导出数据库mysqldump -u root -p 要导出的数据库>output.sql
 导入数据库切换到数据库目录下 source output.sql
 
 P44/92
-mysql储存过程
+**mysql储存过程**
 
-DELIMITAR //修改定界符
-CREATE PROCEDURE mypro(IN p_id int,out usersname varchar(20))
-begin
-delete from users where id=p_id;
-select name from users where sex="2" into username;
-END
-//
-DELIMITER;
-
-call mypro(22,@name);
-select @name;
+	DELIMITAR //修改定界符
+	CREATE PROCEDURE mypro(IN p_id int,out usersname varchar(20))
+	begin
+	delete from users where id=p_id;
+	select name from users where sex="2" into username;
+	END
+	//
+	DELIMITER;
+	
+	call mypro(22,@name);
+	select @name;
 
 MySQL支持的存储引擎
 
-MyISAM
-InnoDB
-Memory
-CSV
-Archive
+	MyISAM
+	InnoDB
+	Memory
+	CSV
+	Archive
 
 
 
