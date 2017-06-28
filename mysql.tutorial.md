@@ -93,175 +93,176 @@ database修改名称的时候得先导出再修改
 		);
 
 
-SHOW TABLES;//显示表   
-SHOW COLUMNS FROM tb1;//看tb1有哪些列  
-SELECT * FROM tb1;//看添加的数据  
-修改表的名字  
-alter table table_name rename to table_name2;  
-或者：  
-rename table table_name to table_name2  
-
-alter table table_name2 add email varchar(255) not null;//追加一天信息上去  
-alter table table_name2 change id newdid int(3);  
-alter table table_name2 drop email;//删除字段  
-drop table table_name2;//删除表  
-
-show tables from somedatabase//显示某个数据库中的表  
-  
-describe table_name2;//显示表结构  
-SHOW COLUMNS FROM table_name2;//现实table_name2表中的列  
+	SHOW TABLES;//显示表   
+	SHOW COLUMNS FROM tb1;//看tb1有哪些列  
+	SELECT * FROM tb1;//看添加的数据  
+	修改表的名字  
+	alter table table_name rename to table_name2;  
+	或者：  
+	rename table table_name to table_name2  
+	
+	alter table table_name2 add email varchar(255) not null;//追加一天信息上去  
+	alter table table_name2 change id newdid int(3);  
+	alter table table_name2 drop email;//删除字段  
+	drop table table_name2;//删除表  
+	
+	show tables from somedatabase//显示某个数据库中的表  
+	  
+	describe table_name2;//显示表结构  
+	SHOW COLUMNS FROM table_name2;//现实table_name2表中的列  
 
 ##INSERT
 向表中写入记录
-INSERT [INTO] table_name [(col_name,...)] VALUES(val,...)
 
-INSERT table_name2 VALUES('jhon',25,5413.12);//不指定列则都得赋值
-INSERT table_name2(username,salary) VALUES("kyte",2354.2);//指定列可以依次赋值
-
-SELECT expr,... FROM table_name
-SELECT * from tb1;//
+	INSERT [INTO] table_name [(col_name,...)] VALUES(val,...)
+	
+	INSERT table_name2 VALUES('jhon',25,5413.12);//不指定列则都得赋值
+	INSERT table_name2(username,salary) VALUES("kyte",2354.2);//指定列可以依次赋值
+	
+	SELECT expr,... FROM table_name
+	SELECT * from tb1;//
 
 AUTO_INCREMENT
 自助编号，且必须与主键组合使用，默认为1，每次增量为1
 
-MYSQL主键约束 PRIMARY KEY
+MYSQL主键约束 PRIMARY KEY  
 
-CREATE TABLE tb2(
-	id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,//自助编号，且必须与主键组合使用
-	username varchar(25) NOT NULL 
-	);
+	CREATE TABLE tb2(
+		id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,//自助编号，且必须与主键组合使用
+		username varchar(25) NOT NULL 
+		);
 
 UNIQUE KEY//唯一约束
-CREATE TABLE tb3(
-	id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	username VARCHAR(25) NOT NULL UNIQUE KEY,
-	age TINYINT 
-	);
 
-CREATE TABLE tb4(
-	id SAMLLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	username VARCHAR(20) NOT NULL UNIQUE KEY,
-	AGE ENUM('1','2''3') DEFAULT '3'//不写，默认就是3
-	);
-约束：
-NOT NULL//非空约束
-PRIMARY KEY//主键语速
-UNIQUE KEY//唯一语速
-DEFAULT//默认约束
-FOREIGN KEY//外键约束
-
-外键约束
-FOREIGN KEY (id) REFERENCE mistar (url) ON DELETE CASCADE
-ON SET NULL
-ON RESTRICT
-ON NO ACTION
-DEFAULT NOT NULL只有列级约束
-表级约束只能在列定义之后运行(PRIMARY KEY,UNIQUE KEY,FOREIGN KEY)
-
-
-
-MYsql数据表默认存储引擎
-default-storage-engine=INNODB
-
-有外键的表，为子表，子表所参照的表为父表
-引擎为INNODB
-相同数字类型，字符可以位数不同
-添加约束：
-ALTER TABLE tb1 ADD PPRIMARY KEY (id)//添加主键约束
-ALTER TABLE tb1 ADD UNIQUE (name)//添加唯一约束
-ALTER TABLE tb1 ADD FOREIGN KEY (pid) REFERENCES tb0(id)//当前表中的pid对应到tb0表中的id字段
-ALTER TABLE tb1 ALTER [SET DEFAULT xxx|DROP DEFAULT]//添加删除默认约束
-
-删除约束：
-ALTER TABLE tb1 DROP PRIMARY KEY//删除主键约束
-ALTER TABLE tb1 DROP INDEX username//删除唯一约束
-ALTER TABLE tb1 DROP FOREIGN KEY users_ibfk_2(CONSTRAINT 'users_ibfk_2');//通过SHOW CREATE TABLE tb1;查看
-修改数据表：
-
-alter table tb1 modify id SAMLLINT UNSIGNED not null first;
-ALTER TABLE tb1 CHANGE ID NEWID SMALLINT UNSIGNED NOT NULL first;
-
-记录的增删改查：
-插入：
-INSERT table_name[()] VALUES(.,.,...)
-
-CREATE TABLE userinfo(
-	id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-	username VARCHAR(20) NOT NULL,
-	password VARCHAR(32) NOT NULL,
-	age TINYINT UNSIGNED NOT NULL DEFAULT 10,
-	sex BOOLEAN
+	CREATE TABLE tb3(
+		id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		username VARCHAR(25) NOT NULL UNIQUE KEY,
+		age TINYINT 
 		);
-INSERT userinfo VALUES(NULL,"CONAN",'201010',25,1);
-INSERT userinfo VALUES(DEFAULT,"STEVE","123456",32,1);
-INSERT userinfo VALUES(NULL,"bill",'111111',29,1);
-INSERT userinfo(username,password,age) VALUES('Kate','222222','29') 
-ALTER TABLE userinfo change age age TINYINT UNSIGNED DEFAULT 10;
-INSERT userinfo(username,password) VALUES('stewart','333333');
-INSERT userinfo VALUES(NULL,'hathway',md5('444444'),DEFAULT,NULL),(NULL,'rose','29',DEFAULT,NULL);
-INSERT userinfo SET username="lightwins",password="555555";
 
-更改字段值：
-UPDATE userinfo SET age=age-5;
-UPDATE userinfo SET age=age+id,sex = 0;
-UPDATE userinfo SET age=age-100 WHERE id%2=0;
-删除记录：
-DELETE FROM userinfo WHERE id=9;
+	CREATE TABLE tb4(
+		id SAMLLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		username VARCHAR(20) NOT NULL UNIQUE KEY,
+		AGE ENUM('1','2''3') DEFAULT '3'//不写，默认就是3
+		);
+约束：  
+NOT NULL//非空约束  
+PRIMARY KEY//主键语速    
+UNIQUE KEY//唯一语速   
+DEFAULT//默认约束  
+FOREIGN KEY//外键约束  
+  
+外键约束  
+FOREIGN KEY (id) REFERENCE mistar (url) ON DELETE CASCADE  
+ON SET NULL  
+ON RESTRICT  
+ON NO ACTION  
+DEFAULT NOT NULL只有列级约束  
+表级约束只能在列定义之后运行(PRIMARY KEY,UNIQUE KEY,FOREIGN KEY)  
 
-SELECT查找操作：查询表达式
-SELECT id,username from userinfo;
-SELECT id as uid,username as uname from userinfo;//uid,uname为别名
+MYsql数据表默认存储引擎   
+default-storage-engine=INNODB  
 
-WHERE 表达式
-对记录进行过滤，如果没有指定WHERE 子句，则显示所有记录。
-在WHERE表达式中，可以使用MySQL支持的函数或运算符。
+有外键的表，为子表，子表所参照的表为父表  
+引擎为INNODB  
+相同数字类型，字符可以位数不同  
+添加约束：  
+ALTER TABLE tb1 ADD PPRIMARY KEY (id)//添加主键约束  
+ALTER TABLE tb1 ADD UNIQUE (name)//添加唯一约束  
+ALTER TABLE tb1 ADD FOREIGN KEY (pid) REFERENCES tb0(id)//当前表中的pid对应到tb0表中的id字段  
+ALTER TABLE tb1 ALTER [SET DEFAULT xxx|DROP DEFAULT]//添加删除默认约束  
 
-GROUP BY：对结果分组
+删除约束：   
+ALTER TABLE tb1 DROP PRIMARY KEY//删除主键约束  
+ALTER TABLE tb1 DROP INDEX username//删除唯一约束  
+ALTER TABLE tb1 DROP FOREIGN KEY users_ibfk_2(CONSTRAINT 'users_ibfk_2');//通过SHOW CREATE TABLE tb1;查看  
+修改数据表：  
 
-[GROUP BY{col_name|position} [ASC|DESC],...]
-SELECT AGE,SEX FROM userinfo GROUP BY AGE;
-SELECT AGE,SEX FROM userinfo GROUP BY HAVING AGE>10;
-SELECT * FROM userinfo ORDER BY AGE;
-SELECT * FROM userinfo ORDER BY AGE DESC;
-SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC;
-SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC LIMIT 2,2;
-SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC LIMIT 5;
-INSERT mytable(id,name) select * from users where id<100;
-CREATE TABLE userinfoc(
-    id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(20)
-    );
-INSERT userinfoc(username) SELECT username from userinfo WHERE SEX=0;
+alter table tb1 modify id SAMLLINT UNSIGNED not null first;  
+ALTER TABLE tb1 CHANGE ID NEWID SMALLINT UNSIGNED NOT NULL first;  
 
-SET NAMES gbk;设置GBK编码
-子查询
-子查询必须嵌套在圆括号之类
+记录的增删改查：  
+插入：
+INSERT table_name[()] VALUES(.,.,...)  
+	
+	CREATE TABLE userinfo(
+		id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+		username VARCHAR(20) NOT NULL,
+		password VARCHAR(32) NOT NULL,
+		age TINYINT UNSIGNED NOT NULL DEFAULT 10,
+		sex BOOLEAN
+			);
+	INSERT userinfo VALUES(NULL,"CONAN",'201010',25,1);
+	INSERT userinfo VALUES(DEFAULT,"STEVE","123456",32,1);
+	INSERT userinfo VALUES(NULL,"bill",'111111',29,1);
+	INSERT userinfo(username,password,age) VALUES('Kate','222222','29') 
+	ALTER TABLE userinfo change age age TINYINT UNSIGNED DEFAULT 10;
+	INSERT userinfo(username,password) VALUES('stewart','333333');
+	INSERT userinfo VALUES(NULL,'hathway',md5('444444'),DEFAULT,NULL),(NULL,'rose','29',DEFAULT,NULL);
+	INSERT userinfo SET username="lightwins",password="555555";
 
-SELECT AVG(goods_price) FROM tbd_goods;//选取结果做平均
-SELECT ROUND(AVG(goods_price),2) FROM tbd_goods;//取舍平均值，保留2位小数
-SELECT good_id,goods_name,goods_price FROM tbd_goods WHERE goods_price>=(SELECT ROUND(AVG(goods_price),2) FROM tbd_goods);
-SELECT goods_price FROM tbd_goods WHERE goods_cate="超极本";
-SELECT good_id,goods_price,goods_name FROM tbd_goods WHERE goods_price> ANY (SELECT goods_price FROM tbd_goods WHERE goods_cate="超极本";)//返回结果不唯一时，加ANY,SOME 或ALL
-=ANY ==>IN 
-!=ALL ==>NOT IN
-EXISTS 存在返回true 不存在返回false
+更改字段值：  
+UPDATE userinfo SET age=age-5;  
+UPDATE userinfo SET age=age+id,sex = 0;  
+UPDATE userinfo SET age=age-100 WHERE id%2=0;  
+删除记录：  
+DELETE FROM userinfo WHERE id=9;  
+
+SELECT查找操作：查询表达式  
+SELECT id,username from userinfo;   
+SELECT id as uid,username as uname from userinfo;//uid,uname为别名  
+
+WHERE 表达式  
+对记录进行过滤，如果没有指定WHERE 子句，则显示所有记录。  
+在WHERE表达式中，可以使用MySQL支持的函数或运算符。  
+
+GROUP BY：对结果分组  
+  
+	[GROUP BY{col_name|position} [ASC|DESC],...]  
+	SELECT AGE,SEX FROM userinfo GROUP BY AGE;  
+	SELECT AGE,SEX FROM userinfo GROUP BY HAVING AGE>10;  
+	SELECT * FROM userinfo ORDER BY AGE;  
+	SELECT * FROM userinfo ORDER BY AGE DESC;
+	SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC ;
+	SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC LIMIT 2,2;
+	SELECT * FROM userinfo ORDER BY SEX DESC,ID DESC LIMIT 5;
+	INSERT mytable(id,name) select * from users where id<100;
+	CREATE TABLE userinfoc(
+	    id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	    username VARCHAR(20)
+	    );
+	INSERT userinfoc(username) SELECT username from userinfo WHERE SEX=0;
+
+SET NAMES gbk;设置GBK编码  
+子查询   
+子查询必须嵌套在圆括号之类  
+  
+	SELECT AVG(goods_price) FROM tbd_goods;//选取结果做平均  
+	SELECT ROUND(AVG(goods_price),2) FROM tbd_goods;//取舍平均值，保留2位小数
+	SELECT good_id,goods_name,goods_price FROM tbd_goods WHERE goods_price>=(SELECT ROUND(AVG(goods_price),2) FROM tbd_goods);
+	SELECT goods_price FROM tbd_goods WHERE goods_cate="超极本";
+	SELECT good_id,goods_price,goods_name FROM tbd_goods WHERE goods_price> ANY (SELECT goods_price FROM tbd_goods WHERE goods_cate="超极本";)//返回结果不唯一时，加ANY,SOME 或ALL
+	=ANY ==>IN 
+	!=ALL ==>NOT IN
+	EXISTS 存在返回true 不存在返回false
 多表更新
 UPDATE tbd_goods INNER JOIN tbd_goods_cates ON goods_cate=cate_name SET goods_cate = cate_id;
 一步到位，多表更新
-CREATE SELECT//创建表，并插入查询的数据
-CREATE TABLE IF NOT EXISTS tbd_goods_brands(
-	brand_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-	brand_name VARCHAR(40) NOT NULL)
-	SELECT brand_name FROM tbd_goods GROUP BY goods_name;
 
-CREATE TABLE joinuup(
-    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    location varchar(20),
-    name varchar(40))
-    select location,name from users group by location having count(location)>10;
-
-UPDATE tbd_goods AS g INNER JOIN tbd_goods_brands AS b ON g.brand_name=b.brand_name
-SET g.brand_name=b.brand_id;
+	CREATE SELECT//创建表，并插入查询的数据
+	CREATE TABLE IF NOT EXISTS tbd_goods_brands(
+		brand_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+		brand_name VARCHAR(40) NOT NULL)
+		SELECT brand_name FROM tbd_goods GROUP BY goods_name;
+	
+	CREATE TABLE joinuup(
+	    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	    location varchar(20),
+	    name varchar(40))
+	    select location,name from users group by location having count(location)>10;
+	
+	UPDATE tbd_goods AS g INNER JOIN tbd_goods_brands AS b ON g.brand_name=b.brand_name
+	SET g.brand_name=b.brand_id;
 
 ##连接
 INNER JOIN----JOIN ----CROSS JOIN
