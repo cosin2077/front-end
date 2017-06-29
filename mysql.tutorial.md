@@ -155,10 +155,11 @@ database修改名称的时候得先导出再修改
   
 **外键约束**  
 
-	FOREIGN KEY (id) REFERENCE mistar (url) ON DELETE CASCADE  
-	ON SET NULL  
-	ON RESTRICT  
-	ON NO ACTION  
+	FOREIGN KEY (id) REFERENCE foreign_tables (url) 
+	ON DELETE CASCADE  //父表更新或删除，子表匹配的行业自动更新或删除
+	ON SET NULL  //父表删除\更新，子表设置NULL
+	ON RESTRICT  //拒绝对父表删除、更新
+	ON NO ACTION  //同上
 	DEFAULT NOT NULL只有列级约束  
 	表级约束只能在列定义之后运行(PRIMARY KEY,UNIQUE KEY,FOREIGN KEY)  
 
