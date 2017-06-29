@@ -173,7 +173,7 @@ database修改名称的时候得先导出再修改
 **添加约束：** 
 
 	ALTER TABLE tb1 ADD preid int unsigned auto_increment PRIMARY KEY [FIRST|AFTER id]//添加新列到第一列或id列后边
-	ALTER TABLE tb1 ADD PPRIMARY KEY (id)//添加主键约束  
+	ALTER TABLE tb1 ADD [CONSTRAINT] PPRIMARY KEY (id)//添加主键约束  
 	ALTER TABLE tb1 ADD UNIQUE (name)//添加唯一约束  
 	ALTER TABLE tb1 ADD FOREIGN KEY (pid) REFERENCES tb0(id)//当前表中的pid对应到tb0表中的id字段  
 	ALTER TABLE tb1 ALTER [SET DEFAULT xxx|DROP DEFAULT]//添加删除默认约束  
@@ -181,7 +181,7 @@ database修改名称的时候得先导出再修改
 **删除约束：**   
 
 	ALTER TABLE tb1 DROP PRIMARY KEY//删除主键约束  
-	ALTER TABLE tb1 DROP INDEX username//删除唯一约束  
+	ALTER TABLE tb1 DROP [INDEX] username//删除唯一约束  
 	ALTER TABLE tb1 DROP FOREIGN KEY users_ibfk_2(CONSTRAINT 'users_ibfk_2');//通过SHOW CREATE TABLE tb1;查看  
 **修改数据表：**  
 
