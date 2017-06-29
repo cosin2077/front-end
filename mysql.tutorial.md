@@ -172,6 +172,7 @@ database修改名称的时候得先导出再修改
 相同数字类型，字符可以位数不同  
 **添加约束：** 
 
+	ALTER TABLE tb1 ADD preid int unsigned auto_increment PRIMARY KEY [FIRST|AFTER id]//添加新列到第一列或id列后边
 	ALTER TABLE tb1 ADD PPRIMARY KEY (id)//添加主键约束  
 	ALTER TABLE tb1 ADD UNIQUE (name)//添加唯一约束  
 	ALTER TABLE tb1 ADD FOREIGN KEY (pid) REFERENCES tb0(id)//当前表中的pid对应到tb0表中的id字段  
