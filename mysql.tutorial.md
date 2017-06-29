@@ -50,7 +50,7 @@ SHOW WARNINGS://现实错误
 ************
 ##1.数据类型：
 **整数型**：  
-1 tinyint  
+>1 tinyint  
 2 smallint  
 3 mediumint  
 4 int  
@@ -60,14 +60,14 @@ SHOW WARNINGS://现实错误
 2.double(m,d)//  
 
 **日期和时间**  
-1 YEAR   
+>1 YEAR   
 3 TIME   
 3 DATA   
 8 DATATIME   
 4 TIMESTAMP   
 
 **字符型**   
-CHAR(M)  
+>CHAR(M)  
 varchar(m)  
 tinytext 2^8  
 text 2^16  
@@ -76,7 +76,7 @@ longtext 2^32
 enum()  选一个  
 set()  枚举值  
 ***********************
-USE conan;//选择conan数据库  
+>USE conan;//选择conan数据库  
 SELECT DATABASE();//显示当前使用的数据库  
 database修改名称的时候得先导出再修改  
 
@@ -166,7 +166,7 @@ database修改名称的时候得先导出再修改
 
 	default-storage-engine=INNODB  
 
-有外键的表，为子表，子表所参照的表为父表  
+>有外键的表，为子表，子表所参照的表为父表  
 引擎为INNODB  
 相同数字类型，字符可以位数不同  
 **添加约束：** 
@@ -207,10 +207,12 @@ database修改名称的时候得先导出再修改
 	INSERT userinfo SET username="lightwins",password="555555";
 
 **更改字段值：**  
+
 	UPDATE userinfo SET age=age-5;  
 	UPDATE userinfo SET age=age+id,sex = 0;  
 	UPDATE userinfo SET age=age-100 WHERE id%2=0;  
 **删除记录：**  
+
 	DELETE FROM userinfo WHERE id=9;  
 
 	SELECT查找操作：查询表达式  
@@ -239,7 +241,7 @@ database修改名称的时候得先导出再修改
 	INSERT userinfoc(username) SELECT username from userinfo WHERE SEX=0;
 
 	SET NAMES gbk;设置GBK编码  
-**子查询 **  
+**子查询**  
 子查询必须嵌套在圆括号之类  
   
 	SELECT AVG(goods_price) FROM tbd_goods;//选取结果做平均  
@@ -285,7 +287,7 @@ database修改名称的时候得先导出再修改
 	INNER JOIN tbd_goods_cates AS c ON g.cate_id=c.cate_id  
 	INNER JOIN tbd_goods_brands AS b ON g.brand_id = b.brand_id\G  
 
-**无线分类数据表设计：  **
+**无线分类数据表设计：**
 
 	CREATE TABLE table_infinity(  
 	id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,  
@@ -403,7 +405,7 @@ P44/92
 	call mypro(22,@name);
 	select @name;
 
-MySQL支持的存储引擎
+**MySQL支持的存储引擎**
 
 	MyISAM
 	InnoDB
