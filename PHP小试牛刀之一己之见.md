@@ -183,15 +183,19 @@ $reg = '/super/ig';//i表示不区分大小写,g表示全局匹配
 任何从浏览器返回的cookie, PHP都会将它自动的存储在$_COOKIE的全局变量之中, 因此我们可以通过$_COOKIE['key']的形式来去读某个cookie的值
 
 设置cookie  
-setcookie("cookie_name","cookie_value",time()+3600,"/","geekhub.info");设置cookie,1小时后失效,整个网站都有效, geekhub.info 域名有效.
+
+	setcookie("cookie_name","cookie_value",time()
+	+3600,"/","geekhub.info");设置cookie,1小时后失效,
+	整个网站都有效, geekhub.info 域名有效.
 
 还有一个设置cookie的函数setrawcookie(value不会自动urlencode,需要手动urlencode)
-setrawcookie('cookie_name',urlencode($value),...)
 
-删除cookie 
-setcookie('test',"",time()-1);
+	setrawcookie('cookie_name',urlencode($value),...)
 
-header("Set-Cookie:test=135534;expires=".gmdate('D, d M Y H:i:s \G\M\T',time()-1)"")
+	删除cookie 
+	setcookie('test',"",time()-1);
+	
+	header("Set-Cookie:test=135534;expires=".gmdate('D, d M Y H:i:s \G\M\T',time()-1)"")
 
 cookie 储存于客户端，用于实现与服务端的通信，让服务端识别客户端  
 特点
@@ -199,19 +203,19 @@ cookie 储存于客户端，用于实现与服务端的通信，让服务端识�
 	但是相对不是太安全
 	单个cookie最大只能4k
 	每次请求都要进行网络传输，占用宽带
+	
+	session 是将用户的会话数据存储在服务端  
+	session_start();开启session    
+	$_SESSION进行session的读写   
 
-session 是将用户的会话数据存储在服务端  
-session_start();开启session    
-$_SESSION进行session的读写   
+	session_start();
+	$_SESSION['name'] = 'jobs';
+	$_SESSION['name'];//'jobs;
 
-session_start();
-$_SESSION['name'] = 'jobs';
-$_SESSION['name'];//'jobs;
-
-删除与销毁session  
-unset删除session 
-unset($_SESSION['name']);//删除name
-session_destory();//session里边数据全部删除 ,但是session_id仍存在  
+	删除与销毁session  
+	unset删除session 
+	unset($_SESSION['name']);//删除name
+	session_destory();//session里边数据全部删除 ,但是session_id仍存在  
 
 一般情况用户的登录 信息既可以存在cookie中也可以存在session中  
 但cookie只支持字符串加密,而session支持对象,数组等类型  
@@ -228,47 +232,47 @@ session_destory();//session里边数据全部删除 ,但是session_id仍存在
 	}
 	fclose($fp);
 
-判断文件是否存在  
-file_exists();//也可以判断目录  
-is_file();//判断是否是文件  
-is_writable();//判断是否可写
-is_readable();//判断是否可读
+	判断文件是否存在  
+	file_exists();//也可以判断目录  
+	is_file();//判断是否是文件  
+	is_writable();//判断是否可写
+	is_readable();//判断是否可读
 
-获取系统文件的属性  
-fileowner()  
-filectime()  
-filemtime()  
-fileatime()  
+	获取系统文件的属性  
+	fileowner()  
+	filectime()  
+	filemtime()  
+	fileatime()  
 
 ##日期和时间  
 
-time();//获取unix时间戳
-date();//获取当前的日期  
-date('Y-m-d',time())
-strtotime('2017-9-9');//获取某个日期的时间戳  
-gmdate 返回格林威治标准时间(GMT),而我们是处在东八区,GMT+8
-date_default_timezone_set("Asia/Shanghai");//默认时区设在上海
-echo date('Y-m-d H:i:s',time());
-2017-07-01 17:28:00
-echo gmdate('Y-m-d H:i:s',time());
-2017-07-01 09:28:00
+	time();//获取unix时间戳
+	date();//获取当前的日期  
+	date('Y-m-d',time())
+	strtotime('2017-9-9');//获取某个日期的时间戳  
+	gmdate 返回格林威治标准时间(GMT),而我们是处在东八区,GMT+8
+	date_default_timezone_set("Asia/Shanghai");//默认时区设在上海
+	echo date('Y-m-d H:i:s',time());
+	2017-07-01 17:28:00
+	echo gmdate('Y-m-d H:i:s',time());
+	2017-07-01 09:28:00
 
 ##PHP 图像处理库--GD
 
-$img = imagecreatetruecolor(100,100);//创建一个100*100的真彩色空白画布  
-$color = imagecolorallocate($img,0xFF,0x00,0x00);//通过RGB设定画笔的颜色  
-imageline($img,0,0,100,100,$red);//绘制线条  
-header('Content-Type: image/png');  
-imagepng($img);//输出图片   
-imagepng($img,'img.png');输出并保存图片  
-imagedestory($img);//删除图片,释放内存.  
-
-GD库常用于图形的各种操作,常有绘制线条,背景填充,画矩形,绘制文字等.  
-imagestring($img,14,25,25,"Hello Me",$red);
-$filename="img.png";
-imagepng($img,dirname(__FILE__)."/".$filename,86);
-imagejpeg($img,"img.jpeg");
-imagegif($img,"img.gif");
+	$img = imagecreatetruecolor(100,100);//创建一个100*100的真彩色空白画布  
+	$color = imagecolorallocate($img,0xFF,0x00,0x00);//通过RGB设定画笔的颜色  
+	imageline($img,0,0,100,100,$red);//绘制线条  
+	header('Content-Type: image/png');  
+	imagepng($img);//输出图片   
+	imagepng($img,'img.png');输出并保存图片  
+	imagedestory($img);//删除图片,释放内存.  
+	
+	GD库常用于图形的各种操作,常有绘制线条,背景填充,画矩形,绘制文字等.  
+	imagestring($img,14,25,25,"Hello Me",$red);
+	$filename="img.png";
+	imagepng($img,dirname(__FILE__)."/".$filename,86);
+	imagejpeg($img,"img.jpeg");
+	imagegif($img,"img.gif");
 
 ###PHP生成图像验证码  
 
