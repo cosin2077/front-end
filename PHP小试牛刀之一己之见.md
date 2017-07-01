@@ -114,3 +114,26 @@ static  表示静态方法,不需要实例化对象就能直接访问到, 操作
 
 	serialize 方法可以将对象序列化为字符串，便于传输或储存  
 	unserialize 方法将字符串反序列化为对象
+
+PHP字符串
+
+1. '我就是字符串'  
+2. "我也是字符串"  
+3. <<<whattheheck  
+我特么还是字符串  
+whattheheck;
+***
+	双引号中可以包含对象,单引号中的都被认为是字符串 
+	trim($str);//去掉空格   
+	ltrim($str);//去左侧空格  
+	rtrim($str);//去右侧空格  
+	strlen($str);//获取字符串长度  
+	mb_strlen($str,"UTF-8");//获取其他编码的字符串长度  
+	substr($str,start,nums);//  
+	mb_substr($str,start,nums,encoding);  
+	strpos($str,string[,startpos]);
+	str_replace(find,new,$str);
+	sprintf("%06.3f",$num);//将$num转换为至少6为数,小数点后保留3为数
+	implode('',$arr);//将数组以制定字符组合成字符串  
+	explode('',$str);//将字符串以制定字符串风格成数组
+	addslashes($str);//对字符串进行转义处理  
