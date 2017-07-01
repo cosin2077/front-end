@@ -217,3 +217,104 @@ session_destory();//session里边数据全部删除 ,但是session_id仍存在
 但cookie只支持字符串加密,而session支持对象,数组等类型  
 
 ##PHP文件系统  
+
+文件读取
+>$content = file_get_contents('../xx.txt');//将读取文件保存到一个字符串中  
+>$content = file_get_contents('../xx.txt',null,null,100,500)控制读取文件的开始点以及长度
+
+	$fp = fopen('../xx.txt','rb);
+	while(feof($fp)){
+		echo fget($fp);
+	}
+	fclose($fp);
+
+判断文件是否存在  
+file_exists();//也可以判断目录  
+is_file();//判断是否是文件  
+is_writable();//判断是否可写
+is_readable();//判断是否可读
+
+获取系统文件的属性  
+fileowner()  
+filectime()  
+filemtime()  
+fileatime()  
+
+##日期和时间  
+
+time();//获取unix时间戳
+date();//获取当前的日期  
+date('Y-m-d',time())
+strtotime('2017-9-9');//获取某个日期的时间戳  
+gmdate 返回格林威治标准时间(GMT),而我们是处在东八区,GMT+8
+date_default_timezone_set("Asia/Shanghai");//默认时区设在上海
+echo date('Y-m-d H:i:s',time());
+2017-07-01 17:28:00
+echo gmdate('Y-m-d H:i:s',time());
+2017-07-01 09:28:00
+
+##PHP 图像处理库--GD
+
+$img = imagecreatetruecolor(100,100);//创建一个100*100的真彩色空白画布  
+$color = imagecolorallocate($img,0xFF,0x00,0x00);//通过RGB设定画笔的颜色  
+imageline($img,0,0,100,100,$red);//绘制线条  
+header('Content-Type: image/png');  
+imagepng($img);//输出图片   
+imagepng($img,'img.png');输出并保存图片  
+imagedestory($img);//删除图片,释放内存.  
+
+GD库常用于图形的各种操作,常有绘制线条,背景填充,画矩形,绘制文字等.  
+imagestring($img,14,25,25,"Hello Me",$red);
+$filename="img.png";
+imagepng($img,dirname(__FILE__)."/".$filename,86);
+imagejpeg($img,"img.jpeg");
+imagegif($img,"img.gif");
+
+###PHP生成图像验证码  
+
+	$img = imagecreatetruecolor(100,40);
+	$black = imagecreateallocate($img,0x00,0x00,0x00);
+	$green = imagecreateallocate($img,0x00,0xFF,0x00);
+	$white = imagecreateallocate($img,0xFF,0xFF,0xFF);
+	imagefill($img,0,0,$white);
+	//随机生成验证码 
+	$code = "";
+	for($i=0,$i<4,$i++){
+		$code.=rand(0,9);
+	}
+	imagestring($img,25,12,12,$code,$black);
+	//加入噪点  
+	for($i=0;$i<1000,$i++){
+		imagesetpixel($img,rand(0,100),rand(0,1000),$black);
+		imagesetpixel($img,rand(0,100),rand(0,1000),$grenn);
+	}
+	//输出验证码
+	header("Content-Type: image/png");
+	imagepng($img);
+	imagedestory($img);
+
+###给图片添加水印  
+
+	$url = "http://www.iyi8.com/uploadfile/2014/0521/20140521105216901.jpg";
+	$content = file_get_content($url);
+	$filename = "tmp.png";
+	file_put_content($filename,$content);
+	$url="http://wiki.ubuntu.org.cn/images/3/3b/Qref_Edubuntu_Logo.png";
+	file_put_content('logo.png',file_get_content($url));
+	//开始添加水印
+	$im = imagecreatefromjpeg($filename);
+	$logo = imagecreatefrompng('logo.png');
+	$size = getimagesize('logo.png');
+	imagecopy($im,$logo,15,15,0,0,$size[0],$size[1]);
+	header("Content-Type: image/png");
+	imagejpeg($im);
+
+	try{
+		if(xxx){
+		//....
+		throw new Exception("出错了");
+		}
+	}
+	catch(Exception $e){
+		echo $e->getMessage();
+	}
