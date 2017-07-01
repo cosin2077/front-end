@@ -137,3 +137,45 @@ whattheheck;
 	implode('',$arr);//将数组以制定字符组合成字符串  
 	explode('',$str);//将字符串以制定字符串风格成数组
 	addslashes($str);//对字符串进行转义处理  
+
+##正则表达式
+
+preg_match(reg,$str)匹配到了返回
+php里边，分隔符可以是 /、#、~  
+\表示转义   
+$reg = '/super/ig';//i表示不区分大小写,g表示全局匹配  
+元字符  
+	
+	\w 字母、数字、或下划线
+	\s 空白符
+	\d 数字
+	\ 转义  
+	^ 以...开始  
+	$ 以...结束
+	. 换行符外任意字符  
+	[] 组内任意  
+	| 可选分支  
+	()  子组  
+	?  0或1  
+	* 0或多
+	+ 1或多
+	{} 表示范围  
+
+\s  任意空白字符  
+[^\s] 任意非空白字符  
+
+	preg_match($reg,$str,$matches);
+	$matches[0];//匹配到的字符串    
+	$matches[1];//匹配到的第一个子组  
+
+	preg_match_all();//匹配所有的结果  
+
+	<?php
+	$str = '主要有以下几个文件：index.php, style.css, common.js';
+	//将目标字符串$str中的文件名替换后增加em标签
+	$reg = array("/\w+\.\w+/");
+	$repl = array('<em>$0</em>');
+	$str = preg_replace($reg,$repl,$str);
+	echo $str;
+	
+##COOKIE  
