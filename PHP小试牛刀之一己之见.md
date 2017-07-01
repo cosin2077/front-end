@@ -179,3 +179,41 @@ $reg = '/super/ig';//i表示不区分大小写,g表示全局匹配
 	echo $str;
 	
 ##COOKIE  
+
+任何从浏览器返回的cookie, PHP都会将它自动的存储在$_COOKIE的全局变量之中, 因此我们可以通过$_COOKIE['key']的形式来去读某个cookie的值
+
+设置cookie  
+setcookie("cookie_name","cookie_value",time()+3600,"/","geekhub.info");设置cookie,1小时后失效,整个网站都有效, geekhub.info 域名有效.
+
+还有一个设置cookie的函数setrawcookie(value不会自动urlencode,需要手动urlencode)
+setrawcookie('cookie_name',urlencode($value),...)
+
+删除cookie 
+setcookie('test',"",time()-1);
+
+header("Set-Cookie:test=135534;expires=".gmdate('D, d M Y H:i:s \G\M\T',time()-1)"")
+
+cookie 储存于客户端，用于实现与服务端的通信，让服务端识别客户端  
+特点
+
+	但是相对不是太安全
+	单个cookie最大只能4k
+	每次请求都要进行网络传输，占用宽带
+
+session 是将用户的会话数据存储在服务端  
+session_start();开启session    
+$_SESSION进行session的读写   
+
+session_start();
+$_SESSION['name'] = 'jobs';
+$_SESSION['name'];//'jobs;
+
+删除与销毁session  
+unset删除session 
+unset($_SESSION['name']);//删除name
+session_destory();//session里边数据全部删除 ,但是session_id仍存在  
+
+一般情况用户的登录 信息既可以存在cookie中也可以存在session中  
+但cookie只支持字符串加密,而session支持对象,数组等类型  
+
+##PHP文件系统  
