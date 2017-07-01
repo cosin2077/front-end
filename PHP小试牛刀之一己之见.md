@@ -318,3 +318,15 @@ imagegif($img,"img.gif");
 	catch(Exception $e){
 		echo $e->getMessage();
 	}
+	
+	异常处理之将错误记录在日志内
+	try{
+		//...
+	}catch(Exception $e){
+		$msg = "Error:".$e->getMessage()."\n";
+		$msg.=$e->getTraceAsString()."\n";
+		$msg.='所在行号：'.$e->getLine()."\n";
+		$msg.='所在文件：'.$e->getFile()."\n";
+		//将异常信息记录到错误日志中
+		file_put_contents('error.log',$msg);
+	}
