@@ -361,13 +361,24 @@ cookie 储存于客户端，用于实现与服务端的通信，让服务端识�
 	mysql_select_db("testdb");//选择数据库  
 	mysql_query("set names 'utf8'");//设置字符编码  
 
+	$res = mysql_query("SELECT * FROM user LIMIT 2");//进行数据库查询,返回一个资源句柄  
+	$row = mysql_fetch_array($res);
+	$name="李雷";
+	$age="22";
+	$class"三年一班";
+	$sql = "INSERT INTO user(name,age,class) values('$name','$age','$class')"
+	mysql_query($sql);
+		
+	mysql查询
+	$sql="SELECT * FROM user LIMIT 5";
+	$res = mysql_query($sql);
+	$array = mysql_fetch_array($row);
+
+	mysql_fetch_row(...)<=>mysql_fetch_array(...,MYSQL_NUM);
+	mysql_fetch_assoc(...)<=>mysql_fetch_array(...,MYQSL_ASSOC);
 
 
-
-
-
-
-
+	
 
 
 
