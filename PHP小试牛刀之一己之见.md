@@ -334,3 +334,46 @@ cookie 储存于客户端，用于实现与服务端的通信，让服务端识�
 		//将异常信息记录到错误日志中
 		file_put_contents('error.log',$msg);
 	}
+
+##PHP与数据库  
+
+	function_exists("mysql_connect");//检测是否有mysql_connect函数(即是否支持数据库)  
+
+数据库不同的扩展  
+
+	mysql扩展  
+	$link = mysql_connect("localhost","root","passwd");
+	
+	mysqli扩展  
+	$link = mysqli_connect("localhost","root","passwd");
+	
+	PDO扩展  
+	$dsn = "mysql:dbname =testdb;host=127.0.0.";
+	$user = "dbuser";
+	$password = "passwd";
+	$dbh = new PDO($dsn,$user,$password);
+
+###与mysql数据库的连接  
+	$host = "127.0.0.1";
+	$user = "conan";
+	$pass = "201010";
+	mysql_connect($host,$user,$pass);//通过host,name,password连接数据库  
+	mysql_select_db("testdb");//选择数据库  
+	mysql_query("set names 'utf8'");//设置字符编码  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
