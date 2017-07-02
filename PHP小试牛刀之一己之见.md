@@ -377,9 +377,24 @@ cookie 储存于客户端，用于实现与服务端的通信，让服务端识�
 	mysql_fetch_row(...)<=>mysql_fetch_array(...,MYSQL_NUM);
 	mysql_fetch_assoc(...)<=>mysql_fetch_array(...,MYQSL_ASSOC);
 
+	PHP查询分页数据  
+	
+	$page = 2;
+	$pagesize=8;
+	$m = ($page-1)*$pagesize;
+	$sql = "SELECT * FROM user LIMIT $m,$pagesize";
+	$result = mysql_query($sql);
+	$data = array();
+	while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+		$data[] = $row;
+	}
+	
+	数据库的更新与删除  
+	$sql = "update user set name="666",where id=2 limit 1";
+	$sql = "delete from user where id=2 limit 1";
+	mysql_affected_row();获取更新过的数据行数,没有变化则为0;
 
 	
-
 
 
 
