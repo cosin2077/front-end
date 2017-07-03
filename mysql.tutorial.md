@@ -168,8 +168,9 @@ database修改名称的时候得先导出再修改
 	default-storage-engine=INNODB  
 
 >有外键的表，为子表，子表所参照的表为父表  
-引擎为INNODB  
-相同数字类型，字符可以位数不同  
+引擎为INNODB   
+相同数字类型，字符可以位数不同
+     
 **添加约束：** 
 
 	ALTER TABLE tb1 ADD preid int unsigned auto_increment PRIMARY KEY [FIRST|AFTER id]//添加新列到第一列或id列后边
@@ -185,8 +186,13 @@ database修改名称的时候得先导出再修改
 	ALTER TABLE tb1 DROP FOREIGN KEY users_ibfk_2(CONSTRAINT 'users_ibfk_2');//通过SHOW CREATE TABLE tb1;查看  
 **修改数据表：**  
 
-	alter table tb1 modify id SAMLLINT UNSIGNED not null first;  
-	ALTER TABLE tb1 CHANGE ID NEWID SMALLINT UNSIGNED NOT NULL first;  
+	ALTER TABLE tb1 MODIFY id SAMLLINT UNSIGNED not null first;  
+	ALTER TABLE tb1 CHANGE id newid SMALLINT UNSIGNED NOT NULL first;  
+**修改表的名字**  
+
+	ALTER table table_name rename to table_name2;  
+	或者：  
+	rename table table_name to table_name2  
 
 记录的增删改查：  
 插入：
@@ -414,6 +420,16 @@ P44/92
 	Memory
 	CSV
 	Archive
+
+**mysql用户操作**
+
+use mysql;
+SELECT host,user,password FROM user;查看用户
+create user conan666 IDENTIFIE BY 'conan666';创建用户  
+SET password FOR conan666=password("conan667");修改用户密码  
+update mysql.user SET password=password("conan666") where user="conan666";  
+SHOW grants for conan666;查看用户权限  
+flush privileges;//命令更新  
 
 
 
