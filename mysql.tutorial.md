@@ -431,7 +431,18 @@ update mysql.user SET password=password("conan666") where user="conan666";
 SHOW grants for conan666;查看用户权限  
 flush privileges;//命令更新  
 
-
+	用户增加
+	create user conan identified by "password";
+	用户删除
+	drop user conan666;
+	用户修改密码
+	set password for conan666=password("conan667");
+	或者
+	update mysql.user set password=password('conan667') where user="conan666";
+	查看用户的权限
+	show grants for conan666;
+	命令更新
+	flush privileges;
 
 
 
