@@ -17,9 +17,10 @@ db.imooc_collection.find().count() //计数
 .sort()  //排序
 
 db.imooc_collection.find().skip(3).limit(5).sort({x:1})
-
+**数据查询**
+db.imooc_collection.find({x:2}) //查找x为2的字段
 **数据更新**  
-db.imooc_collection.find({x:2}) //查找x为2的字段  
+  
 db.imooc_collection.update({x:2},{x:666})
 
 **部分更新**
@@ -32,3 +33,47 @@ db.imoor_collection.update({x:1},{$set:{x:"sequences"}},false,true)
 **数据删除**
 db.imooc_colletion.remove({x:"sequences"})//删除所有有这个属性的字段
 db.imooc_collection.drop() //删除这张表  
+
+**获取索引**
+db.imoor_collection.getIndexes()
+
+**创建索引**
+db.imoor_collection.ensureIndex({x:1}) //1为正向排序,-1为逆向排序  
+
+
+**_id索引** 
+
+1. _id索引是绝大多数集合默认建立的索引
+2. 对于每个插入的数据，mongodb都会自动生成一条唯一的_id字段  
+
+**单键索引**
+
+比如 {x:1,y:2,z:3}以x为索引就能很快查询
+
+**多键索引**
+
+值具有多个记录,比如数组  
+db.imoor_collection.insert({x:[1,23,5,null]})
+
+**复合索引**(查询条件为复合的时候)
+
+db.imoor_collection.ensureIndex({x:1,y:1})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
