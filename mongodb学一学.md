@@ -59,21 +59,76 @@ db.imoor_collection.insert({x:[1,23,5,null]})
 
 db.imoor_collection.ensureIndex({x:1,y:1})
 
+**过期索引**
+- 在一段时间后会过期的索引
+- 在索引过期后，响应的数据会被删除
+- 适合存放用户登录信息等
+
+db.collection.ensureIndex({time:1},{expireAfterSeconds:864000})
+
+### creatIndex 替代了 ensureIndex 3.2版之后 ###
+- 储存在过期字段的值必须是指定时间类型，不然不能被自动删除  
+- 如果指定ISODate数组,则按照最小时间删除  
+- 过期索引不能是复合索引
+- 删除时间不一定完全准确(后台程序每60s跑一次，删除也需要时间)  
+
+**全文索引**
+
+对字符串和字符串数组创建全文可搜索的索引  
+case:
+{author:"",title:"",content"",keyword:""}
+
+创建全文索引  
+db.articles.createIndex({key:"text"})
+db.articles.createIndex({key1:"text",key2:"text"})
+db.articles.createIndex({"$**":"text"}) //对集合中所有字段,创建一个大的全文索引
+
+**全文索引的查找**
+db.articles.find({$test:{$search:"coffee"}})
+db.articles.find({$test:{$search:"aa bb cc"}}) 默认或查询
+db.articles.find({$test:{$search:"\"aa\" \"bb\" \"cc"}}) 与查询
+db.articles.find({$test:{$search:"aa bb -cc"}}) 不包含cc的
+全文相似度  
+$meta操作符 :{score:{$meta:"textScore"}}  
+写在查询条件后边可以返回返回结果的相似度  
+与sort一起使用,有很好效果哟
+db.articles.find({$test:{$search:"aa bb -cc"}},{score:{$meta:"textScore"}}).sort({score:{$meta:"textScore"}})
+
+**限制**
+每次查询,只能指定一个$text查询  
+$text查询不能出现在$nor查询中  
+包含$text后，hint不起作用  
+
+**地理位置索引**
+
+2d索引 平面地理位置索引
+位置表示方式  经纬度 [经度,纬度]
+取值范围：经度[-180,180] 维度[-90,90]
+db.location.createIndex({"w":"2d"})
+db.location.insert({w:[1,2]})
+db.location.insert({w:[100,85]})   
+db.location.insert({w:[75,85]})  
+db.location.insert({w:[60,65]})  
+db.location.insert({w:[20,15]})  
+查询方式  
+$near 查询,查询距离某个点最近的点    
+$geoWithin查询 查询某个形状内的点  
+db.location.find({w:{$near:[1,1]}}) //默认返回100个点
 
 
 
+**索引属性** 
+name属性
+db.collection.createIndex({x:1,y:1,z:1},{name:"normal_index"}) //指定name属性  
+db.collection.dropIndex("normal_index") //可以通过name属性删除索引  
+unique属性
+db.collection.createIndex({x:1,y:1,z:1},{unique:true}) //添加唯一索引后相同字段不允许值相同(x,y,z)同时相等  
+sparse属性  
+db.collection.createIndex({x:1,y:1,z:1},{sparse:true}) //避免为不存在的值插入索引
+db.collection.find({m:{$exists:false}}).hint("m_1") //强制使用稀疏索引  
 
-
-
-
-
-
-
-
-
-
-
-
+**字段是否存在查找**
+db.collection.find({m:{$exists:true}}) //存在m字段的数据  
 
 
 
