@@ -71,6 +71,18 @@ className
 
 **操作特性**
 
-ele.getAttribute()  
+ele.getAttribute()能取得自定义属性    
 ele.setAttribute()  
 ele.removeAttribute()  
+
+元素节点的attributes属性包含属性集合  
+
+document.createDocumentFragment();文档碎片类型
+
+1 元素节点 document.documentElement.nodeType
+2 属性节点 //document.body.firstChild.attributes[1].nodeType
+3 文本节点 
+8 注释节点 
+9 文档节点 document.nodeType
+10 文档类型节点 document.doctype.nodeType
+11 文档碎片节点
