@@ -166,5 +166,27 @@ map  取出对象某个属性所有值,组成一个数组
 minus  减去  
 modulo  取余数  
 newline_to_br  \n 替换为<br>标签  
-
-
+plus 相加  
+prepend  字符串前边拼接  
+remove  删除前边所有出现的某个字符串  
+remove_first  仅仅删除第一前边出现字符串  
+replace  将参数中第一个全部替换为第二个  
+replace_once 仅替换第一个参数为第二个参数  
+reverse 数组所有项目全部反转顺序,不能直接应用值字符串上  
+round  四舍五入  
+rstrip  删除右侧所有空白符  
+size  返回字符串或数组的元素个数  
+slice  一个参数相当于index,两个参数时相当于slice  
+sort 排序  
+sort_natural 排序(不管大小写)
+split  传入字符串分割为数组  
+strip  删除左右侧空白符  
+strip_html 删除所有html标签 
+strip_newlines 从字符串中删除所有换行字符
+times 将一个数乘以另一个数
+truncate 将字符串截短为指定的字符个
+truncatewords  将字符串截短为指定的单词个数
+uniq 数组去重  
+upcase 将字符串中的每个字符都转换为大写形式
+url_decode 对于作为 URL 进行编码或通过 url_encode 编码的字符串进行解码  
+url_encode  将字符串中非 URL 安全的字符转换为百分号编码（percent-encoded）的字符
