@@ -40,5 +40,37 @@
 	404 Not Found.
 	{% endif %}
 
-
+**除了nil和false之外所有值都是真值**  
 	
+	{% assign tony = "conan" %}
+	
+	{% if tony %}
+	condition is true
+	{% endif %}
+
+数据类型包括  
+
+	String(字符串)
+	{% assign str = "hello liquid"%}  
+	Number(数字)
+	{%assign num = 666 %}  
+	Boolean  
+	{% assign gender=false %}
+	Nil(也就是不存在)
+	{% if asdasf %}
+	hello {{asdasf.name}}
+	{% endif %}
+	Array  
+	<!-- if items=[1,2,3,4] -->
+	{% for item in items %}
+	{{item}}
+	{% endif %}
+	不能通过liquid初始化数组,但能用split过滤器将字符串分割为子字符串数组  
+
+**空白符输出控制!**
+
+	{{- 删除左侧 
+	-}} 删除右侧
+	{%- 删除左侧
+	-%} 删除右侧
+
