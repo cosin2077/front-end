@@ -144,5 +144,27 @@ capture用于在开始和结束标签之间捕捉字符串并赋值给变量
 {%capture str%}what the heck that is ?{%endcapture%}
 {{str}}  
  
+过滤器  
+abs  绝对值,字符串也适用  
+append  拼接字符串  
+capitalize  首字母大写  
+ceil 向上取整  
+compact  删除数组中的nil项目
+date  格式化时间  
+{{"now"|date:"%Y-%m-%d %H:%M"}}
+default 设置默认值  
+divided_by  被除以,整数得整数,浮点数得浮点数  
+downncase  全部小写  
+escape  转义  
+escape_once  转义一次  
+first  数组的第一项  
+floor 向下取整  
+join  拼接  
+last  数组中最后一项  
+lstrip  删除字符串左侧所有空白符  
+map  取出对象某个属性所有值,组成一个数组  
+minus  减去  
+modulo  取余数  
+newline_to_br  \n 替换为<br>标签  
 
 
