@@ -74,3 +74,75 @@
 	{%- 删除左侧
 	-%} 删除右侧
 
+**注释**
+{%comment%}
+我是注释不会被输出 
+{%endcomment%}  
+
+**控制流**
+
+	{%if title contains "666"%}
+	666 are here.
+	{%endif%}
+	
+	{%unless title contains "666"%}
+	666 are not here.
+	{%endunless%}
+	
+	{%if customer.name="conan"%}
+	hello conan!
+	{%elsif customer.name="kevin"%}
+	hello kevin!
+	{%endif%}
+	case/when 相当于switch  
+	{% assign model="9527"%}
+	{% case model%}
+		{% when "6623"%}
+			6623
+		{% when "9527"%}
+			952
+	{%endcase%}
+
+**循环/迭代**
+
+for  
+
+	{% for a in (1..5)%}
+		{% if a == 3%}
+			{% break%}
+		{% else%}
+			{{a}}
+		{%endif%}
+	{%endfor%}
+	输出1 2 3
+
+	{%for item in items limit:4%}
+		{%if item==2%}
+			{%continue%}
+		{%else%}
+			{{item}}
+		{%endif%}
+	{%endfor%}
+	 
+- limit——限定循环执行的次数  
+- offset——制定索引号  
+- 定义执行范围
+
+	{%for i in (3...7) limit 3 %}
+	{{i}}
+	{%endfor%}
+	输出3,4,5  
+- reversed 反转循环的执行顺序  
+
+原始内容  
+{%raw%}
+//...原始内容,不被解析
+{%endraw%}
+
+assign 用于给变量赋值  
+capture用于在开始和结束标签之间捕捉字符串并赋值给变量  
+{%capture str%}what the heck that is ?{%endcapture%}
+{{str}}  
+ 
+
+
