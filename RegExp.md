@@ -62,6 +62,9 @@ javascript is fun?
 \b  匹配边界(就是旁边不能接字母或数字！)  
 \B  匹配非边界  
 /\B[Ss]cript/ 与DSAFAscript,*&21Script匹配，却不予script，scripting匹配
+(?=b)前断言 必须有b
+(!=\d)后断言 必须没数字
+
 
 修饰符img
 /java$/im 能匹配"Java\n is fun"  
@@ -82,4 +85,24 @@ String类型的4种正则方法
 	   res[2];www.baidu.com
        res[3];saf
 	4. split. "1,2, 5 ,3, 2,  5".split(/\s*,\s*/);["1", "2", "5", "3", "2", "5"]  
-	   
+	
+RegExp对象的属性和方法  
+
+属性  
+source  只读属性，表示包含正则表达式的文本  
+global  只读布尔值，表示这个正则表达式是否带有修饰符g  
+ignoreCase  只读布尔值表示是否带有修饰符i  
+multiline  只读布尔值表示是否带有修饰符m  
+lastIndex  下一次检索的开始位置,可读/写,RegExp的test和exec方法会用到  
+  
+梳理一下，
+
+正则表达式本身的方法有  
+reg.test(str);//判断字符串中是否有匹配的文本,匹配到了就返回true  
+reg.exec(str);//判断是否有匹配的文本,返回的是数组,可以提取()分组子串
+
+字符串的正则方法有  
+str.search(reg);//查询是否有匹配的子串,返回第一个子串出现的文字,没有则返回-1
+str.replace(reg,newStr);//替换满足reg表达式内容的子串为新的内容,reg有g修饰符,则替换所有子串  
+str.match(reg);//类似exec方法,能够提取子串  
+str.split(reg);//将字符串分割为数组,reg的内容作为分隔符
