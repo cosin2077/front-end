@@ -55,13 +55,33 @@ location.replace()方法不会回到前一个页面
 location.reload() 重新加载(有可能从缓存加载)  
 location.reload(true) 从服务器重新加载
 
+**navigator对象**
+属性  
 
+>appCodeName  
+>appMinorVersion
+>appName
+>mimeTypes
+>oscpu
+>platform
+>userAgent
+>vendor
 
+**screen对象**
 
+_用处不大,这就尴尬了_  
 
+screen.availWidth  整个屏幕的宽/高
+screen.availHeight
 
+**history对象**
 
-
+//后退一页  
+history.go(-1)   
+history.back()  
+//前进一页    
+history.go(1)    
+history.forward()    
 
 
 
