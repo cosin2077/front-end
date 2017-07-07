@@ -10,7 +10,15 @@
 
 top对象始终指向最外层框架,也就是浏览器窗口  
 
+window.screenX,window.screenLeft;表示浏览器距离**屏幕**左边的距离  
+window.screenY,window.screenTop;表示浏览器距离**屏幕**右边的距离  
 
+window.moveTo  
+window.moveBy 这俩属性基本都被禁用了,因为太影响用户体验了  
 
+window.innerHeight  浏览器内部可见视口的高/宽
+window.innerWidth
 
+window.outerHeight  整个浏览器的高/宽
+window.outerWidth
 
