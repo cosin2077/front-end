@@ -16,9 +16,58 @@ window.screenY,window.screenTop;表示浏览器距离**屏幕**右边的距离
 window.moveTo  
 window.moveBy 这俩属性基本都被禁用了,因为太影响用户体验了  
 
-window.innerHeight  浏览器内部可见视口的高/宽
+window.innerHeight  浏览器内部可见视口的高/宽(包括了滚动条的宽度13px)
 window.innerWidth
 
 window.outerHeight  整个浏览器的高/宽
 window.outerWidth
+
+document.documentElement.clientHeight  视口高/宽
+document.documentElement.clientWidth  
+
+window.resizeTo  同样被禁用,也太影响用户体验了 
+window.resizeby
+
+window.alert()
+window.confirm()
+window.prompt()
+
+###location 对象 
+window.location=document.location=location  
+有这些属性  
+>hash
+>host
+>hostname
+>href
+>pathname
+>port
+>protocol
+>search
+
+**位置操作**
+
+location.assign("http://baidu.com")  
+window.location="http://baidu.com"
+location.href="http://baidu.com"
+每次修改location的属性,页面都会以新URL重新加载  
+location.replace()方法不会回到前一个页面  
+
+location.reload() 重新加载(有可能从缓存加载)  
+location.reload(true) 从服务器重新加载
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
