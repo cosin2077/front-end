@@ -52,7 +52,7 @@ activate python2
 如果想返回默认的环境  
 deactivate python2  
 就可以回到默认的环境了  
-conda remove --name python2  
+conda remove --name python2  --all
 删除一个环境  
 **conda的包管理**  
 
@@ -65,11 +65,23 @@ conda remove --name python2
 
 **常见操作**  
 
-#查看当前环境下安装的包
-conda list  
-#查看某个制定环境下已安装的包
+	#查看当前环境下安装的包
+	conda list  
+	#查看某个指定环境下已安装的包
+	conda list -n python2
+	#安装package  
+	conda install -n python2 numpy  
+	#更新package  
+	conda udate -n python2 numpy  
+	#删除package  
+	conda remove -n python2 numpy  
 
-
+	conda也可以更新自己！
+	
+	conda update  conda  
+	conda update anaconda   
+	conda update python
+	#假设当前环境是python 2.7,或更新到2.7.x的最高版本
 
 
 
