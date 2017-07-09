@@ -45,15 +45,15 @@
 如果我们一开始安装的是python3.6,这默认环境就是python3.6  
 这时候，假如我们需要创建一个python2的环境,就可以这样做  
 
-conda create --name python2 python=2.7
-安装好了之后,使用active激活环境  
-activate python2  
-这个时候环境就切换到python2来了  
-如果想返回默认的环境  
-deactivate python2  
-就可以回到默认的环境了  
-conda remove --name python2  --all
-删除一个环境  
+	conda create --name python2 python=2.7
+	安装好了之后,使用active激活环境  
+	activate python2  
+	这个时候环境就切换到python2来了  
+	如果想返回默认的环境  
+	deactivate python2  
+	就可以回到默认的环境了  
+	conda remove --name python2  --all
+	删除一个环境  
 **conda的包管理**  
 
 功能类似pip
@@ -79,12 +79,19 @@ conda remove --name python2  --all
 	conda也可以更新自己！
 	
 	conda update  conda  
-	conda update anaconda   
+	conda update anaconda
+	#更新anaconda包集合   
 	conda update python
 	#假设当前环境是python 2.7,或更新到2.7.x的最高版本
 
+	如果需要创建的环境一安装anaconda包集合的话  
+	conda install anaconda
+	#在当前环境安装anaconda包集合
+	conda create -n python2 python=2.7 anaconda
+	#在python2环境安装anaconda包集合  
 
 
+	
 
 
 
