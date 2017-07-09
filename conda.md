@@ -89,13 +89,16 @@
 	#在当前环境安装anaconda包集合
 	conda create -n python2 python=2.7 anaconda
 	#在python2环境安装anaconda包集合  
-
+	
+	设置国内镜像  
+	添加Anaconda的TUNA镜像
+	conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+		
+	设置搜索时显示通道地址
+	conda config --set show_channel_urls yes
 
 	
-
-
-
-
+	--完
 
 
 
