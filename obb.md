@@ -135,12 +135,26 @@ conan instanceof Persion
 
 ***
 
-Person.prototype.isPrototypeOf(conan);//true
-Object.getPrototypeOf(conan);//Person.prototype
+	Person.prototype.isPrototypeOf(conan);//true
+	Object.getPrototypeOf(conan);//Person.prototype
 
 当读取某个对象的属性的时候,会自动查找当前对象是否有这个属性,如果没有就会查找该属性的原型对象,如果还没查到就会继续往上找,直到找到最外层
 
-obj.hasOwnProperty("name");//判断Obj本身是否含有"name"属性
+	obj.hasOwnProperty("name");//判断Obj本身是否含有"name"属性
+	
+	in 操作符会返回在原型对象中的属性  
+	
+	Object.key(obj);//返回对象obj中所有可以枚举的属性,不返回原型对象上的属性  
+	想获得所有实例属性,无论是否枚举的话  
+	Object.getOwnPropertyNames();
 
-in 操作符会返回在原型对象中的属性  
-
+	简便的原型写法  
+	function Person(){}
+	
+	Person.prototype = {
+	constructor:Person,
+	name:"xxx",
+	say:function(){
+	console.log(this.name)
+	}
+	}
