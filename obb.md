@@ -158,3 +158,50 @@ conan instanceof Persion
 	console.log(this.name)
 	}
 	}
+	Object.defineProperty(Person.prototypee,"constructor",{
+	enumerable:false,
+	value:Person
+	});
+	**重写原型会切断现有实例与之前原型之间的联系**
+
+**原生对象的原型**
+
+给所有字符串定义一个新方法
+	
+	String.prototype.say=function(){console.log("new ways")};//
+	"whattheheck".say();//
+	"new ways";//
+
+**构造函数模式和原型对象,现今用途最广的一种模式了**
+
+
+	function Student(name,age,class){
+		this.name=name;
+		this.age=age;
+		this.className=className;
+	}
+	Student.prototype.who=function(){
+		return this.name;
+	}
+	Student.prototype.class=function(){
+		return this.className;
+	}
+
+	实例对象公有的属性委托到原型上,自有的属性再构造函数里边  
+
+**动态原型,将委托属性放在构造函数内(保证只执行一次)**
+
+	function Student(name,age,className){
+		this.name=name;
+		this.age=age;
+		this.className=className;
+		if(typeof this.sayName!= 'fucntion'){
+			Student.prototype.sayName=function(){
+				console.log(this.name);
+			}
+		}
+	}
+
+所有引用类型默认都继承了Object,而这个继承也是通过原型链实现的,所有默认原型都是Object的实例,因此默认原型都会包含一个内部指针,指向Object.prototype  
+
+**继承**
