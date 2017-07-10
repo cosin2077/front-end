@@ -28,4 +28,38 @@
 - Value
 
 默认前三者都是true  
+	
+	var conan={};
+	Object.defineProperty(conan,"name",{
+	configurable:false;//name属性的值就不能配置了
+	value:"conan,skyforce";
+	})
+
+访问器属性  
+- Configurable
+- Enumerable
+- Get
+- Set
+	
+	var conan={};
+	Object.defineProperty(conan,"name",{
+		get:function(){
+			return "conan";
+		},
+		set:function(n){
+			console.log("set conan "+n);
+		}
+	})
+
+ES5最好同时设置getter和setter  
+ES5之前都是通过非标准的方法来实现的  
+
+	obj.__defineGetter__("attris",function(){
+		get:function(){
+		//...
+		},
+		set:function(){
+		//...
+		}
+	})
 
