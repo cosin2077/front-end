@@ -33,7 +33,7 @@
 	}
 
 3. **每个节点有都一个parentNode属性** nextSibling,previousSibling 访问下一个、前一个同胞节点第一个节点的previousSibling为null,最后一个节点的nextSibling为null,firstChild,lastChild为第一个、最后一个子节点  
-4. 所有**节点都有的最后一个属性ownerDocument**指向文档的文档节点
+4. **所有节点都有的最后一个属性ownerDocument**指向文档的文档节点
 
 **操作节点**
 appendChild用于向childNodes列表末尾添加一个节点  
@@ -47,6 +47,11 @@ cloneNode(true)//true表示深复制,复制包括子树
   
 document.documentElement  -->html  
 等价于document.firstChild或document.childNodes[0]  
+document.children;//后代元素节点
+ele.classList;//元素含有的类组成的数组,最后一个元素为class的值  
+ele.className;//类名  
+ele.style.cssText;//css文本值  
+window.getComputedStyle(ele,null);//获得当前元素的最后属性
 **有文档申明则例外！**  
 
 	document.doctype //文档申明  
