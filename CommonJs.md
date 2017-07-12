@@ -79,24 +79,137 @@ fs.stat()
 		}
 	})
 
+**stream模块**
 
+流也是一个对象,data时间表示流的数据已经可以读取了,end时间表示这个流已经到了末尾,error时间表示出错了  
 
+//打开一个文件流  
 
+	var fs = require('fs');
+	
+	var rs = fs.createReadStream('xxx.txt','utf-/8');
+	
+	rs.on('data',function(chunk){
+	console.log(chunk);
+	})
+	
+	rs.on('end',function(){
+	console.log('end');
+	})
+	
+	rs.on('error',function(err){
+	console.log('error'+err);
+	})
 
+写入文件流  
 
+	var fs =require('fs');
+	
+	var ws1 = fs.createWriteStream('output.txt','utf-8');
+	ws1.write('asdasdad\n');
+	ws1.write(new Buffer('asdasd\n','utf-8'))
+	ws1.write('end');
+	ws1.end();
+	
+pipe()管道串接流  
 
+	var fs = require('fs');
+	
+	var rs = fs.createReadStream('src.txt');
+	var ws = fs.createWriteStream('output.txt');
+	rs.pipe(ws);//相当于复制文件了
+	
+**http**  
 
+request对象封装了HTTP的请求,
+response对象封装了HTTP的响应  
 
+最简单的一个服务器  
 
+	var http= require('http');
+	
+	var server = http.createServer(function(request,response){
+	console.log(request.method+": "+request.url);
+	response.writeHead(200,{"Content-Type":"text/html"});
+	response.end("<h1>Hello my friend.</1>")
+	})
+	
+	server.listen(8080);
+	console.log('server is running at 127.0.0.1:8080');
 
+**url,path模块**  
 
+var path = require('path');
+//当前目录  
+var workDir = path.resolve('.');
+//组成完整的文件路径
+var filePath = path.join(workDir,'pub','index.html')
 
+一个完成的服务器  
 
+	'use strict';
+	
+	var fs=require('fs'),
+		url=require('url'),
+		path=require('path'),
+		http=require('http');
+	
+	var root = path.resolve(process.argv[2]||".");
+	console.log("static root dir: "+root);
+	
+	var server = http.createServer(function(request,response){
+		var pathname=url.parse(request.url).pathname;
+		var filepath=path.join(root,pathname);
+		fs.stat(filepath,function(err,stats){
+			if(!err&&stats.isFile()){
+				console.log('200 '+request.url);
+				response.writeHead(200);
+				fs.createReadStream(filepath).pipe(response);
+			}else{
+				console.log('404 '+request.url);
+				response.writeHead(404);
+				response.end('404 Not Found');
+			}
+		});
+	});
 
+**crypto模块(提供通用的加密和哈希算法)**  
 
-
-
-
-
-
+	const crypto = require('crypto');
+	
+	const hash = crypto.createHash('md5');
+	
+	// 可任意多次调用update():
+	hash.update('Hello, world!');
+	hash.update('Hello, nodejs!');
+	
+	console.log(hash.digest('hex')); // 7e1977739c748beac0c0fd14fd26a544
+	
+	Hmac 算法  
+	const crypto = require('crypto');
+	
+	const hmac = crypto.createHmac('sha256', 'secret-key');
+	
+	hmac.update('Hello, world!');
+	hmac.update('Hello, nodejs!');
+	
+	console.log(hmac.digest('hex')); // 80f7e22570...
+	
+	AES  
+	
+	const crypto = require('crypto');
+	
+	function aesEncrypt(data, key) {
+	    const cipher = crypto.createCipher('aes192', key);
+	    var crypted = cipher.update(data, 'utf8', 'hex');
+	    crypted += cipher.final('hex');
+	    return crypted;
+	}
+	
+	function aesDecrypt(encrypted, key) {
+	    const decipher = crypto.createDecipher('aes192', key);
+	    var decrypted = decipher.update(encrypted, 'hex', 'utf8');
+	    decrypted += decipher.final('utf8');
+	    return decrypted;
+	}
 
