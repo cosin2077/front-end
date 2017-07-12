@@ -52,6 +52,12 @@ ele.classList;//元素含有的类组成的数组,最后一个元素为class的�
 ele.className;//类名  
 ele.style.cssText;//css文本值  
 window.getComputedStyle(ele,null);//获得当前元素的最后属性
+ele.attributes;//返回含有的属性类数组  
+ele.classList具有方法(new CSSClassList(ele))  
+add();//添加一个类  
+remove();//删除一个类  
+toggle();//有则删除,无则添加
+
 **有文档申明则例外！**  
 
 	document.doctype //文档申明  
