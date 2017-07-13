@@ -358,35 +358,131 @@ im.save('thumb.jpg','JPEG')
 
 **面向对象OOP**
 
+#定义类class+类名+从哪儿继承的,默认object类,类顶端
+class Student(object):
+
+	def __init__(self,name,score):
+		self.name = name
+		self.score = score
+
+	def print_score(self):
+		print("%s: %s"%(self.name,self.score))
+
+bart = Student('Bart Simpson', 59)
+lisa = Student('Lisa Simpson', 87)
+bart.print_score()
+lisa.print_score()
+
+类和实例,类是抽象的模板,实例就是根据类而创建出来的一个个对象  
+可以给实例绑定属性  
+__init__方法绑定创建实例的属性self指的是创建的实例本身,函数里就可以给实例绑定属性,创建实例的时候,必须传入定义时候传入的参数  
+  
+封装类的方法  
+
+在python中,实例的变量名如果以__开头,就变成了一个私有变量,只有内部可以访问,外部不能访问
+
+	class Student(object):
+		def __init__(self,name,score):
+			self.__name=name
+			self.__score=score
+		def get_score(self):
+			return self.__score
+
+**继承、多态**
+
+	class Student(object):
+		def __init__(self,name,score):
+			self.__name=name
+			self.__score=score
+		def get_name(self,name):
+			return self.__name
+
+	class xiaoming(Student):
+		pass
+
+	xiaoming('xiaoming',87).get_name()
+
+继承,子类继承父类所有的方法
+多态,只需要知道父类型,无需确切的子类型,就能放心的调用父类型的方法
+	
+	type()返回对应的Class类型  
+	types模块中定义了常量  
+	type(fn)==types.FunctionType
+	type(abs)==types>BuiltinFunctionType  
+	type(lambda x:x**2)==types.LambdaType
+	type((x for x in range(10)))==types.GeneratorType  
+	isinstance(a,b);//a是b的实例返回True  
 
 
+	>>> isinstance([1, 2, 3], (list, tuple))
+	True
+	>>> isinstance((1, 2, 3), (list, tuple))
+	True
+	
+dir()获得一个对象所有的属性和方法  
 
+getattr(obj,'x')获取某个类的某个属性
+setattr(obj,'a',666)设置某个类的某个属性
+hasattr(obj,'z')查询某个类是否有某个属性
 
+类属性直接定义在class中  
+	
+	class Student(object):
+		__slots__=("name","age")
+		#只允许实例改变name和age属性  
 
+Python内置的@property装饰器就是负责把一个方法变成属性调用的：
 
+	class Student(object):
+	
+	    @property
+	    def score(self):
+	        return self._score
+	
+	    @score.setter
+	    def score(self, value):
+	        if not isinstance(value, int):
+	            raise ValueError('score must be an integer!')
+	        if value < 0 or value > 100:
+	            raise ValueError('score must between 0 ~ 100!')
+	        self._score = value
 
+**通过多重继承，一个子类就可以同时获得多个父类的所有功能**
 
+	class Dog(Mammal, RunnableMixIn, CarnivorousMixIn):
+	    pass
 
+	比如，编写一个多进程模式的TCP服务，定义如下：
+	
+	class MyTCPServer(TCPServer, ForkingMixIn):
+	    pass
+	编写一个多线程模式的UDP服务，定义如下：
+	
+	class MyUDPServer(UDPServer, ThreadingMixIn):
+	    pass
 
+多重继承优先级先到先得  
 
+定制类  
 
+__slots__ ----限定之类属性修改范围  
+__len__()----定制class的len()反应  
+__str__()----定制print类时候的返回  
+__repr__()----定制直接输出实例时候的返回  
 
+	class Student(object):
+	    def __init__(self, name):
+	        self.name = name
+	    def __str__(self):
+	        return 'Student object (name=%s)' % self.name
+	    __repr__ = __str__
 
+要表现得像list那样按照下标取出元素，需要实现__getitem__()方法：  
 
+__iter__()----使得类能够用于for...in循环  
+__next__()----配合__iter__实现迭代器功能  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+__getattr__()方法，动态返回一个属性  
 
 
 
