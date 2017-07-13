@@ -276,35 +276,87 @@ sorted()对list排序
 >>> sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
 ['Zoo', 'Credit', 'bob', 'about']
 
+匿名函数  
+	lambda x: x*x  
+	def f(x):
+	  return x*x
+
+函数对象有个__name__属性,能够拿到函数的名字  
+
+在代码运行期间,动态增加功能的方式,我们称之为装饰器  
+
+decorator就是一个返回函数的高阶函数  
+
+	def log(func):
+	  def wrap(*args,**kw):
+	    print("call the func %s"%func.__name__)
+		return func(*args,**kw)
+	  return wrap
+
+	#相当于执行now = log(now)
+	@log
+	def now():
+	    print('2015-3-25')
+
+	#调用函数  
+	now()
+	call the func  now():
+	2015-3-25
 
 
+	import functools
+	
+	def log(func):
+	    @functools.wraps(func)
+		#使得wrapper.__name__=func.__name__
+	    def wrapper(*args, **kw):
+	        print('call %s():' % func.__name__)
+	        return func(*args, **kw)
+	    return wrapper
+		
+		import functools  
 
+	def log(*args):
+		def decorator(func):
+			@functools.wrap(func)
+			def wrapper(*args,**kw):
+				print("begin call");
+				return func(*args,**kw)
+			return wrapper
+		return decorator
 
+	functools.partial 帮助我们创建一个偏函数  
+	import functools
+	
+	int2 = functools.partial(int,base=2)
+	
+	等价于
+	def int2(x,base=2):
+		return int(x,base)
 
+就是把一个函数的某些参数给固定住(设置默认值),返回一个新函数  
 
+**模块**
+文件夹下存在一个文件__init__.py  
+这个文件夹被当成一个包,里边所有的文件都是这个包的模块,这样就避免了命名冲突的问题  
 
+**sys模块**  
+sys模块有一个argv变量,用list存储了所有命令行参数  
+第一个参数是该py文件的名称  
+	
+	#本脚本自己调用
+	if __name__=="__main__":
+		func()
 
+我们希望仅仅在模块中使用的变量通过前缀_来实现  
 
+from PIL import Image
+im = Image.open('7.jpg')
+print(im.format,im.size,im.mode)
+im.thumbnail((2000,1000))
+im.save('thumb.jpg','JPEG')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**面向对象OOP**
 
 
 
