@@ -207,32 +207,74 @@ tuple,str,都可以进行切片
 	x = A
 	z = C
 
+**generator**
 
+g = (x*x for x in range(10))  
 
+next(g);//获得generator的下一个返回值  
 
+generator也是一个可迭代的对象,可以通过for循环迭代  
 
+	for i in g:
+		print(i)
 
+如果一个函数定义中包含yield,着这个函数就是一个generator  
+调用一次next();//执行函数,遇到yield返回,下次接着上次yield处继续进行  
 
+	try:
+	  x = next(g)
+	  print('g:', x)
+	except StopIteration as e:
+	  print('Generator return value:', e.value)
+	  break
+获取generator的return的值  
 
+**迭代器**
 
+可以直接作用于for循环的数据类型  
+list,tuple,dict,set,str,generator,  
+这些对象统称为可迭代对象:Iterable  
+isinstance()判断一个对象是否是Iterable对象  
 
+from collections import Iterable
 
+isinstance([],Iterable)
+isinstance({},Iterable)
+isinstance("",Iterable)
+isinstance((x for x in range(10)),Iterable)
+isinstance((),Iterable)
 
+可以被next()不断调用并返回下一个值的对象称为迭代器:Iterator  
 
+生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator
 
+把list、dict、str等Iterable变成Iterator可以使用iter()函数：
 
+>>> isinstance(iter([]), Iterator)
+True
+>>> isinstance(iter('abc'), Iterator)
+True
 
+**map和reduce**
 
+	>>> def f(x):
+	...     return x * x
+	...
+	>>> r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+	>>> list(r)
+	[1, 4, 9, 16, 25, 36, 49, 64, 81]
 
+	>>> list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+	['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
+filter()用于过滤序列  
 
+'xxasffxx'[::-1];//反转序列  
 
+sorted()对list排序  
 
-
-
-
-
-
+>>> sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+['Zoo', 'Credit', 'bob', 'about']
 
 
 
