@@ -1,5 +1,7 @@
 # 龟叔的小Python  
 
+python严格按照空格缩进
+
 数据类型有  
 整数  
 浮点数  
@@ -61,24 +63,82 @@ a[0]=0
 
 list元素内容也可以是另一个list(二维数组)  
 
+tuple  
+b=(2,4,6,8,10);//元素内容不可变,一旦初始化就不能修改了  
+b[0];//2  
+t=(1,);//只有一个元素的tuple  
 
+name = input();//用户输入的值赋值给name(str)  
 
+int()转换为int类型  
+  
+**循环**  
 
+	for i in rangs:
+		pass
+ranges 可以是list,tuple,range(100)...  
 
+range(100);//生成序列[0,100)
 
+**dict字典**  
 
+d={"name":"conan","age":65,"gender":"m"};  
 
+d['name'];//'conan'  
 
+'age' in d;//True  
 
+d.get('john');//返回None  
+d.get("Kevin",-1);//自定义找不到值时候的返回数字-1  
+d.pop('gender');//删除对应的键值对  
 
+**set**元素不能重复,只有值  
+s = set([1,3,5,7,9])  
+s
+{1,3,5,7,9}
 
+s.add(11);
 
+s.remove(3);//不是索引,是值  
 
+abs();//返回一个绝对值  
+str();//转换为字符串  
+max();//返回最大的那个值 
+int();//转换为整数  
+hex();//转换为十六进制  
 
+	def func():
+	  pass
 
+函数可以返回元组  
 
+### 默认参数
 
+	def power(x,n=2):
+	  s = 1
+	  while(n>0):
+	    n = n-1
+	    s = s*x  
+	  return s
+	定义时,指定默认值,函数调用时候,要指定则用=描述  
+    默认参数必须指向不变对象
 
+### 可变参数  
+函数内部接受到的是一个tuple
+	def func(*nums):
+	    for i in nums:
+			print(i)
+func(1)
+func(2,3,4,20)
+func(*[5,56,8]);//传入list的每个数  
+
+### 关键字参数  
+
+	def func(**kw):
+	  print(kw)
+
+关键字参数再函数调用时,自动组装成一个dict  
+	func(name="conna",age=25)
 
 
 
