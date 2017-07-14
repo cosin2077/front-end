@@ -841,32 +841,92 @@ f.close()#关闭文件
 	finally:#避免出错没有执行close
 	    f.close()
 
+with语句自动帮我们调用close方法  
 
+	with open('xxx.txt','r') as f:
+	    f.read()
 
+f.read(size)#读取指定size字节的内容  
+f.readline()#每次读取一行  
+f.readlines()#一次读取所有行,返回list  
 
+**二进制文件**
 
+f = open('xx.mp4','rb')#二进制格式打开  
+f.read()
 
+#指定编码,忽略编码错误  
+f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
 
+**写文件**
 
+	f = open('xxx.txt','w')
+	f.write('xasxax')
+	f.close()
 
+	with open('xxxx.jpg','wb') as f:
+		f.write('xxx')
 
+**StringIO**
 
+在内存中读写str  
 
+from io import StringIO
 
+f = StringIO()
+f.write('asd')#向内存写入
+f.write('agsfd')
+f.getvalue()#获取刚刚写入的内容
 
+读取StringIO  
 
+	from io import StringIO
+	f = StringIO('asd\nert\nuokj\nnbv');
+	for a in f.readlines():
+	    print(a)
 
+**BytesIO**
 
+操作二进制数据  
 
+	from io import BytesIO
+	f = BytesIO()
+	f.write('呵呵'.encode('utf-8'))
+	f.getValue();
+	b'\xe5\x91\xb5\xe5\x91\xb5'
 
+**操作文件和目录**
 
+	import os
+	#查看当前目录
+	root = os.getcwd()
+	#或者
+	root = os.path.abspath('.')
+	#表示某个目录的完整路径  
+	filepath = os.path.join(root,'conan')  
+	#创建一个目录
+	os.mkdir('newdir')
+	#删除一个目录
+	os.remove('newdir')
+	
+	#os.path.join()进行路径拼接 
+	#os.path.split('xxx/aa/bb/c/dd.txt')路径拆分
+	#(''xxx/aa/bb/c/','dd.txt'),最后一部分是目录或文件名
+	#os.path.splitext('aaa/bbb/ccc/dd.txt')获得扩展名
+	#('aaa/bbb/ccc/dd','.txt')
 
+	#文件重命名
+	os.rename('oldname','newname')
+	#文件删除 
+	os.remove(file)
 
+	shutil 模块能够复制移动删除文件
 
-
-
-
-
+	#列出当前文件夹下所有的文件夹
+	[x for x in os.listdir('.') if os.path.isdir(x)]
+	
+	#列出当前文件下所有以 .py 结尾的文件
+	[x for x in os.listdir('.') if os,path.isfile(x) and os.path.splitext(x)[1]=='.py']
 
 
 
