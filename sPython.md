@@ -819,10 +819,27 @@ type函数依次传入三个参数
 
 断言失败，抛出AssertionError  
 
+## IO编程
 
+当Inupt/Output速度不匹配的时候  
+等待IO执行结果----同步IO
+不等待IO执行结果----异步IO  
 
+读取文件  
 
+f = open('xxx.txt','r') 
+f.read()#一次性读取文件的全部内容  
+f.close()#关闭文件  
 
+	try:
+	    f = open('xxx.txt','r')
+	    
+		f.read()
+	
+	except Exception as e:
+	    print("error :",e)  
+	finally:#避免出错没有执行close
+	    f.close()
 
 
 
