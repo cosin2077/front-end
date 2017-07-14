@@ -928,46 +928,98 @@ f.getvalue()#获取刚刚写入的内容
 	#列出当前文件下所有以 .py 结尾的文件
 	[x for x in os.listdir('.') if os,path.isfile(x) and os.path.splitext(x)[1]=='.py']
 
+**序列化**
+将变量从内存中编程可存储的传输过程pickling  
+反序列化---反之亦然unpickling
 
+**pickle模块**
 
+	import pickle  
+	d = dict(name='Bill',age=65,score=99)
+	pickle.dumps(d)#将一个对象序列化成一个bytes,这个bytes就可以写入文件
+	
+	d = dict(name='Bill',age=65,score=99)
+	f = open('xxx.txt','wb')
+	pickle.dump(d,f)#将一个对象序列化后写入一个file-like Object  
+	f.close()
+	
+	读取对象到内存  
+	
+	把内容读取到一个bytes  pickle.loads()方法反序列化出对象
+	
+	f = open('test.txt','rb')
+	d = pickle.load(f)
+	f.close()
+	
+**json模块**
 
+	import json 
+	d = dict(name='Bill',age=65,score=99)
+	str1 = json.dumps(d)#返回的是一个满足json格式的字符串
+	'{"age": 20, "score": 88, "name": "Bob"}'
+	json.loads(str1)#loads方法把字符串反序列化为dict  
+	#将任意class变为dict
+	json.dumps(s,default=lambda obj:obj.__dict__)
 
+**线程和进程**
 
+一个任务就是一个进程(Process)
+一个进程内部同时干的事情,就叫线程(Thread)
 
+多任务的实现方式  
+1. 多进程
+2. 多线程
+3. 多进程+多线程
 
+multiprocessing模块提供了一个Process类来代表一个进程对象
 
+	from multiprocessing import Process
+	import os
+	def child_func(name):
+		print("Run child process %s (%s)"%(name,os.getpid()))
+	
+	print("Parent process %s"%os.getpid())
+	p = Process(taret=child_func,args=('test',))
+	print('Child process will start')
+	p.start()
+	p.join()
+	print("Child process end.")
 
+**Pool**
+进程池创建子进程  
 
+	from multiprocessing import Pool
+	import os,time,random
+	
+	p = Pool(4)
+	p.apply_async(func,args=(xxx,))
+	p.close()
+	p.join()
 
+subprocess模块可以让我们非常方便地启动一个子进程，然后控制其输入和输出
 
+**多线程**
+threading  
 
+import time,threading
 
+def loop():
 
+创建一个锁就是通过threading.Lock()来实现(保证数据只能被一个线程操作)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	balance = 0
+	lock = threading.Lock()
+	
+	def run_thread(n):
+	    for i in range(100000):
+	        # 先要获取锁:
+	        lock.acquire()
+	        try:
+	            # 放心地改吧:
+	            change_it(n)
+	        finally:
+	            # 改完了一定要释放锁:
+	            lock.release()
 
 
 
