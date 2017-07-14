@@ -773,15 +773,51 @@ __call__()还可以定义参数。对实例进行直接调用就好比对一个�
 	>>> callable('str')
 	False		
 
+枚举类  
 
+	from enum import Enum
+	
+	Month = Enum('month',('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+	
+	for name, member in Month.__members__.items():
+	    print(name, '=>', member, ',', member.value)
 
+type()函数既可以返回一个对象的类型，又可以创建出新的类型，比如，我们可以通过type()函数创建出Hello类，而无需通过class Hello(object)...的定义：
 
+def fn(self,name="world"):
+  print("Hello, %s"%name)
+Hello = type('Hello',(object,),dict(hello=fn))  
 
+type函数依次传入三个参数  
 
+1.class的名称  
+2.继承的父类集合  
+3.class的方法名称和函数绑定  
 
+### 错误处理  
 
+	try:
+		#....
+	except Exception as e:
+	    #handle error
+	finally:
+	    #always do
+	
+	logging模块记录错误信息  
+	
+	import logging  
+	
+	try:
+		#....
+	except Exception as e:
+		#handle,也可以raise自定义的error类
+		raise ValueError("value is error")
+		logging.exception(e)
+	finally:
 
+断言  assert
 
+断言失败，抛出AssertionError  
 
 
 
