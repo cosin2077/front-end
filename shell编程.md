@@ -265,9 +265,61 @@ crontab -e 设置定时执行任务，保存后的文件保存在 /var/spool/cro
 
 ## sed及grep
 
-sed -i 's/aaa.bbb/ccc.ef/g' some.txt
-s表示搜索,g表示全局  
+	sed -i 's/aaa.bbb/ccc.ef/g' some.txt
+	s表示搜索,g表示全局  
+	
+	sed -i 's/^/& /g' some.txt
+	所有行首添加空格  
+	sed -i 's/$/& /g' some.txt
+	每行末尾添加空格  
+	sed -i '/somewords/a #new line/' some.txt
+	在somewords后一行添加#new line
+	
+	sed -i '/somewords/i #new line/' some.txt
+	在somewords前一行添加#new line
+	
+	sed -n '/asfasf/p' some.txt
+	#打印asfasf这一行
 
-sed -i 's/^/& /g' some.txt
-所有行首添加空格  
+	#打印第2列,默认以空格为分割
+    cat some.txt|awk '{print $2}'
+
+	#F指定以:为分割,打印第一列
+	cat some.txt|awk -F: '{print $1}'
+
+	find . -maxdepth 1 -type f -name nginx
+
+## 服务监控检查脚本  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
