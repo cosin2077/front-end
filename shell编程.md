@@ -232,11 +232,42 @@ crontab -e 设置定时执行任务，保存后的文件保存在 /var/spool/cro
 
 ## 数组
 
-定义一个数组
-A=(a b c)
+	定义一个数组
+	A=(a b c)
+	
+	引用数组,括号解析变量,下标引用
+	${A[0]}
+	
+	显示所有参数  
+	
+	${A[@]}
+	
+	显示数组参数个数
+	
+	${#A[@]}
+	
+	替换某个元素
+	${A[@]/a/d}
+	
+	删除某个元素
+	unset A[2]
 
-引用数组,括号解析变量,下标引用
-${A[0]}
+## 函数
+	
+	function funcName()
+	{
+	
+	#....
+	
+	}
+	#执行函数
+	funcName
 
+## sed及grep
 
+sed -i 's/aaa.bbb/ccc.ef/g' some.txt
+s表示搜索,g表示全局  
+
+sed -i 's/^/& /g' some.txt
+所有行首添加空格  
 
