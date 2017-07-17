@@ -1302,16 +1302,28 @@ list储存插入和删除元素很慢,deque实现了插入和删除操作的双�
 
 不如正则和BeautifulSoup
 
-## urllib
+## urllib(操作URL的能力)
 
+	from urllib import request
+	
+	with request.urlopen('http://baidu.com') as f:
+	  data = f.read()
+	  print(data.decode('utf-8'))
+	  print(f.status,f.reason)
+	  for k,v in f.getheaders():
+	    print("%s: %s"%(k,v))
 
+## 常用第三方模块 
 
-
-
-
-
-
-
+from PIL import Image
+#当前目录打开一个jpg文件
+im = Image.open('test.jpg')
+#获取图像尺寸
+w,h = im.size
+#缩放
+im.thumbnail((w//2,h//2))
+#保存新图片
+im.save('thumbnail.jpg','jpeg')
 
 
 
