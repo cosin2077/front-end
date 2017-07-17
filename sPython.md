@@ -1141,55 +1141,66 @@ Python的multiprocessing模块不但支持多进程，其中managers子模块还
 	#创建指定日期
 	datetime(2100,5,5,12,23)
 
-#将datetime转换为timestamp
-datetime.now().timestamp()
-1500270834.319167#小数点后表示毫秒数
+	#将datetime转换为timestamp
+	datetime.now().timestamp()
+	1500270834.319167#小数点后表示毫秒数
 
-#timestamp转换为datetime
-datetime.fromtimestamp(datetime.now().timestamp())
+	#timestamp转换为datetime
+	datetime.fromtimestamp(datetime.now().timestamp())
+	
+	#str转换为datetime  
+	datetime.strptime('2017-7-16 18:19:59', '%Y-%m-%d %H:%M:%S')
 
-#str转换为datetime  
-datetime.strptime('2017-7-16 18:19:59', '%Y-%m-%d %H:%M:%S')
+	#datetime转str
+	datetime.now().strftime('%a, %b %d %H:%M')
+	
+	#timedelta 让时间相加减  
 
-#datetime转str
-datetime.now().strftime('%a, %b %d %H:%M')
-
-#timedelta 让时间相加减  
-
-#时区转换  
-datetime.utcnow()
-datetime.now().astimezone(timezone(timedelta(hours=8)))
+	#时区转换  
+	datetime.utcnow()
+	datetime.now().astimezone(timezone(timedelta(hours=8)))
 
 #collections
 集合模块
 >namedtuple
 
-from collections import namedtuple  
-Point = namedtuple('Point',['x','y'])
-p = Point(1,2)
-p.x#1
-p.y#2
+	from collections import namedtuple  
+	Point = namedtuple('Point',['x','y'])
+	p = Point(1,2)
+	p.x#1
+	p.y#2
 
 namedtuple是一个函数,创建自定义tuple对象,可以用属性(而不是用索引)来引用tuplee的某个元素
 >deque
 
 list储存插入和删除元素很慢,deque实现了插入和删除操作的双向列表,适用于队列和栈
 
-from collections import deque
-q = deque([1,2,3,4,5])
-q.append(6)
-q.appendleft(0)
-
-q.pop()
-q.popleft()
+	from collections import deque
+	q = deque([1,2,3,4,5])
+	q.append(6)
+	q.appendleft(0)
+	
+	q.pop()
+	q.popleft()
 
 >defaultdict
+	
+	key不存在时候,指定一个返回值
+	from collections import defaultdict
+	dd = defaultdict(lambda:"N/A")
+	dd['a']#"N/A"
+	
+	>OrderedDict
 
-
-
-
-
-
+保持key的顺序
+	
+	>>> from collections import OrderedDict
+	>>> d = dict([('a', 1), ('b', 2), ('c', 3)])
+	>>> d # dict的Key是无序的
+	{'a': 1, 'c': 3, 'b': 2}
+	>>> od = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+	>>> od # OrderedDict的Key是有序的
+	OrderedDict([('a', 1), ('b', 2), ('c', 3)])
 
 
 
