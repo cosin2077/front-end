@@ -1251,16 +1251,58 @@ list储存插入和删除元素很慢,deque实现了插入和删除操作的双�
 	print(sha1.hexdigest())
 	#93aa04fd89e57b14a6f6fb44d1f5fa65c7711a8f
 
+**应用**
 
+	import hashlib
+	def calc_md5(password):
+	  md5 = hashlib.md5()
+	  md5.update(str(password).encode('utf-8'))
+	  return md5.hexdigest()
+	
+	md5加盐
+	
+	def calc_md5(password):
+	    return get_md5(password + 'the-Salt')
 
+## XML
 
+	from xml.parsers.expat import ParserCreate
+	class DefaultSaxHandler(object):
+	    def start_element(self, name, attrs):
+	        print('sax:start_element: %s, attrs: %s' 
+	% (name, str(attrs)))
+	    def end_element(self, name):
+	        print('sax:end_element: %s' % name)
+	    def char_data(self, text):
+	        print('sax:char_data: %s' % text)
+	xml = r'''<?xml version="1.0"?>
+	<ol>
+	    <li><a href="/python">Python</a></li>
+	    <li><a href="/ruby">Ruby</a></li>
+	</ol>
+	'''
+	handler = DefaultSaxHandler()
+	parser = ParserCreate()
+	parser.StartElementHandler = handler.start_
+	element
+	parser.EndElementHandler = handler.end_element
+	parser.CharacterDataHandler = handler.char_data
+	parser.Parse(xml)
+	
+	#生成XML
+	
+	L = []
+	L.append(r'<?xml version="1.0"?>')
+	L.append(r'<root>')
+	L.append(encode('some & data'))
+	L.append(r'</root>')
+	return ''.join(L)
 
+## HTMLParser
 
+不如正则和BeautifulSoup
 
-
-
-
-
+## urllib
 
 
 
