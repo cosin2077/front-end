@@ -1175,11 +1175,15 @@ namedtuple是一个函数,创建自定义tuple对象,可以用属性(而不是�
 
 list储存插入和删除元素很慢,deque实现了插入和删除操作的双向列表,适用于队列和栈
 
+from collections import deque
+q = deque([1,2,3,4,5])
+q.append(6)
+q.appendleft(0)
 
+q.pop()
+q.popleft()
 
-
-
-
+>defaultdict
 
 
 
