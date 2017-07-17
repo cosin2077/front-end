@@ -1141,18 +1141,35 @@ Python的multiprocessing模块不但支持多进程，其中managers子模块还
 	#创建指定日期
 	datetime(2100,5,5,12,23)
 
+#将datetime转换为timestamp
+datetime.now().timestamp()
+1500270834.319167#小数点后表示毫秒数
 
+#timestamp转换为datetime
+datetime.fromtimestamp(datetime.now().timestamp())
 
+#str转换为datetime  
+datetime.strptime('2017-7-16 18:19:59', '%Y-%m-%d %H:%M:%S')
 
+#datetime转str
+datetime.now().strftime('%a, %b %d %H:%M')
 
+#timedelta 让时间相加减  
 
+#时区转换  
+datetime.utcnow()
+datetime.now().astimezone(timezone(timedelta(hours=8)))
 
+#collections
+集合模块
 
+from collections import namedtuple  
+Point = namedtuple('Point',['x','y'])
+p = Point(1,2)
+p.x#1
+p.y#2
 
-
-
-
-
+namedtuple是一个函数,创建自定义tuple对象,并规定tuple元素个数
 
 
 
