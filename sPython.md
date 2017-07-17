@@ -1568,20 +1568,79 @@ image.save('validate_code.jpg','jpeg')
 	
 	cursor.execute('select * from user where name=? and pwd=?', ('abc', 'password'))
 
+>MySql
 
+	pip install mysql-connector
+	conda install pymysql
+	#跟sqlite简直一样一样的
+	import mysql.connector
+	conn = mysql.connector.connect(user="root",password="",database="test")
+	cursor = conn.cursor()
+	cursor.execute('create table user (id varchar(20) primary key,name varchar(20))')
+	# 插入一行记录，注意MySQL的占位符是%s:
+	cursor.execute('insert into user (id, name) values (%s, %s)', ['1', 'Michael'])
+	cursor.rowcount
+	# 1
+	# 提交事务:
+	conn.commit()
+	cursor.close()
+	# 运行查询:
+	cursor = conn.cursor()
+	cursor.execute('select * from user where id = %s', ('1',))
+	values = cursor.fetchall()
+	values
+	# [('1', 'Michael')]
+	# 关闭Cursor和Connection:
+	cursor.close()
+	# True
+	conn.close()
 
+## ORM
 
+ORM技术：Object-Relational Mapping，把关系数据库的表结构映射到对象上
 
+>SQLAlchemy
 
+pip install sqlalchemy
 
+	# 导入:
+	from sqlalchemy import Column, String, create_engine
+	from sqlalchemy.orm import sessionmaker
+	from sqlalchemy.ext.declarative import declarative_base
+	
+	# 创建对象的基类:
+	Base = declarative_base()
+	
+	# 定义User对象:
+	class User(Base):
+	    # 表的名字:
+	    __tablename__ = 'user'
+	
+	    # 表的结构:
+	    id = Column(String(20), primary_key=True)
+	    name = Column(String(20))
+	
+	# 初始化数据库连接:
+	engine = create_engine('mysql+mysqlconnector://root:password@localhost:3306/test')
+	# 创建DBSession类型:
+	DBSession = sessionmaker(bind=engine)
 
+	create_engine()用来初始化数据库连接。SQLAlchemy用一个字符串表示连接信息：
+	
+	'数据库类型+数据库驱动名称://用户名:口令@机器地址:端口号/数据库名'
 
-
-
-
-
-
-
+	由于有了ORM，我们向数据库表中添加一行记录，可以视为添加一个User对象：
+	
+	# 创建session对象:
+	session = DBSession()
+	# 创建新User对象:
+	new_user = User(id='5', name='Bob')
+	# 添加到session:
+	session.add(new_user)
+	# 提交即保存到数据库:
+	session.commit()
+	# 关闭session:
+	session.close()
 
 
 
