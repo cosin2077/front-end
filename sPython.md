@@ -1237,10 +1237,19 @@ list储存插入和删除元素很慢,deque实现了插入和删除操作的双�
 	后面的参数个数要和处理指令一致
 
 >hashlib(摘要算法)
+发现原始数据是否被人篡改过  
 
-
-
-
+	import hashlib
+	#md5算法
+	md5 = hashlib.md5()
+	md5.update('this is the original content'.encode('utf-8'))
+	print(md5.hexdigest())
+	#d41d8cd98f00b204e9800998ecf8427e
+	#sha1算法
+	sha1 = hashlib.sha1()
+	sha1.update('this is the content digested by sha1'.encode('utf-8'))
+	print(sha1.hexdigest())
+	#93aa04fd89e57b14a6f6fb44d1f5fa65c7711a8f
 
 
 
