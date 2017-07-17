@@ -1133,9 +1133,13 @@ Python的multiprocessing模块不但支持多进程，其中managers子模块还
 
 ## 模块们
 
-
-
-
+	datetime--处理日期和时间的标准库
+	
+	from datetime import datetime
+	datetime.now()
+	
+	#创建指定日期
+	datetime(2100,5,5,12,23)
 
 
 
