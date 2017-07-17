@@ -1162,6 +1162,7 @@ datetime.now().astimezone(timezone(timedelta(hours=8)))
 
 #collections
 集合模块
+>namedtuple
 
 from collections import namedtuple  
 Point = namedtuple('Point',['x','y'])
@@ -1169,7 +1170,13 @@ p = Point(1,2)
 p.x#1
 p.y#2
 
-namedtuple是一个函数,创建自定义tuple对象,并规定tuple元素个数
+namedtuple是一个函数,创建自定义tuple对象,可以用属性(而不是用索引)来引用tuplee的某个元素
+>deque
+
+list储存插入和删除元素很慢,deque实现了插入和删除操作的双向列表,适用于队列和栈
+
+
+
 
 
 
