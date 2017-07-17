@@ -1325,29 +1325,219 @@ im.thumbnail((w//2,h//2))
 #保存新图片
 im.save('thumbnail.jpg','jpeg')
 
+##加滤镜
+from PIL import Image, ImageFilter
+im = Image.open('test2.png')
+im = im.filter(ImageFilter.BLUR)
+im.save('test2_blur.jpg','jpeg')
+
+##生成验证码
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import random
+
+def rndChar():
+  return chr(random.randint(64,90))
+
+def rndColor():
+  return (random.randint(64,255),random.randint(64,255),random.randint(64,255))
+
+def rndColor2():
+  return (random.randint(32,127),random.randint(32,127),random.randint(32,127))
+
+width = 60*5
+height = 60
+image = Image.new('RGB',(width,height),(255,255,255))
+
+font = ImageFont.truetype('Arial.ttf',36)
+
+draw = ImageDraw.Draw(image)
+
+for x in range(width):
+  for y in range(height):
+    draw.point((x,y),fill=rndColor())
+
+for t in range(5):
+  draw.text((60*t+10,10),rndChar(),font=font,fill=rndColor2())
+
+image = image.filter(ImageFilter.BLUR)
+image.save('validate_code.jpg','jpeg')
+
+## virtualenv(python 共存)
+	#创建工程目录
+	mkdir myproject && cd myproject
+	#安装virtualenv
+	conda install virtualenv
+	#创建一个新环境,不复制第三方包,命名为venv
+	virtualenv --no-site-packages venv
+	#激活新环境
+	source /venv/bin/activate
+	#退出当前环境
+	deactivate
 
 
+## GUI编程
+	from tkinter import *
+	第二步是从
+	Frame派生一个Application
+	类，这是所有Widget的父容器：
+	class Application(Frame):
+	    def __init__(self, master=None):
+	        Frame.__init__(self, master)
+	        self.pack()
+	        self.createWidgets()
+	    def createWidgets(self):
+	        self.helloLabel = Label(self, text='Hello
+	, world!')
+	        self.helloLabel.pack()
+	        self.quitButton = Button(self, text='Quit
+	', command=self.quit)
+	        self.quitButton.pack()
+	在GUI中，每个Button、Label、输入框等，都是一个Widget。
+	Frame则是可以容纳其他Widget的Widget，
+	所有的Widget组合起来就是一棵树。
+	pack()方法把Widget加入到父容器中，并实现布局。
+	pack()
+	是最简单的布局，grid()可以实现更复杂的布局。
+	在
+	createWidgets()方法中，我们创建一个Label和一个
+	Button，当Button被点击时，触发self.quit()
+	使程序退出。
+	第三步，实例化Application，并启动消息循环：
+	app = Application()
+	# 设置窗口标题:
+	app.master.title('Hello World')
+	# 主消息循环:
+	app.mainloop()
 
+## 网络编程
 
+>TCP/IP
 
+## SMTP 发送邮件  
 
+	from email import encoders
+	from email.header import Header
+	from email.mime.text import MIMEText
+	from email.utils import parseaddr,formataddr
+	import smtplib
+	
+	def _format_addr(s):
+		name,addr = parseaddr(s)
+		return formataddr((Header(name,'utf-8').encode(),addr))
+	
+	#构造MIMEText对象,第一个参数是邮件正文,第二个参数是MIME的subtype
+	#plain表示纯文本,最终MIME就是'text/plain'，最后utf-8编码
+	msg = MIMEText('Hello my friends!','plain','utf-8')
+	#通过SMTP发出去
+	from_addr = "xxxxxx@163.com"
+	password = "xxxxxx"
+	#收件人地址
+	to_addr = "xxxxxxxxx"
+	#SMTP服务器地址
+	smtp_server = 'smtp.163.com'
+	
+	msg['From'] = _format_addr('Python爱好者 <%s>' % from_addr)
+	msg['To'] = _format_addr('管理员 <%s>' % to_addr)
+	msg['Subject'] = Header('来自SMTP的问候……', 'utf-8').encode()
+	
+	
+	server = smtplib.SMTP(smtp_server,25)
+	server.set_debuglevel(1)
+	server.login(from_addr,password)
+	server.sendmail(from_addr,[to_addr],msg.as_string())
+	server.quit()
 
+发送HTML邮件
 
+如果我们要发送HTML邮件，而不是普通的纯文本文件怎么办？方法很简单，在构造MIMEText对象时，把HTML字符串传进去，再把第二个参数由plain变为html就可以了：
 
+	msg = MIMEText('<html><body><h1>Hello</h1>' +
+	    '<p>send by <a href="http://www.python.org">Python</a>...</p>' +
+	    '</body></html>', 'html', 'utf-8')
 
+## POP3收取邮件
 
+	import poplib
+	from email.parser import Parser
+	from email.header import decode_header
+	from email.utils import parseaddr
+	
+	email="xxxxxxx@163.com"
+	password = "xxxxxxxxxx"
+	pop3_server = 'pop3.163.com'
+	
+	#链接到pop3服务器
+	server = poplib.POP3(pop3_server)
+	#可以打开或关闭调试信息
+	server.set_debuglevel(1)
+	#打印POP3服务器的欢迎文字
+	print(server.getwelcome().decode('utf-8'))
+	
+	#身份认证
+	server.user(email)
+	server.pass_(password)
+	
+	#stat()反馈邮件数量和占用空间
+	print("Message:%s, Size:%s"%server.stat())
+	#返回所有的邮件编号
+	resp,mails,octets = server.list()
+	#查看返回的列表
+	print(mails)
+	
+	#获取最新一封邮件,注意所有从1开始
+	index = len(mails)
+	resp,lines,octets = server.retr(index)
+	def decode_str(s):
+	    value, charset = decode_header(s)[0]
+	    if charset:
+	        value = value.decode(charset)
+	    return value
+	def guess_charset(msg):
+	    charset = msg.get_charset()
+	    if charset is None:
+	        content_type = msg.get('Content-Type', '').lower()
+	        pos = content_type.find('charset=')
+	        if pos >= 0:
+	            charset = content_type[pos + 8:].strip()
+	    return charset
+	# indent用于缩进显示:
+	def print_info(msg, indent=0):
+	    if indent == 0:
+	        for header in ['From', 'To', 'Subject']:
+	            value = msg.get(header, '')
+	            if value:
+	                if header=='Subject':
+	                    value = decode_str(value)
+	                else:
+	                    hdr, addr = parseaddr(value)
+	                    name = decode_str(hdr)
+	                    value = u'%s <%s>' % (name, addr)
+	            print('%s%s: %s' % ('  ' * indent, header, value))
+	    if (msg.is_multipart()):
+	        parts = msg.get_payload()
+	        for n, part in enumerate(parts):
+	            print('%spart %s' % ('  ' * indent, n))
+	            print('%s--------------------' % ('  ' * indent))
+	            print_info(part, indent + 1)
+	    else:
+	        content_type = msg.get_content_type()
+	        if content_type=='text/plain' or content_type=='text/html':
+	            content = msg.get_payload(decode=True)
+	            charset = guess_charset(msg)
+	            if charset:
+	                content = content.decode(charset)
+	            print('%sText: %s' % ('  ' * indent, content + '...'))
+	        else:
+	            print('%sAttachment: %s' % ('  ' * indent, content_type))
+	msg_content = b'\r\n'.join(lines).decode('utf-8')
+	msg = Parser().parsestr(msg_content)
+	print_info(msg)
+	#可以根据索引删除邮件
+	#server.dele(index)
+	#关闭连接
+	server.quit()
 
-
-
-
-
-
-
-
-
-
-
-
+## python与数据库
 
 
 
