@@ -125,6 +125,7 @@ b'ABC'.decode('utf-8');
 
 ### 可变参数  
 函数内部接受到的是一个tuple
+
 	def func(*nums):
 	    for i in nums:
 			print(i)
@@ -155,8 +156,8 @@ b'ABC'.decode('utf-8');
 	f(1, 2, d=99, ext=None)
 	a = 1 b = 2 c = 0 d = 99 kw = {'ext': None}
 
-*args是可变参数,args接受的是一个tuple  
-**kw是关键字参数,kw接受的是一个dict
+	*args是可变参数,args接受的是一个tuple  
+	**kw是关键字参数,kw接受的是一个dict
 
 	func(1, 2, 3)等价于func(*(1,2,3))
 	func(a=1,b=2)等价于func(**('a'=1,'b'=2))
@@ -1642,7 +1643,17 @@ pip install sqlalchemy
 	# 关闭session:
 	session.close()
 
-
+	SQLAlchemy提供的查询接口如下：
+	
+	# 创建Session:
+	session = DBSession()
+	# 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
+	user = session.query(User).filter(User.id=='5').one()
+	# 打印类型和对象的name属性:
+	print('type:', type(user))
+	print('name:', user.name)
+	# 关闭Session:
+	session.close()
 
 
 
