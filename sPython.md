@@ -171,6 +171,7 @@ b'ABC'.decode('utf-8');
 	L[-2:-1];//不包含最后一个
 	L[-2:];//包含最后一个
 	L[:];//复制一个list  
+	L[::-1];//倒序列表
 
 tuple,str,都可以进行切片 
 
@@ -297,12 +298,12 @@ decorator就是一个返回函数的高阶函数
 	#相当于执行now = log(now)
 	@log
 	def now():
-	    print('2015-3-25')
+	    print('2017-3-25')
 
 	#调用函数  
 	now()
-	call the func  now():
-	2015-3-25
+	call the func now():
+	2017-3-25
 
 
 	import functools
