@@ -75,22 +75,22 @@ Math[this<0?'ceil':'floor'](this)
 
 有条件的增加一个方法
 
-Function.prototype.method = function(name,func){
-	if(!this.prototype[name]){
-	this.prototype[name] = func;
-	}
-};
+	Function.prototype.method = function(name,func){
+		if(!this.prototype[name]){
+		this.prototype[name] = func;
+		}
+	};
 
 //创建一个quo构造函数
 //它构造出带有get_status方法和status私有属性的一个对象
 
-var quo = function(status){
-	return {
-	get_status:function(){
-	return status;
-	}
+	var quo = function(status){
+		return {
+			get_status:function(){
+				return status;
+			}
+		};
 	};
-};
 //构造一个quo实例
 var myquo = quo('conan');返回的是包含get_status方法的新对象
 myquo.get_status();//'conan',get_status方法仍然享有访问quo对象status属性的特权
@@ -98,19 +98,19 @@ myquo.get_status();//'conan',get_status方法仍然享有访问quo对象status�
 
 //定义个函数,设置DOM节点为黄色,然后逐渐将它变为白色
 
-var fade = function(node){
-	var level = 1;
-	var step = function(){
-	var hex = level.toString(16);
-	node.style.backgroundColor = '#FFFF'+hex+hex;
-	if(level<15){
-	level+=1;
-	setTimeout(step,100);
+	var fade = function(node){
+		var level = 1;
+		var step = function(){
+		var hex = level.toString(16);
+		node.style.backgroundColor = '#FFFF'+hex+hex;
+		if(level<15){
+			level+=1;
+			setTimeout(step,100);
+		}
+		};
+		setTimeout(step,100);
 	}
-	};
-	setTimeout(step,100);
-}
-fade(document.body);
+	fade(document.body);
 
 级联,也就是返回this,也就能够进行链式调用,相当的方便呀
 
@@ -123,15 +123,17 @@ fade(document.body);
 
 7.regexp
 处理正则表达式的方法一般有
-regexp.exec
-regexp.test
-string.match
-string.replace
-string.search
-string.split
+
+	regexp.exec
+	regexp.test
+	string.match
+	string.replace
+	string.search
+	string.split
 (?:);//表示这个分组可以有
-reg = (?:[\-\+])
-reg.test('dwafsdadas-')
+
+	reg = (?:[\-\+])
+	reg.test('dwafsdadas-')
 
 P98
 Function
