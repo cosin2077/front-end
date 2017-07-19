@@ -75,14 +75,41 @@ name属性指向类的名字
 
 方法前加static关键字,表示该方法不会被实例继承,而是直接 通过类来调用,被称为静态方法
 
+>类的静态属性和实例属性
+类里边不能定义静态属性,只能定义静态方法
 
+**类的实例属性**
 
+类的实例属性可以用等式，写入类的定义之中。
 
+	class MyClass {
+	  myProp = 42;
+	
+	  constructor() {
+	    console.log(this.myProp); // 42
+	  }
+	}
 
+**super继承父类的constructor构造函数**
 
+**Class的继承**
 
+class Farther{}
+class Child extends Farther{}
 
+	class Child extends Farther{
+		constructor(x,y,z){
+			super(x,y);//调用父类的constructor(x,y)
+			this.z = z;
+		}
+		toString(){
+			return this.z+" "+super.toString();
+		}
+	}
 
+子类必须在constructor方法中调用super方法,否则新建实例会报错
+
+Object.getPrototypeOf(Child)===Farther;//true
 
 
 
