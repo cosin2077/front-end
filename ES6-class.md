@@ -111,14 +111,32 @@ class Child extends Farther{}
 
 Object.getPrototypeOf(Child)===Farther;//true
 
+**super**
 
+	class A {}
+	
+	class B extends A {
+	  constructor() {
+	    super();
+	  }
+	}
 
+子类super内部的this指向的是B
 
+作为函数使用,super()只能用在子类构造函数之中,
+作为对象,普通方法,指向父类原型对象,静态方法,指向父类,而不是父类的原型对象
 
+ES6 规定，通过super调用父类的方法时，super会绑定子类的this
 
+读取super.x等同于读取A.prototype.x
 
+**prototype和__proto__**
 
+1. 子类的__proto__属性表示构造函数的继承,指向父类
+2. 子类的prototype属性的__proto__属性表示方法的继承,指向父类的prototype属性
 
+- 作为一个对象,子类B的原型__proto__是父类A，
+- 作为一个构造函数,子类 B 的原型prototype是父类的实例
 
 
 
