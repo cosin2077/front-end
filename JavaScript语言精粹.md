@@ -1,19 +1,20 @@
 JavaScript语言精粹
 枚举对象仅有的属性
-arr=[];
-obj1={
-	1:465,
-	2:'asd',
-	8:[],
-	5:{},
-	7:null,
-	9:undefined
-}
-for(var a in obj1){
-	if(obj1.hasOwnProperty(a)){
-		arr.push(pbj1[a]);
+
+	arr=[];
+	obj1={
+		1:465,
+		2:'asd',
+		8:[],
+		5:{},
+		7:null,
+		9:undefined
 	}
-}
+	for(var a in obj1){
+		if(obj1.hasOwnProperty(a)){
+			arr.push(pbj1[a]);
+		}
+	}
 arr;//[465, "asd", Object, null, Array[0], undefined],for in 循环,顺序是乱的
 当一个函数被调用时候,都接受两个附加参数,this和arguments.
 this取决于调用模式,JavaScript中一共有四种调用模式
