@@ -37,19 +37,42 @@ arguments参数,arguments是一个类数组,保存实际传入的参数,不具�
 
 给类型增加方法
 给Function.prototype增加方法使得该方法对所有函数可用:
-//给所有函数添加一个method方法,这又是一个添加方法的方法
-新方法的名字叫name,对应的函数为func
 
-	Function.prototype.method = function(name,func){
-		this.prototype[name] = func;
+	//给所有函数的原型对象添加一个方法(所有函数都将继承这个方法
+	//就像String函数,String.method('upper',function(){return this.toUpperCase();}))
+	//所有字符串都将有一个方法upper,返回大写后的字符串
+	//之所以Function.prototype对象上绑定函数return this,是为了
+	//返回这个函数实例,让这个函数能够链式调用
+	
+	Function.prototype.method=function(name,func){
+		//实例的原型对象上添加相应属性
+		this.prototype[name]=func;
 		return this;
-	};
+	}
+	//链式调用
+	String.method('upper',function(){
+		return this.toUpperCase();
+	}).method('lower',function(){
+		return this.toLowerCase();
+	})
+	//上述等价于
+	String.prototype.upper=function(){
+		//返回实例的方法
+		return this.toUpperCase()
+	}
+	
+	String.prototype.lower=function(){
+		//返回实例的方法
+		return this.toLowerCase()
+	}
 //给Number添加一个integer方法,这个方法返回
-Math[this<0?'ceil':'floor'](this),
-Number.method('integer',function(){
-	return Math[this<0?'ceil':'floor'](this);
-});
-Number.integer();//this指代Number
+Math[this<0?'ceil':'floor'](this)
+
+	Number.method('integer',function(){
+		return Math[this<0?'ceil':'floor'](this);
+	});
+	2.3.integer();//2,this指代Number的实例
+
 有条件的增加一个方法
 
 Function.prototype.method = function(name,func){
