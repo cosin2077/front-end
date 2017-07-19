@@ -19,16 +19,17 @@ arr;//[465, "asd", Object, null, Array[0], undefined],for in 循环,顺序是乱
 当一个函数被调用时候,都接受两个附加参数,this和arguments.
 this取决于调用模式,JavaScript中一共有四种调用模式
 方法调用,函数调用,构造器调用,apply调用
-1.方法调用,当一个函数被保存为一个对象的属性时,我们称它为方法,这时候调用时,this被绑定到该对象
-2.函数调用,当一个函数并非一个对象的属性,它被当做一个函数来调用,解决办法是中间层用that=this
-3.结合new前缀调用的函数被称为构造器函数,给构造函数的原型添加属性,其实例化对象也将继承这个属性
-4.apply模式,第一个参数是this绑定在哪儿,第二个是参数数组
+1. 方法调用,当一个函数被保存为一个对象的属性时,我们称它为方法,这时候调用时,this被绑定到该对象
+2. 函数调用,当一个函数并非一个对象的属性,它被当做一个函数来调用,解决办法是中间层用that=this
+3. 结合new前缀调用的函数被称为构造器函数,给构造函数的原型添加属性,其实例化对象也将继承这个属性
+4. apply模式,第一个参数是this绑定在哪儿,第二个是参数数组
 
 arguments参数,arguments是一个类数组,保存实际传入的参数,不具有数组的方法
-function argu(){
-	return arguments
-}
-argu(1,5,8,9,'ag');//[1,5,8,9,'ag']
+
+	function argu(){
+		return arguments
+	}
+	argu(1,5,8,9,'ag');//[1, 5, 8, 9, "ag", callee: ƒ, Symbol(Symbol.iterator): ƒ]
 
 函数总是会返回一个值,没有指定返回值则返回undefined
 
@@ -38,10 +39,11 @@ argu(1,5,8,9,'ag');//[1,5,8,9,'ag']
 给Function.prototype增加方法使得该方法对所有函数可用:
 //给所有函数添加一个method方法,这又是一个添加方法的方法
 新方法的名字叫name,对应的函数为func
-Function.prototype.method = function(name,func){
-	this.prototype[name] = func;
-	return this;
-};
+
+	Function.prototype.method = function(name,func){
+		this.prototype[name] = func;
+		return this;
+	};
 //给Number添加一个integer方法,这个方法返回
 Math[this<0?'ceil':'floor'](this),
 Number.method('integer',function(){
