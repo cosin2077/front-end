@@ -8,7 +8,7 @@
 				Element title
 				Element meta	
 				Element link
-				...
+				... 
 			Element body
 				Element p
 				Element h2
@@ -57,6 +57,7 @@ ele.classList具有方法(new CSSClassList(ele))
 add();//添加一个类  
 remove();//删除一个类  
 toggle();//有则删除,无则添加
+document.styleSheet[0].cssRules;//包含所有css规则的数组  
 
 **有文档申明则例外！**  
 
@@ -97,3 +98,11 @@ document.createDocumentFragment();文档碎片类型
 9 文档节点 document.nodeType
 10 文档类型节点 document.doctype.nodeType
 11 文档碎片节点
+
+
+**单选框,多选框选中**  
+radioNode.checked=true;
+checkbox.checked=true;
+
+**选择框选中有**  
+optionNode.selected=true;
