@@ -26,3 +26,20 @@ CSS3中定位机制,普通流,浮动和绝对定位
 固定定位,绝对定位的一种,固定在视图上  
 
 浮动框不在普通文档流(被普通文档流无视了)  
+
+	.clearfix:after{
+		content:".";
+		height:0;
+		visibility:hidden;
+		display:block;
+		clear:both;
+	}
+
+background-size:  
+1. 直接设置宽高,设置一个,另一个为auto
+2. 以父元素设置百分比宽高,设置一个,另一个为auto
+3. cover,背景覆盖所有,实际上是width:100%,得保证背景覆盖所有视口.
+4. contain,实际上是max-width:100%,max-height:100%,总之得保证背景全部在视口中.
+
+**div:nth-child(3);//作为某个元素的第三个div元素**  
+
