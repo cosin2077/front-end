@@ -95,18 +95,19 @@ valueOf()
 	举个栗子  
 	var a = {
 			toString(){
-			()=>{};
+			return {};
 			},
 			valueOf(){
-			()=>{};
+			return {};
 		}
 	}
-	a.toString();//
+	String(a);//TypeError,不能讲a转换为字符类型
 	a.valueOf();//
 </del>
 
 对象到数字的转换也是这样的,只不过首先会调用valueOf()方法,然后调用toSting方法
 
+**返回的如果不是原始值,就再调用另一个方法**  
 
 
 
