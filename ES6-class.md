@@ -138,9 +138,30 @@ ES6 规定，通过super调用父类的方法时，super会绑定子类的this
 - 作为一个对象,子类B的原型__proto__是父类A，
 - 作为一个构造函数,子类 B 的原型prototype是父类的实例
 
+	//原生构造函数
+	Boolean()
+	Number()
+	String()
+	Array()
+	Date()
+	Function()
+	RegExp()
+	Error()
+	Object()
 
-
-
+	//先新建父类的实例对象this,再用子类的构造函数修饰this,使得父类所有的行为都可以被继承
+	class MyArray extends Array {
+	  constructor(...args) {
+	    super(...args);
+	  }
+	}
+	
+	var arr = new MyArray();
+	arr[0] = 12;
+	arr.length // 1
+	
+	arr.length = 0;
+	arr[0] // undefined
 
 
 
