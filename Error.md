@@ -36,3 +36,10 @@ catch和finally不必都出现
 	try{}
 	finally{}
 
+
+JS有一个标准的Error对象,还有派生的  
+TypeError  
+ReferenceError  
+
+throw 能够抛出错误(之后立马调到catch块或finally块)   
+ 
