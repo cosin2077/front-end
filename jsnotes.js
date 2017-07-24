@@ -31,3 +31,18 @@ alert(foo.baz.bar())
 
 // A:弹出3,2,1
 
+// 下边的代码弹出值是什么
+
+var x=1;
+function bar(){
+	this.x = 2;
+	return x;
+}
+var foo = new bar();
+alert(foo.x);
+
+// 弹出2,如果将外层改为x={};则弹出这个对象
+// 构造函数的返回值如果不是简单类型,就返回
+// 这个值,不然就返回this
+
+
