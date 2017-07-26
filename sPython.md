@@ -377,7 +377,7 @@ lisa.print_score()
 
 类和实例,类是抽象的模板,实例就是根据类而创建出来的一个个对象  
 可以给实例绑定属性  
-__init__方法绑定创建实例的属性self指的是创建的实例本身,函数里就可以给实例绑定属性,创建实例的时候,必须传入定义时候传入的参数  
+__init__方法绑定创建实例的属性，self指的是创建的实例本身,函数里就可以给实例绑定属性,创建实例的时候,必须传入定义时候传入的参数  
   
 封装类的方法  
 
@@ -410,7 +410,7 @@ __init__方法绑定创建实例的属性self指的是创建的实例本身,函�
 	type()返回对应的Class类型  
 	types模块中定义了常量  
 	type(fn)==types.FunctionType
-	type(abs)==types>BuiltinFunctionType  
+	type(abs)==types.BuiltinFunctionType  
 	type(lambda x:x**2)==types.LambdaType
 	type((x for x in range(10)))==types.GeneratorType  
 	isinstance(a,b);//a是b的实例返回True  
@@ -423,8 +423,8 @@ __init__方法绑定创建实例的属性self指的是创建的实例本身,函�
 	
 dir()获得一个对象所有的属性和方法  
 
-getattr(obj,'x')获取某个类的某个属性
-setattr(obj,'a',666)设置某个类的某个属性
+getattr(obj,'x')获取某类的某个属性
+setattr(obj,'a',666)设置某个类个的某个属性
 hasattr(obj,'z')查询某个类是否有某个属性
 
 类属性直接定义在class中  
@@ -490,9 +490,8 @@ __call__()方法，就可以直接对实例进行调用
 
 callable()函数，我们就可以判断一个对象是否是“可调用”对象
 
-定制类
+>定制类
 
-阅读: 187622
 看到类似__slots__这种形如__xxx__的变量或者函数名就要注意，这些在Python中是有特殊用途的。
 
 __slots__我们已经知道怎么用了，__len__()方法我们也知道是为了能让class作用于len()函数。
@@ -503,42 +502,43 @@ __str__
 
 我们先定义一个Student类，打印一个实例：
 
->>> class Student(object):
-...     def __init__(self, name):
-...         self.name = name
-...
->>> print(Student('Michael'))
-<__main__.Student object at 0x109afb190>
-打印出一堆<__main__.Student object at 0x109afb190>，不好看。
+	>>> class Student(object):
+	...     def __init__(self, name):
+	...         self.name = name
+	...
+	>>> print(Student('Michael'))
+	<__main__.Student object at 0x109afb190>
+	打印出一堆<__main__.Student object at 0x109afb190>，不好看。
 
 怎么才能打印得好看呢？只需要定义好__str__()方法，返回一个好看的字符串就可以了：
 
->>> class Student(object):
-...     def __init__(self, name):
-...         self.name = name
-...     def __str__(self):
-...         return 'Student object (name: %s)' % self.name
-...
->>> print(Student('Michael'))
-Student object (name: Michael)
+	>>> class Student(object):
+	...     def __init__(self, name):
+	...         self.name = name
+	...     def __str__(self):
+	...         return 'Student object (name: %s)' % self.name
+	...
+	>>> print(Student('Michael'))
+	Student object (name: Michael)
 这样打印出来的实例，不但好看，而且容易看出实例内部重要的数据。
 
 但是细心的朋友会发现直接敲变量不用print，打印出来的实例还是不好看：
 
->>> s = Student('Michael')
->>> s
-<__main__.Student object at 0x109afb310>
+	>>> s = Student('Michael')
+	>>> s
+	<__main__.Student object at 0x109afb310>
 这是因为直接显示变量调用的不是__str__()，而是__repr__()，两者的区别是__str__()返回用户看到的字符串，而__repr__()返回程序开发者看到的字符串，也就是说，__repr__()是为调试服务的。
 
 解决办法是再定义一个__repr__()。但是通常__str__()和__repr__()代码都是一样的，所以，有个偷懒的写法：
-
-class Student(object):
-    def __init__(self, name):
-        self.name = name
-    def __str__(self):
-        return 'Student object (name=%s)' % self.name
-    __repr__ = __str__
-__iter__
+	
+	class Student(object):
+	    def __init__(self, name):
+	        self.name = name
+	    def __str__(self):
+	        return 'Student object (name=%s)' % self.name
+	    __repr__ = __str__
+***
+    __iter__	
 
 如果一个类想被用于for ... in循环，类似list或tuple那样，就必须实现一个__iter__()方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的__next__()方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。
 
