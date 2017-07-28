@@ -1003,9 +1003,22 @@ subprocess模块可以让我们非常方便地启动一个子进程，然后控�
 **多线程**
 threading  
 
-import time,threading
+	import time,threading
+	
+	def count():
+		print("thread %s is running..."%threading.current_thread().name)
+		n = 0
+		while n<10:
+			n = n+1
+			print('thread %s>>>%s'%(threading.current_thread().name,n)) 
+			time.sleep(1)
+		print('thread %s is ended!'%threading.current_thread().name)
+	print("thread %s is running..."%threading.current_thread().name)
+	t1 = threading.Thread(target=count,name="countThread1")
+	t1.start()
+	t1.join()
+	print('thread %s is ended!'%threading.current_thread().name)
 
-def loop():
 
 创建一个锁就是通过threading.Lock()来实现(保证数据只能被一个线程操作)
 
