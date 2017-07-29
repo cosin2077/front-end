@@ -9,3 +9,4 @@ wget http://www.lfd.uci.edu/~gohlke/pythonlibs/ru4fxw3r/wordcloud-1.3.1-cp35-cp3
 
 pip install wordcloud
 
+pip install jieba
