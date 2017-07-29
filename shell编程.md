@@ -291,6 +291,9 @@ crontab -e 设置定时执行任务，保存后的文件保存在 /var/spool/cro
 
 ## 服务监控检查脚本  
 
+	#查询nginx进程,排除grep进程,统计进程数量
+	ps -ef grep nginx | grep -v "grep" | wc -l 
+
 
 
 
