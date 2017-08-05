@@ -9,7 +9,7 @@ xiaoming.hasOwnProperty('name');//true
 for...in循环可以把一个对象的所有属性一次循环出来
 但对于数组和字符串就得注意之前记过的那点了啊,遍历的是index
 in 判断属性在对象及原型链中,
-for in 判断可枚举的数据
+for in 判断可枚举的属性,包括原型链
 obj.propertyIsEnumerable('a') 判断a属性是否可枚举
 Object.keys 返回对象本身所有可枚举属性
 Object.getOwnPropertyNames(obj) 返回对象本身所有属性
