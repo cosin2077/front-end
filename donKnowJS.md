@@ -229,3 +229,21 @@ if(!Object.is){
 看做一个内部的分类,可以通过
 Object.prototype.toString(...)来查看
 
+// linux 关机
+shutdown -h now
+
+halt (shutdown -h)
+
+poweroff
+
+init 0(关机) 
+init 1(重启)
+
+安全的JSON值
+undefined,function,symbol,包含循环引用的对象
+这些都是不安全的JSON值
+JSON.stringify()在遇到undefined,function,symbol时,自动将其忽略,
+在数组中则会返回null(以保证数组元素位置不变)
+
+对象的toJSON方法应该返回“一个能被字符串化的安全的JSON值”
+
