@@ -187,4 +187,45 @@ MyModules.define( "foo", ["bar"], function(bar) {
 	};
 } );
 
+// 类数组转换为数组
+Array.prototype.slice.call(arguments)
+
+ES6 的 Array.from(...)
+
+NaN是JavaScript种唯一一个不等于自身的值
+ES6的Number.isNaN()
+polyfill
+if(!Number.isNaN){
+	Number.isNaN=function(e){
+		return typeof e==='number'&&window.isNaN(e)
+	}
+}
+// 判断是不是﹣0
+function isNegZero(e){
+	return n===0&&1/e===-Infinity;
+}
+
+ES6 的Object.is(a,b) 判断a,b 是否相等
+
+if(!Object.is){
+	Object.is = function(a,b){
+		if(a===0&&b===0){
+			return 1/a===1/b;
+		}
+		else if(a!==a){
+			return b!==b;
+		}
+		else{
+			return a===b;
+		}
+	};
+}
+
+简单值通过值复制方式传递,包括，null,undefined,字符串，数字
+布尔值，与symbol
+复合值通过引用来传递，包括对(包括数组与封装对象)和函数
+
+所有typeof返回值为'object'的对象都包含一个内部属性,可以
+看做一个内部的分类,可以通过
+Object.prototype.toString(...)来查看
 
