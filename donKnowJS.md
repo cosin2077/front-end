@@ -247,3 +247,8 @@ JSON.stringify()在遇到undefined,function,symbol时,自动将其忽略,
 
 对象的toJSON方法应该返回“一个能被字符串化的安全的JSON值”
 
+unix时间戳
+new Data().getTime()
++new Date()
+Date.now()
+
