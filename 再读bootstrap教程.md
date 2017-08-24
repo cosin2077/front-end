@@ -1,0 +1,1154 @@
+引入bootstrap.css,js,jQuery文件
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script src=""></script>
+<script src=""></script>
+
+bootstrap正文全局文本字号为14px,行高为20px左右
+p段落默认有10px的外边距(0 0 10px)
+对于段落，添加类名lead加大加粗,对应行高,外边距都发生了变化
+b,strong直接加粗
+
+对应字体颜色相关的类
+.text-muted,浅灰色
+.text-primary,蓝色,基本
+.text-success,浅绿,成功
+.text-info,通知,浅蓝
+.text-warning,警告,黄色
+.text-danger,红色,危险
+
+对应字体对齐相关的类
+.text-center
+.text-left
+.text-right
+.text-justify
+
+bootstrap列表
+
+列表去除默认样式
+.list-unstyled
+
+给ul设置
+.list-inline,将锤子列表变为水平,并且去掉项目符号
+
+<code></code>//单行代码块
+<pre></pre>//多行代码块
+<kbd></kbd>//用户键入内容
+有时候多行代码块太长,用
+.pre-scrollable,最大高度340px,超出滚动
+
+table表格
+
+
+.table 基础表格
+.table-striped 斑马线表格
+.table-bordered 带边框的表格
+.table-hover 鼠标悬停高亮的表格
+.table-condensed 紧凑型的表格内边距由8px变为5px
+.table-responsive 响应式的表格
+
+<tr></tr>每个行元素提供了不同的背景颜色
+.active
+.success
+.info
+.warning
+.danger
+
+表单
+form
+下边
+form-group为单位控制水平还是垂直排列
+input 添加类
+.form-control bootstrap设计样式
+label 添加类
+.contro-label 
+实现水平表单
+form添加类
+.form-horizontal
+下边应用网格系统
+input
+button
+应该用外层div设置网格偏移与宽度
+
+内联表达
+form 添加类
+form-inline
+
+input控件
+添加类 form-control
+<input type="？" class="form-control">
+
+selcet控件
+添加类 form-control multiple
+<select name="" id="" class="form-control">
+	<option value="">选项1</option>
+	<option value="">选项2</option>
+	<option value="">选项3</option>
+	<option value="">选项4</option>
+</select>
+
+单选复选
+<div class="radio">
+	<label for="">
+		<input name="type1" type="radio">value1
+	</label>
+</div>
+<div class="radio">
+	<label for="">
+		<input name="type1" type="radio">value2
+	</label>
+</div>
+<div class="radio">
+	<label for="">
+		<input name="type1" type="radio">value3
+	</label>
+</div>
+复选
+<div class="checkbox">
+	<label for="">
+		<input type="checkbox">复选
+	</label>
+</div>
+
+以上,最外层有.radio或.checkbox类
+然后label标签包围input
+最后才是input本身
+
+表单水平排列
+label标签添加
+.checkbox-inline
+.radio-inlie
+
+表单控件大小
+
+.input-sm
+.input-lg
+
+表单的焦点状态通过伪类
+:focus来实现
+
+表单禁用
+添加属性disabled
+
+表单验证状态 form-group容器添加对应类名
+.has-warning 
+.has-error 
+.has-success 
+
+help-block 提示控件，显示在input控件下方
+
+按钮可以添加在a,input,p,div之上的哟,但是为浏览器兼容着想,一般还是添加在a,input控件之上
+
+基本类
+.btn
+.btn btn-default
+不同颜色风格
+.btn btn-primary 基本
+.btn btn-success
+.btn btn-warning
+.btn btn-info
+.btn btn-dangeer
+.btn btn-link
+不同大小
+btn-xs 极小
+btn-sm 小
+btn-lg 大
+
+块状按钮
+.btn-block 让按钮占据一行
+
+按钮禁用
+添加disabled属性
+
+图像 img标签添加相应类名
+img-responsive:响应式图片
+img-rounded:圆角图片
+img-circle:原型图片
+img-thumbnail:缩略图
+
+网格系统
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3"></div>
+		<div class="col-sm-3"></div>
+	</div>
+</div>
+
+offset列偏移
+col-sm-offset-2 向右偏移2列
+
+列排序
+col-sm-pull-4 往左移动4列
+col-sm-push-8 往右移动8列
+
+列的嵌套
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"></div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+下拉菜单及导航
+使用下拉菜单得引用bootstrap.js文件
+
+<div class="dropdown">
+	<button class=" btn dropdown-toggle" data-toggle="dropdown">
+		<ul class="dropdown-menu">
+			<li><a href="#">dropdown-lists</a></li>
+			<li><a href="#">dropdown-lists</a></li>
+			<li><a href="#">dropdown-lists</a></li>
+			<li><a href="#">dropdown-lists</a></li>
+			<li><a href="#">dropdown-lists</a></li>	
+		</ul>
+	</button>
+</div>
+
+下拉菜单分割线
+<li class="divider"></li>
+下拉菜单标题
+<li class="dropdown-header"></li>
+
+下拉菜单对其方式
+ul设置pull right
+
+下拉菜单状态选项
+对li设置
+disabled
+active
+
+按钮组
+外层一个btn-group类
+<div class="btn-group">
+	<button class="btn"></button>
+	<button class="btn btn-default"></button>
+	<button class="btn btn-primary"></button>
+	<button class="btn btn-warning"></button>
+</div>
+
+按钮工具栏
+将btn-group放在更大的
+btn-toolbar中 让多个分组之间进行浮动,并且组与组之间保持5px外边距
+<div class="btn-toolbar">
+	<div class="btn-group">
+		<button class="btn"></button>
+		<button class="btn"></button>
+		<button class="btn"></button>
+		<button class="btn"></button>
+	</div>
+</div>
+
+按钮组嵌套下拉菜单
+相当于btn-group中又嵌套了一层btn-group
+
+<div class="btn-group" >
+	<button class="btn btn-default">首页</button>
+	<button class="btn btn-default">产品</button>
+	<button class="btn btn-default">案例</button>
+	<div class="btn-group">
+		<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">关于<span class="caret"></span></button>
+		<ul class="dropdown-menu">
+			<li><a href="#">简介</a></li>
+			<li><a href="#">文化</a></li>
+			<li><a href="#">组织</a></li>
+			<li><a href="#">客服</a></li>
+		</ul>
+	</div>
+</div>
+
+按钮组垂直分组
+btn-group变为btn-group-vertical
+
+按钮等分
+btn-group-justified
+chrome上测试
+a按钮才可以这样呀
+button按钮不可以
+
+导航
+导航基础样式
+.nav
+.nav nav-tabs
+.nav nav-pills
+
+<ul class="nav nav-tabs">
+	<li><a href="">Home</a></li>
+	<li><a href="">HTML</a></li>
+	<li><a href="">CSS</a></li>
+	<li><a href="">JavaScript</a></li>
+</ul>
+
+li添加active类表示激活当前选项
+disabled类表示当前选项不可选
+
+导航纵向排列
+ul添加类nav-stacked
+
+自适应添加类
+nav-justified
+
+导航加下拉菜单
+li使用类dropdown
+li中嵌套另一个ul
+
+<ul class="nav nav-tabs">
+	<li><a href="#">Home</a></li>
+	<li><a href="#">HTML</a></li>
+	<li><a href="#">CSS</a></li>
+	<li class="dropdown">
+	<a class="dropdown-toggle" data-toggle="dropdown" href="#">JavaScript系列<span class="caret"></span></a>
+	<ul class="dropdown-menu">
+		<li><a href="">javascript1</a></li>
+		<li><a href="">javascript2</a></li>
+		<li><a href="">javascript3</a></li>
+		<li><a href="">javascript4</a></li>
+	</ul>
+	</li>
+	<li><a href="#">final</a></li>
+</ul>
+
+面包屑导航
+
+<ol class="breadcrumb">
+	<li><a href="">首页</a></li>
+	<li><a href="">JavaScript系列</a></li>
+	<li class="active">JavaScript1</li>
+</ol>
+
+P6-1导航条基础
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
