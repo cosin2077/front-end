@@ -16,7 +16,7 @@
 > 这不说了更不说一样吗
 > 我们再看看维基百科的解释：
 >"Anaconda is a freemium open source distribution of the Python and R programming languages for large-scale data processing, predictive analytics, and scientific computing, that aims to simplify package management and deployment."
->哦，就是说anaconda是致力于简化python和R语言的包管理,环境部署问题的开源程序！
+>哦，就是说anaconda是致力于简化python和R语言的包管理,环境部署问题的开源程序！   
 >现在再回头看看为啥说是"数据科学生态系统"就明白了,就是因为python和R在这个领域很牛逼啊
 
 知道了是什么之后,我们就可以开始下载,安装,使用了 
