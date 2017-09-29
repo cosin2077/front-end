@@ -1,0 +1,18 @@
+var Child = {
+	template :"<div>what the heck is that gov?</div>"
+}
+new Vue({
+	el:"#app",
+	data:function(){
+		return {
+			msg:"holy crap",
+			msg2:"that's pretty cool"
+		}
+	},
+	components:{
+		'my-component':Child
+	}
+})
+
+props down, events up
+
