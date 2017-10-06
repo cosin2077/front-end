@@ -13,6 +13,8 @@ new Vue({
 		'my-component':Child
 	}
 })
-
+//vue Êý¾Ý´«µÝ
 props down, events up
+
+
 
