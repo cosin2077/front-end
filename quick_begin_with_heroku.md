@@ -26,3 +26,19 @@ then login heroku with CLI.
 4. Now deploy your code:
 > git push heroku master
 > ....
+> //This will upload your local code and run it in Heroku instance
+
+5. Make sure there is at least one instance running in Heroku
+> heroku ps:scale web=1
+
+6. heroku open
+>Open the site.
+
+7. View logs
+> heroku logs --tail
+
+8. dyno is a lightweight container that runs the command specidied in the <code>Procfile</code>
+> heroku ps 
+> //See how manys dynos running 
+
+9. 
