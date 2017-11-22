@@ -41,4 +41,10 @@ then login heroku with CLI.
 > heroku ps 
 > //See how manys dynos running 
 
-9. 
+9. Scale the app
+>heroku ps:scale web=0
+>//close your app
+>heroku ps:scale web=1
+>//open one dyno
+
+10. 
