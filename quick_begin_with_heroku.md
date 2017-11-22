@@ -47,4 +47,13 @@ then login heroku with CLI.
 >heroku ps:scale web=1
 >//open one dyno
 
-10. 
+10. Run The App Locally
+>npm i
+>heroku local web
+>//default http://localhost:5000
+
+11. run console on instance 
+>heroku run node
+>//run node
+>heroku run bash
+>//run bash
