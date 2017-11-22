@@ -13,4 +13,16 @@
 then login heroku with CLI.
 >$ heroku login
 
-Input your account.
+1. Input your account.
+2. clone template app.
+> git clone https://github.com/heroku/node-js-getting-started.git
+> cd node-js-getting-started
+
+3. Deploy the app
+> heroku create
+> //This will create a instance on Heroku and generate a url for your app.
+> //when you create an app, you created a git remote associated with your local git repository.
+
+4. Now deploy your code:
+> git push heroku master
+> ....
