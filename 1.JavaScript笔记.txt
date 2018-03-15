@@ -1,0 +1,158 @@
+JavaScript数据类型
+
+字符串
+数字
+布尔
+null
+undefined
+对象（数组，函数，对象）
+
+x=0;
+switch(x){
+    case 1:alert('Monday!');
+       break;
+    case 2:alert('Tuesday!');
+    default:alert('Noday!')
+}
+
+For/In 循环
+var obj= {stu1:"conan",stu2:"steve",stu3:"kite"}
+
+for(var x in obj){
+
+console.log(x)
+}
+
+stu1
+stu2
+stu3
+
+！！实际循环的是下标
+
+JavaScript错误处理
+try{
+var asd = s;
+throw "err defined by me."
+}
+catch(err){
+alert(err)
+}
+
+onsubmit ="return false"
+
+onchange （元素被改变，然后失去焦点的时候触发）
+
+<form action="xxx.xx" method="POST" onsubmit="return false">
+<input type="text" name="text1">
+
+<input type="submit" value="submit">
+</form>
+
+
+
+typeof new Boolean('asd')//构造函数 objet
+typeof Boolean('asd')//转换函数 boolean
+
+0，-0，null，''，false，undefined,NaN ————对象为false
+
+
+Date()返回一个字符串
+new Date()返回一个Date对象,值与Date()返回值一样
+
+function getLocalTime(){
+var d = new Date(),
+    year = d.getFullYear(),
+    month = d.getMonth(),
+    date = d.getDate(),
+    day = d.getDay(),
+    hour = d.getHours(),
+    min = d.getMinutes(),
+    sec = d.getSeconds(),
+    localTime = year+"年"+(month-0+1)+"月"+date+"日 " +hour+":"+min+":"+sec
+console.log(localTime)
+}
+getLocalTime()
+
+//获取UTC时间
+function getUTCTime(){
+var d = new Date(),
+    year = d.getFullYear(),
+    month = d.getMonth(),
+    date = d.getUTCDate(),
+    day = d.getUTCDay(),
+    hour = d.getUTCHours(),
+    min = d.getUTCMinutes(),
+    sec = d.getUTCSeconds(),
+    localTime = year+"年"+(month-0+1)+"月"+date+"日 " +hour+":"+min+":"+sec
+console.log(localTime)
+}
+getUTCTime()
+
+
+Math.random() ———>[0,1)
+
+[97，130]
+
+Math.floor(Math.random()*34)+97
+
+
+随机获取[min,max]范围内的整数
+Math.floor(Math.random()*(max-min+1)+mimn);
+
+
+String
+var s = "qwertyuiop";
+
+s.charAt(0)//q
+s.charCodeAt(0)//113
+String.fromCharCode(113)//q
+
+match全局匹配返回的是匹配到的子串
+match非全局匹配，匹配到的是数组，第一个元素时匹配到的子串，index是文字，input是匹配元素
+
+正则表达式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
