@@ -16,5 +16,8 @@ new Vue({
 //vue Êý¾Ý´«µÝ
 props down, events up
 
+Function $(e){
+  return document.querySelectorAll(e)
+}
 
 
