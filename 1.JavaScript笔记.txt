@@ -145,19 +145,41 @@ let 申明变量 只在作用域生效
 const 定义一个不变的量，必须赋予初始值
 
 解构赋值
+数组：
 var [a,b,c] = [1,true,666];
 var [a,...c] = [1,2,3,4,5];
 var [a='1',b,c] = [,2,3];
 
+对象：
+let {a,q} = {a:'2311',q:false}
+等价于
+let {a:a,q:q} = 
 
+let {a:A,q:Q} = {}
 
+解构复杂情况
+var obj = {
+arr:[
+'cool',
+{b:'2',
+ obj2:'obj2'}
+]
 
+}
+let {arr:[word1,{obj2}]} = obj;
 
+解构本来就有的函数
 
+let {href,hash,host,pathname,protocol}=location;
 
+函数传参进行解构
+var arr = [1,5];
 
+function func([a,b]){
+///
+}
 
-
+func(arr)
 
 
 
