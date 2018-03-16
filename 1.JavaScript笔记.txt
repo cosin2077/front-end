@@ -112,9 +112,32 @@ match·ÇÈ«¾ÖÆ¥Åä£¬Æ¥Åäµ½µÄÊÇÊı×é£¬µÚÒ»¸öÔªËØÊ±Æ¥Åäµ½µÄ×Ó´®£¬indexÊÇÎÄ×Ö£¬inputÊÇÆ
 
 ÕıÔò±í´ïÊ½
 
+RegExp×Ô¼ºµÄ·½·¨
+
+test()//·µ»Øtrue»òfalse
+exec()//·µ»ØÆ¥Åäµ½µÄĞÅÏ¢£¬Æ¥Åä²»µ½·µ»Ønull
+
+×Ö·û´®µÄ·½·¨
+search()//·µ»Ø³öÏÖÎ»ÖÃ
+match()//·µ»ØÊı×é£¬ÒÑËµÃ÷¹ı
+replace()
+split()
 
 
+encodeURI´¦ÀíÕû¸öURI
+encodeURIComponent´¦ÀíqueryÄÇ²¿·Ö×Ö·û´®
 
+decodeURIComponentÄÜ½âÂëËùÓĞÅ¶£¡
+
+ä¯ÀÀÆ÷´°¿ÚµÄ¿í¸ß
+
+window.innerHeight
+window.innerWidth
+
+document.documentElement.clientHeight
+document.documentElement.clientWidth
+
+DOM ¶ÔÏó
 
 
 
