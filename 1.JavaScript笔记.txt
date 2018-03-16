@@ -139,14 +139,33 @@ document.documentElement.clientWidth
 
 DOM 对象
 
+1.document
+属性：
+document.all //所有html元素
+document.forms //所有form对象
+document.links //所有link对象
+document.cookie //当前文档的cookie
 
+方法：
+getElementById()
+getElementByName()
+getElementByTagName()
 
-
-
-
-
-
-
+2.element
+属性与方法：
+appendChild() 添加子节点到最后
+attributes  属性集
+childNodes 子节点集(包括文本节点)
+className class属性(字符串)
+classList class属性集合（类数组）
+clientHeight 可见高度
+clientWidth 可见宽度
+firstChild 第一个子元素(包含文本元素)
+children 值元素节点
+children[0] === firstElementChild
+getAttribute() 返回指定属性值
+getElementsByTagName() 
+insertBefore() 指定节点之前插入
 
 
 
