@@ -161,12 +161,18 @@ classList class属性集合（类数组）
 clientHeight 可见高度
 clientWidth 可见宽度
 firstChild 第一个子元素(包含文本元素)
+lastChild 最后一个子元素
 children 值元素节点
 children[0] === firstElementChild
 getAttribute() 返回指定属性值
 getElementsByTagName() 
 insertBefore() 指定节点之前插入
-
+nextSibling 下一个兄弟节点
+previousSibling 上一个兄弟节点
+nodeName 节点名称
+nodeType 节点类型
+parentNode 父节点
+setAttribute('attr','value') 设置节点属性
 
 
 
