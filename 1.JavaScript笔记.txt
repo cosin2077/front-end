@@ -137,42 +137,26 @@ window.innerWidth
 document.documentElement.clientHeight
 document.documentElement.clientWidth
 
-DOM 对象
+ES6 
 
-1.document
-属性：
-document.all //所有html元素
-document.forms //所有form对象
-document.links //所有link对象
-document.cookie //当前文档的cookie
+let 申明变量 只在作用域生效
+比如：for，变量提升
 
-方法：
-getElementById()
-getElementByName()
-getElementByTagName()
+const 定义一个不变的量，必须赋予初始值
 
-2.element
-属性与方法：
-appendChild() 添加子节点到最后
-attributes  属性集
-childNodes 子节点集(包括文本节点)
-className class属性(字符串)
-classList class属性集合（类数组）
-clientHeight 可见高度
-clientWidth 可见宽度
-firstChild 第一个子元素(包含文本元素)
-lastChild 最后一个子元素
-children 值元素节点
-children[0] === firstElementChild
-getAttribute() 返回指定属性值
-getElementsByTagName() 
-insertBefore() 指定节点之前插入
-nextSibling 下一个兄弟节点
-previousSibling 上一个兄弟节点
-nodeName 节点名称
-nodeType 节点类型
-parentNode 父节点
-setAttribute('attr','value') 设置节点属性
+解构赋值
+var [a,b,c] = [1,true,666];
+var [a,...c] = [1,2,3,4,5];
+var [a='1',b,c] = [,2,3];
+
+
+
+
+
+
+
+
+
 
 
 
