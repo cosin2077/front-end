@@ -104,8 +104,31 @@ map, reduce
 [1,2,3,4,5].map(function(x){
 	return x.toString();
 })
+[1,2,4,5,4,5,8,9].filter(function(e,i,a){return a.indexOf(e)===i})
 
 ["1", "2", "3", "4", "5"].reduce(function(x,y){return x+y});//"12345";
+
+创建一个匿名函数并立即执行的办法,直接写语法解析会报错
+(function(x){
+	return x*x;
+}(5));
+
+(function(x){
+	return Math.pow(x,2)
+})(9);
+
+箭头函数(相当于匿名函数,简单，并且修复了this指向问题(词法作用域，指向外层调用者))
+x => x*x;
+等价于
+function(x){
+	return x*x;
+}
+
+
+
+
+
+
 
 
 
