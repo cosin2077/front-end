@@ -7,8 +7,6 @@ null(空)
 undefined(申明了，但是未定义)
 对象(数组，函数，对象(每个键都是字符串,in 判断属性在不在某个变量(或其原型,判断是否自身才有obj.hasOwnProperty(prop))))
 
-'use strict';//模式修复一些小错误，变量必须var申明
-
 x=0;
 switch(x){
     case 1:alert('Monday!');
@@ -68,6 +66,32 @@ for of
 forEach(fucntion([element,value,value],[index,key,value],[arr,Map,Set]){
 	//...
 })
+
+函数内部关键字
+arguments(类数组,保存传入函数的所有参数)
+
+es6  rest 参数(数组)
+function myFunc(a,b,...rest)
+
+变量提升
+在函数内部，将所有申明的变量，提升到函数头部，
+所以一定要在函数的头部，申明所有的变量
+
+let 申明变量 只在作用域生效
+比如：for，不会变量提升(const　也一样)
+function a(){
+var a='1';
+console.log(a+b);
+let b = '2';//ReferenceError: b is not defined
+
+}
+a();//
+
+const 定义一个不变的量，必须赋予初始值
+
+'use strict';//模式修复一些小错误，变量必须var申明，函数内部的this指向全局变量的时候会报错。
+
+
 
 
 
@@ -170,12 +194,7 @@ window.innerWidth
 document.documentElement.clientHeight
 document.documentElement.clientWidth
 
-ES6 
 
-let 申明变量 只在作用域生效
-比如：for，变量提升
-
-const 定义一个不变的量，必须赋予初始值
 
 
 
