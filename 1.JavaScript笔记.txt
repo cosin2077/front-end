@@ -161,21 +161,41 @@ a-->Array.prototype-->Object.prototyp-->null
 alert.__proto__===Object.getPrototypeOf(alert);//true
 Object.getPrototypeOf(alert)===Function.prototype;//true
 
-function Structfun(){
+function Structfunc(){
 	this.x = 1;
 	this.y = 2;
 }
 
-var x = new Structfun();
+var x = new Structfunc();
 x.x;//1
 x.y;//2
 原型链
-x-->Structfun.prototype-->Object.prototype-->null;
+x-->Structfunc.prototype-->Object.prototype-->null;
+x同时获得一个constructor属性
+x.constructor === Structfunc.prototype.constructor;//true
+x.constructor === Structfunc;//true
+x instanceof Structfunc;
+x instanceof Object;
 
+继承
+function inherits(Child,Parent){
+	var F = function(){};
+	F.prototype = Parent.prototype;
+	Child.prototype = new F();
+	Child.prototype.constructor = Child;
+}
 
-
-
-
+es6 class
+class Student{
+	constructor(name){
+	this.name = name;
+	}
+	otherfunc(){
+	console.log(this.name)
+	}
+}
+var x = new Student('666');
+x.otherfunc();//666
 
 
 
