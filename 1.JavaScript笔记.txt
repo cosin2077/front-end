@@ -5,7 +5,7 @@
 布尔(&&,||,!,>,<,==,===,!=,!==,)的结果
 null(空)
 undefined(申明了，但是未定义)
-对象(数组，函数，对象(每个键都是字符串,in 判断属性在不在某个变量(或其原型)))
+对象(数组，函数，对象(每个键都是字符串,in 判断属性在不在某个变量(或其原型,判断是否自身才有obj.hasOwnProperty(prop))))
 
 'use strict';//模式修复一些小错误，变量必须var申明
 
@@ -39,6 +39,37 @@ throw "err defined by me."
 catch(err){
 alert(err)
 }
+
+JavaScript对象的属性必须是字符串,针对这种情况，es6新推出了Map,Set结构.
+Map 键值对结构,具有极快的查找速度
+var myMap = new Map();
+var name = ['jack','pony','mason']
+var age = [48,42,49];
+myMap.set(name[0],age[0]);
+myMap.set(name[1],age[1]);
+myMap.set(name[2],age[2]);
+
+myMap.has('jack') ;//true
+myMap.get('jack') ;//48
+
+Set 与 Map 类似，但是Set不能储存value，不能储存重复的key
+
+var mySet = new Set();
+mySet.add(1);
+mySet.add('1');
+mySet.add(1);
+mySet.add(2);
+mySet.add('ok');
+mySet;
+
+Array,Map,Set 都属于 `iterable` 类型
+for of 
+
+forEach(fucntion([element,value,value],[index,key,value],[arr,Map,Set]){
+	//...
+})
+
+
 
 onsubmit ="return false"
 
