@@ -1,11 +1,13 @@
-JavaScriptÊı¾İÀàĞÍ
+ï»¿JavaScriptæ•°æ®ç±»å‹
 
-×Ö·û´®
-Êı×Ö
-²¼¶û
-null
-undefined
-¶ÔÏó£¨Êı×é£¬º¯Êı£¬¶ÔÏó£©
+å­—ç¬¦ä¸²(è½¬ä¹‰å­—ç¬¦åæ–œæ  \,es6å¢åŠ å¤šè¡Œå­—ç¬¦ä¸²``,${var},)
+æ•°å­—(æ•´æ•°ï¼Œæµ®ç‚¹æ•°ï¼Œç§‘å­¦è®¡æ•°æ³•ï¼Œè´Ÿæ•°ï¼ŒNaNï¼ŒInfinidyï¼Œ0x554)
+å¸ƒå°”(&&,||,!,>,<,==,===,!=,!==,)çš„ç»“æœ
+null(ç©º)
+undefined(ç”³æ˜äº†ï¼Œä½†æ˜¯æœªå®šä¹‰)
+å¯¹è±¡ï¼ˆæ•°ç»„ï¼Œå‡½æ•°ï¼Œå¯¹è±¡(æ¯ä¸ªé”®éƒ½æ˜¯å­—ç¬¦ä¸²,in åˆ¤æ–­å±æ€§åœ¨ä¸åœ¨æŸä¸ªå˜é‡(æˆ–å…¶åŸå‹))ï¼‰
+
+'use strict';//æ¨¡å¼ä¿®å¤ä¸€äº›å°é”™è¯¯ï¼Œå˜é‡å¿…é¡»varç”³æ˜
 
 x=0;
 switch(x){
@@ -15,7 +17,7 @@ switch(x){
     default:alert('Noday!')
 }
 
-For/In Ñ­»·
+For/In å¾ªç¯
 var obj= {stu1:"conan",stu2:"steve",stu3:"kite"}
 
 for(var x in obj){
@@ -27,9 +29,9 @@ stu1
 stu2
 stu3
 
-£¡£¡Êµ¼ÊÑ­»·µÄÊÇÏÂ±ê
+ï¼ï¼å®é™…å¾ªç¯çš„æ˜¯ä¸‹æ ‡
 
-JavaScript´íÎó´¦Àí
+JavaScripté”™è¯¯å¤„ç†
 try{
 var asd = s;
 throw "err defined by me."
@@ -40,7 +42,7 @@ alert(err)
 
 onsubmit ="return false"
 
-onchange £¨ÔªËØ±»¸Ä±ä£¬È»ºóÊ§È¥½¹µãµÄÊ±ºò´¥·¢£©
+onchange ï¼ˆå…ƒç´ è¢«æ”¹å˜ï¼Œç„¶åå¤±å»ç„¦ç‚¹çš„æ—¶å€™è§¦å‘ï¼‰
 
 <form action="xxx.xx" method="POST" onsubmit="return false">
 <input type="text" name="text1">
@@ -50,14 +52,14 @@ onchange £¨ÔªËØ±»¸Ä±ä£¬È»ºóÊ§È¥½¹µãµÄÊ±ºò´¥·¢£©
 
 
 
-typeof new Boolean('asd')//¹¹Ôìº¯Êı objet
-typeof Boolean('asd')//×ª»»º¯Êı boolean
+typeof new Boolean('asd')//æ„é€ å‡½æ•° objet
+typeof Boolean('asd')//è½¬æ¢å‡½æ•° boolean
 
-0£¬-0£¬null£¬''£¬false£¬undefined,NaN ¡ª¡ª¡ª¡ª¶ÔÏóÎªfalse
+0ï¼Œ-0ï¼Œnullï¼Œ''ï¼Œfalseï¼Œundefined,NaN â€”â€”â€”â€”å¯¹è±¡ä¸ºfalse
 
 
-Date()·µ»ØÒ»¸ö×Ö·û´®
-new Date()·µ»ØÒ»¸öDate¶ÔÏó,ÖµÓëDate()·µ»ØÖµÒ»Ñù
+Date()è¿”å›ä¸€ä¸ªå­—ç¬¦ä¸²
+new Date()è¿”å›ä¸€ä¸ªDateå¯¹è±¡,å€¼ä¸Date()è¿”å›å€¼ä¸€æ ·
 
 function getLocalTime(){
 var d = new Date(),
@@ -68,12 +70,12 @@ var d = new Date(),
     hour = d.getHours(),
     min = d.getMinutes(),
     sec = d.getSeconds(),
-    localTime = year+"Äê"+(month-0+1)+"ÔÂ"+date+"ÈÕ " +hour+":"+min+":"+sec
+    localTime = year+"å¹´"+(month-0+1)+"æœˆ"+date+"æ—¥ " +hour+":"+min+":"+sec
 console.log(localTime)
 }
 getLocalTime()
 
-//»ñÈ¡UTCÊ±¼ä
+//è·å–UTCæ—¶é—´
 function getUTCTime(){
 var d = new Date(),
     year = d.getFullYear(),
@@ -83,20 +85,20 @@ var d = new Date(),
     hour = d.getUTCHours(),
     min = d.getUTCMinutes(),
     sec = d.getUTCSeconds(),
-    localTime = year+"Äê"+(month-0+1)+"ÔÂ"+date+"ÈÕ " +hour+":"+min+":"+sec
+    localTime = year+"å¹´"+(month-0+1)+"æœˆ"+date+"æ—¥ " +hour+":"+min+":"+sec
 console.log(localTime)
 }
 getUTCTime()
 
 
-Math.random() ¡ª¡ª¡ª>[0,1)
+Math.random() â€”â€”â€”>[0,1)
 
-[97£¬130]
+[97ï¼Œ130]
 
 Math.floor(Math.random()*34)+97
 
 
-Ëæ»ú»ñÈ¡[min,max]·¶Î§ÄÚµÄÕûÊı
+éšæœºè·å–[min,max]èŒƒå›´å†…çš„æ•´æ•°
 Math.floor(Math.random()*(max-min+1)+mimn);
 
 
@@ -107,29 +109,29 @@ s.charAt(0)//q
 s.charCodeAt(0)//113
 String.fromCharCode(113)//q
 
-matchÈ«¾ÖÆ¥Åä·µ»ØµÄÊÇÆ¥Åäµ½µÄ×Ó´®
-match·ÇÈ«¾ÖÆ¥Åä£¬Æ¥Åäµ½µÄÊÇÊı×é£¬µÚÒ»¸öÔªËØÊ±Æ¥Åäµ½µÄ×Ó´®£¬indexÊÇÎÄ×Ö£¬inputÊÇÆ¥ÅäÔªËØ
+matchå…¨å±€åŒ¹é…è¿”å›çš„æ˜¯åŒ¹é…åˆ°çš„å­ä¸²
+matchéå…¨å±€åŒ¹é…ï¼ŒåŒ¹é…åˆ°çš„æ˜¯æ•°ç»„ï¼Œç¬¬ä¸€ä¸ªå…ƒç´ æ—¶åŒ¹é…åˆ°çš„å­ä¸²ï¼Œindexæ˜¯æ–‡å­—ï¼Œinputæ˜¯åŒ¹é…å…ƒç´ 
 
-ÕıÔò±í´ïÊ½
+æ­£åˆ™è¡¨è¾¾å¼
 
-RegExp×Ô¼ºµÄ·½·¨
+RegExpè‡ªå·±çš„æ–¹æ³•
 
-test()//·µ»Øtrue»òfalse
-exec()//·µ»ØÆ¥Åäµ½µÄĞÅÏ¢£¬Æ¥Åä²»µ½·µ»Ønull
+test()//è¿”å›trueæˆ–false
+exec()//è¿”å›åŒ¹é…åˆ°çš„ä¿¡æ¯ï¼ŒåŒ¹é…ä¸åˆ°è¿”å›null
 
-×Ö·û´®µÄ·½·¨
-search()//·µ»Ø³öÏÖÎ»ÖÃ
-match()//·µ»ØÊı×é£¬ÒÑËµÃ÷¹ı
+å­—ç¬¦ä¸²çš„æ–¹æ³•
+search()//è¿”å›å‡ºç°ä½ç½®
+match()//è¿”å›æ•°ç»„ï¼Œå·²è¯´æ˜è¿‡
 replace()
 split()
 
 
-encodeURI´¦ÀíÕû¸öURI
-encodeURIComponent´¦ÀíqueryÄÇ²¿·Ö×Ö·û´®
+encodeURIå¤„ç†æ•´ä¸ªURI
+encodeURIComponentå¤„ç†queryé‚£éƒ¨åˆ†å­—ç¬¦ä¸²
 
-decodeURIComponentÄÜ½âÂëËùÓĞÅ¶£¡
+decodeURIComponentèƒ½è§£ç æ‰€æœ‰å“¦ï¼
 
-ä¯ÀÀÆ÷´°¿ÚµÄ¿í¸ß
+æµè§ˆå™¨çª—å£çš„å®½é«˜
 
 window.innerHeight
 window.innerWidth
@@ -139,47 +141,24 @@ document.documentElement.clientWidth
 
 ES6 
 
-let ÉêÃ÷±äÁ¿ Ö»ÔÚ×÷ÓÃÓòÉúĞ§
-±ÈÈç£ºfor£¬±äÁ¿ÌáÉı
+let ç”³æ˜å˜é‡ åªåœ¨ä½œç”¨åŸŸç”Ÿæ•ˆ
+æ¯”å¦‚ï¼šforï¼Œå˜é‡æå‡
 
-const ¶¨ÒåÒ»¸ö²»±äµÄÁ¿£¬±ØĞë¸³Óè³õÊ¼Öµ
+const å®šä¹‰ä¸€ä¸ªä¸å˜çš„é‡ï¼Œå¿…é¡»èµ‹äºˆåˆå§‹å€¼
 
-½â¹¹¸³Öµ
-Êı×é£º
-var [a,b,c] = [1,true,666];
-var [a,...c] = [1,2,3,4,5];
-var [a='1',b,c] = [,2,3];
 
-¶ÔÏó£º
-let {a,q} = {a:'2311',q:false}
-µÈ¼ÛÓÚ
-let {a:a,q:q} = 
 
-let {a:A,q:Q} = {}
 
-½â¹¹¸´ÔÓÇé¿ö
-var obj = {
-arr:[
-'cool',
-{b:'2',
- obj2:'obj2'}
-]
 
-}
-let {arr:[word1,{obj2}]} = obj;
 
-½â¹¹±¾À´¾ÍÓĞµÄº¯Êı
 
-let {href,hash,host,pathname,protocol}=location;
 
-º¯Êı´«²Î½øĞĞ½â¹¹
-var arr = [1,5];
 
-function func([a,b]){
-///
-}
 
-func(arr)
+
+
+
+
 
 
 
