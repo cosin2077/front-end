@@ -5,7 +5,7 @@
 布尔(&&,||,!,>,<,==,===,!=,!==,)的结果
 null(空)
 undefined(申明了，但是未定义)
-对象（数组，函数，对象(每个键都是字符串,in 判断属性在不在某个变量(或其原型))）
+对象(数组，函数，对象(每个键都是字符串,in 判断属性在不在某个变量(或其原型)))
 
 'use strict';//模式修复一些小错误，变量必须var申明
 
@@ -42,7 +42,7 @@ alert(err)
 
 onsubmit ="return false"
 
-onchange （元素被改变，然后失去焦点的时候触发）
+onchange (元素被改变，然后失去焦点的时候触发)
 
 <form action="xxx.xx" method="POST" onsubmit="return false">
 <input type="text" name="text1">
