@@ -144,6 +144,40 @@ for(let a of r){
 
 generator可以在执行中多次返回，看上去就像一个可以记住执行状态的函数，generator的大用处在针对异步代码
 
+parseInt() parseFloat() 转换到number类型
+String() 或者自带的toString() 转换到string类型
+typeof 可判断出number string boolean function undefined,判断不了null,数组和一般对象
+Array用Array.isArray(arr) 判断
+null 用 ele===null 判断
+判断是否是全局对象 typeof window.someEle==='undefined'
+判断某个变量是否存在用 typeof ele ==='undefined';
+
+Object.create(ob);//创建一个基于ob原型的新对象 
+var a = [];
+a.__proto__ === Array.prototype;//true
+原型链
+a-->Array.prototype-->Object.prototyp-->null
+
+alert.__proto__===Object.getPrototypeOf(alert);//true
+Object.getPrototypeOf(alert)===Function.prototype;//true
+
+function Structfun(){
+	this.x = 1;
+	this.y = 2;
+}
+
+var x = new Structfun();
+x.x;//1
+x.y;//2
+原型链
+x-->Structfun.prototype-->Object.prototype-->null;
+
+
+
+
+
+
+
 
 
 
