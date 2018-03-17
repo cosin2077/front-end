@@ -124,12 +124,25 @@ function(x){
 	return x*x;
 }
 
+generator 
 
+function* foo(x){
+	yield x*x;
+	yield x*x*x;
+	return x**x;
+}
+var r = foo(3);
+r;
+r.next();
+r.next();
+r.next();
 
+for(let a of r){
+	console.log(a)
+}
+//循环yield的结果
 
-
-
-
+generator可以在执行中多次返回，看上去就像一个可以记住执行状态的函数，generator的大用处在针对异步代码
 
 
 
