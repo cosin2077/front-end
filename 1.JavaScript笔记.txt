@@ -92,9 +92,22 @@ const 定义一个不变的量，必须赋予初始值
 'use strict';//模式修复一些小错误，变量必须var申明，函数内部的this指向undefined。
 *第二层函数内部，要先捕获外层this,外层var that = this;*
 
-apply(第一个参数是要绑定this的对象，第二个是传入函数的参数)
+apply(第一个参数是要绑定this的对象，第二个是传入函数的参数(数组))
+call(第一个参数是要绑定this的对象，第二个是传入函数的参数(依次传入))
 
 func.apply(obj,[params...])
+
+map, reduce
+
+[1,2,3,4,5].map(String);//["1", "2", "3", "4", "5"]
+[1,2,3,4,5].map(function(x){return (x).toString()});//["1", "2", "3", "4", "5"]
+[1,2,3,4,5].map(function(x){
+	return x.toString();
+})
+
+["1", "2", "3", "4", "5"].reduce(function(x,y){return x+y});//"12345";
+
+
 
 
 
