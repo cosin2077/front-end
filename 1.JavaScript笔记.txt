@@ -89,9 +89,12 @@ a();//
 
 const 定义一个不变的量，必须赋予初始值
 
-'use strict';//模式修复一些小错误，变量必须var申明，函数内部的this指向全局变量的时候会报错。
+'use strict';//模式修复一些小错误，变量必须var申明，函数内部的this指向undefined。
+*第二层函数内部，要先捕获外层this,外层var that = this;*
 
+apply(第一个参数是要绑定this的对象，第二个是传入函数的参数)
 
+func.apply(obj,[params...])
 
 
 
