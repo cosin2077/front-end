@@ -197,7 +197,17 @@ class Student{
 var x = new Student('666');
 x.otherfunc();//666
 
-
+class ExtendsStudent extends Student{
+	constructor(name,grade){
+	super(name);
+	this.grade = grade;
+	}
+	myGrade(){
+		return function(){console.log(this.grade)};
+	}
+}
+var extStu = new ExtendsStudent('conan',99);
+extStu.myGrade();//99
 
 
 
