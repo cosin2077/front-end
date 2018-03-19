@@ -384,10 +384,18 @@ new Promise(func)
 
 jQuery
 $(':contains(不错)')
-$('someSelector').css('xxx')
+$('someSelector').css('xxx',{'xx':'xx','xx':'xx'})
 $('someSelector').addClass('xxx');
 $('someSelector').hasClass('xxx');
 $('someSelector').removeClass('xxx');
+$('someSelector').show(time);
+$('someSelector').hide(time);
+$('someSelector').attr('id,name,data...')
+$('someSelector').removeAttr('id,name,data...')
+$('someSelector').is(':chcked');
+$('someSelector').is(':selected');
+$('someSelector').prop('chcked');
+$('someSelector').val();
 
 
 
