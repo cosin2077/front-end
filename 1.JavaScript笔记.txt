@@ -302,14 +302,18 @@ encodeURIComponent处理query那部分字符串
 
 decodeURIComponent能解码所有哦！
 
-浏览器窗口的宽高
-
+浏览器窗口的宽高(去除菜单栏，工具栏，边框的宽高)
 window.innerHeight
 window.innerWidth
 
 document.documentElement.clientHeight
 document.documentElement.clientWidth
 
+服务端设置cookie，使用httpOnly，使得cookie只能通过浏览器获得
+
+innerText不返回隐藏的原物文本
+textContent返回所有文本
+cssText css样式文本
 
 
 
