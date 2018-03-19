@@ -382,7 +382,12 @@ new Promise(func)
 	//do sth if failed;
 })
 
-
+jQuery
+$(':contains(不错)')
+$('someSelector').css('xxx')
+$('someSelector').addClass('xxx');
+$('someSelector').hasClass('xxx');
+$('someSelector').removeClass('xxx');
 
 
 
