@@ -315,10 +315,41 @@ innerText不返回隐藏的原物文本
 textContent返回所有文本
 cssText css样式文本
 
+提交表单
+form 元素有一个submit方法
+form本身的onsubmit事件
+name属性会被提交给后台
 
+<form action="#" enctype="multipart/form-data">
+<input type="file" name="fileUpload"	/>
 
+</form>
 
+var file = document.getElementsByName('fileUpload')[0];
 
+file.files[0].name;//名字
+file.files[0].size;//大小字节
+file.files[0].type;//类型
+
+var reader = new FileReader();//读取文件接口
+reader.onload = function(e){
+	var data = e.target.result;
+	preview.style.backgroundImage = 'url('+data+')';
+}
+reader.readAsDataURL(file);
+
+AJAX
+
+var request = new XMLHttpRequest();
+request.onreadystatechange = function (){
+	if(request.readyState == 4){
+		if(request.status === 200){
+			return success(request.responseText);
+		}else{
+			return fail(request.status);
+		}
+	}
+}
 
 
 
