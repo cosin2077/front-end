@@ -350,13 +350,37 @@ request.onreadystatechange = function (){
 		}
 	}
 }
+request.open('GET','apiUrl');
+request.send();
 
+var req = new XMLHttpRequest()||new ActiveXObject('Microsoft.XMLHTTP');
+req.onreadystatechange = function (e) {
+	if(req.readyState ===4 &&req.status ===200){
+		console.log(e);
+		console.log(req);
+		console.log("req.responseText: "+req.responseText);
+	}
+}
+req.open('GET','https://httpbin.org/ip',true);//默认用异步
+req.send();
 
+跨域
+JSONP
+函数调用的形式返回，预先在页面中准备好回调函数
+数据回来就相当于直接执行回调函数
 
+CORS
+Access-Control-Allow-Origin 包含本域就能够给跨域请求成功
 
+Promise
 
-
-
+new Promise(func)
+.then(function(res){
+	//do sth if success;
+})
+.catch(function(res){
+	//do sth if failed;
+})
 
 
 
