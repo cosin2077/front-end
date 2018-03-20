@@ -427,9 +427,23 @@ var a;
 typeof a ;//undefined
 typeof b ;//undefined
 
+undefined派生自null
+
+null == undefined;//true
+
+var log = window.console.log;
+var count = 0;
+window.console.log = function(){
+	console.log(count++);
+	return log.apply(null,arguments);
+}
+console.log(1)
+
+几乎所有值都有toString方法(null,undefined没有)
 
 
-
+120..toString(8);//170
+parseInt(170,8);//120
 
 
 
