@@ -504,6 +504,58 @@ push() ++ shift() 队列(先进先出)
 
 reverse() 反转
 sort() 调用toString()方法，转换为字符串再比较
+两者返回的都是排序后的数组
+
+[1,2,5].concat(1,5,7,[1,57,[2]]);//
+[1, 2, 5, 1, 5, 7, 1, 57, Array(1)]
+
+如果a,b中有负数,等价于数组长度+该数
+slice(a,b)
+
+splice(startPos,howMuch,addArr)
+
+indexOf();//从开头找
+lastIndexOf();//从末尾找
+
+迭代方法
+every()
+some()
+filter()
+forEach()
+map()
+reduce()
+
+Date.parse('12/3/2017');//返回某一日期距1970年的毫秒数
+new Date('12/3/2017')
+Date.UTC(2017,12,12,23,59,59);
+
+Date.now();//当前时间毫秒数
++new Date();
+
+RegExp
+元字符必须转义(在正则表达式中有用途)
+( [ { \ ^ $ | ) ? * + . ] }
+
+正则表达式的方法：
+exec();//匹配到了返回数组,没匹配到返回null
+test();//匹配到了返回true,反之返回false
+
+
+/[ab]((c)i)$/.exec('aci');
+["aci", "ci", "c", index: 0, input: "aci"]
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
