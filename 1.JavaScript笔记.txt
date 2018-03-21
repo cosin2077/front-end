@@ -483,8 +483,27 @@ P87 第四章 变量、作用域与内存
 
 作用域链（作用域嵌套，局部变量只能作用域访问，下层能访问上层变量）
 
+BOM和DOM对象采用计数垃圾回收机制，
 
+不使用的时候，手工断开其余原生JavaScript对象的联系
+myObject.element = null;
+element.someObject = null;
 
+复制为null表示解除引用;
+
+数组
+[] instanceof Array;
+Array.isArray();
+
+push() 插入任意项，返回总数组的长度
+pop() 删除最后一项，返回这个值
+
+push() ++ pop() 栈(后进先出)
+
+push() ++ shift() 队列(先进先出)
+
+reverse() 反转
+sort() 调用toString()方法，转换为字符串再比较
 
 
 
