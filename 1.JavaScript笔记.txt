@@ -543,13 +543,42 @@ test();//匹配到了返回true,反之返回false
 
 /[ab]((c)i)$/.exec('aci');
 ["aci", "ci", "c", index: 0, input: "aci"]
+RegExp.$1;第1个捕获组
+RegExp.$2;第2个捕获组
+RegExp.$3;第3个捕获组
+RegExp.$4;第4个捕获组
+...
 
+函数申明会被提升，表达式不会
+alert(sum(1,2))
+function sum(a,b){
+	return a+b;
+}
+//没问题
 
+alert(sum(3,4))
+var sum = function(x,y){
+	return x+y;
+}
+//报错
 
+比较对象数组的属性，进行排序
+function compareProperty(prop){
+	return function(obj1,obj2){
+		var value1 = obj1[prop];
+		var value2 = obj2[prop];
+		if(value1 <value2){
+			return -1;
+		}else if(value1>value2){
+			return 1;
+		}else{
+			return 0;
+		}
+	}
+}
+var data = [{name:'adsd',age:56},{name:'lkuj',age:26},{name:'kuhy',age:86}];
 
-
-
-
+data.sort(compareProperty('age'));
 
 
 
