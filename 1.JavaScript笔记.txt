@@ -581,6 +581,31 @@ var data = [{name:'adsd',age:56},{name:'lkuj',age:26},{name:'kuhy',age:86}];
 data.sort(compareProperty('age'));
 
 
+arguments.callee指代当前函数
+arguments.callee.caller指向调用它的函数
+严格模式下两者都不能用(禁止窥探函数内部)
+
+每个函数都有length，prototype属性
+length表示期望得到的参数个数
+prototype则是实例的原型对象，各种方法都保存在这个原型之下
+不可枚举，for-in无法发现
+每个函数都包含apply,call方法
+牛逼在于能够扩充函数运行的作用域
+
+bind();//创建一个函数的实例，this值被绑定到传给bind函数的值
+
+var color = 'red';
+var o = {color:'blue'};
+function showColor(){
+	console.log(this.color);
+}
+showColor();//red
+showColor.call(o);//blue
+showColor.apply(o);//blue
+
+var newShowColor = showColor.bind(o);
+newShowColor();//blue
+
 
 
 
