@@ -477,6 +477,8 @@ rest(1,2,3,4)
 
 P87 第四章 变量、作用域与内存
 
+基本类型（按值访问）：undefined，null，boolean，string，number
+引用类型（保存在内存中的对象）：对象
 
 
 
