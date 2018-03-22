@@ -639,11 +639,29 @@ selectNumber(10,85)
 
 var person = {};
 Object.defineProperty(person,'name',{
-	configurable:false,//不可配置，不可删除
+	configurable:false,//不可配置，不可删除,变了true之后，只能修稿writable的值
 	writable:false,//不可重赋值
 	enumerable:false,//不可遍历
 	value:'conan'//值
 })
+
+var person = {
+	name:'conan',
+	_age:26
+}
+
+[[getter]] 和 [[setter]]
+
+Object.defineProperty(person,'age',{
+	get:function(){
+		return this._age;
+	},
+	set:function(newV){
+		this._age = newV;
+		this.name+=newV;
+	}
+})
+
 
 
 
