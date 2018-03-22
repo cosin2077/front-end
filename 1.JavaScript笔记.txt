@@ -606,9 +606,7 @@ showColor.apply(o);//blue
 var newShowColor = showColor.bind(o);
 newShowColor();//blue
 
-
-
-
+P137 基本包装类型
 
 
 
