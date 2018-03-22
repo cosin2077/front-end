@@ -662,7 +662,29 @@ Object.defineProperty(person,'age',{
 	}
 })
 
+Object.defineProperties(person,{
+	'age':{
+		configurable:false,
+		writable:false,
+		enumerable:false,
+		value:'26'
+	},
+	'name':{
+		configurable:true,
+		writable:false,
+		enumerable:true,
+		value:"conan"
+	}
+})
 
+
+Object.getOwnPropertyDescriptor(person,'name');
+
+.isPrototypeOf();
+Object.getPrototypeOf();
+
+in 也返回在原型中的属性
+hasOwnProperty() 只返回该对象中的属性
 
 
 
