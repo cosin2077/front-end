@@ -608,6 +608,12 @@ newShowColor();//blue
 
 P137 基本包装类型
 
+String
+.slice(start,end);//负数+长度
+.substring(start,end);//负数变0
+.substr(start,howMany);//第一个辅助+长度，第二个变0
+
+
 
 
 
