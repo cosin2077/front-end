@@ -613,9 +613,19 @@ String
 .substring(start,end);//负数变0
 .substr(start,howMany);//第一个辅助+长度，第二个变0
 
+字符串的正则方法
+.match()
+.search()
+.replace()
+.split()
 
+可以对整个URI使用encodeURI(),而只能对附加在URI后边的字符串使用encodeURIComponent()
 
+取得global对象
 
+;(function(){
+	return this;
+}());
 
 
 
