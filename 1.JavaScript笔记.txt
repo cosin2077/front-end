@@ -627,10 +627,23 @@ String
 	return this;
 }());
 
+返回a-b之间的整数
 
+function selectNumber(smallValue,bigValue){
+	var choices = bigValue - smallValue + 1;
+	return Math.floor(Math.random() * choices + smallValue)
+}
+selectNumber(10,85)
 
+面向对象(OOP)
 
-
+var person = {};
+Object.defineProperty(person,'name',{
+	configurable:false,//不可配置，不可删除
+	writable:false,//不可重赋值
+	enumerable:false,//不可遍历
+	value:'conan'//值
+})
 
 
 
