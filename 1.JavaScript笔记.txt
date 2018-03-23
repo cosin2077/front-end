@@ -685,6 +685,10 @@ Object.getPrototypeOf();
 
 in 也返回在原型中的属性
 hasOwnProperty() 只返回该对象中的属性
+!hasOwnProperty(prop)&&(prop in obj) 只存在于原型中
+
+for in 可与枚举原型中[可枚举]的属性
+
 
 
 
