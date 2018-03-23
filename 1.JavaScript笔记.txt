@@ -687,7 +687,34 @@ in 也返回在原型中的属性
 hasOwnProperty() 只返回该对象中的属性
 !hasOwnProperty(prop)&&(prop in obj) 只存在于原型中
 
-for in 可与枚举原型中[可枚举]的属性
+for in 也返回原型中[可枚举]的属性
+Object.keys(obj);//返回原型中所有可枚举的属性
+
+Object.getOwnPropertyNames(obj);//返回原型，以及原型链上的属性(不管可枚举还是不可枚举)
+
+function Person(){
+	
+}
+//切记重写原型对象不要在创建实例之后
+Person.prototype = {
+	name:'x',
+	age:22,
+	doSth:function(){
+		this.age++;
+	},
+	sing:function(){
+		console.log(this.name)
+	}
+}
+
+Object.defineProperty(Person.prototype,'constructor',{
+	enumerable:false,
+	value:Person
+})
+var a = new Person();
+var b = new Person();
+
+
 
 
 
