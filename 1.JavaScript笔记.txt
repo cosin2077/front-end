@@ -714,11 +714,30 @@ Object.defineProperty(Person.prototype,'constructor',{
 var a = new Person();
 var b = new Person();
 
+String.prototype.startsWith = function(txt){
+	return this.indexOf(txt) ===0;
+}
 
+组合使用构造函数模式和原型模式
+构造函数模式定义实例属性，原型模式定义方法和共享的属性。
 
+function Person(name,age,job){
+	this.name = name;
+	this.age = age;
+	this.job = job;
+}
 
-
-
-
+Person.prototype = {
+	constructor:Person,
+	sayJob:function(){
+		alert(this.job)
+	}
+}
+var p1 = new Person('conan',24,'CEO')
+var p2 = new Person('steve',34,'COO')
+p1.name;
+p2.name;
+p1.sayJob;
+p2.sayJob;
 
 
