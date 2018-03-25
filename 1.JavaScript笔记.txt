@@ -740,4 +740,18 @@ p2.name;
 p1.sayJob;
 p2.sayJob;
 
+DOM
+
+节点类型
+1 元素节点
+2 属性节点
+3 文本节点
+9 文档节点
+
+nodeType
+nodeName是元素的标签名
+
+
+
+
 
