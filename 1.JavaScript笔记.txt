@@ -767,7 +767,8 @@ factorial(10)
 
 <<<<<<< HEAD
 DOM
-
+=======
+>>>>>>> a79f552e40fdb22cf3b24a97ddca65bbd3e2fc75
 节点类型
 1 元素节点
 2 属性节点
@@ -777,8 +778,10 @@ DOM
 nodeType
 nodeName是元素的标签名
 
+每个节点都有childNodes属性保存所有子节点对象
+x.childNodes[0]<==>x.childNodes.item(0);
+
+var arrayOfNode = Array.prototype.slice.call(someNode.childNodes,0);
 
 
 
-=======
->>>>>>> a79f552e40fdb22cf3b24a97ddca65bbd3e2fc75
