@@ -783,5 +783,30 @@ x.childNodes[0]<==>x.childNodes.item(0);
 
 var arrayOfNode = Array.prototype.slice.call(someNode.childNodes,0);
 
+parentNode 父节点
+firstChild
+lastChild
+previousSibling
+nextSibling
+ownerDocument 整个文档的文档节点
+someNode.hasChildNodes()
+操作节点最常用的方法就是
+appendChild()
+
+parentNode.insertBefore(newNode,null);//插入最后
+parentNode.insertBefore(newNode,parentNode.firstChild);//插入最前
+parentNode.insertBefore(newNode,parentNode.lastChild);//插入最后一个子节点前边
+
+parentNode.replaceChild(xx,xx);
+parentNode.removeChild(someNode);
+
+
+
+
+
+
+
+
+
 
 
