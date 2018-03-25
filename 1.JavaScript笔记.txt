@@ -810,10 +810,16 @@ ele.cssText;
 ele.className;
 ele.classList;
 
-特性
+特性(一般直接用节点元素的属性，而不是用这些方法，这些方法用于自定义属性)
 ele.getAttribute('class');
 ele.setAttribute('class','xxx');
 ele.removeAttribute('class');
+
+attributes属性(动态属性集合)
+
+document.documentElement.attributes[0].nodeName;
+document.documentElement.attributes[1].nodeValue;
+
 
 
 
