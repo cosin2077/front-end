@@ -800,7 +800,20 @@ parentNode.insertBefore(newNode,parentNode.lastChild);//插入最后一个子节
 parentNode.replaceChild(xx,xx);
 parentNode.removeChild(someNode);
 
+document.documentElement --> html 元素
+document.body --> body 元素
 
+ele.id;
+ele.name;
+ele.title;
+ele.cssText;
+ele.className;
+ele.classList;
+
+特性
+ele.getAttribute('class');
+ele.setAttribute('class','xxx');
+ele.removeAttribute('class');
 
 
 
