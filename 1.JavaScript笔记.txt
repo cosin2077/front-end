@@ -825,12 +825,18 @@ attributes属性(动态属性集合)
 document.documentElement.attributes[0].nodeName;
 document.documentElement.attributes[1].nodeValue;
 
+//创建元素
+document.createElement();//
+
+
+var script = document.createElement('script');
+script.src='xxx.com';
+document.head.appendChild(script)
 
 
 
-
-
-
+var fragment = document.createDocumentFragment();
+//可以先避免反复渲染的问题
 
 
 
