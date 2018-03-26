@@ -855,6 +855,8 @@ try{
 document.head.appendChild(sty);
 
 
+querySelector();
+querySelectorAll();
 
 
 
