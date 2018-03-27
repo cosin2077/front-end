@@ -889,6 +889,24 @@ document.readyState;//
 通过元素dataset属性访问
 div.dataset.myData;//'666'
 
+DOM2和DOM3
+
+元素的style属性，样式属性
+className
+styleFloat
+特殊，为JavaScript保留字
+
+style对象属性
+cssText;//style的css代码，可读写
+length;//css属性的数量
+
+getComputedStyle();//获取计算后(最后得到的)的属性,不能写，只能读
+document.defaultView.getComputedStyle(document.body);
+window.getComputedStyle(document.body);
+IE没有上述方法，但是有个属性：
+currentStyle返回一样的对象
+document.body.currentStyle;
+
 
 
 
