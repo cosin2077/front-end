@@ -922,12 +922,18 @@ document.styleSheet[0].deleteRule(0);
 FOR IE
 document.styleSheet[0].removeRule(0);
 
+元素偏移(元素的属性)
+offsetWidth;//内容宽度+内边距+边框
+offsetHeight;//内容高度+内边距+边框
 
+offsetTop;//距离offsetParent的顶端距离
+offsetLeft;//距离offsetParent的左端距离
 
+clientWidth;//内容宽度+内边距
+clientHeight;//内容高度+内边距
 
-
-
-
+scrollWidth;//内容宽度
+scrollHeight;//内容高度
 
 
 
