@@ -935,7 +935,10 @@ clientHeight;//内容高度+内边距
 scrollWidth;//内容宽度
 scrollHeight;//内容高度
 
+document.documentElement.scrollTop;//内容被遮盖的上部分
 
+确定元素大小(每个元素都有这个方法)
+ele.getBoundingClientRect();//
 
 
 
