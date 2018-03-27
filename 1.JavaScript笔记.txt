@@ -855,15 +855,39 @@ try{
 document.head.appendChild(sty);
 
 
+//document、documentFragment，element都可以使用
 querySelector();
 querySelectorAll();
 
+firstChild;
+等价于
+childNodes[0];
 
+firstElementChild;
+lastElementChild;
+previousElementSibling;
+nextElementSibling;
 
+className;//字符串
+classList;//对象有方法
 
+div.classList.add('myClass')
+div.classList.remove('myClass')
+div.classList.toggle('myClass')
+div.classList.contains('myClass')
 
+document.activeElement;//获取当前获得焦点的元素
 
+document.readyState;//
+'loading' 加载中
+'complete' 加载完成了
 
+自定义属性
+
+<div class="xx" data-myData='666' ...>
+
+通过元素dataset属性访问
+div.dataset.myData;//'666'
 
 
 
