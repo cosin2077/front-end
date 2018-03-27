@@ -907,10 +907,20 @@ IE没有上述方法，但是有个属性：
 currentStyle返回一样的对象
 document.body.currentStyle;
 
+document.styleSheets;//文档含有的样式表
+rules = sheet.cssRules||sheet.rules;
+rules.selectorText;//div.box
+rules.cssText;//完整的css代码
 
+//插入样式表
+document.styleSheet[0].insertRule('body','background-color:silver',0);
+FOR IE
+document.styleSheet[0].addRule('body','background-color:silver',0);//
 
-
-
+//删除规则
+document.styleSheet[0].deleteRule(0);
+FOR IE
+document.styleSheet[0].removeRule(0);
 
 
 
