@@ -1037,15 +1037,99 @@ event.clientX;//视口左
 event.clientY;//视口上
 event.pageX;//(包括scrollLeft)
 event.pageY;//(包括scrollTop)
+event.screenX;//屏幕位置
+event.screenY;//
+
+修改键
+event.shiftKey
+event.ctrlKey
+event.altKey
+event.metaKey
+
+鼠标键
+event.button;//
+0 左键
+1 中键
+2 右键
+
+滚轮事件
+mousewheel
+event.wheelDelta;//
+往前120
+往后-120
+
+window.onmousewheel = function(e){
+	console.log(e.wheelDelta);
+}
+
+键盘事件
+keydown
+keypress
+keyup
+按下一个键不放，会重复触发keydown和keypress事件
+
+HTML5事件
+
+1.contextmenu
+
+var div = document.createElement('div');
+div.innerHTML = 
+`
+<p>header</p>
+<div>body</div>
+<p>footer</p>
+`;
+div.style.cssText = 
+`
+visibility:hidden;
+position:fixed;
+//top:100px;
+//left:100px;
+`;
+document.body.appendChild(div);
+
+document.oncontextmenu = function(e){
+	e.preventDefault();
+	div.style.visibility='visible';
+	div.style.top = e.clientY+10+'px';
+	div.style.left = e.clientX+10+'px';
+}
 
 
+beforeunload
+
+window.onbeforeunload = function(event){
+    var msg = '你，你确定要离开吗？';
+	event.returnValue = msg;
+	return msg;
+}
+
+DOMContentLoaded事件(DOM加载完成，神器呀)
+
+可以添加到document和window上(会冒泡到这里来的)
 
 
-
-
-
-
-
+//一下三个事件，依次执行
+document.addEventListener('readystatechange',function(){
+	if(document.readyState=='interactive'){
+	console.log('0.interactive!')
+	}
+})
+document.addEventListener('DOMContentLoaded',function(){
+	console.log('1.DOMContentLoaded!')
+})
+document.addEventListener('readystatechange',function(){
+	if(document.readyState=='complete'){
+	console.log('2.readystatechange!')
+	}
+})
+window.onload = function(){
+	console.log('3.window loaded!')
+}
+setTimeout(function(){
+	//onload事件之后的呀
+	console.log('4.setTimeout 0s!')
+},0)
 
 
 
