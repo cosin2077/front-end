@@ -943,7 +943,7 @@ ele.getBoundingClientRect();//
 事件
 
 冒泡与捕获流
-IE又对了一次？(上次是盒子模型)
+IE提出冒泡机制， 又对了一次？(上次是盒子模型)
 
 捕获阶段--
 处于目标阶段--
@@ -952,9 +952,11 @@ IE又对了一次？(上次是盒子模型)
 HTML事件处理程序
 event 事件对象
 this 事件的目标元素
-作用域被扩展了（到表单）
+作用域被扩展了（到表单，可以直接访问value，username.value...）
 
-S
+DOM0级事件处理（冒泡阶段被处理）
+someEle.onclick=function(){//...};//this指代当前元素
+
 
 
 
