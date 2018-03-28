@@ -1131,8 +1131,24 @@ setTimeout(function(){
 	console.log('4.setTimeout 0s!')
 },0)
 
+性能
 
+事件委托
+事件维托利用事件冒泡，只用指定一个事件处理程序就你能管理某一类型的所有事件。
+['减少代码量'，'提升性能','简介明了']
+特别是列表之类的。
 
+移除事件处理程序
+btn.onclick = null;
+
+模拟事件
+1.鼠标事件
+var btn = $('#su')[0];
+var event = document.createEvent('MouseEvents');
+event.initMouseEvent('click',true,true,document.defaultView,0,0,0,0,0,false,false,false,false,0,null);
+btn.dispatchEvent(event);
+
+2.键盘事件
 
 
 
