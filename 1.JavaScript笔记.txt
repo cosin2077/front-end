@@ -955,15 +955,33 @@ this 事件的目标元素
 作用域被扩展了（到表单，可以直接访问value，username.value...）
 
 DOM0级事件处理（冒泡阶段被处理）
-someEle.onclick=function(){//...};//this指代当前元素
+someEle.onclick=function(){//...};
+//this指代当前元素
 
+DOM2级事件处理（默认冒泡false，true为捕获
+addEventListener('click',function(){//...},false);//true为捕获
+removeEventListener(...);//移除事件处理程序（匿名函数没用）
+//this指代当前元素
 
+IE事件处理程序(冒泡阶段)
+attachEvent和detachEvent
+attachEvent("onclick",handler)
+detachEvent("onclick",handler)
+//this指代window
 
+事件对象
+event对象
+btn.onclick = function(event){
+	console.log(event);
+}
+btn.addEventListener('click',function(event){
+	console.log(event);
+})
 
-
-
-
-
+event.currentTarget === this;//等于函数内部的this
+event.target ;//触发事件的对象
+event.preventDefault();//阻止事件默认行为
+evetn.stopPropagation();//阻止进一步捕获或冒泡
 
 
 
