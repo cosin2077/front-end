@@ -978,17 +978,65 @@ btn.addEventListener('click',function(event){
 	console.log(event);
 })
 
-event.currentTarget === this;//等于函数内部的this
+event.currentTarget === this;//等于函数内部的this，等于绑定事件的那个元素
 event.target ;//触发事件的对象
 event.preventDefault();//阻止事件默认行为
 evetn.stopPropagation();//阻止进一步捕获或冒泡
 
+document.body.onclick = function(e){
+	console.log(this);
+	console.log(e.target);
+	console.log(e.currentTarget);
+	console.log(e);
+}
 
+IE中的
+btn.onclick = function(){
+	var event = window.event;
+	//...
+}
+btn.attachEvent('onclick',function(e){
+	e;//
+})
 
+event对象事件
+event.returnValue = false;//等价于preventDefault()
+event.cancelBubble = true;//等价于stopPropagation()
 
+this 始终等价于绑定事件的元素
+srcElement 等价于触发事件的元素(target)
 
+事件
+1.UI事件
+a.load（window，框架，img，嵌入元素,最新script也有这个属性了！）
+b.unload（同上）
+c.erroe(同上)
+d.select(用于选择文本框中字符时候触发)
+e.resize(窗口或框架变动时候在window触发)
+f.scroll(滚动元素上触发)
 
+2.焦点事件
+focus;//聚焦
+blur;//失焦
+focusin;//聚焦，冒泡
+focusout;//失焦点，冒泡
 
+3.鼠标与滚轮事件
+click
+dblclick
+mousedown
+mouseenter;//不会冒泡
+mouseleave;//不会冒泡
+mousemove
+mouseout
+mouseover
+mouseup
+
+event事件的属性
+event.clientX;//视口左
+event.clientY;//视口上
+event.pageX;//(包括scrollLeft)
+event.pageY;//(包括scrollTop)
 
 
 
