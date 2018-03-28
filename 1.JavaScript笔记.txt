@@ -1148,7 +1148,8 @@ var event = document.createEvent('MouseEvents');
 event.initMouseEvent('click',true,true,document.defaultView,0,0,0,0,0,false,false,false,false,0,null);
 btn.dispatchEvent(event);
 
-2.键盘事件
+表单脚本
+
 
 
 
