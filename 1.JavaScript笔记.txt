@@ -1150,8 +1150,31 @@ btn.dispatchEvent(event);
 
 表单脚本
 
+document.getElementsById('form1');
+document.forms['form1'];
 
+input或button的type设置为submit即可提交表单
+请求发送服务器之前，触发submit事件
+document.forms['form1'].addEventListener('submit',function(e){
+	e.preventDefault();
+})
 
+input button --->type=reset;//重置表单
+
+表单的elements属性表示表单中所有元素的集合，这个elements是一个有序列表，其中包含表单中所有的字段，例如<input><textarea><button><fieldset>.
+
+可以按照位置和name特性来访问他们。
+form.elements[1];
+form.elements['textbox1'];返回的也有可能是一个NodeList
+
+表单字段共有的属性：
+disabled
+form
+name
+readOnly
+tabIndex
+type
+value
 
 
 
