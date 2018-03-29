@@ -1157,13 +1157,58 @@ btn.dispatchEvent(event);
 
 
 
+高级技巧
+bind就是函数科里化的
+function a(x){
+	return function(y){
+		return x*y
+	}
+}
+
+a(2)(3);//6
+
+定时器的时间间隔表示何时将定时器的代码添加到队列 ，而不是何时执行。
+
+setTimeout(function(){
+	//...
+	setTimeout(arguments.callee,500);
+},500)
 
 
+function myItv(func,itv){
+	var a = 0;
+	function itvf(){
+		func(a++);
+		setTimeout(itvf,itv);
+	}
+	var st = setTimeout(itvf,itv)
+}
 
+myItv(console.log,500)
 
+函数去抖
+var itv;
+window.onresize = function(e){
+	console.log('clearTimeout(itv)')
+	clearTimeout(itv);
+	itv = setTimeout(function(){
+		console.log(itv);
+		console.log(e.timeStamp)
+	},2000)
+}
 
-
-
+函数节流
+var flag=true;
+window.onresize = function(e){
+	if(!flag){
+		return;
+	}
+	flag = false;
+	itv = setTimeout(function(){
+		console.log(e.timeStamp);
+		flag=true;
+	},2000)	
+}
 
 
 
