@@ -1176,7 +1176,46 @@ tabIndex
 type
 value
 
+共有的表单字段方法
+blur()与focus()
+//页面加载完毕后，第一个表单聚焦
+window.onload = function(){
+	document.forms[0].elements[0].focus()
+}
 
+<input type="text" size='25' maxlength='50' value='初始值'>
+
+<textarea rows='30' cols='25' >初始值</textarea>
+
+选择文本
+select()方法
+$('textarea')[0].onfocus=function(){
+	this.select();
+}
+//屏蔽非数字的输入
+document.onkeypress = function(e){
+	var charCode = e.keyCode;
+	if(!/\d/.test(String.fromCharCode(charCode))){
+		
+		console.log('prevent default!')
+		e.preventDefault();
+	}	
+}
+$('textarea')[0].onpaste = function(e){
+	var get = e.clipboardData.getData('text');
+	console.info('get: '+get);
+
+	var set = e.clipboardData.setData('text/plain','呵呵呵呵');
+	console.info('set: '+set);	
+	//e.preventDefault();
+}
+
+HTML5约束验证API
+
+required
+type增加了几个类型
+pattern可以正则验证
+autofocus
 
 
 
