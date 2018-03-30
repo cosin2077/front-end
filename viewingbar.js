@@ -1,3 +1,5 @@
+//js viewingbar library
+//author @conanskyforce
 //create viewing bar
 !(function(){
 
