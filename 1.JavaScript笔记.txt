@@ -1272,7 +1272,7 @@ window.onresize = function(e){
 	},2000)	
 }
 
-
+HTML5 脚本编程
 
 
 
