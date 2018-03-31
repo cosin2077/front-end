@@ -1274,11 +1274,29 @@ window.onresize = function(e){
 
 HTML5 脚本编程
 
+文档内部传递消息
+window.postMessage('666','*');
 
+frame1.onmessage = (x) =>console.log(x);
 
+原生拖放
+拖动时，
+元素发生的事件：
+1.dragstart
+2.drag
+3.dragend
+被移动到有效放置目标上边的时候
+1.dragenter
+2.dragover
+3.dragleave或drop
 
+dataTransfer对象(拖动事件的一个属性,用于向拖动元素目标传递字符串格式的数据)
 
+draggable 可移动
 
+媒体元素
+
+错误处理与调试
 
 
 
