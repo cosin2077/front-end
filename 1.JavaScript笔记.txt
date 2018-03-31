@@ -1380,15 +1380,33 @@ JSON.stringify(obj,null,4)
 toJSON()方法，自定义返回的JSON数据·
 
 21.AJAX
+var url ='https://baidu.com/';
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(){
+	if(xhr.readyState==4&&(xhr.status>=200&&xhr.status<300||xhr.status ===304)){
+		resolve(xhr.responseText);
+	}
+}
+xhr.open('GET',url);
+xhr.send(null);
+xhr.getAllResponseHeaders();
+HTTP头部信息
+xhr.setRequestHeader('Cookie',cookie);
+xhr.setRequestHeader('Host',host);
+xhr.setRequestHeader('Referer',referer);
+xhr.setRequestHeader('User-Agent',UA);
+
+获取头部信息
+xhr.getAllResponseHeaders();
+
+GET与POST
+
+GET一般用于获取信息，字符串参数追加到URL末尾
+
+POST常用于保存数据,数据作为请求主体,包含数据多，格式不限
 
 
-
-
-
-
-
-
-
+xhr.send(postContent);
 
 
 
