@@ -1530,8 +1530,43 @@ var handler = function(){
 }
 setTimeout(handler,800);
 
+离线应用
+1.判断是否离线
+navigator.onLine;
+window.online=function...
+window.offline=function...
+
+HTML5的应用缓存
+appcache
+
+描述文件，列出需要下载和缓存的资源
+//main.appcache
+CACHE MANIFEST
+#Comment
+file.js
+file.css
+
+<html manifest='offline/main.appcache' >
+
+数据储存
+1.cookie（数据需要编码encodeURIComponent）
+客户端，用于存储会话信息的
+限制：
+域限制cookie数量
+长度限制4095b以内
+
+document.cookie 返回所有cookie的字符串
+删除cookie的方法就是重新设置+失效时间变为过去
+document.cookie=xxx+""+new Date(Date.now()-100000)+"; ";
 
 
+
+
+
+2.
+3.
+4.
+5.
 
 
 
