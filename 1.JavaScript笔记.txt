@@ -1248,7 +1248,7 @@ function myItv(func,itv){
 
 myItv(console.log,500)
 
-函数去抖
+函数防抖
 var itv;
 window.onresize = function(e){
 	console.log('clearTimeout(itv)')
@@ -1395,6 +1395,7 @@ xhr.setRequestHeader('Cookie',cookie);
 xhr.setRequestHeader('Host',host);
 xhr.setRequestHeader('Referer',referer);
 xhr.setRequestHeader('User-Agent',UA);
+xhr.setRequestHeader('Origin','https://readhub.me');
 
 获取头部信息
 xhr.getAllResponseHeaders();
@@ -1403,12 +1404,131 @@ GET与POST
 
 GET一般用于获取信息，字符串参数追加到URL末尾
 
-POST常用于保存数据,数据作为请求主体,包含数据多，格式不限
-
+POST常用于保存数据,数据作为请求主体,包含数据多，格式不限,消耗资源多一点
 
 xhr.send(postContent);
 
+进度事件
+progress事件能够获取当前已经获取的数据占总共需要获取的数据百分比
 
+跨域
+jsonp
+CORS
+附加Origin头部，与服务器端设置的
+Access-Control-Allow-Origin:scheme://hostname.xx:port/
+
+其他跨域技术：
+
+1.图像ping（一个网页可以从任何网页加载图像）
+var img = new Image();
+img.onload = function(e){
+	console.log(e)
+}
+img.src = 'https://ss0.baidu.com/73F1bjeh1BF3odCf/it/u=3603538548,1886446234&fm=85&s=88892BD9CA20E6CC8425C4180300C0D3';
+
+2.jsonp
+回调函数和动态加载脚本返回的数据
+function handleRes(res){
+	console.log(`Your ip is: ${res.ip}`);
+}
+var scr = document.createElement('script');
+scr.src = 'https://freegeoip.net/json/?callback=handleRes';
+document.body.insertBefore(scr,document.body.lastChild);
+scr.onload=function(){
+	console.log('script loaded!')
+}
+scr.onerror=function(){
+	console.log('script error!')
+}
+3.commet，SSE(暂时略过)
+4.websocket(持久的，全双工，双向通讯)
+http://
+--->
+ws://
+
+var socket = new WebSocket('wss://echo.websocket.org');
+socket.send('hello');
+socket.onmessage = function(e){
+	var data = e.data;
+	console.log(e);
+}
+socket.onopen=function(){
+	console.log('open succees! ')
+}
+socket.onerror=function(){
+	console.log('error !')
+}
+socket.onclose=function(){
+	console.log('closed !')
+}
+
+高级技巧！！
+1.高级函数
+安全类型的检测
+原生构造函数的对象原型与作用域无关
+Object.prototype.toString.call(value);
+惰性载入(避免重复执行过多的分支语句)
+a.返回的函数覆盖函数本身,下次调用的时候,直接上次的结果.
+b.IIFE(立即执行函数,创建独立作用域,减少环境污染)
+!(function(){}());
+
+//polyfill
+function bind(fn,context){
+	return function(){
+		return fn.apply(context,arguments);
+	}
+}
+ES5 自带bind
+函数柯里化
+设置好部分参数的函数
+function a(x){
+	return function(y){
+		return x*y;
+	}
+}
+a(8)(5);
+
+function curry(fn){
+	var args = Array.prototype.slice.call(arguments,1);
+	return function(){
+		var innerArags = Array.prototype.slice.call(arguments);
+		var finalArags = args.concat(innerArags);
+		return fn.apply(null,finalArags);
+	};
+}
+function add(a,b){
+	return a+b;
+}
+var curriedAdd = curry(add,3);
+curriedAdd(6);//9
+ES5 的bind也实现了函数柯里化
+
+数组分块技术(定时器实现一个简单的队列)
+var arr = [1,2,3,4,5,6];
+function process(e){
+	console.log(e);
+}
+setTimeout(function(){
+	var item = arr.shift();
+	process(item);
+	if(item){
+	setTimeout(arguments.callee,800);
+	}
+},800)
+//************另外一种写法(严格模式禁止arguments.callee)************//
+var arr = [1,2,3,4,5,6];
+function process(e){
+	console.log(e);
+}
+var handler = function(){
+	var item = arr.shift();
+	process(item);
+	if(item){
+	setTimeout(handler,800);
+	}
+
+}
+setTimeout(handler,800);
 
 
 
