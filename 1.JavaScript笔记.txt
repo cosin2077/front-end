@@ -1597,25 +1597,91 @@ start now
 RegExp.prototype.constructor === RegExp;//true
 
 所有通过new 函数生成的实例都能继承这个原型对象上边的属性
+RegExp.prototype.sayHello=function(){
+	console.log('hello');
+}
+var myRegExp = new RegExp();
+myRegExp.sayHello();
+这个实例有一个非标准的属性"__proto__"等于构造函数的原型对象
+myRegExp.__proto__ === RegExp.prototype;//true
 
+/*****************金句**************/
+每个函数都有一个原型对象(prototype),
+每个对象都有一个隐式属性(__proto__),指向创建该对象函数的prototype.
+/*****************金句**************/
 
+var a = {};
+a.__proto__ === Object.prototype;true
 
+Object.prototype.__proto__ ===null;//true
 
+再来一遍.
+每个函数都有一个原型对象(prototype),
+每个对象都有一个隐式属性(__proto__).
+那函数也是对象啊,那函数是不是也有隐式属性?
+对!
+函数的隐式属性指向的是构造函数的prototype对象,
+所有函数，都是被Function创建的!
 
+RegExp.__proto__===Function.prototype;//true
+Object.__proto__===Function.prototype;//true
 
+那Function对象本身的隐式属性呢?
+自己的隐式属性等于自己的原型对象.
+Function.__proto__ === Function.prototype;//true
+同时Function原型对象的隐式属性不就等于构造函数(Object)的prototype吗
+Function.prototype.__proto__===Object.prototype;//true
+OJBK!
 
+instanceof 左边是对象,右边是函数,判断为true的规则是:
+左边的__proto__,右边的prototype,能同时找到一个对象则为true;
 
+Object instanceof Function;//true
+Function instanceof Function;//true
+Function instanceof Object;//true
 
+JavaScript继承，通过原型链完成.
+访问一个对象的属性,现在自己本身找,如果没有继续往__proto__这条链上找.
+for in 会循环出原型链上的属性.
+obj.hasOwnPorperty(prop);//
 
+所有对象的原型链都会找到Object.prototype,因此，所有的对象都会有Object.prototype拥有的方法.
 
+执行上下文
+JavaScript只有函数作用域和全局作用域
+函数每被调用一次，都会产生一个新的执行上下文环境.
+函数在定义的时候，就已经确定了函数内部自由变量的作用域.
+函数this的取值，是在函数真正被调用执行的时候确定的,定义的时候确定不了,this的取值是执行上下文环境的一部分,每次调用函数,都会产生一个新的执行上下文环境.
+分为4种情况:
+1.构造函数
+this指代构造函数生成的实例
+function Student(name,age){
+	this.name = name;
+	this.age = age;
+}
+var a = new Student('conan',26);
+a.name;//'conan'
+a.age;//26
+2.作为对象属性,并作为属性被调用的时候.
+var obj = {
+	a:12,
+	b:'asd',
+	c:function(){
+		return this.a+this.b;
+	}
+}
+obj.c();//'12asd'
+var d = obj.c;
+d();//window;
+3.call,apply，this为传入绑定的值
+继上例
+d.call(obj);//'12asd'
+4.全局或普通函数调用,
+this===window;//true
 
+作用域在函数创建时候就确定了，但是变量的值,确实在执行过程中确定的.
 
-
-
-
-
-
-
+"静态作用域"，到《创建》这个函数的那个作用域中取值.
 
 
 
