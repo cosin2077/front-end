@@ -1,4 +1,4 @@
-﻿JavaScript数据类型
+JavaScript数据类型
 
 字符串(转义字符反斜杠 \,es6增加多行字符串``,${var},)
 数字(整数，浮点数，科学计数法，负数，NaN，Infinidy，0x554)
@@ -1559,14 +1559,44 @@ document.cookie 返回所有cookie的字符串
 删除cookie的方法就是重新设置+失效时间变为过去
 document.cookie=xxx+""+new Date(Date.now()-100000)+"; ";
 
+web存储机制（5M或2.5M的限制）
+localStorage（同一域名，同一协议，同一端口，数据保存到用户清除或JavaScript删除)
+
+localStorage.setItem(flag,value);
+localStorage.flag = value;
+localStorage.getItem(flag);
+localStorage.flag;//value
+localStorage.clear();
+localStorage.key(index);
+localStorage.removeItem(flag);
 
 
+sessionStorage储存于某个会话(直到浏览器关闭)
+两者都 可以直接用属性设置，获取
+sessionStorage.book = 'aaa';
+sessionStorage.book;//aaa
 
+indexedDB
 
-2.
-3.
-4.
-5.
+var req,db;
+req = indexedDB.open('test');
+req.onerror = function(e){
+	console.log(e);
+}
+req.onsuccess = function(e){
+	db = e.target.result;
+	console.log(db);
+}
+
+ES6 踏入征程
+
+start now
+
+1.升入理解JavaScript闭包和原型
+每个函数都有一个属性叫prototype,这个属性是一个对象(原型对象)，这个对象默认又有一个constructor属性指向这个函数的本身。
+RegExp.prototype.constructor === RegExp;//true
+
+所有通过new 函数生成的实例都能继承这个原型对象上边的属性
 
 
 
