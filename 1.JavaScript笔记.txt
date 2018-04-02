@@ -1744,6 +1744,39 @@ console.log(5)
 setTimeout(function(){console.log(6)},0)
 Promise最大的好处是在处理执行异步的流程中，把执行代码和处理结果的代码，清晰的分离了。
 
+12.重绘和重排
+网页的生成过程，
+构建DOM，
+构建CSSDOM，
+结合DOM和CSSDOM，生成一颗渲染树，
+生成布局，
+绘制布局，
+重绘和重排都叫渲染!
+重新生成布局叫重排reflow(一定重绘),
+重新绘制叫重绘repaint
+重绘和重排的DOM元素层级越高,成本就越高
+table元素的重排和重回成本，要高于div元素
+
+
+13.flex布局
+容器设置
+display:flex(inline-flex);//
+容器的属性：
+flex-direction(row(default),row-reverse,column,column-reverse)
+flex-wrap(nowrap(default),wrap,wrap-reverse)
+flex-flow(row nowrap(default))
+
+justify-content(flex-start(default),flex-end,center,space-between,space-around)
+align-items(flex-start(default),fle-end,center,baseline,stretch)
+align-content(flex-start(default),flex-end,center,space-between,space-around,stretch)
+
+项目属性：
+order
+flex-grow
+flex-shrink
+flex-basis
+flex
+align-self
 
 
 
