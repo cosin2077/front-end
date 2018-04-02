@@ -1772,9 +1772,9 @@ align-content(flex-start(default),flex-end,center,space-between,space-around,str
 
 项目属性：
 order
-flex-grow
-flex-shrink
-flex-basis
+flex-grow(放大，默认为0)
+flex-shrink(缩小，默认为1)
+flex-basis(占据空间大小,默认auto)
 flex
 align-self
 
