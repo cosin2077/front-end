@@ -688,7 +688,7 @@ hasOwnProperty() 只返回该对象中的属性
 !hasOwnProperty(prop)&&(prop in obj) 只存在于原型中
 
 for in 也返回原型中[可枚举]的属性
-Object.keys(obj);//返回原型中所有可枚举的属性
+Object.keys(obj);//返回对象中所有可枚举的属性
 
 Object.getOwnPropertyNames(obj);//返回原型，以及原型链上的属性(不管可枚举还是不可枚举)
 
@@ -1592,6 +1592,7 @@ ES6 踏入征程
 
 start now
 
+#1
 1.升入理解JavaScript闭包和原型
 每个函数都有一个属性叫prototype,这个属性是一个对象(原型对象)，这个对象默认又有一个constructor属性指向这个函数的本身。
 RegExp.prototype.constructor === RegExp;//true
@@ -1682,6 +1683,66 @@ this===window;//true
 作用域在函数创建时候就确定了，但是变量的值,确实在执行过程中确定的.
 
 "静态作用域"，到《创建》这个函数的那个作用域中取值.
+"执行环境是动态的"
+作用域链,每执行一个函数就会创建一个作用域,在这个作用域中,如果需要某个变量,首先会在本作用域中找,如果找不到,就会在父级作用域中继续中，一次网上找，这就是作用域链.
+
+闭包就是保留了执行上下文!
+
+#2
+同步、异步和事件循环
+
+异步：
+注册函数和回调函数
+setTimeout(fn,200);
+setTimeout就是注册函数,fn就是回调函数.
+在200之后，将事件加入到队列,
+异步过程的回调,一定不再当前这一轮事件循环中执行.
+
+Promise状态：pending，filfilled，resolved，rejected
+var promise = new Promise(function(resolve,reject){
+	if(/*异步操作成功*/){
+		resolve(value);
+	}else{
+		reject(value);
+	}
+})
+promise.then(function(v){
+	//handle succedd
+},function(v){
+	//handle failed
+})
+promise.prototype.catch()  是.then(null,function...)的别名
+所以经常用的是：
+promise
+.then(function...)
+.then(function...)
+.catch(function...);
+Promise.resolve
+将现有对象转为Promise对象.
+直接生成一个Promise对象
+var p = new Promise.resolve();
+
+console.log(1)
+function myProm(resolve,reject){
+	console.log(2)
+	var rand = Math.floor(Math.random()*51+50);
+	if(rand>75){
+		setTimeout(resolve(rand),20000);
+	}else{
+		reject(rand);
+	}
+}
+var p1 = new Promise(myProm);
+p1.then(function(r){
+	console.log(3)
+	console.log(r)
+}).catch(function(r){
+	console.log(4)
+	console.error(r);
+})
+console.log(5)
+setTimeout(function(){console.log(6)},0)
+Promise最大的好处是在处理执行异步的流程中，把执行代码和处理结果的代码，清晰的分离了。
 
 
 
