@@ -690,7 +690,7 @@ hasOwnProperty() 只返回该对象中的属性
 for in 也返回原型中[可枚举]的属性
 Object.keys(obj);//返回对象中所有可枚举的属性
 
-Object.getOwnPropertyNames(obj);//返回原型，以及原型链上的属性(不管可枚举还是不可枚举)
+Object.getOwnPropertyNames(obj);//返回自身属性(不管可枚举还是不可枚举)
 
 function Person(){
 	
