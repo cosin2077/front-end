@@ -1757,6 +1757,8 @@ Promise最大的好处是在处理执行异步的流程中，把执行代码和�
 重绘和重排的DOM元素层级越高,成本就越高
 table元素的重排和重回成本，要高于div元素
 
+BFC(block formated context)块级格式上下文
+
 
 13.flex布局
 容器设置
@@ -1784,7 +1786,32 @@ scss
 	@return ($px / $rem) + rem;
 }
 
+//函数防抖
+var timer;
+window.onresize = (e)=>{
+clearTimeout(timer);
+timer = setTimeout(function(){
+console.log("width "+document.body.clientWidth);
+console.log("height "+document.body.clientHeight);
+},1000)
+}
 
+//函数节流
+var flag = false,itv;
+window.onresize = function(){
+	if(flag){
+		return;
+	}else{
+		flag = true;
+		itv = setTimeout(function(){
+			console.log("clientHeight: "+document.body.clientHeight);
+			console.log("clientWidth: "+document.body.clientWidth);
+			flag = false;
+		},2000)
+	}
+}
+
+JavaScript严格模式
 
 
 
