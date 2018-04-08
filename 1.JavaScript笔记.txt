@@ -1812,6 +1812,11 @@ window.onresize = function(){
 }
 
 JavaScript严格模式
+所有参数必须被申明,
+八进制前缀0o,
+禁止with,
+不再支持arguments.callee,
+没有指定this的话,他的值就为undefined,
 
 
 
