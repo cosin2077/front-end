@@ -4,7 +4,7 @@ Page({
     data: {
     },
     onLoad: function (option) {
-        var globalData = app.globalData;
+        //var globalData = app.globalData;
         var postId = option.id;
         // this.setData({currentPostId : postId});
         var postData = postsData.postList[postId];
@@ -24,9 +24,9 @@ Page({
             postsCollected[postId] = false;
             wx.setStorageSync('posts_collected', postsCollected);
         };
-        if(app.globalData.g_isPlayingMusic&&app.globalData.g_currentMusicPostId===postId){
-            this.setData({isPlayMusic : true});
-        }
+        // if(app.globalData.g_isPlayingMusic&&app.globalData.g_currentMusicPostId===postId){
+        //     this.setData({isPlayMusic : true});
+        // }
         this.setMusicMonitor();
     },
     setMusicMonitor: function () {
@@ -155,7 +155,8 @@ Page({
     onMusicTap: function (event) {
         var currentPostId = this.data.currentPostId
         var isPlayMusic = this.data.isPlayMusic;
-        var postData = postsData.postList[currentPostId]
+        var postData = postsData.postList[currentPostId];
+        console.log(postData);
         if (isPlayMusic) {
             wx.pauseBackgroundAudio();
             this.setData({

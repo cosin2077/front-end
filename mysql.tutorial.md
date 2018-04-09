@@ -1,10 +1,10 @@
-#Structure Query Language
+# Structure Query Language
 
 	net start mysql57//启动mysql57服务  
 	net stop mysql57//停止mysql57服务  
 	my.ini 在programData文件夹server 中  
 
-##mysql登录参数  
+## mysql登录参数  
 >mysql -u root -p  
 -D 打开指定数据库  
 -h 服务器名称  
@@ -24,7 +24,7 @@ mysql>prompt 自定义
 \h 服务器名称  
 \u 当前用户  
 ***
-##MySQL操作    
+## MySQL操作    
 >关键字，函数名大写，  
 数据库名称，表名称，字段名称全部小写  
 SQL语句必须分号结束  
@@ -48,7 +48,7 @@ DROP {DATABASE|SCHEMA} [IF EXISTS] db_name;
 DROP DATABASE t1;//删除t1数据库
 SHOW WARNINGS://现实错误
 ************
-##1.数据类型：
+## 1.数据类型：
 **整数型**：  
 >1 tinyint  
 2 smallint  
@@ -111,7 +111,7 @@ database修改名称的时候得先导出再修改
 	describe table_name2;//显示表结构  
 	SHOW COLUMNS FROM table_name2;//现实table_name2表中的列  
 
-##INSERT
+## INSERT
 **向表中写入记录**
 
 	INSERT [INTO] table_name [(col_name,...)] VALUES(val,...)

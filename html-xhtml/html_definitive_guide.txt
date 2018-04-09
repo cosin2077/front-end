@@ -1,2 +1,0 @@
-html=hypertext markup language
-xhtml= extensible hyper text markup languages

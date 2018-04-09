@@ -8,7 +8,7 @@ viewingbar.className='viewing';
 viewingbar.style.cssText = 
 `
 position:fixed;
-top:0x;
+top:0px;
 left:0px;
 background-color:steelblue;
 height:3px;
@@ -28,7 +28,6 @@ document.body.insertBefore(viewingbar,document.body.firstElementChild);
 //定义滚动事件加载进度条
 var flag = false;
 
-// 视口高度不用一直计算
 
 // 视口高度
 var clientHeight = document.documentElement.clientHeight;

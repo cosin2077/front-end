@@ -1,4 +1,4 @@
-
+//change title when toggle tabs
 var hiddenProperty = 'hidden' in document ? 'hidden' :    
     'webkitHidden' in document ? 'webkitHidden' :    
     'mozHidden' in document ? 'mozHidden' :    
