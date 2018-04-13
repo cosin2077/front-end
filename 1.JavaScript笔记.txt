@@ -1818,12 +1818,77 @@ JavaScript严格模式
 不再支持arguments.callee,
 没有指定this的话,他的值就为undefined,
 
+Object.defineProperty(Date.prototype,'ago',{
+	set:function(){},
+	get:function(){
+		var diff = ((new Date().getTime()-this.getTime()) / 1000),
+			day_diff = Math.floor(diff / 86400);
+			return day_diff == 0 && (
+				diff < 60 && '刚刚'||
+				diff <120 && '1分钟前'||
+				diff <3600 && Math.floor(diff / 60)+ " 分钟前" ||
+				diff <86400 && Math.floor(diff / 3600)+ '小时前'||
+				day_diff ==1 &&'昨天' ||
+				day_diff < 7 && day_diff+' 天前'||
+				Math.ceil(day_diff / 7)+ '周前'
+				);
+	}
+})
+
+var now = new Date();
+
+now.ago;
 
 
+NodeJS
+try catch不能捕获异步函数,上下文会丢失,错误会直接抛出
 
+global 全局对象
+process 全局执行上下文对象
+NodeJS 模块
+require module exports
 
+//绝对模块
+require('colors')
 
+//相对模块
+require('./a.js');//引入就会执行
 
+暴露API
+默认情况，每个模块暴露一个空对象,用exports添加属性即可
+
+事件
+var EventEmitter = require('events').EventEmitter,
+	a = new EventEmitter;
+
+a.on('event',function(){
+	console.log('event called');
+})
+
+a.emit('event');
+
+---------------------
+var EventEmitter = process.EventEmitter,
+	MyClass = function(){};
+
+//MyClass.prototype = new EventEmitter;
+//
+MyClass.prototype.__proto__ = EventEmitter.prototype;
+
+var a = new MyClass;
+a.on('lalala',(e)=>console.log('lalala: '+e))
+
+e.emit('lalala');
+
+二进制数据处理
+buffer
+
+//process 三个流对象
+stdin 输入流
+stdout 输出流
+stderr 错误流
+
+简而言之,当持续不断地对数据进行读写时,流就出现了
 
 
 
