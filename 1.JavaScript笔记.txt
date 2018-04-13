@@ -1890,6 +1890,11 @@ stderr 错误流
 
 简而言之,当持续不断地对数据进行读写时,流就出现了
 
+process.argv ;
+第一个参数是node,第二个参数是执行的文件路径,之后才是后边的参数
+
+var argvs = process.argv.slice(2);
+
 
 
 
